@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.env
+data/
+submission.csv
+*.zip
+*.log
+dist/
+/experiments/*
+!/experiments/evaluate_frozen_retrieval.py
+!/experiments/new25_retrieval_cases.json
+.ipynb_checkpoints/
