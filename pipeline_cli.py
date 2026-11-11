@@ -12,13 +12,15 @@ from legal_core import LegalAssistant, find_archive, setting
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Adaptive legal RAG: lexical retrieval and verified IRAC")
+    parser = argparse.ArgumentParser(description="Legal RAG: single-pass IRAC with source references")
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--question")
     group.add_argument("--question-file", type=Path)
     parser.add_argument("--archive", type=Path)
     parser.add_argument("--base-url")
     parser.add_argument("--model")
+    parser.add_argument("--pipeline", choices=("single_pass", "adaptive"), default="single_pass")
+    parser.add_argument("--embeddings", action="store_true", default=None, help="Enable configured embedding API")
     parser.add_argument("--ask-key", action="store_true", help="Read an API key without displaying or saving it")
     parser.add_argument("--trace", type=Path, help="Save private diagnostic JSON, including source excerpts")
     parser.add_argument("--metrics", action="store_true")
@@ -29,11 +31,12 @@ def main() -> int:
         os.environ["LLM_BASE_URL"] = args.base_url
     if args.model:
         os.environ["LLM_MODEL"] = args.model
+    os.environ["PIPELINE_MODE"] = args.pipeline
     if args.ask_key:
         os.environ["LLM_API_KEY"] = getpass.getpass("API key (not saved): ")
     archive = args.archive or find_archive(Path(setting("DATA_DIR", default="data")))
     question = args.question if args.question is not None else args.question_file.read_text(encoding="utf-8-sig")
-    engine = LegalAssistant(archive, use_embeddings=False)
+    engine = LegalAssistant(archive, use_embeddings=args.embeddings)
     result = engine.answer(question)
     print(result.text)
     if args.metrics:

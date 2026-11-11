@@ -6,6 +6,16 @@ from dataclasses import dataclass, field
 from time import perf_counter
 
 
+# An absolute batch deadline is explicitly installed in each worker: contextvars
+# are not automatically propagated to ThreadPoolExecutor threads.
+DEADLINE: ContextVar[float | None] = ContextVar("rag_deadline", default=None)
+
+
+def remaining_seconds(default: float = 60.0) -> float:
+    deadline = DEADLINE.get()
+    return max(0.0, deadline - perf_counter()) if deadline is not None else default
+
+
 @dataclass
 class Trace:
     started: float = field(default_factory=perf_counter)
@@ -16,7 +26,8 @@ class Trace:
     timings: dict[str, float] = field(default_factory=dict)
 
     def remaining(self) -> float:
-        return max(0.0, self.deadline_seconds - (perf_counter() - self.started))
+        own = max(0.0, self.deadline_seconds - (perf_counter() - self.started))
+        return min(own, remaining_seconds(own))
 
     def public(self) -> dict:
         return {
@@ -25,7 +36,7 @@ class Trace:
             "api_calls": self.calls,
             "prompt_tokens": sum(call.get("prompt_tokens", 0) for call in self.calls),
             "completion_tokens": sum(call.get("completion_tokens", 0) for call in self.calls),
-            "usage_complete": all(call.get("usage_reported", False) for call in self.calls),
+            "usage_complete": bool(self.calls) and all(call.get("usage_reported", False) for call in self.calls),
             "events": self.events,
         }
 

@@ -73,6 +73,9 @@ class ScriptedProxy(ModelProxy):
 
 class AdaptiveTests(unittest.TestCase):
     def setUp(self):
+        mode = patch.dict(os.environ, {"PIPELINE_MODE": "adaptive"})
+        mode.start()
+        self.addCleanup(mode.stop)
         temp = tempfile.TemporaryDirectory()
         self.addCleanup(temp.cleanup)
         self.path = Path(temp.name) / "kb.zip"

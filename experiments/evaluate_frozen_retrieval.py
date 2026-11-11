@@ -15,6 +15,7 @@ sys.path.insert(0, str(ROOT))
 
 from adaptive_pipeline import AdaptivePipeline  # noqa: E402
 from legal_core import LegalAssistant, ModelProxy, focused_search_question  # noqa: E402
+from single_pass import expand_context, pack_context  # noqa: E402
 
 
 def main() -> None:
@@ -22,6 +23,7 @@ def main() -> None:
     parser.add_argument("--questions", type=Path, required=True)
     parser.add_argument("--archive", type=Path, default=ROOT / "data/kb.zip")
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--pipeline", choices=("single_pass", "adaptive"), default="single_pass")
     args = parser.parse_args()
     if args.output.exists():
         raise SystemExit("Refusing to overwrite an existing evaluation")
@@ -29,26 +31,31 @@ def main() -> None:
     cases = json.loads(args.questions.read_text(encoding="utf-8"))["cases"]
     if not cases or len({case["id"] for case in cases}) != len(cases):
         raise ValueError("Empty or duplicate case IDs")
-    engine = LegalAssistant(args.archive, ModelProxy(), use_embeddings=False)
+    proxy = ModelProxy()
+    proxy.rerank_model = ""  # This script is strictly offline, regardless of environment.
+    engine = LegalAssistant(args.archive, proxy, use_embeddings=False)
     available = {source.id for source in engine.sources}
     for case in cases:
         if not case["gold_groups"] or any(not set(group) & available for group in case["gold_groups"]):
             raise ValueError(f"Gold source missing for {case['id']}")
 
     report = {"questions": str(args.questions), "archive": str(args.archive),
-              "method": "lexical + explicit links + neighbor expansion + context packing",
+              "method": "lexical + explicit links + context packing", "pipeline": args.pipeline,
               "question_count": len(cases), "document_count": len(engine.documents),
               "source_count": len(engine.sources), "link_count": len(engine.links), "cases": []}
     for case in cases:
         started = perf_counter()
         raw = [engine.sources[index] for index in engine._lexical(focused_search_question(case["question"]))]
         retrieved = engine.retrieve(case["question"])
-        pipeline = AdaptivePipeline(engine)
-        pipeline.pack(pipeline.enrich(retrieved))
+        if args.pipeline == "adaptive":
+            pipeline = AdaptivePipeline(engine)
+            pipeline.pack(pipeline.enrich(retrieved))
+            context_ids = list(pipeline.evidence)
+        else:
+            context_ids = [record["id"] for record in pack_context(engine, expand_context(engine, retrieved))]
         elapsed_ms = round((perf_counter() - started) * 1000, 2)
         raw_ids = [source.id for source in raw]
         retrieved_ids = [source.id for source in retrieved]
-        context_ids = list(pipeline.evidence)
         ranks = [min((raw_ids.index(source_id) + 1 for source_id in group if source_id in raw_ids), default=None)
                  for group in case["gold_groups"]]
         coverage = lambda ids: all(set(group) & set(ids) for group in case["gold_groups"])

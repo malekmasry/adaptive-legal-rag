@@ -5,7 +5,7 @@ Only Python standard library and httpx are required by the platform entry point.
 
 from __future__ import annotations
 
-import csv
+import asyncio
 import hashlib
 import io
 import math
@@ -15,7 +15,6 @@ import sys
 import time
 import zipfile
 from collections import Counter, defaultdict
-from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from xml.etree import ElementTree
@@ -24,7 +23,7 @@ import httpx
 
 from rag_safety import clean_data, citation_ids, normalized
 from hallugraph import dates, named_entity_key, revision_metadata
-from rag_telemetry import CURRENT
+from rag_telemetry import CURRENT, remaining_seconds
 
 
 WORD_RE = re.compile(r"[0-9A-Za-zА-Яа-яЁё]{2,}")
@@ -62,6 +61,10 @@ def character_trigrams(value: str) -> set[str]:
     return {value[index:index + 3] for index in range(len(value) - 2)}
 
 
+def quoted_names(value: str) -> list[str]:
+    return [a or b for a, b in re.findall(r'«([^»]+)»|"([^"\n]+)"', value)]
+
+
 def latest_turn(question: str) -> str:
     return question.rsplit("Пользователь:", 1)[-1].strip() if "Пользователь:" in question else question
 
@@ -83,7 +86,7 @@ def focused_search_question(question: str) -> str:
             # intended document and can drown out the latest question.
             earlier = "\n".join(user_turns[:-1])
             identifiers = CONTRACT_RE.findall(earlier)
-            entities = re.findall(r"«([^»]+)»", earlier)
+            entities = quoted_names(earlier)
             if identifiers or entities:
                 return latest + " " + " ".join(identifiers + [f"«{name}»" for name in entities])
             return "\n".join(user_turns)
@@ -227,7 +230,14 @@ def split_sources(documents: list[Document], limit: int = 1400) -> list[Source]:
             found = CLAUSE_RE.match(line)
             if found:
                 boundaries.append((start, found.group(1)))
-        if doc.kind == "company" and boundaries:
+        articles = list(re.finditer(r"(?m)^\s*Статья\s+(\d+(?:\.\d+)*)[.\s]", doc.text)) if doc.kind == "law" else []
+        if articles:
+            for index, article in enumerate(articles):
+                end = articles[index + 1].start() if index + 1 < len(articles) else len(doc.text)
+                units.append((doc, "статья " + article.group(1), doc.text[article.start():end], article.start(), end))
+            if articles[0].start() > 0:
+                units.append((doc, "header", doc.text[:articles[0].start()], 0, articles[0].start()))
+        elif doc.kind == "company" and boundaries:
             for index, (start, clause) in enumerate(boundaries):
                 end = boundaries[index + 1][0] if index + 1 < len(boundaries) else len(doc.text)
                 units.append((doc, clause, doc.text[start:end], start, end))
@@ -355,6 +365,8 @@ class ModelProxy:
         self.key = setting("LLM_API_KEY", "OPENAI_API_KEY")
         self.llm = setting("LLM_MODEL", "GEN_MODEL", "OPENAI_MODEL")
         self.embed_model = setting("EMB_MODEL", default="baai/bge-m3")
+        self.embed_base = setting("EMB_BASE_URL").rstrip("/")
+        self.embed_key = setting("EMB_API_KEY")
         self.rerank_model = setting("RERANKER_MODEL")
         self.rerank_base = setting("RERANKER_BASE_URL").rstrip("/")
         self.rerank_key = setting("RERANKER_API_KEY")
@@ -369,21 +381,32 @@ class ModelProxy:
         if not base or not key:
             raise RuntimeError("Model proxy configuration is missing")
         last_error = None
-        for attempt in range(3):
+        attempts = integer_setting("MAX_API_ATTEMPTS", 2, 1, 3)
+        trace = CURRENT.get()
+        remaining = trace.remaining() if trace else remaining_seconds()
+        request_end = time.perf_counter() + min(remaining, integer_setting("API_TIMEOUT_SECONDS", 60, 1, 180))
+        for attempt in range(attempts):
             trace = CURRENT.get()
-            remaining = trace.remaining() if trace else 80.0
-            if remaining < 1:
+            remaining = min(request_end - time.perf_counter(),
+                            trace.remaining() if trace else remaining_seconds())
+            if remaining <= 0:
                 raise RuntimeError("Request deadline exceeded")
             started = time.perf_counter()
             record = {"stage": trace.stage if trace else "unknown", "endpoint": endpoint,
                       "attempt": attempt + 1, "usage_reported": False}
             try:
-                with httpx.Client(timeout=min(remaining, 60.0), follow_redirects=False) as client:
-                    response = client.post(
-                        base + endpoint,
-                        headers={"Authorization": "Bearer " + key},
-                        json=payload,
-                    )
+                async def request():
+                    async with httpx.AsyncClient(timeout=remaining, follow_redirects=False,
+                                                 trust_env=setting("HTTP_TRUST_ENV", default="1") == "1") as client:
+                        return await client.post(base + endpoint,
+                                                 headers={"Authorization": "Bearer " + key}, json=payload)
+
+                async def bounded_request():
+                    # httpx's read timeout alone is an inactivity timeout. A
+                    # trickling response must not outlive the batch deadline.
+                    return await asyncio.wait_for(request(), timeout=remaining)
+
+                response = asyncio.run(bounded_request())
                 response.raise_for_status()
                 result = response.json()
                 if not isinstance(result, dict):
@@ -396,12 +419,25 @@ class ModelProxy:
                             record[name] = usage[name]
                 record["http_status"] = response.status_code
                 return result
-            except (httpx.HTTPError, ValueError) as exc:
+            except (httpx.HTTPError, ValueError, TimeoutError) as exc:
                 last_error = exc
-                if isinstance(exc, httpx.HTTPStatusError) and exc.response.status_code not in {429, 500, 502, 503, 504}:
-                    break
-                if attempt < 2:
-                    time.sleep(0.5 * (2 ** attempt))
+                record["error_type"] = type(exc).__name__
+                if isinstance(exc, httpx.HTTPStatusError):
+                    record["http_status"] = exc.response.status_code
+                    if exc.response.status_code not in {429, 500, 502, 503, 504}:
+                        break
+                if attempt < attempts - 1:
+                    delay = 0.5 * (2 ** attempt)
+                    if isinstance(exc, httpx.HTTPStatusError):
+                        try:
+                            retry_after = float(exc.response.headers.get("Retry-After", "0"))
+                            if math.isfinite(retry_after):
+                                delay = max(delay, retry_after)
+                        except ValueError:
+                            pass
+                    if request_end - time.perf_counter() <= delay:
+                        break
+                    time.sleep(delay)
             finally:
                 record["elapsed_ms"] = round((time.perf_counter() - started) * 1000, 2)
                 if trace:
@@ -409,19 +445,31 @@ class ModelProxy:
         raise RuntimeError(f"Model proxy request failed: {type(last_error).__name__}") from last_error
 
     def embeddings(self, texts: list[str]) -> list[list[float]]:
+        separate_base = getattr(self, "embed_base", "")
+        separate_key = getattr(self, "embed_key", "")
+        if separate_base and not separate_key:
+            raise RuntimeError("Separate embedding credential is missing")
         data = self.post("/embeddings", {
             "model": self.embed_model, "input": texts, "encoding_format": "float",
-        })["data"]
+        }, base=separate_base or self.base, key=separate_key if separate_base else self.key)["data"]
+        if not isinstance(data, list) or len(data) != len(texts):
+            raise ValueError("Invalid embedding response size")
         vectors: list[list[float] | None] = [None] * len(texts)
         for position, item in enumerate(data):
             index = int(item.get("index", position))
-            if not 0 <= index < len(texts):
+            if not 0 <= index < len(texts) or vectors[index] is not None:
                 raise ValueError("Bad embedding index")
             vector = [float(value) for value in item["embedding"]]
-            norm = math.sqrt(sum(value * value for value in vector)) or 1.0
+            if not vector or not all(math.isfinite(value) for value in vector):
+                raise ValueError("Invalid embedding values")
+            norm = math.sqrt(sum(value * value for value in vector))
+            if not norm or not math.isfinite(norm):
+                raise ValueError("Invalid embedding norm")
             vectors[index] = [value / norm for value in vector]
         if any(vector is None for vector in vectors):
             raise ValueError("Missing embedding")
+        if len({len(vector) for vector in vectors}) != 1:
+            raise ValueError("Inconsistent embedding dimensions")
         return vectors  # type: ignore[return-value]
 
     def rerank(self, question: str, passages: list[str]) -> list[int]:
@@ -442,8 +490,9 @@ class ModelProxy:
 
     def complete(self, system: str, user: str) -> str:
         trace = CURRENT.get()
-        max_tokens = (integer_setting("STRUCTURED_MAX_TOKENS", 4096, 1024, 8192) if trace
-                      else integer_setting("MAX_TOKENS", 700, 128, 2048))
+        structured = trace is not None and trace.stage in {"evidence_plan", "generation", "verification", "repair"}
+        max_tokens = (integer_setting("STRUCTURED_MAX_TOKENS", 4096, 1024, 8192) if structured
+                      else integer_setting("MAX_TOKENS", 1600, 128, 8192))
         result = self.post("/chat/completions", {
             "model": self.llm,
             "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
@@ -475,19 +524,26 @@ class LegalAssistant:
         for source in self.sources:
             self.by_document[source.document_id].append(source)
         self.links = build_links(self.documents)
+        self.source_records = self._source_records()
+        self.search_texts = ["\n".join(str(self.source_records[source.id][key] or "")
+                                      for key in ("document", "contract_number", "parties", "parent_scope", "text"))
+                             for source in self.sources]
         self.document_contracts = {doc.id: normalized(doc.contract_number or "").replace("–", "-").replace("/", "-")
                                    for doc in self.documents}
-        self.document_entities = {doc.id: {named_entity_key(name) for name in re.findall(r"«([^»]+)»", clean_data(doc.text)[0])}
+        self.document_entities = {doc.id: {named_entity_key(name) for name in quoted_names(clean_data(doc.text)[0])}
                                   for doc in self.documents}
         self.proxy = proxy or ModelProxy()
-        self.terms = [Counter(tokens(source.text) + list(search_terms(source.text))) for source in self.sources]
+        self.terms = [Counter(tokens(model_excerpt(source.text)) + list(search_terms(model_excerpt(source.text))))
+                      for source in self.sources]
         self.lengths = [sum(terms.values()) for terms in self.terms]
         self.avg_length = sum(self.lengths) / max(1, len(self.lengths))
         self.df = Counter(word for terms in self.terms for word in terms)
-        self.title_terms = [Counter(tokens(source.document)) for source in self.sources]
+        self.title_terms = [Counter(search_terms(" ".join(str(self.source_records[source.id][key] or "")
+                                                        for key in ("document", "parent_scope", "parties", "contract_number"))))
+                            for source in self.sources]
         self.title_df = Counter(word for terms in self.title_terms for word in terms)
         self.char_terms = [Counter(
-            gram for word in tokens(source.text) for gram in character_trigrams(word)
+            gram for word in tokens(model_excerpt(source.text)) for gram in character_trigrams(word)
         ) for source in self.sources]
         self.char_lengths = [sum(terms.values()) for terms in self.char_terms]
         self.avg_char_length = sum(self.char_lengths) / max(1, len(self.char_lengths))
@@ -497,22 +553,56 @@ class LegalAssistant:
         # gateway must not implicitly enable embedding requests or dense search.
         if use_embeddings is None:
             use_embeddings = setting("USE_EMBEDDINGS", default="0") == "1"
-        if use_embeddings and self.proxy.base and self.proxy.key:
+        embedding_ready = ((self.proxy.base and self.proxy.key) or
+                           (getattr(self.proxy, "embed_base", "") and getattr(self.proxy, "embed_key", "")))
+        if use_embeddings and embedding_ready:
             try:
                 self.vectors = []
                 for start in range(0, len(self.sources), 24):
-                    batch = self.sources[start:start + 24]
-                    self.vectors.extend(self.proxy.embeddings([source.document + "\n" + source.text for source in batch]))
+                    self.vectors.extend(self.proxy.embeddings(self.search_texts[start:start + 24]))
+                if len(self.vectors) != len(self.sources) or len({len(vector) for vector in self.vectors}) != 1:
+                    raise ValueError("Invalid embedding index dimensions")
             except (RuntimeError, KeyError, TypeError, ValueError) as exc:
                 self.vectors = None
                 print(f"Embedding index unavailable: {type(exc).__name__}", file=sys.stderr)
+                self.ingestion_warnings.append({"stage": "embedding_index", "reason": type(exc).__name__})
+        elif use_embeddings:
+            self.ingestion_warnings.append({"stage": "embedding_index", "reason": "missing_configuration"})
+
+    def _source_records(self) -> dict[str, dict]:
+        """Citable originals and structural metadata, built once per corpus."""
+        records = {}
+        for doc in self.documents:
+            body, _ = clean_data(doc.text)
+            revision = revision_metadata(body)
+            parties = " ".join(f"«{name}»" for name in quoted_names(body[:3000])[:10])
+            clauses = {}
+            for source in self.by_document[doc.id]:
+                clauses.setdefault(source.clause, source)
+            for source in self.by_document[doc.id]:
+                parents = []
+                if source.clause.startswith("статья "):
+                    parents.append(model_excerpt(clauses[source.clause].text.splitlines()[0])[:240])
+                pieces = source.clause.split(".")
+                for end in range(1, len(pieces)):
+                    parent = clauses.get(".".join(pieces[:end]))
+                    if parent:
+                        parents.append(model_excerpt(parent.text.splitlines()[0])[:240])
+                records[source.id] = {"id": source.id, "document_id": doc.id,
+                                      "document": model_excerpt(doc.title), "path": model_excerpt(doc.path),
+                                      "clause": source.clause, "text": model_excerpt(source.text),
+                                      "parent_scope": "\n".join(parents)[-600:],
+                                      "contract_number": doc.contract_number, "parties": parties,
+                                      "revision": revision}
+        return records
 
     def _lexical(self, question: str) -> list[int]:
         contracts = [number.lower().replace("/", "-").replace("–", "-")
                      for number in CONTRACT_RE.findall(question)]
-        entities = [named_entity_key(name) for name in re.findall(r"«([^»]+)»", question)]
+        entities = [named_entity_key(name) for name in quoted_names(question)]
         passage_question = CONTRACT_RE.sub(" ", question)
-        passage_question = re.sub(r"«[^»]+»", " ", passage_question)
+        # Quoted text may be either an inflected entity or a legal phrase. Keep
+        # it in ordinary retrieval as well as in exact entity matching.
         query = search_terms(passage_question)
         query_grams = set().union(*(character_trigrams(word) for word in tokens(passage_question)))
         scores = []
@@ -547,22 +637,46 @@ class LegalAssistant:
         if self.vectors is None:
             return []
         query = self.proxy.embeddings([question])[0]
+        if any(len(vector) != len(query) for vector in self.vectors):
+            raise ValueError("Query embedding dimension differs from index")
         scores = [sum(a * b for a, b in zip(query, vector)) for vector in self.vectors]
         return sorted(range(len(scores)), key=lambda index: scores[index], reverse=True)
 
     def retrieve(self, question: str, limit: int | None = None) -> list[Source]:
-        limit = limit or integer_setting("TOP_K", 16, 4, 30)
+        limit = limit or integer_setting("TOP_K", 12, 4, 30)
+        candidate_k = max(limit, integer_setting("RETRIEVAL_CANDIDATES", 64, 16, 256))
         query = focused_search_question(question)
         lexical = self._lexical(query)
         try:
             dense = self._dense(query)
-        except (RuntimeError, KeyError, ValueError, TypeError):
+        except (RuntimeError, KeyError, ValueError, TypeError) as exc:
             dense = []
+            if CURRENT.get():
+                CURRENT.get().events.append({"stage": "dense", "status": "lexical_fallback", "type": type(exc).__name__})
         fused = defaultdict(float)
-        for ranked in (lexical[:max(limit * 4, 40)], dense[:max(limit * 4, 40)]):
+        for ranked in (lexical[:candidate_k], dense[:candidate_k]):
             for rank, index in enumerate(ranked, 1):
                 fused[index] += 1.0 / (60 + rank)
-        chosen = sorted(fused, key=lambda index: fused[index], reverse=True)[:limit]
+        chosen = sorted(fused, key=lambda index: fused[index], reverse=True)[:candidate_k]
+        # Rerank the broad candidate pool BEFORE truncating the final context.
+        if self.proxy.rerank_model and ((self.proxy.base and self.proxy.key) or
+                                       (getattr(self.proxy, "rerank_base", "") and getattr(self.proxy, "rerank_key", ""))):
+            started = time.perf_counter()
+            try:
+                if CURRENT.get():
+                    CURRENT.get().stage = "rerank"
+                order = self.proxy.rerank(query, [self.search_texts[index] for index in chosen])
+                if order:
+                    chosen = [chosen[index] for index in order] + [chosen[index] for index in range(len(chosen)) if index not in order]
+            except (RuntimeError, ValueError, TypeError, KeyError):
+                if CURRENT.get():
+                    CURRENT.get().events.append({"stage": "rerank", "status": "fused_ranking_fallback"})
+            finally:
+                if CURRENT.get():
+                    CURRENT.get().timings["rerank"] = (time.perf_counter() - started) * 1000
+        if CURRENT.get():
+            CURRENT.get().events.append({"stage": "candidates", "count": len(chosen), "dense_used": bool(dense)})
+        chosen = chosen[:limit]
         doc_ids = {self.sources[index].document_id for index in chosen}
         # Bring an explicitly referenced clause into context before the tail.
         prioritized = []
@@ -587,32 +701,17 @@ class LegalAssistant:
                 if sum(self.sources[item].document_id == doc_id for item in chosen) >= 2:
                     break
         chosen = chosen[:min(limit + 8, 40)]
-        if self.proxy.rerank_model and ((self.proxy.base and self.proxy.key) or
-                                       (getattr(self.proxy, "rerank_base", "") and getattr(self.proxy, "rerank_key", ""))):
-            try:
-                trace = CURRENT.get()
-                if trace:
-                    trace.stage = "rerank"
-                rerank_started = time.perf_counter()
-                order = self.proxy.rerank(query, [
-                    model_excerpt(self.sources[index].document + "\n" + self.sources[index].text) for index in chosen
-                ])
-                if order:
-                    chosen = [chosen[index] for index in order] + [
-                        chosen[index] for index in range(len(chosen)) if index not in order
-                    ]
-            except (RuntimeError, ValueError, TypeError, KeyError):
-                if CURRENT.get():
-                    CURRENT.get().events.append({"stage": "rerank", "status": "unavailable_lexical_fallback"})
-            finally:
-                if CURRENT.get():
-                    trace = CURRENT.get()
-                    trace.timings["rerank"] = trace.timings.get("rerank", 0) + (time.perf_counter() - rerank_started) * 1000
         return [self.sources[index] for index in chosen]
 
     def answer(self, question: str) -> Answer:
-        from adaptive_pipeline import AdaptivePipeline
-        return AdaptivePipeline(self).run(question)
+        mode = setting("PIPELINE_MODE", default="single_pass")
+        if mode == "adaptive":
+            from adaptive_pipeline import AdaptivePipeline
+            return AdaptivePipeline(self).run(question)
+        if mode != "single_pass":
+            raise ValueError("PIPELINE_MODE must be single_pass or adaptive")
+        from single_pass import SinglePassPipeline
+        return SinglePassPipeline(self).run(question)
 
     def answer_legacy(self, question: str) -> Answer:
         """Historical one-pass baseline, only for explicit offline ablations."""
@@ -668,33 +767,5 @@ def find_archive(data_dir: Path) -> Path:
 
 
 def run_submission() -> None:
-    data_dir = Path(setting("DATA_DIR", default="data"))
-    with (data_dir / "questions.csv").open(encoding="utf-8-sig", newline="") as stream:
-        reader = csv.DictReader(stream)
-        if reader.fieldnames is None or not {"id", "question"}.issubset(reader.fieldnames):
-            raise ValueError("questions.csv must contain id,question")
-        questions = [(str(row["id"]).strip(), str(row["question"]).strip()) for row in reader]
-    if not questions or any(not item_id for item_id, _ in questions):
-        raise ValueError("Empty question set or ID")
-    if len({item_id for item_id, _ in questions}) != len(questions):
-        raise ValueError("Duplicate question ID")
-    engine = LegalAssistant(find_archive(data_dir))
-    answers = [""] * len(questions)
-    workers = integer_setting("MAX_WORKERS", 3, 1, 8)
-
-    def work(index: int, question: str) -> tuple[int, str]:
-        try:
-            return index, engine.answer(question).text.replace("\x00", "").strip()[:10_000]
-        except Exception as exc:
-            print(f"Question {index} failed: {type(exc).__name__}", file=sys.stderr)
-            return index, TECHNICAL_ERROR
-
-    with ThreadPoolExecutor(max_workers=workers) as pool:
-        futures = [pool.submit(work, index, question) for index, (_, question) in enumerate(questions)]
-        for future in as_completed(futures):
-            index, answers[index] = future.result()
-    with Path("submission.csv").open("w", encoding="utf-8", newline="") as stream:
-        writer = csv.writer(stream, quoting=csv.QUOTE_ALL, lineterminator="\n")
-        writer.writerow(["id", "answer"])
-        for (item_id, _), answer in zip(questions, answers):
-            writer.writerow([item_id, answer or TECHNICAL_ERROR])
+    from submission_runner import run_submission as run_batch
+    run_batch()

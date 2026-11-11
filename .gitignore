@@ -5,10 +5,12 @@ __pycache__/
 .env
 data/
 submission.csv
+submission.metrics.jsonl
 *.zip
 *.log
 dist/
 /experiments/*
 !/experiments/evaluate_frozen_retrieval.py
 !/experiments/new25_retrieval_cases.json
+!/experiments/compare_pipelines.py
 .ipynb_checkpoints/
