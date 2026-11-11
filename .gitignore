@@ -13,4 +13,5 @@ dist/
 !/experiments/evaluate_frozen_retrieval.py
 !/experiments/new25_retrieval_cases.json
 !/experiments/compare_pipelines.py
+!/experiments/compare_stemming.py
 .ipynb_checkpoints/

@@ -24,6 +24,7 @@ import httpx
 from rag_safety import clean_data, citation_ids, normalized
 from hallugraph import dates, named_entity_key, revision_metadata
 from rag_telemetry import CURRENT, remaining_seconds
+from ru_stemmer import stem_russian
 
 
 WORD_RE = re.compile(r"[0-9A-Za-zА-Яа-яЁё]{2,}")
@@ -43,9 +44,13 @@ def tokens(value: str) -> list[str]:
     return [x.lower().replace("ё", "е") for x in WORD_RE.findall(value)]
 
 
-def search_terms(value: str) -> set[str]:
+def search_terms(value: str, mode: str = "legacy") -> set[str]:
     """Language-level morphology only; no topic-specific synonym dictionary."""
     words = set(tokens(value))
+    if mode == "snowball":
+        return words | {stem_russian(word) for word in words}
+    if mode != "legacy":
+        raise ValueError("LEXICAL_STEMMER must be legacy or snowball")
     expanded = set(words)
     for word in words:
         if len(word) >= 5:
@@ -515,7 +520,10 @@ class ModelProxy:
 
 class LegalAssistant:
     def __init__(self, archive_path: Path, proxy: ModelProxy | None = None,
-                 *, use_embeddings: bool | None = None) -> None:
+                 *, use_embeddings: bool | None = None, lexical_stemmer: str | None = None) -> None:
+        self.lexical_stemmer = lexical_stemmer or setting("LEXICAL_STEMMER", default="legacy")
+        if self.lexical_stemmer not in {"legacy", "snowball"}:
+            raise ValueError("LEXICAL_STEMMER must be legacy or snowball")
         self.ingestion_warnings: list[dict] = []
         self.documents = load_documents(archive_path, self.ingestion_warnings)
         self.sources = split_sources(self.documents)
@@ -533,12 +541,12 @@ class LegalAssistant:
         self.document_entities = {doc.id: {named_entity_key(name) for name in quoted_names(clean_data(doc.text)[0])}
                                   for doc in self.documents}
         self.proxy = proxy or ModelProxy()
-        self.terms = [Counter(tokens(model_excerpt(source.text)) + list(search_terms(model_excerpt(source.text))))
+        self.terms = [Counter(tokens(model_excerpt(source.text)) + list(self._search_terms(model_excerpt(source.text))))
                       for source in self.sources]
         self.lengths = [sum(terms.values()) for terms in self.terms]
         self.avg_length = sum(self.lengths) / max(1, len(self.lengths))
         self.df = Counter(word for terms in self.terms for word in terms)
-        self.title_terms = [Counter(search_terms(" ".join(str(self.source_records[source.id][key] or "")
+        self.title_terms = [Counter(self._search_terms(" ".join(str(self.source_records[source.id][key] or "")
                                                         for key in ("document", "parent_scope", "parties", "contract_number"))))
                             for source in self.sources]
         self.title_df = Counter(word for terms in self.title_terms for word in terms)
@@ -596,6 +604,9 @@ class LegalAssistant:
                                       "revision": revision}
         return records
 
+    def _search_terms(self, value: str) -> set[str]:
+        return search_terms(value, mode=self.lexical_stemmer)
+
     def _lexical(self, question: str) -> list[int]:
         contracts = [number.lower().replace("/", "-").replace("–", "-")
                      for number in CONTRACT_RE.findall(question)]
@@ -603,7 +614,7 @@ class LegalAssistant:
         passage_question = CONTRACT_RE.sub(" ", question)
         # Quoted text may be either an inflected entity or a legal phrase. Keep
         # it in ordinary retrieval as well as in exact entity matching.
-        query = search_terms(passage_question)
+        query = self._search_terms(passage_question)
         query_grams = set().union(*(character_trigrams(word) for word in tokens(passage_question)))
         scores = []
         count = len(self.sources)
