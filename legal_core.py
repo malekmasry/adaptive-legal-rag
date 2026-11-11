@@ -473,6 +473,9 @@ class ModelProxy:
         return vectors  # type: ignore[return-value]
 
     def rerank(self, question: str, passages: list[str]) -> list[int]:
+        return [index for index, _ in self.rerank_with_scores(question, passages)]
+
+    def rerank_with_scores(self, question: str, passages: list[str]) -> list[tuple[int, float | None]]:
         separate_base = getattr(self, "rerank_base", "")
         separate_key = getattr(self, "rerank_key", "")
         # Never forward the generation credential to a separately configured host.
@@ -485,8 +488,17 @@ class ModelProxy:
         ranked = data.get("results", data.get("data", []))
         if not isinstance(ranked, list) or not all(isinstance(item, dict) for item in ranked):
             raise ValueError("Invalid reranker response")
-        return list(dict.fromkeys(int(item["index"]) for item in ranked
-                                  if type(item.get("index")) is int and 0 <= item["index"] < len(passages)))
+        result = []
+        seen = set()
+        for item in ranked:
+            index = item.get("index")
+            if type(index) is not int or not 0 <= index < len(passages) or index in seen:
+                continue
+            seen.add(index)
+            score = item.get("relevance_score", item.get("score"))
+            score = float(score) if type(score) in (int, float) and math.isfinite(score) else None
+            result.append((index, score))
+        return result
 
     def complete(self, system: str, user: str) -> str:
         trace = CURRENT.get()
@@ -533,6 +545,12 @@ class LegalAssistant:
         self.document_entities = {doc.id: {named_entity_key(name) for name in quoted_names(clean_data(doc.text)[0])}
                                   for doc in self.documents}
         self.proxy = proxy or ModelProxy()
+        self.retrieval_mode = setting("RETRIEVAL_MODE", default="hybrid")
+        if self.retrieval_mode not in {"hybrid", "conditional"}:
+            raise ValueError("Unknown RETRIEVAL_MODE")
+        self.conditional_threshold = float(setting("CONDITIONAL_DENSE_THRESHOLD", default="0.5"))
+        if not math.isfinite(self.conditional_threshold) or not 0 <= self.conditional_threshold <= 1:
+            raise ValueError("CONDITIONAL_DENSE_THRESHOLD must be between 0 and 1")
         self.terms = [Counter(tokens(model_excerpt(source.text)) + list(search_terms(model_excerpt(source.text))))
                       for source in self.sources]
         self.lengths = [sum(terms.values()) for terms in self.terms]
@@ -553,6 +571,10 @@ class LegalAssistant:
         # gateway must not implicitly enable embedding requests or dense search.
         if use_embeddings is None:
             use_embeddings = setting("USE_EMBEDDINGS", default="0") == "1"
+        if use_embeddings and self.retrieval_mode == "conditional" and not self._reranker_ready():
+            # Without reranker scores there can be no conditional switch.
+            use_embeddings = False
+            self.ingestion_warnings.append({"stage": "embedding_index", "reason": "reranker_unavailable"})
         embedding_ready = ((self.proxy.base and self.proxy.key) or
                            (getattr(self.proxy, "embed_base", "") and getattr(self.proxy, "embed_key", "")))
         if use_embeddings and embedding_ready:
@@ -642,11 +664,95 @@ class LegalAssistant:
         scores = [sum(a * b for a, b in zip(query, vector)) for vector in self.vectors]
         return sorted(range(len(scores)), key=lambda index: scores[index], reverse=True)
 
+    def _reranker_ready(self) -> bool:
+        return bool(self.proxy.rerank_model and ((self.proxy.base and self.proxy.key) or
+                    (getattr(self.proxy, "rerank_base", "") and getattr(self.proxy, "rerank_key", ""))))
+
+    def _scored_candidates(self, query: str, candidates: list[int], stage: str):
+        trace = CURRENT.get()
+        previous_stage = trace.stage if trace else None
+        started = time.perf_counter()
+        try:
+            if trace:
+                trace.stage = stage
+            ranked = self.proxy.rerank_with_scores(query, [self.search_texts[index] for index in candidates])
+            if not ranked:
+                raise ValueError("Empty reranker ranking")
+            order = [index for index, _ in ranked]
+            chosen = [candidates[index] for index in order]
+            chosen.extend(candidates[index] for index in range(len(candidates)) if index not in order)
+            scores = [score for _, score in ranked]
+            # Index-only, partial or raw-logit responses still provide a ranking,
+            # but cannot be compared to a threshold on the 0..1 score scale.
+            valid = len(ranked) == len(candidates) and all(score is not None and 0 <= score <= 1 for score in scores)
+            return chosen, max(scores) if valid else None
+        finally:
+            if trace:
+                elapsed = (time.perf_counter() - started) * 1000
+                trace.timings[stage] = elapsed
+                trace.timings["rerank"] = trace.timings.get("rerank", 0) + elapsed
+                trace.stage = previous_stage
+
+    def _conditional_candidates(self, query: str, lexical: list[int], candidate_k: int) -> tuple[list[int], bool]:
+        chosen = lexical[:candidate_k]
+        trace = CURRENT.get()
+        event = {"stage": "retrieval_route", "route": "lexical", "threshold": self.conditional_threshold,
+                 "rerank_score": None, "status": "reranker_unavailable"}
+        dense_used = False
+        try:
+            if not chosen or not self._reranker_ready():
+                return chosen, dense_used
+            event["status"] = "lexical_rerank_failed"
+            chosen, confidence = self._scored_candidates(query, chosen, "rerank_lexical")
+            event["rerank_score"] = confidence
+            if confidence is None:
+                event["status"] = "scores_unavailable"
+            elif confidence >= self.conditional_threshold:
+                event["status"] = "lexical_confident"
+            elif self.vectors is None:
+                event["status"] = "dense_index_unavailable"
+            else:
+                event["status"] = "dense_search_failed"
+                started = time.perf_counter()
+                previous_stage = trace.stage if trace else None
+                try:
+                    if trace:
+                        trace.stage = "dense"
+                    dense = self._dense(query)[:candidate_k]
+                finally:
+                    if trace:
+                        trace.timings["dense"] = (time.perf_counter() - started) * 1000
+                        trace.stage = previous_stage
+                if not dense:
+                    event["status"] = "dense_empty"
+                else:
+                    event["status"] = "dense_rerank_failed"
+                    # Keep lexical evidence until the entire alternate route succeeds.
+                    alternate, dense_score = self._scored_candidates(query, dense, "rerank_dense")
+                    chosen, dense_used = alternate, True
+                    event.update(route="dense", status="low_lexical_score", dense_rerank_score=dense_score)
+            return chosen, dense_used
+        except (RuntimeError, ValueError, TypeError, KeyError) as exc:
+            event["type"] = type(exc).__name__
+            return chosen, False
+        finally:
+            if trace:
+                trace.events.append(event)
+
     def retrieve(self, question: str, limit: int | None = None) -> list[Source]:
         limit = limit or integer_setting("TOP_K", 12, 4, 30)
         candidate_k = max(limit, integer_setting("RETRIEVAL_CANDIDATES", 64, 16, 256))
         query = focused_search_question(question)
         lexical = self._lexical(query)
+        if self.retrieval_mode == "conditional":
+            chosen, dense_used = self._conditional_candidates(query, lexical, candidate_k)
+        else:
+            chosen, dense_used = self._hybrid_candidates(query, lexical, candidate_k)
+        if CURRENT.get():
+            CURRENT.get().events.append({"stage": "candidates", "count": len(chosen), "dense_used": dense_used})
+        return self._expand_retrieval(chosen, lexical, limit)
+
+    def _hybrid_candidates(self, query: str, lexical: list[int], candidate_k: int) -> tuple[list[int], bool]:
         try:
             dense = self._dense(query)
         except (RuntimeError, KeyError, ValueError, TypeError) as exc:
@@ -659,8 +765,7 @@ class LegalAssistant:
                 fused[index] += 1.0 / (60 + rank)
         chosen = sorted(fused, key=lambda index: fused[index], reverse=True)[:candidate_k]
         # Rerank the broad candidate pool BEFORE truncating the final context.
-        if self.proxy.rerank_model and ((self.proxy.base and self.proxy.key) or
-                                       (getattr(self.proxy, "rerank_base", "") and getattr(self.proxy, "rerank_key", ""))):
+        if self._reranker_ready():
             started = time.perf_counter()
             try:
                 if CURRENT.get():
@@ -674,8 +779,9 @@ class LegalAssistant:
             finally:
                 if CURRENT.get():
                     CURRENT.get().timings["rerank"] = (time.perf_counter() - started) * 1000
-        if CURRENT.get():
-            CURRENT.get().events.append({"stage": "candidates", "count": len(chosen), "dense_used": bool(dense)})
+        return chosen, bool(dense)
+
+    def _expand_retrieval(self, chosen: list[int], lexical: list[int], limit: int) -> list[Source]:
         chosen = chosen[:limit]
         doc_ids = {self.sources[index].document_id for index in chosen}
         # Bring an explicitly referenced clause into context before the tail.

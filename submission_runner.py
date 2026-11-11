@@ -80,7 +80,8 @@ def run_submission() -> None:
                 # compact operational fields in the default batch log.
                 info["events"] = [{key: event[key] for key in (
                     "stage", "status", "type", "count", "source_ids", "irac_ok", "unknown_citations",
-                    "has_citations", "nonliteral_quotes", "quarantined_lines", "dense_used", "characters", "skipped_ids") if key in event}
+                    "has_citations", "nonliteral_quotes", "quarantined_lines", "dense_used", "characters", "skipped_ids",
+                    "route", "threshold", "rerank_score", "dense_rerank_score") if key in event}
                                   for event in info.get("events", [])]
                 info.update({"id": questions[index][0], "status": answer.status,
                              "source_ids": [source.id for source in answer.sources]})
@@ -108,6 +109,9 @@ def run_submission() -> None:
                                       "documents": len(getattr(engine, "documents", [])),
                                       "sources": len(getattr(engine, "sources", [])),
                                       "links": len(getattr(engine, "links", [])),
+                                      "retrieval_mode": engine.retrieval_mode,
+                                      "conditional_threshold": engine.conditional_threshold,
+                                      "dense_index_ready": engine.vectors is not None,
                                       "ingestion_warning_counts": dict(Counter(
                                           item.get("reason", "unknown") for item in getattr(engine, "ingestion_warnings", [])))},
                                      ensure_ascii=False) + "\n")
