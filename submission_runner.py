@@ -108,6 +108,8 @@ def run_submission() -> None:
                                       "documents": len(getattr(engine, "documents", [])),
                                       "sources": len(getattr(engine, "sources", [])),
                                       "links": len(getattr(engine, "links", [])),
+                                      "lexical_stemmer": engine.lexical_stemmer,
+                                      "dense_index_ready": engine.vectors is not None,
                                       "ingestion_warning_counts": dict(Counter(
                                           item.get("reason", "unknown") for item in getattr(engine, "ingestion_warnings", [])))},
                                      ensure_ascii=False) + "\n")

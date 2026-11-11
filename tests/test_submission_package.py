@@ -62,7 +62,7 @@ class PackagedPipelineTest(unittest.TestCase):
             (data / "questions.csv").write_text('id,question\n7,"Когда оплачивать товар?"\n9,"Срок оплаты?"\n', encoding="utf-8")
             env = {**os.environ, "LLM_BASE_URL": f"http://127.0.0.1:{server.server_port}/v1",
                    "LLM_API_KEY": "synthetic-test-key", "LLM_MODEL": "stub", "DATA_DIR": str(data),
-                   "USE_EMBEDDINGS": "0", "RERANKER_MODEL": "", "MAX_WORKERS": "2",
+                   "USE_EMBEDDINGS": "1", "LEXICAL_STEMMER": "legacy", "RERANKER_MODEL": "", "MAX_WORKERS": "2",
                    "PIPELINE_MODE": "single_pass", "HTTP_TRUST_ENV": "0"}
             process = subprocess.run([sys.executable, "-X", "utf8", "solution.py"], cwd=root,
                                      env=env, capture_output=True, text=True, encoding="utf-8", timeout=30)
@@ -76,6 +76,8 @@ class PackagedPipelineTest(unittest.TestCase):
                     self.assertEqual(row["answer"].count(heading), 1)
             self.assertEqual(calls, ["/v1/chat/completions"] * 2)
             metrics = [json.loads(line) for line in (root / "submission.metrics.jsonl").read_text().splitlines()]
+            self.assertEqual(metrics[0]["lexical_stemmer"], "snowball")
+            self.assertFalse(metrics[0]["dense_index_ready"])
             rows = [item for item in metrics if "id" in item]
             self.assertEqual(len(rows), 2)
             self.assertTrue(all(item["pipeline_calls"] == 1 for item in rows))
