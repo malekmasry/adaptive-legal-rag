@@ -11,6 +11,7 @@ from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
 from pathlib import Path
 from time import perf_counter
 
+from answer_review import REVIEW_BUDGET, ReviewBudget
 from rag_telemetry import CURRENT, DEADLINE, Trace
 from single_pass import irac_notice
 
@@ -56,6 +57,10 @@ def run_submission() -> None:
     timeout = integer_setting("BATCH_TIMEOUT_SECONDS", 1080, 1, 1200)
     reserve = min(integer_setting("BATCH_WRITE_RESERVE_SECONDS", 5, 0, 60), timeout / 4)
     deadline = started + timeout - reserve
+    review_budget = ReviewBudget(
+        seconds=min(integer_setting("ANSWER_REVIEW_BATCH_SECONDS", 240, 0, 600), timeout / 4),
+        deadline=deadline,
+        reserve=integer_setting("ANSWER_REVIEW_BATCH_RESERVE_SECONDS", 120, 0, 600))
     data_dir = Path(setting("DATA_DIR", default="data"))
     questions = read_questions(data_dir / "questions.csv")
     output = Path(setting("OUTPUT_CSV", default="submission.csv"))
@@ -81,7 +86,9 @@ def run_submission() -> None:
                 info["events"] = [{key: event[key] for key in (
                     "stage", "status", "type", "count", "source_ids", "irac_ok", "unknown_citations",
                     "has_citations", "nonliteral_quotes", "quarantined_lines", "dense_used", "characters", "skipped_ids",
-                    "route", "threshold", "rerank_score", "dense_rerank_score") if key in event}
+                    "route", "threshold", "rerank_score", "dense_rerank_score", "flagged_source_ids",
+                    "input_quarantined_spans", "credential_redactions", "called", "edit_count",
+                    "budget_seconds", "elapsed_ms") if key in event}
                                   for event in info.get("events", [])]
                 info.update({"id": questions[index][0], "status": answer.status,
                              "source_ids": [source.id for source in answer.sources]})
@@ -119,6 +126,7 @@ def run_submission() -> None:
 
             def work(index):
                 token = DEADLINE.set(deadline)
+                review_token = REVIEW_BUDGET.set(review_budget)
                 try:
                     if perf_counter() >= deadline:
                         return Answer(unfinished, [], "technical_error", {"events": [{"stage": "batch_deadline"}]})
@@ -127,6 +135,7 @@ def run_submission() -> None:
                     return Answer(unfinished, [], "technical_error",
                                   {"events": [{"stage": "worker", "type": type(exc).__name__}]})
                 finally:
+                    REVIEW_BUDGET.reset(review_token)
                     DEADLINE.reset(token)
 
             workers = integer_setting("MAX_WORKERS", 3, 1, 8)
@@ -157,7 +166,10 @@ def run_submission() -> None:
             checkpoint(output, questions, answers)
             counts = {status: sum(item["status"] == status for item in records.values())
                       for status in sorted({item["status"] for item in records.values()})}
-            print(json.dumps({"stage": "batch_complete", "rows": len(questions), "statuses": counts,
-                              "elapsed_seconds": round(perf_counter() - started, 2)}, ensure_ascii=False), file=sys.stderr)
+            summary = {"stage": "batch_complete", "rows": len(questions), "statuses": counts,
+                       "answer_review": review_budget.public(),
+                       "elapsed_seconds": round(perf_counter() - started, 2)}
+            metrics.write(json.dumps(summary, ensure_ascii=False) + "\n")
+            print(json.dumps(summary, ensure_ascii=False), file=sys.stderr)
     finally:
         DEADLINE.reset(batch_token)

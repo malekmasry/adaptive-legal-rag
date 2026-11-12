@@ -1,4 +1,4 @@
-"""Direct, source-grounded PSB answers. One generation call; no judge or repair loop.
+"""Direct PSB answers with an optional bounded review, without a repair loop.
 
 Deterministic validation checks provenance/format, NOT semantic correctness.
 The adaptive pipeline remains available explicitly for controlled comparisons.
@@ -9,7 +9,8 @@ import json
 import re
 from time import perf_counter
 
-from rag_safety import citation_ids, clean_data, normalized
+from answer_review import review_answer
+from rag_safety import INJECTION_POLICY, citation_ids, clean_answer, clean_data, instruction_cue, normalized
 from rag_telemetry import CURRENT, DEADLINE, Trace, remaining_seconds
 
 
@@ -49,6 +50,8 @@ DIRECT_PROMPT = """Ты юридический ассистент по пред�
 ради краткости. При нехватке оснований конкретно обозначь пробел после
 подтверждённой части ответа; не добавляй общие оговорки только ради объёма.
 """
+
+DIRECT_PROMPT += "\n" + INJECTION_POLICY
 
 HEADINGS = {"I": "Вопрос", "R": "Нормы", "A": "Применение", "C": "Вывод"}
 SOURCE_REFERENCES = re.compile(r"\[\s*(S\d+(?:\s*[,;]\s*S\d+)*)\s*\]")
@@ -178,7 +181,12 @@ class SinglePassPipeline:
             if not records:
                 return self.result(irac_notice(latest, "В найденных фрагментах недостаточно оснований для ответа."), [], "insufficient")
             allowed = {item["id"] for item in records}
-            payload = {"conversation": cleaned, "latest_question": latest, "sources": records}
+            flagged = [item["id"] for item in records if instruction_cue(
+                self.engine.by_id[item["id"]].text + "\n" + json.dumps(item, ensure_ascii=False))]
+            payload = {"conversation": cleaned, "latest_question": latest, "sources": records,
+                       "instruction_cues": {"source_ids": flagged, "conversation": instruction_cue(question)}}
+            self.trace.events.append({"stage": "injection_guard", "flagged_source_ids": flagged,
+                                      "input_quarantined_spans": removed})
             self.trace.stage = "direct_generation"
             if self.trace.remaining() <= 0:
                 raise RuntimeError("Deadline exceeded")
@@ -188,9 +196,14 @@ class SinglePassPipeline:
                 response = self.engine.proxy.complete(DIRECT_PROMPT, json.dumps(payload, ensure_ascii=False))
             finally:
                 self.trace.timings["direct_generation"] = (perf_counter() - started) * 1000
-            text, removed = clean_data(response)
+            # A legal answer can discuss passwords, prompts or attacks. Those
+            # words never cause line deletion or a safety-based refusal here.
+            text, redacted = clean_answer(response)
             if not text.strip():
                 raise ValueError("Empty answer after sanitization")
+            text, review = review_answer(self.engine.proxy, text, payload)
+            self.calls += int(review["called"])
+            self.trace.events.append(review)
             references = re.findall(r"S\d+", " ".join(SOURCE_REFERENCES.findall(text)))
             invalid = list(dict.fromkeys(sid for sid in references if sid not in allowed))
 
@@ -205,10 +218,10 @@ class SinglePassPipeline:
             status = unsupported_or_clarifying(text) or ("answered" if cited else "partial")
             # IRAC is optional: ordinary prose is the intended PSB output format.
             # Keep legacy heading normalization and diagnostics without penalizing prose.
-            if invalid or removed:
+            if invalid or redacted:
                 status = "partial"
             issues = {"stage": "validation", "irac_ok": irac_ok, "unknown_citations": invalid,
-                      "has_citations": bool(cited), "quarantined_lines": removed}
+                      "has_citations": bool(cited), "credential_redactions": redacted}
             quotes = re.findall(r'«([^»]{40,})»|"([^"\n]{40,})"', text)
             issues["nonliteral_quotes"] = sum(not any(normalized(a or b) in normalized(record["text"])
                                                       for record in records) for a, b in quotes)

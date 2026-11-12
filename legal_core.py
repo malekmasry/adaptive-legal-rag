@@ -375,13 +375,14 @@ class ModelProxy:
     def ready(self) -> bool:
         return bool(self.base and self.key and self.llm)
 
-    def post(self, endpoint: str, payload: dict, *, base: str | None = None, key: str | None = None) -> dict:
+    def post(self, endpoint: str, payload: dict, *, base: str | None = None, key: str | None = None,
+             attempts: int | None = None) -> dict:
         base = self.base if base is None else base
         key = self.key if key is None else key
         if not base or not key:
             raise RuntimeError("Model proxy configuration is missing")
         last_error = None
-        attempts = integer_setting("MAX_API_ATTEMPTS", 2, 1, 3)
+        attempts = integer_setting("MAX_API_ATTEMPTS", 2, 1, 3) if attempts is None else max(1, min(3, attempts))
         trace = CURRENT.get()
         remaining = trace.remaining() if trace else remaining_seconds()
         request_end = time.perf_counter() + min(remaining, integer_setting("API_TIMEOUT_SECONDS", 60, 1, 180))
@@ -728,9 +729,19 @@ class LegalAssistant:
                 else:
                     event["status"] = "dense_rerank_failed"
                     # Keep lexical evidence until the entire alternate route succeeds.
-                    alternate, dense_score = self._scored_candidates(query, dense, "rerank_dense")
+                    merge = setting("CONDITIONAL_DENSE_MERGE", default="0") == "1"
+                    pool = dense
+                    if merge:
+                        # Alternate heads of the two rankings, de-duplicate, keep
+                        # the same reranker input cap and the same two API calls.
+                        pool = list(dict.fromkeys(index for pair in zip(chosen, dense)
+                                                  for index in pair))
+                        pool = list(dict.fromkeys(pool + chosen + dense))[:candidate_k]
+                    alternate, dense_score = self._scored_candidates(
+                        query, pool, "rerank_merged" if merge else "rerank_dense")
                     chosen, dense_used = alternate, True
-                    event.update(route="dense", status="low_lexical_score", dense_rerank_score=dense_score)
+                    event.update(route="merged" if merge else "dense", status="low_lexical_score",
+                                 dense_rerank_score=dense_score)
             return chosen, dense_used
         except (RuntimeError, ValueError, TypeError, KeyError) as exc:
             event["type"] = type(exc).__name__
