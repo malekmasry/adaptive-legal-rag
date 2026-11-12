@@ -1,0 +1,358 @@
+{
+  "coverage": {
+    "vector14": {
+      "scored": 63,
+      "expected": 63,
+      "coverage": 1.0,
+      "unknown": 0,
+      "all_case_score_bounds": [
+        50.0,
+        50.0
+      ]
+    },
+    "coverage2257": {
+      "scored": 61,
+      "expected": 63,
+      "coverage": 0.9682539682539683,
+      "unknown": 2,
+      "all_case_score_bounds": [
+        35.5718954248366,
+        41.32352941176471
+      ]
+    },
+    "review29": {
+      "scored": 59,
+      "expected": 63,
+      "coverage": 0.9365079365079365,
+      "unknown": 4,
+      "all_case_score_bounds": [
+        32.916666666666664,
+        42.36111111111111
+      ]
+    },
+    "conditional35": {
+      "scored": 61,
+      "expected": 63,
+      "coverage": 0.9682539682539683,
+      "unknown": 2,
+      "all_case_score_bounds": [
+        45.416666666666664,
+        52.63888888888889
+      ]
+    }
+  },
+  "common_cases": 56,
+  "expected_cases": 63,
+  "common_coverage": 0.8888888888888888,
+  "score_scale": "local proxy 0..100, not PSB accuracy",
+  "status": "diagnostic_only",
+  "ranking": [
+    "vector14",
+    "conditional35",
+    "review29",
+    "coverage2257"
+  ],
+  "local_scores": {
+    "vector14": 50.0,
+    "coverage2257": 36.875,
+    "review29": 38.15257352941176,
+    "conditional35": 48.74999999999999
+  },
+  "spearman": -0.2,
+  "pairs": [
+    {
+      "a": "vector14",
+      "b": "coverage2257",
+      "official_gap": -8.57,
+      "local_gap": 13.125,
+      "expected_direction_reproduced": false,
+      "gap_bootstrap_95": [
+        7.8603896103896105,
+        18.888888888888893
+      ],
+      "bootstrap_expected_direction_fraction": 0.0
+    },
+    {
+      "a": "vector14",
+      "b": "review29",
+      "official_gap": -15,
+      "local_gap": 11.8474,
+      "expected_direction_reproduced": false,
+      "gap_bootstrap_95": [
+        2.601102941176478,
+        19.212962962962965
+      ],
+      "bootstrap_expected_direction_fraction": 0.01
+    },
+    {
+      "a": "vector14",
+      "b": "conditional35",
+      "official_gap": -21,
+      "local_gap": 1.25,
+      "expected_direction_reproduced": false,
+      "gap_bootstrap_95": [
+        -9.614035087719294,
+        13.468915343915342
+      ],
+      "bootstrap_expected_direction_fraction": 0.417
+    },
+    {
+      "a": "coverage2257",
+      "b": "review29",
+      "official_gap": -6.43,
+      "local_gap": -1.2776,
+      "expected_direction_reproduced": true,
+      "gap_bootstrap_95": [
+        -12.031250000000007,
+        5.076625386996902
+      ],
+      "bootstrap_expected_direction_fraction": 0.553
+    },
+    {
+      "a": "coverage2257",
+      "b": "conditional35",
+      "official_gap": -12.43,
+      "local_gap": -11.875,
+      "expected_direction_reproduced": true,
+      "gap_bootstrap_95": [
+        -22.916666666666657,
+        -1.75
+      ],
+      "bootstrap_expected_direction_fraction": 0.998
+    },
+    {
+      "a": "review29",
+      "b": "conditional35",
+      "official_gap": -6,
+      "local_gap": -10.5974,
+      "expected_direction_reproduced": true,
+      "gap_bootstrap_95": [
+        -24.877192982456137,
+        7.126322751322746
+      ],
+      "bootstrap_expected_direction_fraction": 0.901
+    }
+  ],
+  "categories": {
+    "paraphrase": {
+      "cases": 2,
+      "local_scores": {
+        "vector14": 50.0,
+        "coverage2257": 50.0,
+        "review29": 50.0,
+        "conditional35": 50.0
+      }
+    },
+    "false_premise": {
+      "cases": 2,
+      "local_scores": {
+        "vector14": 50.0,
+        "coverage2257": 50.0,
+        "review29": 78.125,
+        "conditional35": 26.249999999999996
+      }
+    },
+    "arithmetic": {
+      "cases": 3,
+      "local_scores": {
+        "vector14": 50.0,
+        "coverage2257": 23.333333333333332,
+        "review29": 23.333333333333332,
+        "conditional35": 23.333333333333332
+      }
+    },
+    "multi_clause": {
+      "cases": 3,
+      "local_scores": {
+        "vector14": 50.0,
+        "coverage2257": 50.0,
+        "review29": 39.166666666666664,
+        "conditional35": 70.83333333333333
+      }
+    },
+    "temporal_amendment": {
+      "cases": 2,
+      "local_scores": {
+        "vector14": 50.0,
+        "coverage2257": 50.0,
+        "review29": 50.0,
+        "conditional35": 50.0
+      }
+    },
+    "entity_contrast": {
+      "cases": 3,
+      "local_scores": {
+        "vector14": 50.0,
+        "coverage2257": 50.0,
+        "review29": 50.0,
+        "conditional35": 50.0
+      }
+    },
+    "paraphrase_multi_clause": {
+      "cases": 3,
+      "local_scores": {
+        "vector14": 50.0,
+        "coverage2257": 41.25,
+        "review29": 30.416666666666664,
+        "conditional35": 44.166666666666664
+      }
+    },
+    "temporal_threshold": {
+      "cases": 2,
+      "local_scores": {
+        "vector14": 50.0,
+        "coverage2257": 30.624999999999996,
+        "review29": 26.249999999999996,
+        "conditional35": 50.0
+      }
+    },
+    "temporal_boundary": {
+      "cases": 3,
+      "local_scores": {
+        "vector14": 50.0,
+        "coverage2257": 50.0,
+        "review29": 50.0,
+        "conditional35": 50.0
+      }
+    },
+    "exception": {
+      "cases": 3,
+      "local_scores": {
+        "vector14": 50.0,
+        "coverage2257": 50.0,
+        "review29": 50.0,
+        "conditional35": 50.0
+      }
+    },
+    "temporal_multi_document": {
+      "cases": 3,
+      "local_scores": {
+        "vector14": 50.0,
+        "coverage2257": 50.0,
+        "review29": 50.0,
+        "conditional35": 50.0
+      }
+    },
+    "prompt_injection_false_premise": {
+      "cases": 2,
+      "local_scores": {
+        "vector14": 50.0,
+        "coverage2257": 30.624999999999996,
+        "review29": 30.624999999999996,
+        "conditional35": 50.0
+      }
+    },
+    "dialogue_wrong_history": {
+      "cases": 3,
+      "local_scores": {
+        "vector14": 50.0,
+        "coverage2257": 50.0,
+        "review29": 50.0,
+        "conditional35": 50.0
+      }
+    },
+    "unanswerable": {
+      "cases": 3,
+      "local_scores": {
+        "vector14": 50.0,
+        "coverage2257": 29.166666666666668,
+        "review29": 50.0,
+        "conditional35": 50.0
+      }
+    },
+    "ambiguous_entity": {
+      "cases": 3,
+      "local_scores": {
+        "vector14": 50.0,
+        "coverage2257": 23.333333333333332,
+        "review29": 23.333333333333332,
+        "conditional35": 23.333333333333332
+      }
+    },
+    "bounded_answer": {
+      "cases": 3,
+      "local_scores": {
+        "vector14": 50.0,
+        "coverage2257": 29.166666666666668,
+        "review29": 32.08333333333333,
+        "conditional35": 67.91666666666666
+      }
+    },
+    "current_numeric": {
+      "cases": 3,
+      "local_scores": {
+        "vector14": 50.0,
+        "coverage2257": 50.0,
+        "review29": 50.0,
+        "conditional35": 50.0
+      }
+    },
+    "legal_numeric_multi_document": {
+      "cases": 3,
+      "local_scores": {
+        "vector14": 50.0,
+        "coverage2257": 50.0,
+        "review29": 29.166666666666668,
+        "conditional35": 67.91666666666666
+      }
+    },
+    "current_rate_false_premise": {
+      "cases": 3,
+      "local_scores": {
+        "vector14": 50.0,
+        "coverage2257": 29.166666666666668,
+        "review29": 50.0,
+        "conditional35": 50.0
+      }
+    },
+    "legal_condition": {
+      "cases": 2,
+      "local_scores": {
+        "vector14": 50.0,
+        "coverage2257": 50.0,
+        "review29": 26.249999999999996,
+        "conditional35": 50.0
+      }
+    },
+    "legal_exception": {
+      "cases": 2,
+      "local_scores": {
+        "vector14": 50.0,
+        "coverage2257": 30.624999999999996,
+        "review29": 13.124999999999998,
+        "conditional35": 50.0
+      }
+    }
+  },
+  "family_bootstrap_units": 21,
+  "affine_diagnostic": {
+    "intercept": 32.54962976283159,
+    "slope": -0.17049679339844026
+  },
+  "leave_one_version_out": [
+    {
+      "held_out_version": "vector14",
+      "predicted_official": 36.37876075631695,
+      "reported_official": 14,
+      "absolute_error": 22.37876075631695
+    },
+    {
+      "held_out_version": "review29",
+      "predicted_official": 23.65777477740476,
+      "reported_official": 29,
+      "absolute_error": 5.342225222595239
+    }
+  ],
+  "leave_one_version_out_mae": null,
+  "historical_order_reproduced": false,
+  "prospective_predictive_validity": "not_established",
+  "warning": "Four aggregate scores cannot identify the hidden test. Bootstrap describes this local suite only; historical matching can overfit.",
+  "label_errata_sha256": "bd1f6525241f49b7e232184599fc6a4b669a92d701e46c5d4e73214e1e96335b",
+  "known_label_corrections_applied": true,
+  "historical_configs_confirmed": false,
+  "split": "development",
+  "legacy_holdout_caveat": false,
+  "full_split_evaluated": true,
+  "pilot_only": false,
+  "ordering_matches_on_evaluated_subset": false
+}

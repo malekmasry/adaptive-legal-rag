@@ -1,0 +1,53 @@
+{
+  "version_id": "vector14",
+  "commit": "7869b7b8ede384c05d33e7763a97ae53d72d47f0",
+  "package_sha256": "ec9a9836f00443935a2d49a35199bf5ad09346d047c98d91b4e4c6f7b38da3b8",
+  "dataset_sha256": "c04132443b6b4e1ed0c3f271e44d3d491ce16eeaa51d5a5ecad634c8e5a9e3e5",
+  "corpus_sha256": "cea8ef2c8f6c8b9f498efacf705b97bf3da53cc78f366f9b1fef7a6de66327e0",
+  "split": "development",
+  "ids": [
+    "S04c",
+    "S05c",
+    "S07c",
+    "S09c",
+    "S10c",
+    "S12c",
+    "S14c",
+    "S16c",
+    "S17c",
+    "S20c",
+    "S21c",
+    "S22c",
+    "S23c",
+    "S24c",
+    "S26c",
+    "S28c",
+    "S30c",
+    "S34c",
+    "S35c"
+  ],
+  "settings": {
+    "LLM_MODEL": "deepseek-v4.1-flash",
+    "RERANKER_MODEL": "Qwen/Qwen3-Reranker-8B",
+    "EMB_MODEL": "BAAI/bge-m3",
+    "endpoint_fingerprints": {
+      "LLM_BASE_URL": "cffde85d458a4530ed68310544d66d4882e309cbeb136201d88594a6260f609b",
+      "RERANKER_BASE_URL": "be4d628651a7ea036087a931a676451cfebd4d6a1c3a62539154c651258d2b27",
+      "EMB_BASE_URL": "ea7d9c53be6937f7b655d26a5608ad4e96a912533e2d932b5126badde2341db4"
+    }
+  },
+  "entry_point": "solution.py",
+  "historical_config_confirmed": false,
+  "service_profile_sha256": "2061c6b212edcfb708b6e79eaacea1a09102122558416834652453fa2872cee8",
+  "exit_code": 0,
+  "elapsed_seconds": 168.465,
+  "service_observations": {
+    "dense_index_ready": true,
+    "rerank_api_calls": 19,
+    "rerank_api_successes": 19,
+    "technical_errors": 0,
+    "answer_rows": 19
+  },
+  "service_check_passed": true,
+  "answers_sha256": "a2dff62f4a7664c1441badf849a7ed26ca17df12be0bcf99c4cb013bbd1c6acb"
+}

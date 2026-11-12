@@ -1,0 +1,257 @@
+{
+  "judge_model": "qwen3.8-max",
+  "prompt_sha256": "fa03efa52b66f9a8ae099ce3d3f3fc6a1ab2dc4c690f4a15d85308f307e9c708",
+  "source_policy": "gold_plus_literal_cited_documents_v1",
+  "all_passed": true,
+  "controls": [
+    {
+      "control": "same_correct",
+      "id": "S01a",
+      "status": "ok",
+      "score": 0.5,
+      "confirmed_hallucination": false,
+      "order_disagreement": 0.0,
+      "rounds": [
+        {
+          "score_b": 0.5,
+          "A": {
+            "verdict": "none",
+            "fabricated_claim": "",
+            "evidence": [],
+            "missing_facts": [],
+            "citation_errors": []
+          },
+          "B": {
+            "verdict": "none",
+            "fabricated_claim": "",
+            "evidence": [],
+            "missing_facts": [],
+            "citation_errors": []
+          },
+          "dataset_issue": false,
+          "reason": "Ответы A и B идентичны и полностью соответствуют п. 2.2 договора: срок аренды неопределённый, конкретная дата окончания не установлена.",
+          "_api": {
+            "model": "qwen3.8-max",
+            "attempt": 1,
+            "elapsed_ms": 11336.72,
+            "usage": {
+              "completion_tokens": 182,
+              "prompt_tokens": 2314,
+              "prompt_tokens_details": {
+                "cached_tokens": 2176
+              },
+              "total_tokens": 2496
+            }
+          }
+        },
+        {
+          "score_b": 0.5,
+          "A": {
+            "verdict": "none",
+            "fabricated_claim": "",
+            "evidence": [],
+            "missing_facts": [],
+            "citation_errors": []
+          },
+          "B": {
+            "verdict": "none",
+            "fabricated_claim": "",
+            "evidence": [],
+            "missing_facts": [],
+            "citation_errors": []
+          },
+          "dataset_issue": false,
+          "reason": "Ответы A и B полностью совпадают и верно отражают п. 2.2 договора: срок аренды неопределённый, конкретная дата окончания не установлена.",
+          "_api": {
+            "model": "qwen3.8-max",
+            "attempt": 1,
+            "elapsed_ms": 10687.0,
+            "usage": {
+              "completion_tokens": 187,
+              "prompt_tokens": 2314,
+              "prompt_tokens_details": {
+                "cached_tokens": 2176
+              },
+              "total_tokens": 2501
+            }
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "control": "missing_conditions",
+      "id": "S10a",
+      "status": "ok",
+      "score": 0.0,
+      "confirmed_hallucination": false,
+      "order_disagreement": 0.0,
+      "rounds": [
+        {
+          "score_b": 0.0,
+          "A": {
+            "verdict": "none",
+            "fabricated_claim": "",
+            "evidence": [],
+            "missing_facts": [],
+            "citation_errors": []
+          },
+          "B": {
+            "verdict": "none",
+            "fabricated_claim": "",
+            "evidence": [],
+            "missing_facts": [
+              "Заявка должна содержать наименование товара, количество и желаемую дату поставки",
+              "Поставка осуществляется в течение 14 рабочих дней с даты получения заявки"
+            ],
+            "citation_errors": [
+              "Не указаны пункты договора, подтверждающие ответ"
+            ]
+          },
+          "dataset_issue": false,
+          "reason": "Ответ A полностью отражает пункты 1.2 и 3.1 договора. Ответ B верно указывает способ отправки, но пропускает состав заявки и срок поставки, то есть существенно не отвечает на вторую часть вопроса.",
+          "_api": {
+            "model": "qwen3.8-max",
+            "attempt": 1,
+            "elapsed_ms": 14624.87,
+            "usage": {
+              "completion_tokens": 368,
+              "prompt_tokens": 2287,
+              "prompt_tokens_details": {
+                "cached_tokens": 2048
+              },
+              "total_tokens": 2655
+            }
+          }
+        },
+        {
+          "score_b": 1.0,
+          "A": {
+            "verdict": "none",
+            "fabricated_claim": "",
+            "evidence": [],
+            "missing_facts": [
+              "Заявка должна содержать наименование, количество товара и желаемую дату поставки",
+              "Поставка осуществляется в течение 14 рабочих дней с даты получения заявки"
+            ],
+            "citation_errors": [
+              "Не указаны пункты договора, подтверждающие способ подачи заявки"
+            ]
+          },
+          "B": {
+            "verdict": "none",
+            "fabricated_claim": "",
+            "evidence": [],
+            "missing_facts": [],
+            "citation_errors": []
+          },
+          "dataset_issue": false,
+          "reason": "Ответ B полностью отражает требования п. 1.2 и п. 3.1 договора. Ответ A содержит только способ отправки заявки и пропускает обязательные сведения заявки и срок поставки.",
+          "_api": {
+            "model": "qwen3.8-max",
+            "attempt": 1,
+            "elapsed_ms": 9737.8,
+            "usage": {
+              "completion_tokens": 290,
+              "prompt_tokens": 2287,
+              "prompt_tokens_details": {
+                "cached_tokens": 2048
+              },
+              "total_tokens": 2577
+            }
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "control": "false_amount",
+      "id": "S02a",
+      "status": "ok",
+      "score": 0.0,
+      "confirmed_hallucination": true,
+      "rounds": [
+        {
+          "score_b": 0.0,
+          "A": {
+            "verdict": "none",
+            "fabricated_claim": "",
+            "evidence": [],
+            "missing_facts": [],
+            "citation_errors": []
+          },
+          "B": {
+            "verdict": "confirmed",
+            "fabricated_claim": "«Арендодатель вправе повышать плату на 9% каждый квартал, уведомив арендатора по телефону.»",
+            "evidence": [
+              {
+                "path": "документы компании__Договор аренды А-08-2024 Северный Склад.txt",
+                "quote": "3.4. Арендодатель вправе не чаще одного раза в год увеличить размер арендной платы не более чем на 7%, письменно уведомив Арендатора."
+              }
+            ],
+            "missing_facts": [
+              "Не чаще одного раза в год.",
+              "Не более чем на 7%.",
+              "Необходимость письменного уведомления."
+            ],
+            "citation_errors": []
+          },
+          "dataset_issue": false,
+          "reason": "A правильно передаёт все условия пункта 3.4 и отвечает, что увеличение на 9% без письменного уведомления договору не соответствует. B противоречит пункту 3.4 сразу по размеру повышения, периодичности и форме уведомления.",
+          "_api": {
+            "model": "qwen3.8-max",
+            "attempt": 1,
+            "elapsed_ms": 13246.81,
+            "usage": {
+              "completion_tokens": 301,
+              "prompt_tokens": 2309,
+              "prompt_tokens_details": {
+                "cached_tokens": 2176
+              },
+              "total_tokens": 2610
+            }
+          }
+        },
+        {
+          "score_b": 1.0,
+          "A": {
+            "verdict": "confirmed",
+            "fabricated_claim": "«Арендодатель вправе повышать плату на 9% каждый квартал, уведомив арендатора по телефону.»",
+            "evidence": [
+              {
+                "path": "документы компании__Договор аренды А-08-2024 Северный Склад.txt",
+                "quote": "3.4. Арендодатель вправе не чаще одного раза в год увеличить размер арендной платы не более чем на 7%, письменно уведомив Арендатора."
+              }
+            ],
+            "missing_facts": [
+              "Повышение допускается не чаще одного раза в год",
+              "Размер повышения не может превышать 7%",
+              "Требуется письменное уведомление арендатора"
+            ],
+            "citation_errors": []
+          },
+          "B": {
+            "verdict": "none",
+            "fabricated_claim": "",
+            "evidence": [],
+            "missing_facts": [],
+            "citation_errors": []
+          },
+          "dataset_issue": false,
+          "reason": "Ответ B точно передаёт условия пункта 3.4 договора и правильно заключает, что повышение на 9% без письменного уведомления не соответствует договору. Ответ A прямо противоречит договору по размеру, периодичности и форме уведомления.",
+          "_api": {
+            "model": "qwen3.8-max",
+            "attempt": 1,
+            "elapsed_ms": 14035.33,
+            "usage": {
+              "completion_tokens": 412,
+              "prompt_tokens": 2309,
+              "total_tokens": 2721
+            }
+          }
+        }
+      ],
+      "passed": true
+    }
+  ]
+}

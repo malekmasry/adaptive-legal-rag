@@ -1,0 +1,154 @@
+[
+  {
+    "case": "same_correct",
+    "status": "ok",
+    "score": 0.5,
+    "confirmed_hallucination": false,
+    "order_disagreement": 0.0,
+    "rounds": [
+      {
+        "score_b": 0.5,
+        "A": {
+          "verdict": "none",
+          "fabricated_claim": "",
+          "evidence": [],
+          "missing_facts": [],
+          "citation_errors": []
+        },
+        "B": {
+          "verdict": "none",
+          "fabricated_claim": "",
+          "evidence": [],
+          "missing_facts": [],
+          "citation_errors": []
+        },
+        "dataset_issue": false,
+        "reason": "Ответы A и B полностью совпадают и корректно отражают п. 2.2 договора: срок неопределённый, конкретная дата окончания не установлена.",
+        "_api": {
+          "model": "qwen3.8-max",
+          "attempt": 1,
+          "elapsed_ms": 88478.91,
+          "usage": {
+            "prompt_tokens": 2298,
+            "completion_tokens": 185,
+            "total_tokens": 2483,
+            "completion_tokens_details": {
+              "reasoning_tokens": 38
+            }
+          }
+        }
+      },
+      {
+        "score_b": 0.5,
+        "A": {
+          "verdict": "none",
+          "fabricated_claim": "",
+          "evidence": [],
+          "missing_facts": [],
+          "citation_errors": []
+        },
+        "B": {
+          "verdict": "none",
+          "fabricated_claim": "",
+          "evidence": [],
+          "missing_facts": [],
+          "citation_errors": []
+        },
+        "dataset_issue": false,
+        "reason": "Ответы A и B идентичны и полностью соответствуют п. 2.2 договора аренды № А-08/2024: договор заключён на неопределённый срок, конкретная дата окончания не установлена.",
+        "_api": {
+          "model": "qwen3.8-max",
+          "attempt": 1,
+          "elapsed_ms": 14973.44,
+          "usage": {
+            "completion_tokens": 195,
+            "prompt_tokens": 2298,
+            "total_tokens": 2493
+          }
+        }
+      }
+    ]
+  },
+  {
+    "case": "false_amount",
+    "error_type": "ValueError"
+  },
+  {
+    "case": "missing_conditions",
+    "status": "ok",
+    "score": 0.0,
+    "confirmed_hallucination": false,
+    "order_disagreement": 0.0,
+    "rounds": [
+      {
+        "score_b": 0.0,
+        "A": {
+          "verdict": "none",
+          "fabricated_claim": "",
+          "evidence": [],
+          "missing_facts": [],
+          "citation_errors": []
+        },
+        "B": {
+          "verdict": "none",
+          "fabricated_claim": "",
+          "evidence": [],
+          "missing_facts": [
+            "Заявка должна содержать наименование, количество товара и желаемую дату поставки.",
+            "Товар должны поставить в течение 14 рабочих дней с даты получения заявки покупателя."
+          ],
+          "citation_errors": [
+            "Не указаны пункты договора или иной источник подтверждения."
+          ]
+        },
+        "dataset_issue": false,
+        "reason": "Ответ A полностью отражает требования пп. 1.2 и 3.1 договора. Ответ B подтверждает только способ направления заявки и не отвечает на вопрос о содержании заявки и сроке поставки.",
+        "_api": {
+          "model": "qwen3.8-max",
+          "attempt": 1,
+          "elapsed_ms": 47318.06,
+          "usage": {
+            "prompt_tokens": 2271,
+            "completion_tokens": 314,
+            "total_tokens": 2585,
+            "completion_tokens_details": {
+              "reasoning_tokens": 101
+            }
+          }
+        }
+      },
+      {
+        "score_b": 1.0,
+        "A": {
+          "verdict": "none",
+          "fabricated_claim": "",
+          "evidence": [],
+          "missing_facts": [
+            "Срок поставки — в течение 14 рабочих дней с даты получения заявки",
+            "Заявка должна содержать наименование, количество товара и желаемую дату поставки"
+          ],
+          "citation_errors": []
+        },
+        "B": {
+          "verdict": "none",
+          "fabricated_claim": "",
+          "evidence": [],
+          "missing_facts": [],
+          "citation_errors": []
+        },
+        "dataset_issue": false,
+        "reason": "Ответ B полностью отражает требования п. 1.2 и срок из п. 3.1 договора. Ответ A верно указывает способ отправки, но не отвечает на вопрос о содержании заявки и сроке поставки.",
+        "_api": {
+          "model": "qwen3.8-max",
+          "attempt": 1,
+          "elapsed_ms": 14527.06,
+          "usage": {
+            "completion_tokens": 265,
+            "prompt_tokens": 2271,
+            "total_tokens": 2536
+          }
+        }
+      }
+    ]
+  }
+]

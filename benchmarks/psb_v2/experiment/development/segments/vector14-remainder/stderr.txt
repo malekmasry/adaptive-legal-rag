@@ -1,0 +1,1 @@
+{"stage": "batch_complete", "rows": 19, "statuses": {"answered": 17, "partial": 2}, "elapsed_seconds": 168.3}

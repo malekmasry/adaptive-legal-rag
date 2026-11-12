@@ -1,0 +1,11 @@
+{
+  "score": 0.3884090909090909,
+  "match_rate": 0.44772727272727275,
+  "win_rate": 0.25,
+  "wins": 4,
+  "losses": 12,
+  "ties": 39,
+  "evaluated": 55,
+  "attempted": 63,
+  "coverage": 0.873015873015873
+}

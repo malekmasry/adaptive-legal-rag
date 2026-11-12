@@ -1,0 +1,10 @@
+{
+  "texts": 405,
+  "max_absolute_old_cache_difference": 1.9744038581848145e-07,
+  "old_cache_cosine": 1.0000001673673466,
+  "old_vectors_used": false,
+  "all_inputs_reencoded": true,
+  "model": "BAAI/bge-m3",
+  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+  "timing": "local CPU service with warm text-hash cache; not organizer embedding latency"
+}

@@ -1,0 +1,1 @@
+{"stage": "batch_complete", "rows": 63, "statuses": {"answered": 53, "partial": 10}, "answer_review": {"budget_seconds": 240, "spent_seconds": 240.002, "reserved_seconds": 0.0, "calls": 32}, "elapsed_seconds": 498.21}

@@ -1,0 +1,22 @@
+{
+  "id": "chatcmpl-ZEGZUJJ8CmKKgEW6NhG3izxbuNm34",
+  "created": 1794522309,
+  "model": "qwen3.8-max",
+  "object": "chat.completion",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"score_b\":0.0,\"A\":{\"verdict\":\"none\",\"fabricated_claim\":\"\",\"evidence\":[],\"missing_facts\":[],\"citation_errors\":[]},\"B\":{\"verdict\":\"confirmed\",\"fabricated_claim\":\"«Арендодатель вправе повышать плату на 9% каждый квартал, уведомив арендатора по телефону.»\",\"evidence\":[{\"path\":\"документы компании__Договор аренды А-08-2024 Северный Склад.txt\",\"quote\":\"3.4. Арендодатель вправе не чаще одного раза в год увеличить размер арендной платы не более чем на 7%, письменно уведомив Арендатора.\"}],\"missing_facts\":[\"Повышение допускается не чаще одного раза в год и не более чем на 7%; необходимо письменное уведомление.\"],\"citation_errors\":[]},\"dataset_issue\":false,\"reason\":\"A точно передаёт условие пункта 3.4 и верно отвечает на вопрос. B противоречит ему по размеру, периодичности и способу уведомления.\"}"
+      },
+      "finish_reason": "stop",
+      "logprobs": null
+    }
+  ],
+  "usage": {
+    "completion_tokens": 227,
+    "prompt_tokens": 2309,
+    "total_tokens": 2536
+  }
+}

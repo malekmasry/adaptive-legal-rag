@@ -1,0 +1,337 @@
+{
+  "judge_model": "qwen3.8-max",
+  "prompt_sha256": "037baa687c1d93c7aca35dab4ffcc90c397e386e793455dc9020f5b46d31ef86",
+  "source_policy": "gold_plus_cited_documents_and_verified_retrieved_context_v2",
+  "all_passed": false,
+  "controls": [
+    {
+      "control": "same_correct",
+      "id": "S01a",
+      "status": "ok",
+      "score": 0.5,
+      "confirmed_hallucination": false,
+      "order_disagreement": 0.0,
+      "rounds": [
+        {
+          "better_answer": "tie",
+          "difference": "none",
+          "A": {
+            "verdict": "none",
+            "fabricated_claim": "",
+            "evidence": [],
+            "missing_facts": [],
+            "citation_errors": [],
+            "reasoning_errors": []
+          },
+          "B": {
+            "verdict": "none",
+            "fabricated_claim": "",
+            "evidence": [],
+            "missing_facts": [],
+            "citation_errors": [],
+            "reasoning_errors": []
+          },
+          "dataset_issue": false,
+          "reason": "Оба ответа полностью совпадают с п. 2.2 договора аренды № А-08/2024: договор заключён на неопределённый срок, конкретная дата окончания не установлена.",
+          "score_b": 0.5,
+          "_api": {
+            "model": "qwen3.8-max",
+            "attempt": 1,
+            "elapsed_ms": 11317.02,
+            "usage": {
+              "completion_tokens": 171,
+              "prompt_tokens": 4567,
+              "total_tokens": 4738
+            }
+          }
+        },
+        {
+          "better_answer": "tie",
+          "difference": "none",
+          "A": {
+            "verdict": "none",
+            "fabricated_claim": "",
+            "evidence": [],
+            "missing_facts": [],
+            "citation_errors": [],
+            "reasoning_errors": []
+          },
+          "B": {
+            "verdict": "none",
+            "fabricated_claim": "",
+            "evidence": [],
+            "missing_facts": [],
+            "citation_errors": [],
+            "reasoning_errors": []
+          },
+          "dataset_issue": false,
+          "reason": "Оба ответа полностью совпадают с п. 2.2 договора: срок аренды неопределённый, конкретная дата окончания не установлена.",
+          "score_b": 0.5,
+          "_api": {
+            "model": "qwen3.8-max",
+            "attempt": 1,
+            "elapsed_ms": 13056.7,
+            "usage": {
+              "completion_tokens": 194,
+              "prompt_tokens": 4567,
+              "prompt_tokens_details": {
+                "cached_tokens": 4352
+              },
+              "total_tokens": 4761
+            }
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "control": "missing_conditions",
+      "id": "S10a",
+      "status": "ok",
+      "score": 0.0,
+      "confirmed_hallucination": false,
+      "order_disagreement": 0.0,
+      "rounds": [
+        {
+          "better_answer": "A",
+          "difference": "large",
+          "A": {
+            "verdict": "none",
+            "fabricated_claim": "",
+            "evidence": [],
+            "missing_facts": [],
+            "citation_errors": [],
+            "reasoning_errors": []
+          },
+          "B": {
+            "verdict": "none",
+            "fabricated_claim": "",
+            "evidence": [],
+            "missing_facts": [
+              "Не указано, что заявка должна содержать наименование товара, его количество и желаемую дату поставки.",
+              "Не указан срок поставки — в течение 14 рабочих дней с даты получения заявки покупателя."
+            ],
+            "citation_errors": [],
+            "reasoning_errors": []
+          },
+          "dataset_issue": false,
+          "reason": "Ответ A полностью отражает требования п. 1.2 и срок из п. 3.1 договора ПТ-05/2023. Ответ B содержит только способ отправки заявки и существенно не отвечает на вопрос о содержании заявки и сроке поставки.",
+          "score_b": 0.0,
+          "_api": {
+            "model": "qwen3.8-max",
+            "attempt": 1,
+            "elapsed_ms": 14771.47,
+            "usage": {
+              "completion_tokens": 375,
+              "prompt_tokens": 4454,
+              "total_tokens": 4829
+            }
+          }
+        },
+        {
+          "better_answer": "B",
+          "difference": "large",
+          "A": {
+            "verdict": "none",
+            "fabricated_claim": "",
+            "evidence": [],
+            "missing_facts": [
+              "Не указано, что заявка должна содержать наименование, количество товара и желаемую дату поставки.",
+              "Не указан срок поставки — 14 рабочих дней.",
+              "Не указано, что срок исчисляется с даты получения заявки покупателя."
+            ],
+            "citation_errors": [],
+            "reasoning_errors": []
+          },
+          "B": {
+            "verdict": "none",
+            "fabricated_claim": "",
+            "evidence": [],
+            "missing_facts": [],
+            "citation_errors": [],
+            "reasoning_errors": []
+          },
+          "dataset_issue": false,
+          "reason": "Ответ B полностью и точно отражает требования п. 1.2 и срок из п. 3.1 договора. Ответ A содержит только способ отправки заявки и пропускает обязательные сведения заявки и весь срок поставки.",
+          "score_b": 1.0,
+          "_api": {
+            "model": "qwen3.8-max",
+            "attempt": 1,
+            "elapsed_ms": 10984.92,
+            "usage": {
+              "completion_tokens": 301,
+              "prompt_tokens": 4454,
+              "total_tokens": 4755
+            }
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "control": "false_amount",
+      "id": "S02a",
+      "status": "judge_error",
+      "score": null,
+      "passed": false,
+      "error_type": "ValueError"
+    },
+    {
+      "control": "optional_extra",
+      "id": "S01a",
+      "status": "ok",
+      "score": 0.5,
+      "confirmed_hallucination": false,
+      "order_disagreement": 0.0,
+      "rounds": [
+        {
+          "better_answer": "tie",
+          "difference": "none",
+          "A": {
+            "verdict": "none",
+            "fabricated_claim": "",
+            "evidence": [],
+            "missing_facts": [],
+            "citation_errors": [],
+            "reasoning_errors": []
+          },
+          "B": {
+            "verdict": "none",
+            "fabricated_claim": "",
+            "evidence": [],
+            "missing_facts": [],
+            "citation_errors": [],
+            "reasoning_errors": []
+          },
+          "dataset_issue": false,
+          "reason": "Оба ответа правильно указывают на неопределённый срок по п. 2.2 и отсутствие установленной даты окончания. Дополнительное указание B на дату передачи помещения по п. 2.1 подтверждено договором и не меняет правильный вывод.",
+          "score_b": 0.5,
+          "_api": {
+            "model": "qwen3.8-max",
+            "attempt": 1,
+            "elapsed_ms": 14213.83,
+            "usage": {
+              "completion_tokens": 252,
+              "prompt_tokens": 4591,
+              "total_tokens": 4843
+            }
+          }
+        },
+        {
+          "better_answer": "tie",
+          "difference": "none",
+          "A": {
+            "verdict": "none",
+            "fabricated_claim": "",
+            "evidence": [],
+            "missing_facts": [],
+            "citation_errors": [],
+            "reasoning_errors": []
+          },
+          "B": {
+            "verdict": "none",
+            "fabricated_claim": "",
+            "evidence": [],
+            "missing_facts": [],
+            "citation_errors": [],
+            "reasoning_errors": []
+          },
+          "dataset_issue": false,
+          "reason": "Оба ответа правильно указывают, что по п. 2.2 договора № А-08/2024 аренда заключена на неопределённый срок и конкретная дата окончания не установлена. Дополнительное упоминание в A даты передачи помещения по п. 2.1 достоверно и не меняет правильность ответа.",
+          "score_b": 0.5,
+          "_api": {
+            "model": "qwen3.8-max",
+            "attempt": 1,
+            "elapsed_ms": 12995.59,
+            "usage": {
+              "completion_tokens": 273,
+              "prompt_tokens": 4591,
+              "total_tokens": 4864
+            }
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "control": "scoped_absence",
+      "id": "S01c",
+      "status": "ok",
+      "score": 0.5,
+      "confirmed_hallucination": false,
+      "order_disagreement": 0.0,
+      "rounds": [
+        {
+          "better_answer": "tie",
+          "difference": "none",
+          "A": {
+            "verdict": "none",
+            "fabricated_claim": "",
+            "evidence": [],
+            "missing_facts": [],
+            "citation_errors": [],
+            "reasoning_errors": []
+          },
+          "B": {
+            "verdict": "none",
+            "fabricated_claim": "",
+            "evidence": [],
+            "missing_facts": [],
+            "citation_errors": [],
+            "reasoning_errors": []
+          },
+          "dataset_issue": false,
+          "reason": "Ответы идентичны и правильно указывают, что по п. 2.2 договор заключён на неопределённый срок, а конкретная дата окончания не установлена. Указание на 15 августа 2024 г. как на срок передачи помещения также корректно.",
+          "score_b": 0.5,
+          "_api": {
+            "model": "qwen3.8-max",
+            "attempt": 1,
+            "elapsed_ms": 20022.62,
+            "usage": {
+              "completion_tokens": 706,
+              "prompt_tokens": 10211,
+              "total_tokens": 10917
+            }
+          }
+        },
+        {
+          "better_answer": "tie",
+          "difference": "none",
+          "A": {
+            "verdict": "none",
+            "fabricated_claim": "",
+            "evidence": [],
+            "missing_facts": [],
+            "citation_errors": [],
+            "reasoning_errors": []
+          },
+          "B": {
+            "verdict": "none",
+            "fabricated_claim": "",
+            "evidence": [],
+            "missing_facts": [],
+            "citation_errors": [],
+            "reasoning_errors": []
+          },
+          "dataset_issue": false,
+          "reason": "Ответы идентичны и правильно указывают, что по п. 2.2 договор заключён на неопределённый срок, поэтому конкретная дата окончания не установлена. Дата 15 августа 2024 г. корректно отнесена к сроку передачи помещения, а не к окончанию аренды.",
+          "score_b": 0.5,
+          "_api": {
+            "model": "qwen3.8-max",
+            "attempt": 1,
+            "elapsed_ms": 17646.73,
+            "usage": {
+              "completion_tokens": 524,
+              "prompt_tokens": 10211,
+              "prompt_tokens_details": {
+                "cached_tokens": 9984
+              },
+              "total_tokens": 10735
+            }
+          }
+        }
+      ],
+      "passed": true
+    }
+  ]
+}

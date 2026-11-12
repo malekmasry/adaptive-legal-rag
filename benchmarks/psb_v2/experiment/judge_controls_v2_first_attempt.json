@@ -1,0 +1,25 @@
+{
+  "note": "Reconstructed from observed control process output; raw failed API responses were not retained.",
+  "controls": [
+    {
+      "control": "same_correct",
+      "status": "ok",
+      "score": 0.5,
+      "passed": true
+    },
+    {
+      "control": "missing_conditions",
+      "status": "ok",
+      "score": 0,
+      "passed": true
+    },
+    {
+      "control": "false_amount",
+      "status": "judge_error",
+      "passed": false,
+      "error_type": "ValueError",
+      "reason": "Score contradicts a one-sided confirmed fabrication"
+    }
+  ],
+  "followup_probe": "qwen-v2-direction-probe.json"
+}

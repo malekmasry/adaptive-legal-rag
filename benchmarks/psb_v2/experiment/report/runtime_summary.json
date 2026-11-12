@@ -1,0 +1,374 @@
+{
+  "vector14": {
+    "commit": "7869b7b8ede384c05d33e7763a97ae53d72d47f0",
+    "elapsed_seconds": null,
+    "questions": 63,
+    "statuses": {
+      "answered": 58,
+      "partial": 5
+    },
+    "median_question_seconds": 23.80942,
+    "calls_by_stage": {
+      "retrieval": 63,
+      "rerank": 63,
+      "direct_generation": 63
+    },
+    "calls_by_endpoint": {
+      "/embeddings": 63,
+      "/rerank": 63,
+      "/chat/completions": 63
+    },
+    "http_statuses": {
+      "200": 189
+    },
+    "reported_prompt_tokens": 256651,
+    "reported_completion_tokens": 23017,
+    "token_usage_complete": false,
+    "events": {
+      "input": 63,
+      "candidates": 63,
+      "context": 63,
+      "validation": 63,
+      "structural_expansion": 46
+    },
+    "event_outcomes": {
+      "input:": 63,
+      "candidates:": 63,
+      "context:": 63,
+      "validation:": 63,
+      "structural_expansion:": 46
+    },
+    "questions_with_dense_search": 63,
+    "transport_failure_ids": [],
+    "api_failures_by_stage": {},
+    "review_by_question_origin": {},
+    "service_observations": {
+      "dense_index_ready": true,
+      "rerank_api_calls": 63,
+      "rerank_api_successes": 63,
+      "technical_errors": 0,
+      "answer_rows": 63
+    },
+    "judge_statuses": {
+      "ok": 63
+    },
+    "confirmed_hallucination_ids": [],
+    "unresolved_ids": [],
+    "large_order_disagreement_ids": [],
+    "mean_order_disagreement": 0.0,
+    "judge_reported_prompt_tokens": 1549374,
+    "judge_reported_completion_tokens": 46418,
+    "judge_usage_caveat": "Only retained successful rounds; failed attempts may consume additional tokens.",
+    "citation_warning_ids": [
+      "S05a",
+      "S10b"
+    ],
+    "warning_despite_valid_context_ids": [
+      "S05a",
+      "S10b"
+    ],
+    "citation_warning_caveat": "Checks ID presence in actual context, not whether every legal claim is supported by the cited fragment."
+  },
+  "coverage2257": {
+    "commit": "bd8ee5e6d649c30952c42b21dc41edee668e45ce",
+    "elapsed_seconds": 638.563,
+    "questions": 63,
+    "statuses": {
+      "answered": 52,
+      "partial": 11
+    },
+    "median_question_seconds": 26.89935,
+    "calls_by_stage": {
+      "rerank_lexical": 63,
+      "evidence_coverage": 61,
+      "direct_generation": 63,
+      "dense": 3,
+      "rerank_dense": 3
+    },
+    "calls_by_endpoint": {
+      "/rerank": 66,
+      "/chat/completions": 124,
+      "/embeddings": 3
+    },
+    "http_statuses": {
+      "200": 131,
+      "not_reported": 62
+    },
+    "reported_prompt_tokens": 279975,
+    "reported_completion_tokens": 11550,
+    "token_usage_complete": false,
+    "events": {
+      "input": 63,
+      "retrieval_route": 63,
+      "candidates": 63,
+      "context": 63,
+      "evidence_coverage": 63,
+      "validation": 63,
+      "structural_expansion": 79
+    },
+    "event_outcomes": {
+      "input:": 63,
+      "retrieval_route:lexical_confident": 59,
+      "candidates:": 63,
+      "context:": 63,
+      "evidence_coverage:check_failed": 61,
+      "validation:": 63,
+      "retrieval_route:low_lexical_score": 3,
+      "structural_expansion:": 79,
+      "evidence_coverage:skipped_budget": 2,
+      "retrieval_route:lexical_rerank_failed": 1
+    },
+    "questions_with_dense_search": 3,
+    "transport_failure_ids": [
+      "S24a"
+    ],
+    "api_failures_by_stage": {
+      "evidence_coverage": 61,
+      "rerank_lexical": 1
+    },
+    "review_by_question_origin": {},
+    "service_observations": {
+      "dense_index_ready": true,
+      "rerank_api_calls": 66,
+      "rerank_api_successes": 65,
+      "technical_errors": 0,
+      "answer_rows": 63
+    },
+    "judge_statuses": {
+      "ok": 61,
+      "needs_review": 2
+    },
+    "confirmed_hallucination_ids": [],
+    "unresolved_ids": [
+      "S20a",
+      "S35a"
+    ],
+    "large_order_disagreement_ids": [
+      "S05b"
+    ],
+    "mean_order_disagreement": 0.02459016393442623,
+    "judge_reported_prompt_tokens": 1560892,
+    "judge_reported_completion_tokens": 58511,
+    "judge_usage_caveat": "Only retained successful rounds; failed attempts may consume additional tokens.",
+    "citation_warning_ids": [
+      "S05b",
+      "S12b",
+      "S20a",
+      "S24a",
+      "S35a",
+      "S04c",
+      "S05c",
+      "S22c",
+      "S28c",
+      "S30c",
+      "S35c"
+    ],
+    "warning_despite_valid_context_ids": [
+      "S05b",
+      "S12b",
+      "S20a",
+      "S24a",
+      "S35a",
+      "S04c",
+      "S05c",
+      "S22c",
+      "S28c",
+      "S30c",
+      "S35c"
+    ],
+    "citation_warning_caveat": "Checks ID presence in actual context, not whether every legal claim is supported by the cited fragment."
+  },
+  "review29": {
+    "commit": "c3cc4d4284661ac9f2ca95ec495e73e473aaf313",
+    "elapsed_seconds": 498.382,
+    "questions": 63,
+    "statuses": {
+      "answered": 53,
+      "partial": 10
+    },
+    "median_question_seconds": 22.86337,
+    "calls_by_stage": {
+      "rerank_lexical": 63,
+      "direct_generation": 63,
+      "answer_review": 32,
+      "dense": 3,
+      "rerank_merged": 3
+    },
+    "calls_by_endpoint": {
+      "/rerank": 66,
+      "/chat/completions": 95,
+      "/embeddings": 3
+    },
+    "http_statuses": {
+      "200": 163,
+      "not_reported": 1
+    },
+    "reported_prompt_tokens": 431845,
+    "reported_completion_tokens": 12251,
+    "token_usage_complete": false,
+    "events": {
+      "input": 63,
+      "retrieval_route": 63,
+      "candidates": 63,
+      "context": 63,
+      "injection_guard": 63,
+      "answer_review": 63,
+      "validation": 63,
+      "structural_expansion": 78
+    },
+    "event_outcomes": {
+      "input:": 63,
+      "retrieval_route:lexical_confident": 60,
+      "candidates:": 63,
+      "context:": 63,
+      "injection_guard:": 63,
+      "answer_review:keep": 28,
+      "validation:": 63,
+      "answer_review:patched": 2,
+      "answer_review:kept_on_error": 2,
+      "structural_expansion:": 78,
+      "retrieval_route:low_lexical_score": 3,
+      "answer_review:skipped_batch_budget": 31
+    },
+    "questions_with_dense_search": 3,
+    "transport_failure_ids": [],
+    "api_failures_by_stage": {
+      "answer_review": 1
+    },
+    "review_by_question_origin": {
+      "synthetic_authored:keep": 28,
+      "synthetic_authored:patched": 2,
+      "synthetic_authored:kept_on_error": 2,
+      "synthetic_authored:skipped_batch_budget": 10,
+      "v2_hard_paraphrase:skipped_batch_budget": 21
+    },
+    "service_observations": {
+      "dense_index_ready": true,
+      "rerank_api_calls": 66,
+      "rerank_api_successes": 66,
+      "technical_errors": 0,
+      "answer_rows": 63
+    },
+    "judge_statuses": {
+      "ok": 59,
+      "needs_review": 4
+    },
+    "confirmed_hallucination_ids": [
+      "S35b",
+      "S07c"
+    ],
+    "unresolved_ids": [
+      "S12a",
+      "S20a",
+      "S01c",
+      "S34c"
+    ],
+    "large_order_disagreement_ids": [],
+    "mean_order_disagreement": 0.029661016949152543,
+    "judge_reported_prompt_tokens": 1603806,
+    "judge_reported_completion_tokens": 61189,
+    "judge_usage_caveat": "Only retained successful rounds; failed attempts may consume additional tokens.",
+    "citation_warning_ids": [
+      "S05b",
+      "S10a",
+      "S12a",
+      "S34b",
+      "S35a",
+      "S05c",
+      "S12c",
+      "S28c",
+      "S34c",
+      "S35c"
+    ],
+    "warning_despite_valid_context_ids": [
+      "S05b",
+      "S10a",
+      "S12a",
+      "S34b",
+      "S35a",
+      "S05c",
+      "S12c",
+      "S28c",
+      "S34c",
+      "S35c"
+    ],
+    "citation_warning_caveat": "Checks ID presence in actual context, not whether every legal claim is supported by the cited fragment."
+  },
+  "conditional35": {
+    "commit": "5d7f10d193edfca14f8c94a7f343e4f70303cc6a",
+    "elapsed_seconds": 482.25,
+    "questions": 63,
+    "statuses": {
+      "answered": 60,
+      "partial": 3
+    },
+    "median_question_seconds": 21.952810000000003,
+    "calls_by_stage": {
+      "rerank_lexical": 63,
+      "direct_generation": 63,
+      "dense": 3,
+      "rerank_dense": 3
+    },
+    "calls_by_endpoint": {
+      "/rerank": 66,
+      "/chat/completions": 63,
+      "/embeddings": 3
+    },
+    "http_statuses": {
+      "200": 132
+    },
+    "reported_prompt_tokens": 274583,
+    "reported_completion_tokens": 23107,
+    "token_usage_complete": false,
+    "events": {
+      "input": 63,
+      "retrieval_route": 63,
+      "candidates": 63,
+      "context": 63,
+      "validation": 63,
+      "structural_expansion": 78
+    },
+    "event_outcomes": {
+      "input:": 63,
+      "retrieval_route:lexical_confident": 60,
+      "candidates:": 63,
+      "context:": 63,
+      "validation:": 63,
+      "structural_expansion:": 78,
+      "retrieval_route:low_lexical_score": 3
+    },
+    "questions_with_dense_search": 3,
+    "transport_failure_ids": [],
+    "api_failures_by_stage": {},
+    "review_by_question_origin": {},
+    "service_observations": {
+      "dense_index_ready": true,
+      "rerank_api_calls": 66,
+      "rerank_api_successes": 66,
+      "technical_errors": 0,
+      "answer_rows": 63
+    },
+    "judge_statuses": {
+      "ok": 61,
+      "judge_error": 1,
+      "needs_review": 1
+    },
+    "confirmed_hallucination_ids": [],
+    "unresolved_ids": [
+      "S02c",
+      "S07c"
+    ],
+    "large_order_disagreement_ids": [],
+    "mean_order_disagreement": 0.012295081967213115,
+    "judge_reported_prompt_tokens": 1623713,
+    "judge_reported_completion_tokens": 59053,
+    "judge_usage_caveat": "Only retained successful rounds; failed attempts may consume additional tokens.",
+    "citation_warning_ids": [
+      "S02b"
+    ],
+    "warning_despite_valid_context_ids": [
+      "S02b"
+    ],
+    "citation_warning_caveat": "Checks ID presence in actual context, not whether every legal claim is supported by the cited fragment."
+  }
+}

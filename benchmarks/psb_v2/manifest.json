@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "benchmark": "psb-calibration-v2",
+  "as_of": "2026-11-13",
+  "archive_sha256": "cea8ef2c8f6c8b9f498efacf705b97bf3da53cc78f366f9b1fef7a6de66327e0",
+  "documents": [
+    {
+      "path": "документы компании__Договор аренды А-08-2024 Северный Склад.txt",
+      "characters": 2838,
+      "sha256_utf8": "ea312cfd0c2727eb321a8a764512ec977725e93e08131048fb77af6bd9700b29"
+    },
+    {
+      "path": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+      "characters": 4042,
+      "sha256_utf8": "b5df5ca3e2b746cbbaa1757e77697f28ad87d015c66d44fade45a10aae754e25"
+    },
+    {
+      "path": "документы компании__Договор поставки ПТ-05-2023 Альфа-Трейдинг.txt",
+      "characters": 2770,
+      "sha256_utf8": "8c2171e4c1bfe5a915a5d3cd7fdfb64ead0866858bf7914f8b84c67be618530d"
+    },
+    {
+      "path": "документы компании__Доп соглашение 1 к договору П-17-2024.txt",
+      "characters": 966,
+      "sha256_utf8": "f37f50f7bcb0900854230903be263bebdea60b3cae4be93ee9ed7ec02e4a380a"
+    },
+    {
+      "path": "документы компании__Письмо комплаенс-службы К-12 от 15.04.2025.txt",
+      "characters": 1349,
+      "sha256_utf8": "9d256e900a22e14c01f341d4172dc2923aa8696b0639f5ab8eed5a6ff5884449"
+    },
+    {
+      "path": "документы компании__Регламент согласования договоров ред 2023 (утратил силу).txt",
+      "characters": 1379,
+      "sha256_utf8": "27dcb53da4f654f50bdf233aa00b3e006075a85086f10dac57800473e499575d"
+    },
+    {
+      "path": "документы компании__Регламент согласования договоров ред 2025.txt",
+      "characters": 2234,
+      "sha256_utf8": "6b899e69657be2b5357d37619cbe31e151bf8ab02f838603a4d55b4257f00e44"
+    },
+    {
+      "path": "документы компании__Служебная записка об архиве договоров.txt",
+      "characters": 852,
+      "sha256_utf8": "a90d426b390e892ba490fde5c5bb85367ed71232a48442728a8e1363232a27ee"
+    },
+    {
+      "path": "законы__152ФЗ_ст9_действующая.txt",
+      "characters": 5517,
+      "sha256_utf8": "26fc061b84c6f730cfbcc2c2a6a143ba391c5e0988befa694ec8afa2c36d71ec"
+    },
+    {
+      "path": "законы__КоАП_ст13.11_действующая.txt",
+      "characters": 18034,
+      "sha256_utf8": "d982e1ebdc409e93fe4434ada02e7a0801971eacb9dfaad511186004628e097f"
+    },
+    {
+      "path": "законы__МРОТ_ст1_действующая.txt",
+      "characters": 2058,
+      "sha256_utf8": "a487d40fa1afb4ff37be1fc4a773a93d16e275c1314a06ed316073ee72936d83"
+    },
+    {
+      "path": "законы__НК_ст112_действующая.txt",
+      "characters": 1695,
+      "sha256_utf8": "9f6e55f1968576d70d195cabffbdd1bca1f9747a29f9af665fa29025e43b3d9a"
+    },
+    {
+      "path": "законы__НК_ст114_действующая.txt",
+      "characters": 1706,
+      "sha256_utf8": "ef0c299cf34b6a7e2ab91c08f46e6bfb0d157557d7bd9161d7a40f5e13b42941"
+    },
+    {
+      "path": "законы__НК_ст145_действующая.txt",
+      "characters": 20979,
+      "sha256_utf8": "59c61690bda78bf26dab36ece2cc3374dc5fed94dd408c0d24b7991776c336b8"
+    },
+    {
+      "path": "законы__НК_ст164_действующая.txt",
+      "characters": 78839,
+      "sha256_utf8": "90f7d1f6c472be5e5a89fc1fe9bcdc3a1b57171c475c772150bb463333bb7066"
+    },
+    {
+      "path": "законы__НК_ст224_действующая.txt",
+      "characters": 12834,
+      "sha256_utf8": "b4a2313836aadf260106ae02607b14ec6bf803ffc5e029dec2a92b1ba10e0067"
+    },
+    {
+      "path": "законы__НК_ст284_действующая.txt",
+      "characters": 95116,
+      "sha256_utf8": "f4805aaa721b5256be3ba2d5a19a4a650623f11598863ff98ee98d313e6558e3"
+    },
+    {
+      "path": "законы__ТК_ст152_действующая.txt",
+      "characters": 2619,
+      "sha256_utf8": "7b08540d0e22b14b3413ddd77dbd2e404073938de90e580b896e3ee5f6f448c3"
+    },
+    {
+      "path": "законы__ТК_ст59_действующая.txt",
+      "characters": 5110,
+      "sha256_utf8": "8956e946db720da15cf3d359cb70cbbc51d5dc1c3aab5a77df43fb78a592643e"
+    },
+    {
+      "path": "законы__ТК_ст70_действующая.txt",
+      "characters": 2752,
+      "sha256_utf8": "faa132894aee5508be9c53bd6af10c28fd6c110c3734a46f32d0c70324c358fb"
+    },
+    {
+      "path": "законы__ТК_ст99_действующая.txt",
+      "characters": 6484,
+      "sha256_utf8": "428df66e32e77301db52f526ae76b47b11ad239b0562b787cf2235c984e07d8b"
+    }
+  ],
+  "cases": 111,
+  "synthetic_families": 36,
+  "splits": {
+    "development": 63,
+    "holdout": 30,
+    "official_demo": 18
+  },
+  "limitations": [
+    "Synthetic cases need independent expert review.",
+    "Holdout is a family-based local regression split, not unseen PSB test distribution.",
+    "No organizer baseline or judge prompt is available.",
+    "No legal facts from external benchmark corpora were imported."
+  ],
+  "dataset_sha256": "c04132443b6b4e1ed0c3f271e44d3d491ce16eeaa51d5a5ecad634c8e5a9e3e5",
+  "calibration_status": "not_run",
+  "changes": [
+    "21 colloquial/dialogue paraphrases; original gold and family splits retained",
+    "Actual solution.py execution is mandatory for calibration",
+    "Legacy holdout is reserved, not claimed previously unseen"
+  ]
+}

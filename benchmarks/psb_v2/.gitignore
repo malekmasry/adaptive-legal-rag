@@ -1,0 +1,14 @@
+!knowledge-base.zip
+!frozen/*.zip
+services.local.json
+private-services.json
+runs/
+/judgments/
+/judgments-resolved/
+bge_model/
+!experiment/**/data/
+!experiment/**/data/**
+!experiment/**/*.zip
+!experiment/**/submission.csv
+!experiment/**/submission.metrics.jsonl
+!experiment/**/*.log

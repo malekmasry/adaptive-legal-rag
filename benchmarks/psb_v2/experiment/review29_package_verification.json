@@ -1,0 +1,16 @@
+{
+  "delivered_zip_sha256": "8c92561c1cf34680515c48d18fd8d5e81b83bfc842c98a9db16c8b30e24f757a",
+  "runtime_matches": {
+    "solution.py": true,
+    "legal_core.py": true,
+    "adaptive_pipeline.py": true,
+    "hallugraph.py": true,
+    "rag_safety.py": true,
+    "rag_telemetry.py": true,
+    "single_pass.py": true,
+    "submission_runner.py": true,
+    "answer_review.py": true,
+    "requirements.txt": true
+  },
+  "platform_execution_configuration_verified": false
+}

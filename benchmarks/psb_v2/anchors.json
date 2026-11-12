@@ -1,0 +1,10 @@
+{
+  "score_source": "user-reported leaderboard scores; no per-question platform feedback",
+  "versions": [
+    {"id":"vector14","commit":"7869b7b8ede384c05d33e7763a97ae53d72d47f0","official_score":14,"score_approximate":false,"historical_config_confirmed":false},
+    {"id":"coverage2257","commit":"bd8ee5e6d649c30952c42b21dc41edee668e45ce","official_score":22.57,"score_approximate":false,"historical_config_confirmed":false},
+    {"id":"review29","commit":"c3cc4d4284661ac9f2ca95ec495e73e473aaf313","official_score":29,"score_approximate":false,"historical_config_confirmed":false,"delivered_zip_sha256":"8c92561c1cf34680515c48d18fd8d5e81b83bfc842c98a9db16c8b30e24f757a"},
+    {"id":"conditional35","commit":"5d7f10d193edfca14f8c94a7f343e4f70303cc6a","official_score":35,"score_approximate":true,"historical_config_confirmed":false}
+  ],
+  "excluded": [{"score":15,"reason":"Exact pre-vector submission and service configuration have not been identified; not an independent reliable anchor yet."}]
+}

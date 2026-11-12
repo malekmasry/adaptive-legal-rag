@@ -1,0 +1,9 @@
+{"id": "S01a", "status": "ok", "score": 0.625, "finished": 1, "total": 63}
+{"id": "S01b", "status": "ok", "score": 0.5, "finished": 2, "total": 63}
+{"id": "S02a", "status": "ok", "score": 0.5, "finished": 3, "total": 63}
+{"id": "S04a", "status": "ok", "score": 0.5, "finished": 4, "total": 63}
+{"id": "S04b", "status": "ok", "score": 0.5, "finished": 5, "total": 63}
+{"id": "S02b", "status": "ok", "score": 0.625, "finished": 6, "total": 63}
+{"id": "S05a", "status": "ok", "score": 0.625, "finished": 7, "total": 63}
+{"id": "S07a", "status": "ok", "score": 0.375, "finished": 8, "total": 63}
+{"id": "S05b", "status": "needs_review", "score": null, "finished": 9, "total": 63}

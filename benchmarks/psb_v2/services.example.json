@@ -1,0 +1,11 @@
+{
+  "LLM_BASE_URL": "",
+  "LLM_API_KEY": "",
+  "LLM_MODEL": "",
+  "EMB_BASE_URL": "",
+  "EMB_API_KEY": "",
+  "EMB_MODEL": "",
+  "RERANKER_BASE_URL": "",
+  "RERANKER_API_KEY": "",
+  "RERANKER_MODEL": ""
+}
