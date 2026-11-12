@@ -81,7 +81,8 @@ def run_submission() -> None:
                 info["events"] = [{key: event[key] for key in (
                     "stage", "status", "type", "count", "source_ids", "irac_ok", "unknown_citations",
                     "has_citations", "nonliteral_quotes", "quarantined_lines", "dense_used", "characters", "skipped_ids",
-                    "route", "threshold", "rerank_score", "dense_rerank_score") if key in event}
+                    "route", "threshold", "rerank_score", "dense_rerank_score",
+                    "query_count", "unique_candidates", "selected_candidates", "error_type") if key in event}
                                   for event in info.get("events", [])]
                 info.update({"id": questions[index][0], "status": answer.status,
                              "source_ids": [source.id for source in answer.sources]})
@@ -112,6 +113,7 @@ def run_submission() -> None:
                                       "retrieval_mode": engine.retrieval_mode,
                                       "conditional_threshold": engine.conditional_threshold,
                                       "dense_index_ready": engine.vectors is not None,
+                                      "dense_multi_query": setting("DENSE_MULTI_QUERY", default="0") == "1",
                                       "ingestion_warning_counts": dict(Counter(
                                           item.get("reason", "unknown") for item in getattr(engine, "ingestion_warnings", [])))},
                                      ensure_ascii=False) + "\n")

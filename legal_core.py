@@ -375,13 +375,14 @@ class ModelProxy:
     def ready(self) -> bool:
         return bool(self.base and self.key and self.llm)
 
-    def post(self, endpoint: str, payload: dict, *, base: str | None = None, key: str | None = None) -> dict:
+    def post(self, endpoint: str, payload: dict, *, base: str | None = None, key: str | None = None,
+             attempts: int | None = None) -> dict:
         base = self.base if base is None else base
         key = self.key if key is None else key
         if not base or not key:
             raise RuntimeError("Model proxy configuration is missing")
         last_error = None
-        attempts = integer_setting("MAX_API_ATTEMPTS", 2, 1, 3)
+        attempts = integer_setting("MAX_API_ATTEMPTS", 2, 1, 3) if attempts is None else max(1, min(3, attempts))
         trace = CURRENT.get()
         remaining = trace.remaining() if trace else remaining_seconds()
         request_end = time.perf_counter() + min(remaining, integer_setting("API_TIMEOUT_SECONDS", 60, 1, 180))
@@ -693,7 +694,8 @@ class LegalAssistant:
                 trace.timings["rerank"] = trace.timings.get("rerank", 0) + elapsed
                 trace.stage = previous_stage
 
-    def _conditional_candidates(self, query: str, lexical: list[int], candidate_k: int) -> tuple[list[int], bool]:
+    def _conditional_candidates(self, query: str, lexical: list[int], candidate_k: int,
+                                conversation: str = "") -> tuple[list[int], bool]:
         chosen = lexical[:candidate_k]
         trace = CURRENT.get()
         event = {"stage": "retrieval_route", "route": "lexical", "threshold": self.conditional_threshold,
@@ -718,7 +720,11 @@ class LegalAssistant:
                 try:
                     if trace:
                         trace.stage = "dense"
-                    dense = self._dense(query)[:candidate_k]
+                    if setting("DENSE_MULTI_QUERY", default="0") == "1":
+                        from multi_query import dense_candidates
+                        dense = dense_candidates(self, query, conversation or query, candidate_k)
+                    else:
+                        dense = self._dense(query)[:candidate_k]
                 finally:
                     if trace:
                         trace.timings["dense"] = (time.perf_counter() - started) * 1000
@@ -745,7 +751,7 @@ class LegalAssistant:
         query = focused_search_question(question)
         lexical = self._lexical(query)
         if self.retrieval_mode == "conditional":
-            chosen, dense_used = self._conditional_candidates(query, lexical, candidate_k)
+            chosen, dense_used = self._conditional_candidates(query, lexical, candidate_k, question)
         else:
             chosen, dense_used = self._hybrid_candidates(query, lexical, candidate_k)
         if CURRENT.get():

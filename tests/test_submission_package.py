@@ -38,12 +38,16 @@ class PackagedPipelineTest(unittest.TestCase):
                                             for i in range(len(request["documents"]))]}
                 elif self.path.endswith("/chat/completions"):
                     payload = json.loads(request["messages"][1]["content"])
-                    source = next(item for item in payload["sources"] if "7 рабочих дней" in item["text"])
-                    response = {"choices": [{"finish_reason": "stop", "message": {"content": (
-                        "I — Вопрос\nКогда оплачивать?\nR — Нормы\n"
-                        f"Оплата в течение 7 рабочих дней после приёмки [{source['id']}].\n"
-                        f"A — Применение\nСрок считают после приёмки [{source['id']}].\n"
-                        f"C — Вывод\nОплатить в течение 7 рабочих дней [{source['id']}].")}}]}
+                    if "query_rewrite" in request["messages"][0]["content"]:
+                        content = json.dumps({"queries": ["Когда наступает срок оплаты товара?",
+                                                           "Как договор определяет срок расчетов?"]})
+                    else:
+                        source = next(item for item in payload["sources"] if "7 рабочих дней" in item["text"])
+                        content = ("I — Вопрос\nКогда оплачивать?\nR — Нормы\n"
+                                   f"Оплата в течение 7 рабочих дней после приёмки [{source['id']}].\n"
+                                   f"A — Применение\nСрок считают после приёмки [{source['id']}].\n"
+                                   f"C — Вывод\nОплатить в течение 7 рабочих дней [{source['id']}].")
+                    response = {"choices": [{"finish_reason": "stop", "message": {"content": content}}]}
                 else:
                     self.send_error(404)
                     return
@@ -74,7 +78,7 @@ class PackagedPipelineTest(unittest.TestCase):
                 'id,question\n1,"СИЛЬНЫЙ: Когда оплачивать товар?"\n2,"СЛАБЫЙ: Срок оплаты?"\n', encoding="utf-8")
             env = {**os.environ, "LLM_BASE_URL": f"http://127.0.0.1:{server.server_port}/v1",
                    "LLM_API_KEY": "synthetic-test-key", "LLM_MODEL": "stub", "DATA_DIR": str(data),
-                   "USE_EMBEDDINGS": "0", "RETRIEVAL_MODE": "hybrid", "CONDITIONAL_DENSE_THRESHOLD": "0.5",
+                   "USE_EMBEDDINGS": "0", "RETRIEVAL_MODE": "hybrid", "DENSE_MULTI_QUERY": "0", "CONDITIONAL_DENSE_THRESHOLD": "0.5",
                    "RERANKER_MODEL": "stub-reranker", "EMB_MODEL": "stub-embeddings",
                    "EMB_BASE_URL": "", "EMB_API_KEY": "", "RERANKER_BASE_URL": "", "RERANKER_API_KEY": "",
                    "MAX_WORKERS": "2", "PIPELINE_MODE": "single_pass", "HTTP_TRUST_ENV": "0",
@@ -89,6 +93,7 @@ class PackagedPipelineTest(unittest.TestCase):
             metrics = [json.loads(line) for line in (root / "submission.metrics.jsonl").read_text(encoding="utf-8").splitlines()]
             self.assertEqual(metrics[0]["retrieval_mode"], "conditional")
             self.assertTrue(metrics[0]["dense_index_ready"])
+            self.assertTrue(metrics[0]["dense_multi_query"])
             answers = {row["id"]: row for row in metrics if "id" in row}
             routes = {key: next(event for event in row["events"] if event["stage"] == "retrieval_route")
                       for key, row in answers.items()}
@@ -98,11 +103,14 @@ class PackagedPipelineTest(unittest.TestCase):
             self.assertEqual(routes["2"]["threshold"], 0.5)
             self.assertTrue(all(row["pipeline_calls"] == 1 for row in answers.values()))
             self.assertEqual([path for path, _ in calls].count("/v1/rerank"), 3)
-            self.assertEqual([path for path, _ in calls].count("/v1/chat/completions"), 2)
+            self.assertEqual([path for path, _ in calls].count("/v1/chat/completions"), 3)
             embeds = [request for path, request in calls if path == "/v1/embeddings"]
             self.assertEqual(len(embeds), 2)  # One corpus batch, one weak query.
-            self.assertEqual(len(embeds[-1]["input"]), 1)
+            self.assertEqual(len(embeds[-1]["input"]), 3)
             self.assertIn("СЛАБЫЙ", embeds[-1]["input"][0])
+            self.assertFalse(any(event["stage"] == "query_rewrite" for event in answers["1"]["events"]))
+            event = next(event for event in answers["2"]["events"] if event["stage"] == "query_rewrite")
+            self.assertEqual(event["query_count"], 3)
 
     def test_csv_runs_single_pass_irac_from_packaged_root_modules(self):
         calls = []
