@@ -138,14 +138,17 @@ class SinglePassPipeline:
         from legal_core import Answer
         diagnostics = self.trace.public()
         diagnostics.update({"pipeline": "single_pass", "pipeline_calls": self.calls,
-                            "retrieval_rounds": 0, "semantic_verification": False,
+                            "retrieval_rounds": sum(event.get("additional_searches", 0) for event in self.trace.events),
+                            "coverage_checks": sum(bool(event.get("attempted")) for event in self.trace.events
+                                                   if event["stage"] == "evidence_coverage"),
+                            "semantic_verification": False,
                             "search_total_ms": round(self.trace.timings.get("retrieval", 0), 2),
                             "ingestion_warnings": self.engine.ingestion_warnings})
         return Answer(text, sources, status, diagnostics)
 
     def run(self, question: str, *, sources_override: list | None = None):
         """sources_override is for explicit oracle-context experiments only."""
-        from legal_core import integer_setting, latest_turn, unsupported_or_clarifying
+        from legal_core import integer_setting, latest_turn, setting, unsupported_or_clarifying
         self.trace.deadline_seconds = integer_setting("PIPELINE_TIMEOUT_SECONDS", 90, 1, 300)
         token = CURRENT.set(self.trace)
         try:
@@ -171,10 +174,13 @@ class SinglePassPipeline:
                 else:
                     candidates = sources_override
                     self.trace.events.append({"stage": "retrieval", "mode": "oracle_context"})
+                records = pack_context(self.engine, candidates)
+                if sources_override is None and records and setting("EVIDENCE_COVERAGE", default="0") == "1":
+                    from evidence_coverage import enrich_context
+                    records = enrich_context(self.engine, cleaned, latest, records)
             finally:
                 DEADLINE.reset(budget)
             self.trace.timings["retrieval"] = (perf_counter() - started) * 1000
-            records = pack_context(self.engine, candidates)
             if not records:
                 return self.result(irac_notice(latest, "В найденных фрагментах недостаточно оснований для ответа."), [], "insufficient")
             allowed = {item["id"] for item in records}

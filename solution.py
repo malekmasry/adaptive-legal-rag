@@ -6,4 +6,5 @@ from legal_core import run_submission
 if __name__ == "__main__":
     os.environ["USE_EMBEDDINGS"] = "1"
     os.environ["RETRIEVAL_MODE"] = "conditional"
+    os.environ["EVIDENCE_COVERAGE"] = "1"
     run_submission()

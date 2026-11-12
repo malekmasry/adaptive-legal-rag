@@ -74,14 +74,16 @@ def run_submission() -> None:
             def record(index, answer, *, persist=True):
                 answers[index] = answer.text.replace("\x00", "").strip() or unfinished
                 diagnostic_keys = ("pipeline", "total_ms", "search_total_ms", "timings_ms", "pipeline_calls",
-                                   "prompt_tokens", "completion_tokens", "usage_complete", "api_calls", "events")
+                                   "prompt_tokens", "completion_tokens", "usage_complete", "api_calls", "events",
+                                   "retrieval_rounds", "coverage_checks")
                 info = {key: answer.diagnostics[key] for key in diagnostic_keys if key in answer.diagnostics}
                 # Legacy adaptive events can contain draft excerpts. Keep only
                 # compact operational fields in the default batch log.
                 info["events"] = [{key: event[key] for key in (
                     "stage", "status", "type", "count", "source_ids", "irac_ok", "unknown_citations",
                     "has_citations", "nonliteral_quotes", "quarantined_lines", "dense_used", "characters", "skipped_ids",
-                    "route", "threshold", "rerank_score", "dense_rerank_score") if key in event}
+                    "route", "threshold", "rerank_score", "dense_rerank_score", "attempted", "additional_searches",
+                    "added_ids", "dropped_ids", "supported", "gaps", "action", "error_type") if key in event}
                                   for event in info.get("events", [])]
                 info.update({"id": questions[index][0], "status": answer.status,
                              "source_ids": [source.id for source in answer.sources]})

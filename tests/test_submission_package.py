@@ -15,6 +15,12 @@ import build_submission
 from test_adaptive import TEXT
 
 
+def coverage_response(source):
+    return json.dumps({"requirements": [{"topic": "Срок оплаты", "status": "supported", "evidence": [{
+        "source_id": source["id"], "quote": "Покупатель оплачивает товар в течение 7 рабочих дней после приёмки."}]}],
+        "action": {"kind": "none", "source_ids": [], "query": ""}}, ensure_ascii=False)
+
+
 class PackagedPipelineTest(unittest.TestCase):
     def test_conditional_zip_enables_embeddings_and_routes_both_questions(self):
         calls = []
@@ -44,6 +50,8 @@ class PackagedPipelineTest(unittest.TestCase):
                         f"Оплата в течение 7 рабочих дней после приёмки [{source['id']}].\n"
                         f"A — Применение\nСрок считают после приёмки [{source['id']}].\n"
                         f"C — Вывод\nОплатить в течение 7 рабочих дней [{source['id']}].")}}]}
+                    if "Этап: evidence_coverage" in request["messages"][0]["content"]:
+                        response["choices"][0]["message"]["content"] = coverage_response(source)
                 else:
                     self.send_error(404)
                     return
@@ -77,7 +85,7 @@ class PackagedPipelineTest(unittest.TestCase):
                    "USE_EMBEDDINGS": "0", "RETRIEVAL_MODE": "hybrid", "CONDITIONAL_DENSE_THRESHOLD": "0.5",
                    "RERANKER_MODEL": "stub-reranker", "EMB_MODEL": "stub-embeddings",
                    "EMB_BASE_URL": "", "EMB_API_KEY": "", "RERANKER_BASE_URL": "", "RERANKER_API_KEY": "",
-                   "MAX_WORKERS": "2", "PIPELINE_MODE": "single_pass", "HTTP_TRUST_ENV": "0",
+                   "MAX_WORKERS": "2", "PIPELINE_MODE": "single_pass", "HTTP_TRUST_ENV": "0", "EVIDENCE_COVERAGE": "0",
                    "OUTPUT_CSV": "submission.csv", "METRICS_PATH": "submission.metrics.jsonl"}
             process = subprocess.run([sys.executable, "-X", "utf8", "solution.py"], cwd=root,
                                      env=env, capture_output=True, text=True, encoding="utf-8", timeout=30)
@@ -97,8 +105,9 @@ class PackagedPipelineTest(unittest.TestCase):
             self.assertEqual(routes["2"]["rerank_score"], 0.1)
             self.assertEqual(routes["2"]["threshold"], 0.5)
             self.assertTrue(all(row["pipeline_calls"] == 1 for row in answers.values()))
+            self.assertTrue(all(row["coverage_checks"] == 1 for row in answers.values()))
             self.assertEqual([path for path, _ in calls].count("/v1/rerank"), 3)
-            self.assertEqual([path for path, _ in calls].count("/v1/chat/completions"), 2)
+            self.assertEqual([path for path, _ in calls].count("/v1/chat/completions"), 4)
             embeds = [request for path, request in calls if path == "/v1/embeddings"]
             self.assertEqual(len(embeds), 2)  # One corpus batch, one weak query.
             self.assertEqual(len(embeds[-1]["input"]), 1)
@@ -118,6 +127,8 @@ class PackagedPipelineTest(unittest.TestCase):
                 source = next(item for item in payload["sources"] if "7 рабочих дней" in item["text"])
                 content = ("Оплатить товар нужно в течение 7 рабочих дней после приёмки. "
                            f"Основание: {source['document']}, {source['clause']} [{source['id']}].")
+                if "Этап: evidence_coverage" in messages[0]["content"]:
+                    content = coverage_response(source)
                 calls.append(self.path)
                 data = json.dumps({"choices": [{"finish_reason": "stop", "message": {"content": content}}],
                                    "usage": {"prompt_tokens": 11, "completion_tokens": 13, "total_tokens": 24}}).encode()
@@ -162,13 +173,14 @@ class PackagedPipelineTest(unittest.TestCase):
                 self.assertIn("Источники:", row["answer"])
                 for heading in ("I — Вопрос", "R — Нормы", "A — Применение", "C — Вывод"):
                     self.assertNotIn(heading, row["answer"])
-            self.assertEqual(calls, ["/v1/chat/completions"] * 2)
+            self.assertEqual(calls, ["/v1/chat/completions"] * 4)
             metrics = [json.loads(line) for line in (root / "submission.metrics.jsonl").read_text().splitlines()]
             rows = [item for item in metrics if "id" in item]
             self.assertEqual(len(rows), 2)
             self.assertTrue(all(item["pipeline_calls"] == 1 for item in rows))
             self.assertTrue(all(item["status"] == "answered" for item in rows))
-            self.assertTrue(all(item["prompt_tokens"] == 11 for item in rows))
+            self.assertTrue(all(item["prompt_tokens"] == 22 for item in rows))
+            self.assertTrue(all(item["coverage_checks"] == 1 for item in rows))
 
 
 if __name__ == "__main__":
