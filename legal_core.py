@@ -70,27 +70,8 @@ def latest_turn(question: str) -> str:
 
 
 def focused_search_question(question: str) -> str:
-    latest = latest_turn(question)
-    # When the user resolved the company or contract in the last turn,
-    # earlier assistant guesses should not compete with that entity.
-    if latest != question and (CONTRACT_RE.search(latest) or re.search(r"[«\"][^»\"]+[»\"]", latest)):
-        return latest
-    if latest != question:
-        user_turns = [turn.strip() for turn in re.findall(
-            r"Пользователь:\s*(.*?)(?=\n(?:Пользователь|Ассистент):|\Z)",
-            question,
-            flags=re.S,
-        )]
-        if user_turns:
-            # An assistant's earlier answer is not evidence about the user's
-            # intended document and can drown out the latest question.
-            earlier = "\n".join(user_turns[:-1])
-            identifiers = CONTRACT_RE.findall(earlier)
-            entities = quoted_names(earlier)
-            if identifiers or entities:
-                return latest + " " + " ".join(identifiers + [f"«{name}»" for name in entities])
-            return "\n".join(user_turns)
-    return question
+    from dialogue import resolve
+    return resolve(question).search_question
 
 
 def setting(*names: str, default: str = "") -> str:
@@ -739,10 +720,10 @@ class LegalAssistant:
             if trace:
                 trace.events.append(event)
 
-    def retrieve(self, question: str, limit: int | None = None) -> list[Source]:
+    def retrieve(self, question: str, limit: int | None = None, *, resolved: bool = False) -> list[Source]:
         limit = limit or integer_setting("TOP_K", 12, 4, 30)
         candidate_k = max(limit, integer_setting("RETRIEVAL_CANDIDATES", 64, 16, 256))
-        query = focused_search_question(question)
+        query = question if resolved else focused_search_question(question)
         lexical = self._lexical(query)
         if self.retrieval_mode == "conditional":
             chosen, dense_used = self._conditional_candidates(query, lexical, candidate_k)
@@ -810,14 +791,27 @@ class LegalAssistant:
         return [self.sources[index] for index in chosen]
 
     def answer(self, question: str) -> Answer:
+        from dialogue import resolve
+        return self._answer_dialogue(resolve(question))
+
+    def new_session(self, *, max_exchanges: int = 6, max_chars: int = 16000):
+        from dialogue import ChatSession
+        return ChatSession(self, max_exchanges=max_exchanges, max_chars=max_chars)
+
+    def _answer_dialogue(self, request) -> Answer:
+        from dialogue import immediate_answer
+        if len(request.conversation) <= 20000:
+            direct = immediate_answer(request)
+            if direct is not None:
+                return direct
         mode = setting("PIPELINE_MODE", default="single_pass")
         if mode == "adaptive":
             from adaptive_pipeline import AdaptivePipeline
-            return AdaptivePipeline(self).run(question)
+            return AdaptivePipeline(self).run(request.conversation)
         if mode != "single_pass":
             raise ValueError("PIPELINE_MODE must be single_pass or adaptive")
         from single_pass import SinglePassPipeline
-        return SinglePassPipeline(self).run(question)
+        return SinglePassPipeline(self).run(request.conversation, dialogue_request=request)
 
     def answer_legacy(self, question: str) -> Answer:
         """Historical one-pass baseline, only for explicit offline ablations."""

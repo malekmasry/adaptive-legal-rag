@@ -16,6 +16,77 @@ from test_adaptive import TEXT
 
 
 class PackagedPipelineTest(unittest.TestCase):
+    def test_dialogue_zip_repeats_without_search_and_isolates_csv_ids(self):
+        calls = []
+
+        class Handler(BaseHTTPRequestHandler):
+            def log_message(self, *args):
+                pass
+
+            def do_POST(self):
+                request = json.loads(self.rfile.read(int(self.headers["Content-Length"])))
+                payload = json.loads(request["messages"][1]["content"])
+                calls.append(payload)
+                source = next(s for s in payload["sources"] if "7 рабочих дней" in s["text"])
+                content = ("I — Вопрос\nКогда оплачивать?\nR — Нормы\n"
+                           f"Оплата в течение 7 рабочих дней [{source['id']}].\n"
+                           f"A — Применение\nСрок после приёмки [{source['id']}].\n"
+                           f"C — Вывод\nОплатить в течение 7 рабочих дней [{source['id']}].")
+                body = json.dumps({"choices": [{"finish_reason": "stop", "message": {"content": content}}]}).encode()
+                self.send_response(200)
+                self.send_header("Content-Type", "application/json")
+                self.send_header("Content-Length", str(len(body)))
+                self.end_headers()
+                self.wfile.write(body)
+
+        server = ThreadingHTTPServer(("127.0.0.1", 0), Handler)
+        threading.Thread(target=server.serve_forever, daemon=True).start()
+        self.addCleanup(server.server_close)
+        self.addCleanup(server.shutdown)
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            archive = root / "submission.zip"
+            with zipfile.ZipFile(archive, "w") as bundle:
+                for name in build_submission.FILES:
+                    bundle.write(build_submission.ROOT / name, name)
+            with zipfile.ZipFile(archive) as bundle:
+                bundle.extractall(root)
+            data = root / "data"
+            data.mkdir()
+            with zipfile.ZipFile(data / "kb.zip", "w") as bundle:
+                bundle.writestr("Договор М-42-2026.txt", TEXT)
+            rows = [
+                ("repeat", "Пользователь: Срок оплаты?\nАссистент: Предыдущий ответ: семь дней.\nПользователь: Повтори ответ"),
+                ("missing", "Повтори ответ"),
+                ("reanswer", "Пользователь: Когда оплачивать по М-42/2026?\nАссистент: Уточните.\nПользователь: Ответь на предыдущий вопрос"),
+            ]
+            with (data / "questions.csv").open("w", encoding="utf-8", newline="") as stream:
+                writer = csv.writer(stream)
+                writer.writerow(["id", "question"])
+                writer.writerows(rows)
+            env = {**os.environ, "LLM_BASE_URL": f"http://127.0.0.1:{server.server_port}/v1",
+                   "LLM_API_KEY": "stub", "LLM_MODEL": "stub", "RERANKER_MODEL": "",
+                   "RERANKER_BASE_URL": "", "RERANKER_API_KEY": "", "DATA_DIR": str(data),
+                   "MAX_WORKERS": "1", "HTTP_TRUST_ENV": "0", "PIPELINE_MODE": "single_pass",
+                   "OUTPUT_CSV": "submission.csv", "METRICS_PATH": "submission.metrics.jsonl"}
+            run = subprocess.run([sys.executable, "-X", "utf8", "solution.py"], cwd=root, env=env,
+                                 capture_output=True, text=True, encoding="utf-8", timeout=30)
+            self.assertEqual(run.returncode, 0, run.stderr)
+            with (root / "submission.csv").open(encoding="utf-8", newline="") as stream:
+                output = {r["id"]: r["answer"] for r in csv.DictReader(stream)}
+            self.assertIn("Предыдущий ответ: семь дней", output["repeat"])
+            self.assertIn("Предыдущего ответа", output["missing"])
+            self.assertNotIn("семь дней", output["missing"])
+            self.assertIn("7 рабочих дней", output["reanswer"])
+            self.assertEqual(len(calls), 1)
+            self.assertEqual(calls[0]["latest_question"], "Когда оплачивать по М-42/2026?")
+            metrics = [json.loads(line) for line in (root / "submission.metrics.jsonl").read_text(encoding="utf-8").splitlines()]
+            per_id = {r["id"]: r for r in metrics if "id" in r}
+            self.assertEqual(per_id["repeat"]["pipeline_calls"], 0)
+            self.assertEqual(per_id["missing"]["pipeline_calls"], 0)
+            self.assertEqual(per_id["repeat"]["api_calls"], [])
+            self.assertEqual(per_id["reanswer"]["pipeline_calls"], 1)
+
     def test_conditional_zip_enables_embeddings_and_routes_both_questions(self):
         calls = []
         rerank_counts = {}

@@ -81,7 +81,7 @@ def run_submission() -> None:
                 info["events"] = [{key: event[key] for key in (
                     "stage", "status", "type", "count", "source_ids", "irac_ok", "unknown_citations",
                     "has_citations", "nonliteral_quotes", "quarantined_lines", "dense_used", "characters", "skipped_ids",
-                    "route", "threshold", "rerank_score", "dense_rerank_score") if key in event}
+                    "route", "threshold", "rerank_score", "dense_rerank_score", "history_turns") if key in event}
                                   for event in info.get("events", [])]
                 info.update({"id": questions[index][0], "status": answer.status,
                              "source_ids": [source.id for source in answer.sources]})

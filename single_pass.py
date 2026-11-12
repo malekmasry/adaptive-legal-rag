@@ -143,7 +143,7 @@ class SinglePassPipeline:
                             "ingestion_warnings": self.engine.ingestion_warnings})
         return Answer(text, sources, status, diagnostics)
 
-    def run(self, question: str, *, sources_override: list | None = None):
+    def run(self, question: str, *, sources_override: list | None = None, dialogue_request=None):
         """sources_override is for explicit oracle-context experiments only."""
         from legal_core import integer_setting, latest_turn, unsupported_or_clarifying
         self.trace.deadline_seconds = integer_setting("PIPELINE_TIMEOUT_SECONDS", 90, 1, 300)
@@ -151,9 +151,12 @@ class SinglePassPipeline:
         try:
             if len(question) > 20000:
                 raise ValueError("Question too long")
-            latest, _ = clean_data(latest_turn(question))
+            latest, _ = clean_data(dialogue_request.latest_question if dialogue_request else latest_turn(question))
             cleaned, removed = clean_data(question)
             self.trace.events.append({"stage": "input", "quarantined_lines": removed})
+            if dialogue_request is not None:
+                self.trace.events.append({"stage": "dialogue", "route": dialogue_request.route,
+                                          "history_turns": dialogue_request.history_turns})
             if not latest.strip():
                 return self.result(irac_notice("Вопрос не определён.", "Уточните юридический вопрос по документам."), [], "clarification")
             if not self.engine.proxy.ready:
@@ -167,7 +170,12 @@ class SinglePassPipeline:
             budget = DEADLINE.set(perf_counter() + min(remaining_seconds(retrieval_budget), retrieval_budget))
             try:
                 if sources_override is None:
-                    candidates = expand_context(self.engine, self.engine.retrieve(cleaned))
+                    if dialogue_request is not None:
+                        search_question, _ = clean_data(dialogue_request.search_question)
+                        found = self.engine.retrieve(search_question, resolved=True)
+                    else:
+                        found = self.engine.retrieve(cleaned)
+                    candidates = expand_context(self.engine, found)
                 else:
                     candidates = sources_override
                     self.trace.events.append({"stage": "retrieval", "mode": "oracle_context"})

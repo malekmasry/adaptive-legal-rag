@@ -16,6 +16,7 @@ def main() -> int:
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--question")
     group.add_argument("--question-file", type=Path)
+    group.add_argument("--chat", action="store_true", help="In-memory conversation; /new clears it, /exit ends it")
     parser.add_argument("--archive", type=Path)
     parser.add_argument("--base-url")
     parser.add_argument("--model")
@@ -34,9 +35,32 @@ def main() -> int:
     os.environ["PIPELINE_MODE"] = args.pipeline
     if args.ask_key:
         os.environ["LLM_API_KEY"] = getpass.getpass("API key (not saved): ")
+    if args.chat and args.trace:
+        parser.error("--trace is only supported for one-question runs")
     archive = args.archive or find_archive(Path(setting("DATA_DIR", default="data")))
-    question = args.question if args.question is not None else args.question_file.read_text(encoding="utf-8-sig")
     engine = LegalAssistant(archive, use_embeddings=args.embeddings)
+    if args.chat:
+        session = engine.new_session()
+        print("Диалог начат. /new — очистить историю; /exit — выйти.")
+        while True:
+            try:
+                question = input("Вы: ").strip()
+            except (EOFError, KeyboardInterrupt):
+                print()
+                break
+            if question == "/exit":
+                break
+            if question == "/new":
+                session.clear()
+                print("История очищена.")
+                continue
+            if question:
+                result = session.ask(question)
+                print(result.text)
+                if args.metrics:
+                    print(json.dumps(result.diagnostics, ensure_ascii=False), file=sys.stderr)
+        return 0
+    question = args.question if args.question is not None else args.question_file.read_text(encoding="utf-8-sig")
     result = engine.answer(question)
     print(result.text)
     if args.metrics:

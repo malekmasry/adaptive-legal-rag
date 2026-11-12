@@ -154,6 +154,10 @@ class PipelineTests(unittest.TestCase):
         (path / "questions.csv").write_text('id,question\n7,"Первый вопрос"\n9,"Второй вопрос"\n', encoding="utf-8")
 
         class StubEngine:
+            retrieval_mode = "conditional"
+            conditional_threshold = 0.5
+            vectors = None
+
             def answer(self, question: str) -> legal_core.Answer:
                 return legal_core.Answer("Ответ, с запятой", [], "answered")
 
