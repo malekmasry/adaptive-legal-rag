@@ -58,7 +58,7 @@ def run_submission() -> None:
     reserve = min(integer_setting("BATCH_WRITE_RESERVE_SECONDS", 5, 0, 60), timeout / 4)
     deadline = started + timeout - reserve
     review_budget = ReviewBudget(
-        seconds=min(integer_setting("ANSWER_REVIEW_BATCH_SECONDS", 240, 0, 600), timeout / 4),
+        seconds=min(integer_setting("ANSWER_REVIEW_BATCH_SECONDS", 400, 0, 600), timeout),
         deadline=deadline,
         reserve=integer_setting("ANSWER_REVIEW_BATCH_RESERVE_SECONDS", 120, 0, 600))
     data_dir = Path(setting("DATA_DIR", default="data"))

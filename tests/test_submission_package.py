@@ -82,9 +82,10 @@ class PackagedPipelineTest(unittest.TestCase):
                    "EMB_BASE_URL": "", "EMB_API_KEY": "", "RERANKER_BASE_URL": "", "RERANKER_API_KEY": "",
                    "MAX_WORKERS": "2", "PIPELINE_MODE": "single_pass", "HTTP_TRUST_ENV": "0",
                    "CONDITIONAL_DENSE_MERGE": "1", "ANSWER_REVIEW_ENABLED": "1",
-                   "ANSWER_REVIEW_BATCH_SECONDS": "240", "BATCH_TIMEOUT_SECONDS": "1080",
+                   "BATCH_TIMEOUT_SECONDS": "1080",
                    "ANSWER_REVIEW_BATCH_RESERVE_SECONDS": "120",
                    "OUTPUT_CSV": "submission.csv", "METRICS_PATH": "submission.metrics.jsonl"}
+            env.pop("ANSWER_REVIEW_BATCH_SECONDS", None)
             process = subprocess.run([sys.executable, "-X", "utf8", "solution.py"], cwd=root,
                                      env=env, capture_output=True, text=True, encoding="utf-8", timeout=30)
             self.assertEqual(process.returncode, 0, process.stderr)
@@ -95,6 +96,8 @@ class PackagedPipelineTest(unittest.TestCase):
             metrics = [json.loads(line) for line in (root / "submission.metrics.jsonl").read_text(encoding="utf-8").splitlines()]
             self.assertEqual(metrics[0]["retrieval_mode"], "conditional")
             self.assertTrue(metrics[0]["dense_index_ready"])
+            summary = next(row for row in metrics if row.get("stage") == "batch_complete")
+            self.assertEqual(summary["answer_review"]["budget_seconds"], 400)
             answers = {row["id"]: row for row in metrics if "id" in row}
             routes = {key: next(event for event in row["events"] if event["stage"] == "retrieval_route")
                       for key, row in answers.items()}
@@ -179,6 +182,8 @@ class PackagedPipelineTest(unittest.TestCase):
                     self.assertNotIn(heading, row["answer"])
             self.assertEqual(calls, ["/v1/chat/completions"] * 4)
             metrics = [json.loads(line) for line in (root / "submission.metrics.jsonl").read_text().splitlines()]
+            summary = next(row for row in metrics if row.get("stage") == "batch_complete")
+            self.assertEqual(summary["answer_review"]["budget_seconds"], 240)
             rows = [item for item in metrics if "id" in item]
             self.assertEqual(len(rows), 2)
             self.assertTrue(all(item["pipeline_calls"] == 2 for item in rows))
