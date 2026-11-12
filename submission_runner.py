@@ -112,6 +112,8 @@ def run_submission() -> None:
                                       "retrieval_mode": engine.retrieval_mode,
                                       "conditional_threshold": engine.conditional_threshold,
                                       "dense_index_ready": engine.vectors is not None,
+                                      "dense_chunking": getattr(engine, "dense_chunking", "legacy"),
+                                      "dense_sources": len(getattr(engine, "dense_sources", engine.sources)),
                                       "ingestion_warning_counts": dict(Counter(
                                           item.get("reason", "unknown") for item in getattr(engine, "ingestion_warnings", [])))},
                                      ensure_ascii=False) + "\n")

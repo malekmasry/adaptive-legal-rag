@@ -74,7 +74,7 @@ class PackagedPipelineTest(unittest.TestCase):
                 'id,question\n1,"СИЛЬНЫЙ: Когда оплачивать товар?"\n2,"СЛАБЫЙ: Срок оплаты?"\n', encoding="utf-8")
             env = {**os.environ, "LLM_BASE_URL": f"http://127.0.0.1:{server.server_port}/v1",
                    "LLM_API_KEY": "synthetic-test-key", "LLM_MODEL": "stub", "DATA_DIR": str(data),
-                   "USE_EMBEDDINGS": "0", "RETRIEVAL_MODE": "hybrid", "CONDITIONAL_DENSE_THRESHOLD": "0.5",
+                   "USE_EMBEDDINGS": "0", "RETRIEVAL_MODE": "hybrid", "DENSE_CHUNKING": "legacy", "CONDITIONAL_DENSE_THRESHOLD": "0.5",
                    "RERANKER_MODEL": "stub-reranker", "EMB_MODEL": "stub-embeddings",
                    "EMB_BASE_URL": "", "EMB_API_KEY": "", "RERANKER_BASE_URL": "", "RERANKER_API_KEY": "",
                    "MAX_WORKERS": "2", "PIPELINE_MODE": "single_pass", "HTTP_TRUST_ENV": "0",
@@ -89,6 +89,8 @@ class PackagedPipelineTest(unittest.TestCase):
             metrics = [json.loads(line) for line in (root / "submission.metrics.jsonl").read_text(encoding="utf-8").splitlines()]
             self.assertEqual(metrics[0]["retrieval_mode"], "conditional")
             self.assertTrue(metrics[0]["dense_index_ready"])
+            self.assertEqual(metrics[0]["dense_chunking"], "structural")
+            self.assertNotEqual(metrics[0]["dense_sources"], metrics[0]["sources"])
             answers = {row["id"]: row for row in metrics if "id" in row}
             routes = {key: next(event for event in row["events"] if event["stage"] == "retrieval_route")
                       for key, row in answers.items()}

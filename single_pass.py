@@ -63,13 +63,21 @@ def expand_context(engine, candidates: list) -> list:
     """Bounded local clause references and continuations, without another LLM."""
     extra, seen = [], {source.id for source in candidates}
     for source in candidates[:6]:
-        siblings = sorted(engine.by_document[source.document_id], key=lambda item: item.start)
+        dense = source.id in getattr(engine, "dense_source_ids", ())
+        collection = engine.dense_by_document if dense else engine.by_document
+        siblings = sorted(collection[source.document_id], key=lambda item: item.start)
         references = re.findall(r"(?:\bп\.|\bпункт[а-я]*)\s*(\d+(?:\.\d+){0,3})", source.text, re.I)
+        if dense and engine.source_records[source.id]["kind"] == "law":
+            # A bare point number can refer to another article. The old law
+            # chunks did not resolve these as local clauses either.
+            references = []
         # An explicitly resolved external reference must not resolve to an
         # unrelated same-numbered provision in this document.
         external = {link.target_clause for link in engine.links
                     if link.source_document_id == source.document_id and link.target_clause}
-        additions = [other for other in siblings if other.clause in references and other.clause not in external]
+        additions = [other for other in siblings if any(
+            ref not in external and (ref in engine.source_records[other.id]["provisions"] if dense
+                                      else other.clause == ref) for ref in references)]
         position = next(i for i, item in enumerate(siblings) if item.id == source.id)
         for index in (position - 1, position + 1):
             if 0 <= index < len(siblings) and siblings[index].clause == source.clause:

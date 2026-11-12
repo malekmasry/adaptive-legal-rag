@@ -540,6 +540,24 @@ class LegalAssistant:
         self.search_texts = ["\n".join(str(self.source_records[source.id][key] or "")
                                       for key in ("document", "contract_number", "parties", "parent_scope", "text"))
                              for source in self.sources]
+        self.dense_chunking = setting("DENSE_CHUNKING", default="legacy")
+        if self.dense_chunking not in {"legacy", "structural"}:
+            raise ValueError("DENSE_CHUNKING must be legacy or structural")
+        self.dense_sources = self.sources
+        self.dense_search_texts = self.search_texts
+        self.dense_by_document: dict[str, list[Source]] = defaultdict(list)
+        self.dense_source_ids: set[str] = set()
+        if self.dense_chunking == "structural":
+            from structural_chunking import build_dense_sources
+            self.dense_sources, dense_records = build_dense_sources(self.documents, self.sources, Source)
+            self.source_records.update(dense_records)
+            self.by_id.update((source.id, source) for source in self.dense_sources)
+            self.dense_source_ids = {source.id for source in self.dense_sources}
+            self.dense_search_texts = ["\n".join(str(dense_records[source.id][key] or "")
+                                               for key in ("document", "contract_number", "parties", "parent_scope", "text"))
+                                      for source in self.dense_sources]
+        for source in self.dense_sources:
+            self.dense_by_document[source.document_id].append(source)
         self.document_contracts = {doc.id: normalized(doc.contract_number or "").replace("–", "-").replace("/", "-")
                                    for doc in self.documents}
         self.document_entities = {doc.id: {named_entity_key(name) for name in quoted_names(clean_data(doc.text)[0])}
@@ -580,9 +598,9 @@ class LegalAssistant:
         if use_embeddings and embedding_ready:
             try:
                 self.vectors = []
-                for start in range(0, len(self.sources), 24):
-                    self.vectors.extend(self.proxy.embeddings(self.search_texts[start:start + 24]))
-                if len(self.vectors) != len(self.sources) or len({len(vector) for vector in self.vectors}) != 1:
+                for start in range(0, len(self.dense_sources), 24):
+                    self.vectors.extend(self.proxy.embeddings(self.dense_search_texts[start:start + 24]))
+                if len(self.vectors) != len(self.dense_sources) or len({len(vector) for vector in self.vectors}) != 1:
                     raise ValueError("Invalid embedding index dimensions")
             except (RuntimeError, KeyError, TypeError, ValueError) as exc:
                 self.vectors = None
@@ -675,7 +693,8 @@ class LegalAssistant:
         try:
             if trace:
                 trace.stage = stage
-            ranked = self.proxy.rerank_with_scores(query, [self.search_texts[index] for index in candidates])
+            texts = self.dense_search_texts if stage == "rerank_dense" else self.search_texts
+            ranked = self.proxy.rerank_with_scores(query, [texts[index] for index in candidates])
             if not ranked:
                 raise ValueError("Empty reranker ranking")
             order = [index for index, _ in ranked]
@@ -750,11 +769,19 @@ class LegalAssistant:
             chosen, dense_used = self._hybrid_candidates(query, lexical, candidate_k)
         if CURRENT.get():
             CURRENT.get().events.append({"stage": "candidates", "count": len(chosen), "dense_used": dense_used})
+        if self.retrieval_mode == "conditional" and dense_used and self.dense_chunking == "structural":
+            return self._expand_dense_retrieval(chosen, lexical, limit)
         return self._expand_retrieval(chosen, lexical, limit)
 
     def _hybrid_candidates(self, query: str, lexical: list[int], candidate_k: int) -> tuple[list[int], bool]:
         try:
             dense = self._dense(query)
+            if self.dense_chunking == "structural":
+                # The historical hybrid ranks lexical IDs. Explicit use of that
+                # mode must never confuse independent dense and lexical indices.
+                legacy_indices = {source.id: index for index, source in enumerate(self.sources)}
+                dense = list(dict.fromkeys(legacy_indices[sid] for index in dense
+                    for sid in self.source_records[self.dense_sources[index].id]["original_source_ids"]))
         except (RuntimeError, KeyError, ValueError, TypeError) as exc:
             dense = []
             if CURRENT.get():
@@ -780,6 +807,42 @@ class LegalAssistant:
                 if CURRENT.get():
                     CURRENT.get().timings["rerank"] = (time.perf_counter() - started) * 1000
         return chosen, bool(dense)
+
+    def _expand_dense_retrieval(self, chosen: list[int], lexical: list[int], limit: int) -> list[Source]:
+        selected = [self.dense_sources[index] for index in chosen[:limit]]
+        doc_ids = {source.document_id for source in selected}
+        prioritized = []
+        for link in self.links:
+            if link.source_document_id in doc_ids and link.target_clause:
+                prioritized.extend(source for source in self.dense_by_document[link.target_document_id]
+                                   if link.target_clause in self.source_records[source.id]["provisions"])
+            if len(prioritized) >= 4:
+                break
+        result, seen = [], set()
+        for source in selected[:8] + prioritized[:4] + selected[8:]:
+            if source.id not in seen:
+                result.append(source)
+                seen.add(source.id)
+        linked = set()
+        for link in self.links:
+            if link.source_document_id in doc_ids or link.target_document_id in doc_ids:
+                linked.update((link.source_document_id, link.target_document_id))
+        # Preserve the existing lexical choice of related evidence, but map it
+        # to whole dense passages rather than reintroducing broken old chunks.
+        for doc_id in sorted(linked):
+            for index in lexical:
+                old = self.sources[index]
+                if old.document_id != doc_id:
+                    continue
+                matches = [s for s in self.dense_by_document[doc_id]
+                           if s.start < old.end and old.start < s.end]
+                matches.sort(key=lambda s: min(s.end, old.end) - max(s.start, old.start), reverse=True)
+                if matches and matches[0].id not in seen:
+                    result.append(matches[0])
+                    seen.add(matches[0].id)
+                if sum(s.document_id == doc_id for s in result) >= 2:
+                    break
+        return result[:min(limit + 8, 40)]
 
     def _expand_retrieval(self, chosen: list[int], lexical: list[int], limit: int) -> list[Source]:
         chosen = chosen[:limit]
