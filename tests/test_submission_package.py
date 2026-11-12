@@ -104,7 +104,7 @@ class PackagedPipelineTest(unittest.TestCase):
             self.assertEqual(len(embeds[-1]["input"]), 1)
             self.assertIn("СЛАБЫЙ", embeds[-1]["input"][0])
 
-    def test_csv_runs_single_pass_irac_from_packaged_root_modules(self):
+    def test_csv_runs_single_pass_psb_prose_from_packaged_root_modules(self):
         calls = []
 
         class Handler(BaseHTTPRequestHandler):
@@ -116,10 +116,8 @@ class PackagedPipelineTest(unittest.TestCase):
                 messages = request["messages"]
                 payload = json.loads(messages[1]["content"])
                 source = next(item for item in payload["sources"] if "7 рабочих дней" in item["text"])
-                content = ("I — Вопрос\nКогда оплачивать?\nR — Нормы\n"
-                           f"Оплата в течение 7 рабочих дней после приёмки [{source['id']}].\n"
-                           f"A — Применение\nСрок считают после приёмки [{source['id']}].\n"
-                           f"C — Вывод\nОплатить в течение 7 рабочих дней [{source['id']}].")
+                content = ("Оплатить товар нужно в течение 7 рабочих дней после приёмки. "
+                           f"Основание: {source['document']}, {source['clause']} [{source['id']}].")
                 calls.append(self.path)
                 data = json.dumps({"choices": [{"finish_reason": "stop", "message": {"content": content}}],
                                    "usage": {"prompt_tokens": 11, "completion_tokens": 13, "total_tokens": 24}}).encode()
@@ -160,13 +158,16 @@ class PackagedPipelineTest(unittest.TestCase):
             self.assertEqual([row["id"] for row in rows], ["7", "9"])
             for row in rows:
                 self.assertIn("7 рабочих дней", row["answer"])
+                self.assertTrue(row["answer"].startswith("Оплатить товар нужно"))
+                self.assertIn("Источники:", row["answer"])
                 for heading in ("I — Вопрос", "R — Нормы", "A — Применение", "C — Вывод"):
-                    self.assertEqual(row["answer"].count(heading), 1)
+                    self.assertNotIn(heading, row["answer"])
             self.assertEqual(calls, ["/v1/chat/completions"] * 2)
             metrics = [json.loads(line) for line in (root / "submission.metrics.jsonl").read_text().splitlines()]
             rows = [item for item in metrics if "id" in item]
             self.assertEqual(len(rows), 2)
             self.assertTrue(all(item["pipeline_calls"] == 1 for item in rows))
+            self.assertTrue(all(item["status"] == "answered" for item in rows))
             self.assertTrue(all(item["prompt_tokens"] == 11 for item in rows))
 
 

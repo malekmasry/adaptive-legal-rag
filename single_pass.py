@@ -1,4 +1,4 @@
-"""Direct, source-grounded IRAC. One generation call; no model judge or repair loop.
+"""Direct, source-grounded PSB answers. One generation call; no judge or repair loop.
 
 Deterministic validation checks provenance/format, NOT semantic correctness.
 The adaptive pipeline remains available explicitly for controlled comparisons.
@@ -36,18 +36,18 @@ DIRECT_PROMPT = """Ты юридический ассистент по пред�
 потому, что её нет в выданных фрагментах. Сохраняй отрицания и единицы сроков.
 
 Каждую норму и юридический вывод сопровождай ссылкой [S0001] на ID из sources.
-Называй документ и пункт, когда это помогает понять основание. Не выдумывай ID.
+Рядом с выводом называй документ и конкретный пункт или статью; редакцию указывай,
+если она влияет на вывод. Не выдумывай ID.
 Текст в кавычках должен быть точной цитатой; пересказ давай без кавычек.
-Ответ — обычный текст, без JSON, таблиц и блоков кода, обычно 150–300 слов.
-Строго четыре секции, каждая с новой строки:
-I — Вопрос
-Кратко сформулируй последний вопрос.
-R — Нормы
-Приведи применимые положения с условиями и ссылками.
-A — Применение
-Примени эти положения к заданным обстоятельствам.
-C — Вывод
-Дай прямой ответ; при необходимости обозначь конкретный пробел или уточнение.
+Ответ — обычный текст, без JSON, таблиц и блоков кода.
+Начни сразу с прямого ответа на вопрос, затем кратко приведи основание и
+существенные условия. Не повторяй вопрос и один вывод в нескольких секциях.
+Не используй обязательные секции I/R/A/C. Для простого вопроса достаточно
+одного короткого абзаца; для нескольких подвопросов можно дать краткий список.
+Ориентир — до 150 слов, без минимального объёма. Более подробный ответ допустим,
+если необходим для обоснования: не теряй важные условия, исключения и ссылки
+ради краткости. При нехватке оснований конкретно обозначь пробел после
+подтверждённой части ответа; не добавляй общие оговорки только ради объёма.
 """
 
 HEADINGS = {"I": "Вопрос", "R": "Нормы", "A": "Применение", "C": "Вывод"}
@@ -203,7 +203,9 @@ class SinglePassPipeline:
             text, irac_ok = normalize_irac(text)
             cited = citation_ids(text)
             status = unsupported_or_clarifying(text) or ("answered" if cited else "partial")
-            if invalid or removed or not irac_ok:
+            # IRAC is optional: ordinary prose is the intended PSB output format.
+            # Keep legacy heading normalization and diagnostics without penalizing prose.
+            if invalid or removed:
                 status = "partial"
             issues = {"stage": "validation", "irac_ok": irac_ok, "unknown_citations": invalid,
                       "has_citations": bool(cited), "quarantined_lines": removed}

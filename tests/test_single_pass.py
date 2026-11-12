@@ -25,9 +25,8 @@ TEXT = ("Договор обслуживания № Я-83/2032\nООО «Лаз
 def direct_answer(payload):
     source = next(item for item in payload["sources"] if "по электронной почте" in item["text"])
     sid = source["id"]
-    return (f"I — Вопрос\nКак направить заявку?\n\nR — Нормы\nЗаявку направляют по электронной почте [{sid}].\n\n"
-            f"A — Применение\nДля заявки используйте электронную почту [{sid}].\n\n"
-            f"C — Вывод\nНаправьте заявку по электронной почте [{sid}].")
+    return (f"Заявку направляют по электронной почте. "
+            f"Основание: договор обслуживания № Я-83/2032, п. 4.1 [{sid}].")
 
 
 class DirectProxy(ModelProxy):
@@ -63,6 +62,9 @@ class SinglePassTests(unittest.TestCase):
     def test_default_answers_once_with_original_sources_and_metadata(self):
         answer = self.engine.answer("Как направить заявку «Лазурному Архиву»?")
         self.assertEqual(answer.status, "answered")
+        self.assertTrue(answer.text.startswith("Заявку направляют по электронной почте."))
+        validation = next(event for event in answer.diagnostics["events"] if event["stage"] == "validation")
+        self.assertFalse(validation["irac_ok"])
         self.assertEqual(len(self.proxy.requests), 1)
         self.assertEqual(answer.diagnostics["pipeline_calls"], 1)
         payload = self.proxy.requests[0][1]
