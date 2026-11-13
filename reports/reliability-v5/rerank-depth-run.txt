@@ -1,0 +1,120 @@
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588363.003,"kind":"chat","model":"gpt-6-luna","seconds":13.328,"status":"ok","usage":{"prompt_tokens":23561,"completion_tokens":364,"total_tokens":23925},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":40594}
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588363.251,"kind":"chat","model":"gpt-6-luna","seconds":14.547,"status":"ok","usage":{"prompt_tokens":24207,"completion_tokens":330,"total_tokens":24537},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":41170}
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588363.331,"kind":"chat","model":"gpt-6-luna","seconds":14.812,"status":"ok","usage":{"completion_tokens":272,"prompt_tokens":23615,"total_tokens":23887},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":40297}
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588363.447,"kind":"chat","model":"gpt-6-luna","seconds":14.797,"status":"ok","usage":{"completion_tokens":317,"prompt_tokens":27208,"total_tokens":27525},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":47095}
+demo-4 15
+demo-1 15
+demo-2 15
+demo-3 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588377.842,"kind":"chat","model":"gpt-6-luna","seconds":14.078,"status":"ok","usage":{"prompt_tokens":18081,"completion_tokens":336,"total_tokens":18417},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":29783}
+demo-6 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588378.397,"kind":"chat","model":"gpt-6-luna","seconds":13.64,"status":"ok","usage":{"prompt_tokens":14781,"completion_tokens":364,"total_tokens":15145},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":23768}
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588378.512,"kind":"chat","model":"gpt-6-luna","seconds":14.797,"status":"ok","usage":{"prompt_tokens":21165,"completion_tokens":372,"total_tokens":21537},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":34650}
+demo-8 15
+demo-5 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588379.043,"kind":"chat","model":"gpt-6-luna","seconds":14.984,"status":"ok","usage":{"prompt_tokens":24017,"completion_tokens":396,"total_tokens":24413},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":40419}
+demo-7 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588390.695,"kind":"chat","model":"gpt-6-luna","seconds":12.438,"status":"ok","usage":{"prompt_tokens":20343,"completion_tokens":333,"total_tokens":20676},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":34163}
+demo-9 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588392.791,"kind":"chat","model":"gpt-6-luna","seconds":13.921,"status":"ok","usage":{"prompt_tokens":15864,"completion_tokens":423,"total_tokens":16287},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":25670}
+demo-11 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588395.721,"kind":"chat","model":"gpt-6-luna","seconds":16.844,"status":"ok","usage":{"completion_tokens":461,"prompt_tokens":13537,"total_tokens":13998},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":22789}
+demo-10 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588396.183,"kind":"chat","model":"gpt-6-luna","seconds":16.859,"status":"ok","usage":{"prompt_tokens":19665,"completion_tokens":450,"total_tokens":20115},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":32713}
+demo-12 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588404.87,"kind":"chat","model":"gpt-6-luna","seconds":11.672,"status":"ok","usage":{"prompt_tokens":21886,"completion_tokens":383,"total_tokens":22269},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":36978}
+demo-14 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588407.052,"kind":"chat","model":"gpt-6-luna","seconds":16.157,"status":"ok","usage":{"completion_tokens":439,"prompt_tokens":18869,"total_tokens":19308},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":32439}
+demo-13 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588411.484,"kind":"chat","model":"gpt-6-luna","seconds":15.375,"status":"ok","usage":{"prompt_tokens":18924,"completion_tokens":329,"total_tokens":19253},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":31285}
+demo-15 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588417.243,"kind":"chat","model":"gpt-6-luna","seconds":19.687,"status":"ok","usage":{"completion_tokens":457,"prompt_tokens":25056,"total_tokens":25513},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":43794}
+demo-16 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588417.968,"kind":"chat","model":"gpt-6-luna","seconds":10.468,"status":"ok","usage":{"prompt_tokens":21499,"completion_tokens":307,"total_tokens":21806},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":35475}
+demo-18 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588422.111,"kind":"chat","model":"gpt-6-luna","seconds":16.437,"status":"ok","usage":{"prompt_tokens":21815,"completion_tokens":477,"total_tokens":22292},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":36228}
+demo-17 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588423.284,"kind":"chat","model":"gpt-6-luna","seconds":11.437,"status":"ok","usage":{"prompt_tokens":15987,"completion_tokens":261,"total_tokens":16248},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":25444}
+new-01 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588441.812,"kind":"chat","model":"gpt-6-luna","seconds":23.281,"status":"ok","usage":{"prompt_tokens":19391,"completion_tokens":459,"total_tokens":19850},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":32338}
+new-03 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588444.294,"kind":"chat","model":"gpt-6-luna","seconds":20.625,"status":"ok","usage":{"prompt_tokens":16312,"completion_tokens":296,"total_tokens":16608},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":26592}
+new-05 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588449.3,"kind":"chat","model":"gpt-6-luna","seconds":26.859,"status":"ok","usage":{"prompt_tokens":26584,"completion_tokens":530,"total_tokens":27114},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":44825}
+new-04 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588458.872,"kind":"chat","model":"gpt-6-luna","seconds":16.781,"status":"ok","usage":{"completion_tokens":421,"prompt_tokens":15998,"total_tokens":16419},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":26926}
+new-06 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588465.079,"kind":"chat","model":"gpt-6-luna","seconds":20.39,"status":"ok","usage":{"completion_tokens":400,"prompt_tokens":25316,"total_tokens":25716},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":43842}
+new-07 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588466.038,"kind":"chat","model":"gpt-6-luna","seconds":16.281,"status":"ok","usage":{"completion_tokens":409,"prompt_tokens":13677,"total_tokens":14086},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":22400}
+new-08 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588471.677,"kind":"chat","model":"gpt-6-luna","seconds":53.906,"status":"ok","usage":{"prompt_tokens":15444,"completion_tokens":482,"total_tokens":15926},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":24991}
+new-02 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588479.62,"kind":"chat","model":"gpt-6-luna","seconds":14.25,"status":"ok","usage":{"prompt_tokens":13681,"completion_tokens":374,"total_tokens":14055},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":22040}
+new-10 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588482.04,"kind":"chat","model":"gpt-6-luna","seconds":15.75,"status":"ok","usage":{"prompt_tokens":13630,"completion_tokens":443,"total_tokens":14073},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":21830}
+new-11 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588486.361,"kind":"chat","model":"gpt-6-luna","seconds":27.109,"status":"ok","usage":{"completion_tokens":559,"prompt_tokens":16664,"total_tokens":17223},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":28075}
+new-09 Luna did not return the required complete ranking
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588488.589,"kind":"chat","model":"gpt-6-luna","seconds":16.609,"status":"ok","usage":{"prompt_tokens":12746,"completion_tokens":282,"total_tokens":13028},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":20416}
+new-12 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588499.746,"kind":"chat","model":"gpt-6-luna","seconds":19.703,"status":"ok","usage":{"prompt_tokens":17278,"completion_tokens":335,"total_tokens":17613},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":27222}
+new-13 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588503.31,"kind":"chat","model":"gpt-6-luna","seconds":20.906,"status":"ok","usage":{"prompt_tokens":18204,"completion_tokens":319,"total_tokens":18523},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":29702}
+new-14 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588510.703,"kind":"chat","model":"gpt-6-luna","seconds":21.688,"status":"ok","usage":{"prompt_tokens":14414,"completion_tokens":357,"total_tokens":14771},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":23249}
+new-16 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588510.939,"kind":"chat","model":"gpt-6-luna","seconds":24.39,"status":"ok","usage":{"prompt_tokens":19451,"completion_tokens":330,"total_tokens":19781},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":31896}
+new-15 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588525.258,"kind":"chat","model":"gpt-6-luna","seconds":14.297,"status":"ok","usage":{"prompt_tokens":16302,"completion_tokens":280,"total_tokens":16582},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":27008}
+new-19 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588525.995,"kind":"chat","model":"gpt-6-luna","seconds":22.39,"status":"ok","usage":{"completion_tokens":320,"prompt_tokens":24700,"total_tokens":25020},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":42860}
+new-18 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588526.761,"kind":"chat","model":"gpt-6-luna","seconds":15.25,"status":"ok","usage":{"prompt_tokens":27821,"completion_tokens":389,"total_tokens":28210},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":47215}
+new-20 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588541.487,"kind":"chat","model":"gpt-6-luna","seconds":15.64,"status":"ok","usage":{"prompt_tokens":24555,"completion_tokens":409,"total_tokens":24964},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":41140}
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588547.551,"kind":"chat","model":"gpt-6-luna","seconds":20.984,"status":"ok","usage":{"prompt_tokens":28752,"completion_tokens":653,"total_tokens":29405},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":49275}
+new-22 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588559.594,"kind":"chat","model":"gpt-6-luna","seconds":59.375,"status":"ok","usage":{"prompt_tokens":19555,"completion_tokens":465,"total_tokens":20020},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":31922}
+new-17 15
+new-21 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588570.806,"kind":"chat","model":"gpt-6-luna","seconds":38.016,"status":"ok","usage":{"completion_tokens":607,"prompt_tokens":26150,"total_tokens":26757},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":45907}
+new-23 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588574.908,"kind":"chat","model":"gpt-6-luna","seconds":23.672,"status":"ok","usage":{"prompt_tokens":26758,"completion_tokens":388,"total_tokens":27146},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":45925}
+new-24 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588584.821,"kind":"chat","model":"gpt-6-luna","seconds":23.125,"status":"ok","usage":{"prompt_tokens":27610,"completion_tokens":412,"total_tokens":28022},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":46652}
+new-26 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588587.513,"kind":"chat","model":"gpt-6-luna","seconds":15.609,"status":"ok","usage":{"prompt_tokens":22848,"completion_tokens":401,"total_tokens":23249},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":38751}
+new-27 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588589.707,"kind":"chat","model":"gpt-6-luna","seconds":13.485,"status":"ok","usage":{"prompt_tokens":24573,"completion_tokens":357,"total_tokens":24930},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":40945}
+new-28 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588601.164,"kind":"chat","model":"gpt-6-luna","seconds":12.75,"status":"ok","usage":{"prompt_tokens":16652,"completion_tokens":360,"total_tokens":17012},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":27554}
+new-30 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588605.53,"kind":"chat","model":"gpt-6-luna","seconds":19.782,"status":"ok","usage":{"completion_tokens":287,"prompt_tokens":21699,"total_tokens":21986},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":37981}
+new-29 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588607.432,"kind":"chat","model":"gpt-6-luna","seconds":16.922,"status":"ok","usage":{"prompt_tokens":29567,"completion_tokens":381,"total_tokens":29948},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":49375}
+new-31 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588611.27,"kind":"chat","model":"gpt-6-luna","seconds":51.265,"status":"ok","usage":{"prompt_tokens":27710,"completion_tokens":360,"total_tokens":28070},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":47416}
+new-25 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588620.446,"kind":"chat","model":"gpt-6-luna","seconds":18.922,"status":"ok","usage":{"prompt_tokens":16940,"completion_tokens":393,"total_tokens":17333},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":27428}
+new-32 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588622.0,"kind":"chat","model":"gpt-6-luna","seconds":16.062,"status":"ok","usage":{"completion_tokens":285,"prompt_tokens":23036,"total_tokens":23321},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":39568}
+new-33 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588633.668,"kind":"chat","model":"gpt-6-luna","seconds":25.406,"status":"ok","usage":{"prompt_tokens":18355,"completion_tokens":361,"total_tokens":18716},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":29834}
+new-34 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588639.433,"kind":"chat","model":"gpt-6-luna","seconds":26.937,"status":"ok","usage":{"completion_tokens":307,"prompt_tokens":15321,"total_tokens":15628},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":25814}
+new-35 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588644.004,"kind":"chat","model":"gpt-6-luna","seconds":21.828,"status":"ok","usage":{"completion_tokens":292,"prompt_tokens":10348,"total_tokens":10640},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":16476}
+new-38 15
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588649.178,"kind":"chat","model":"gpt-6-luna","seconds":15.281,"status":"ok","usage":{"prompt_tokens":24343,"completion_tokens":374,"total_tokens":24717},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":40867}
+{"event":"api_call","request_id":"","stage":"Ranking","time":1794588649.335,"kind":"chat","model":"gpt-6-luna","seconds":28.609,"status":"ok","usage":{"completion_tokens":467,"prompt_tokens":17353,"total_tokens":17820},"http_status":200,"finish_reason":"stop","max_tokens":4096,"estimated_prompt_tokens":30038}
+new-37 15
+new-40 15
+cases 56 valid 55 expected 51 ranked>8 55
+historical replay mismatches []
+top6 all expected 51 missing total 0 median tokens 6198 mean tokens 8491 mean chunks 12.6 cases with omissions 5
+top8 all expected 51 missing total 0 median tokens 9496 mean tokens 10287 mean chunks 15.8 cases with omissions 6
+top10 all expected 51 missing total 0 median tokens 12143 mean tokens 11533 mean chunks 18.6 cases with omissions 13
+top15 all expected 51 missing total 0 median tokens 15663 mean tokens 14433 mean chunks 23.7 cases with omissions 20
+coverage changes []
+seconds 311.1

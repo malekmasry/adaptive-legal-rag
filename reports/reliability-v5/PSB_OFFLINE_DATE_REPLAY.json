@@ -1,0 +1,420 @@
+{
+  "scope": "Offline replay of 58 saved plans through final Pipeline.ask and BM25 retrieval; no model generation, embedding or reranking calls; not a live quality evaluation",
+  "network_calls": 0,
+  "cases": 58,
+  "results": [
+    {
+      "id": "demo-1",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "demo-2",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "demo-3",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "demo-4",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "demo-5",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2024-08",
+      "date_role": "event",
+      "reached_generation": true,
+      "checked_evidence": [
+        {
+          "document": "Регламент согласования договоров ред 2023 (утратил силу)",
+          "locator": "п. 2.4",
+          "text": "2.4. Договоры на сумму свыше 10 000 000 (десяти миллионов) рублей подлежат одобрению генеральным директором до подписания.\n"
+        }
+      ]
+    },
+    {
+      "id": "demo-6",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "demo-7",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "demo-8",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "demo-9",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "demo-10",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "demo-11",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "demo-12",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "demo-13",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "demo-14",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "demo-15",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "demo-16",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "demo-17",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "demo-18",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-01",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-02",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-03",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-04",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-05",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-06",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-07",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-08",
+      "saved_as_of": "2025-02-28",
+      "effective_as_of": "2025-02-28",
+      "date_role": "event",
+      "reached_generation": true
+    },
+    {
+      "id": "new-09",
+      "saved_as_of": "2025-03-01",
+      "effective_as_of": "2025-03-01",
+      "date_role": "event",
+      "reached_generation": true
+    },
+    {
+      "id": "new-10",
+      "saved_as_of": "2025-04-20",
+      "effective_as_of": "2025-04-20",
+      "date_role": "event",
+      "reached_generation": true
+    },
+    {
+      "id": "new-11",
+      "saved_as_of": "2025-04-21",
+      "effective_as_of": "2025-04-21",
+      "date_role": "event",
+      "reached_generation": true
+    },
+    {
+      "id": "new-12",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-13",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-14",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-15",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-16",
+      "saved_as_of": "2024-12-31",
+      "effective_as_of": "2024-12-31",
+      "date_role": "event",
+      "reached_generation": true
+    },
+    {
+      "id": "new-17",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-18",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-19",
+      "saved_as_of": "2026-01-01",
+      "effective_as_of": "2026-01-01",
+      "date_role": "event",
+      "reached_generation": true
+    },
+    {
+      "id": "new-20",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-21",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-22",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-23",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-24",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-25",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-26",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-27",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-28",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-29",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-30",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-31",
+      "saved_as_of": "2027-03",
+      "effective_as_of": "2027-03",
+      "date_role": "event",
+      "reached_generation": true
+    },
+    {
+      "id": "new-32",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-33",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-34",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-35",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-36",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": false
+    },
+    {
+      "id": "new-37",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-38",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    },
+    {
+      "id": "new-39",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": false
+    },
+    {
+      "id": "new-40",
+      "saved_as_of": "2026-11-13",
+      "effective_as_of": "2026-11-13",
+      "date_role": "unspecified",
+      "reached_generation": true
+    }
+  ]
+}

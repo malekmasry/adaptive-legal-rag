@@ -1,0 +1,26 @@
+Run from this directory with the supplied requirements installed:
+  python -m unittest discover -p "test_*.py"
+  python build_submission.py
+
+Offline tests use data/knowledge-base with the 21 original organizer text files.
+The corpus is intentionally not committed or included in the submission ZIP.
+psb_bge_fresh.npz is a test fixture containing BGE-M3 vectors for that same corpus.
+The build script allowlists production files and excludes local_evaluation.py,
+tests, the corpus, API configuration, and test reports.
+
+Live reports in ../reports/reliability-v5 use DeepSeek V4.1 Flash and GPT-6 Luna
+as the explicitly authorized LOCAL substitute for Qwen. They are not PSB scores.
+The last live run PRECEDES the final date-parser fix. Its demo-5 answer used the
+wrong regulation edition. The final fix is covered by offline regression tests
+and a replay of 58 saved plans; it has NOT received another live API run.
+Missing local query embeddings fall back to BM25 and are recorded in retrieval traces.
+The production submission uses the organizer's model identifiers and API environment.
+
+Configuration: MAX_TOKENS defaults to 8192, REQUEST_TIMEOUT to 90 seconds,
+MAX_WORKERS to 8.
+Both honor explicitly provided environment values. No new names replace the
+platform's existing TOP_K (40) or RERANKER_TOP_N (6).
+Diagnostics go to stderr and CACHE_DIR/diagnostics.jsonl, without credentials,
+question contents, source text, raw model responses, or raw exception messages.
+Report format distinguishes actual technical failures, unverified answers,
+quote-only fallback, and preservation of previously verified claims.

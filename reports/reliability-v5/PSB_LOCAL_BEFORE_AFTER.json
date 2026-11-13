@@ -1,0 +1,107 @@
+{
+  "scope": "Local historical versus final test; generation, planning and reranking may vary. Citation labels are incomplete and are not an answer-quality score.",
+  "previous": {
+    "statuses": {
+      "answered": 42,
+      "not_in_base": 2,
+      "partial": 11,
+      "clarification": 1,
+      "out_of_domain": 2
+    },
+    "annotated_answers": 52,
+    "answers_citing_every_annotated_source": 49,
+    "missing_expected_citations": [
+      {
+        "id": "demo-4",
+        "missing": [
+          "А-08|п. 3.4"
+        ]
+      },
+      {
+        "id": "new-06",
+        "missing": [
+          "П-17-2024 Альфа|п. 3.2"
+        ]
+      },
+      {
+        "id": "new-22",
+        "missing": [
+          "НК_ст145|п. 5"
+        ]
+      }
+    ],
+    "technical_failures": 0,
+    "quote_only_fallbacks": 0,
+    "max_answer_chars": 1944
+  },
+  "current": {
+    "statuses": {
+      "answered": 50,
+      "not_in_base": 2,
+      "partial": 3,
+      "clarification": 1,
+      "out_of_domain": 2
+    },
+    "annotated_answers": 52,
+    "answers_citing_every_annotated_source": 50,
+    "missing_expected_citations": [
+      {
+        "id": "demo-5",
+        "missing": [
+          "ред 2023|п. 2.4"
+        ]
+      },
+      {
+        "id": "new-06",
+        "missing": [
+          "П-17-2024 Альфа|п. 3.2"
+        ]
+      }
+    ],
+    "technical_failures": 0,
+    "quote_only_fallbacks": 0,
+    "max_answer_chars": 1551
+  },
+  "status_changes": [
+    {
+      "id": "demo-4",
+      "before": "partial",
+      "after": "answered"
+    },
+    {
+      "id": "demo-5",
+      "before": "partial",
+      "after": "answered"
+    },
+    {
+      "id": "demo-13",
+      "before": "partial",
+      "after": "answered"
+    },
+    {
+      "id": "new-08",
+      "before": "partial",
+      "after": "answered"
+    },
+    {
+      "id": "new-09",
+      "before": "partial",
+      "after": "answered"
+    },
+    {
+      "id": "new-15",
+      "before": "partial",
+      "after": "answered"
+    },
+    {
+      "id": "new-21",
+      "before": "partial",
+      "after": "answered"
+    },
+    {
+      "id": "new-40",
+      "before": "partial",
+      "after": "answered"
+    }
+  ]
+}

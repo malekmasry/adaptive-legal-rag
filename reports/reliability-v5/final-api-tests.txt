@@ -1,0 +1,21 @@
+{"event":"api_call","request_id":"","stage":"bootstrap","time":1794588429.168,"kind":"rerank","model":"Qwen/Qwen3-Reranker-8B","seconds":0.0,"status":"ok","usage":{},"http_status":200,"finish_reason":null,"max_tokens":null,"estimated_prompt_tokens":null}
+{"event":"api_call","request_id":"","stage":"bootstrap","time":1794588429.194,"kind":"rerank","model":"Qwen/Qwen3-Reranker-8B","seconds":0.0,"status":"ok","usage":{},"http_status":200,"finish_reason":null,"max_tokens":null,"estimated_prompt_tokens":null}
+.{"event":"api_call","request_id":"","stage":"bootstrap","time":1794588429.201,"kind":"rerank","model":"Qwen/Qwen3-Reranker-8B","seconds":0.0,"status":"ok","usage":{},"http_status":200,"finish_reason":null,"max_tokens":null,"estimated_prompt_tokens":null}
+.{"event":"api_call","request_id":"","stage":"Plan","time":1794588430.544,"kind":"chat","model":"fake","seconds":0.0,"status":"ok","usage":{},"http_status":200,"finish_reason":"unknown","max_tokens":8192,"estimated_prompt_tokens":833}
+{"event":"api_call","request_id":"","stage":"Plan","time":1794588430.567,"kind":"chat","model":"fake","seconds":0.0,"status":"ok","usage":{},"http_status":200,"finish_reason":"unknown","max_tokens":8192,"estimated_prompt_tokens":833}
+{"event":"structured_failure","request_id":"","stage":"Plan","time":1794588430.581,"schema":"Plan","attempt":1,"validation":[{"path":"question","type":"string_type"}],"error_type":"ModelError","error_code":"json_schema_invalid","frames":[{"file":"model_api.py","line":76,"function":"structured"},{"file":"model_api.py","line":110,"function":"_structured_once"}]}
+{"event":"api_call","request_id":"","stage":"Plan","time":1794588430.595,"kind":"chat","model":"fake","seconds":0.0,"status":"ok","usage":{},"http_status":200,"finish_reason":"unknown","max_tokens":8192,"estimated_prompt_tokens":900}
+{"event":"structured_failure","request_id":"","stage":"Plan","time":1794588430.598,"schema":"Plan","attempt":2,"validation":[{"path":"question","type":"string_type"}],"error_type":"ModelError","error_code":"json_schema_invalid","frames":[{"file":"model_api.py","line":76,"function":"structured"},{"file":"model_api.py","line":110,"function":"_structured_once"}]}
+.{"event":"api_call","request_id":"","stage":"bootstrap","time":1794588430.608,"kind":"embedding","model":"BAAI/bge-m3","seconds":0.0,"status":"ok","usage":{},"http_status":200,"finish_reason":null,"max_tokens":null,"estimated_prompt_tokens":null}
+.{"event":"api_call","request_id":"","stage":"bootstrap","time":1794588430.728,"kind":"embedding","model":"BAAI/bge-m3","seconds":0.0,"status":"ok","usage":{},"http_status":200,"finish_reason":null,"max_tokens":null,"estimated_prompt_tokens":null}
+{"event":"api_call","request_id":"","stage":"bootstrap","time":1794588430.731,"kind":"embedding","model":"BAAI/bge-m3","seconds":0.0,"status":"ok","usage":{},"http_status":200,"finish_reason":null,"max_tokens":null,"estimated_prompt_tokens":null}
+{"event":"api_call","request_id":"","stage":"bootstrap","time":1794588430.734,"kind":"embedding","model":"BAAI/bge-m3","seconds":0.0,"status":"ok","usage":{},"http_status":200,"finish_reason":null,"max_tokens":null,"estimated_prompt_tokens":null}
+.{"event":"api_call","request_id":"","stage":"bootstrap","time":1794588430.743,"kind":"embedding","model":"BAAI/bge-m3","seconds":0.0,"status":"failed","usage":{},"http_status":null,"finish_reason":null,"max_tokens":null,"estimated_prompt_tokens":null}
+.{"event":"api_retry","request_id":"","stage":"bootstrap","time":1794588430.75,"kind":"rerank","http_status":429,"attempt":1}
+{"event":"api_call","request_id":"","stage":"bootstrap","time":1794588430.78,"kind":"rerank","model":"Qwen/Qwen3-Reranker-8B","seconds":0.031,"status":"ok","usage":{},"http_status":200,"finish_reason":null,"max_tokens":null,"estimated_prompt_tokens":null}
+{"event":"api_call","request_id":"","stage":"bootstrap","time":1794588430.783,"kind":"rerank","model":"Qwen/Qwen3-Reranker-8B","seconds":0.0,"status":"failed","usage":{},"http_status":401,"finish_reason":null,"max_tokens":null,"estimated_prompt_tokens":null}
+............
+----------------------------------------------------------------------
+Ran 18 tests in 22.970s
+
+OK

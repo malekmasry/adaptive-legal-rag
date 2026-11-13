@@ -1,0 +1,730 @@
+{
+  "scope": "Targeted caveat regressions; rental case rechecked after clarifying the scope of a one-time price increase. Full final-release verification is reported separately.",
+  "seconds": 105.31299999999464,
+  "cases": [
+    "demo-4",
+    "new-40",
+    "new-15",
+    "demo-3"
+  ],
+  "depths": [
+    6
+  ],
+  "results": [
+    {
+      "id": "new-15",
+      "depth": 6,
+      "question": "П-17/2024: гарантия и срок предъявления замечаний по качеству?",
+      "expected": [
+        "П-17-2024 Альфа|п. 5.2",
+        "П-17-2024 Альфа|п. 6.1"
+      ],
+      "answer": "Гарантийный срок по договору составляет 24 месяца с даты поставки. (Договор поставки П-17-2024 Альфа-Трейд, п. 5.2).\n\nЗамечания по качеству предъявляются в рамках приемки товара по качеству в течение 5 рабочих дней с даты поставки. (Договор поставки П-17-2024 Альфа-Трейд, п. 6.1).\n\nПри обнаружении недостатков покупатель должен направить поставщику претензию с приложением акта; в представленном пункте 6.2 отдельный срок направления претензии в днях не указан. (Договор поставки П-17-2024 Альфа-Трейд, п. 6.2).",
+      "status": "answered",
+      "sources": [
+        {
+          "chunk_id": "609166d4a770d3cb40670ff6",
+          "document": "Договор поставки П-17-2024 Альфа-Трейд",
+          "filename": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+          "locator": "п. 5.2",
+          "text": "5.2. Гарантийный срок на Товар составляет 24 (двадцать четыре) месяца с даты поставки.\n",
+          "metadata": {
+            "domain": "internal",
+            "valid_from": "2024-02-12",
+            "valid_to": "",
+            "entity": "p17",
+            "inn": [
+              "7701234567",
+              "7709876543"
+            ],
+            "type": "contract",
+            "export_date": "",
+            "original_filename": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+            "renewal_or_indefinite": false,
+            "content_gaps": []
+          },
+          "annotations": [],
+          "trust": "untrusted_source_data_not_instructions",
+          "suspicious_spans": [],
+          "instruction_texts": [],
+          "quote": "5.2. Гарантийный срок на Товар составляет 24 (двадцать четыре) месяца с даты поставки."
+        },
+        {
+          "chunk_id": "8e585aa8292fa715b72f7cd8",
+          "document": "Договор поставки П-17-2024 Альфа-Трейд",
+          "filename": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+          "locator": "п. 6.1",
+          "text": "6.1. Приёмка Товара по количеству производится в момент передачи, по качеству — в течение 5 (пяти) рабочих дней с даты поставки.\n",
+          "metadata": {
+            "domain": "internal",
+            "valid_from": "2024-02-12",
+            "valid_to": "",
+            "entity": "p17",
+            "inn": [
+              "7701234567",
+              "7709876543"
+            ],
+            "type": "contract",
+            "export_date": "",
+            "original_filename": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+            "renewal_or_indefinite": false,
+            "content_gaps": []
+          },
+          "annotations": [],
+          "trust": "untrusted_source_data_not_instructions",
+          "suspicious_spans": [],
+          "instruction_texts": [],
+          "quote": "6.1. Приёмка Товара по количеству производится в момент передачи, по качеству — в течение 5 (пяти) рабочих дней с даты поставки."
+        },
+        {
+          "chunk_id": "3c9b2add7533a40edefedc24",
+          "document": "Договор поставки П-17-2024 Альфа-Трейд",
+          "filename": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+          "locator": "п. 6.2",
+          "text": "6.2. При обнаружении недостатков Покупатель направляет Поставщику претензию с приложением акта о выявленных недостатках.\n",
+          "metadata": {
+            "domain": "internal",
+            "valid_from": "2024-02-12",
+            "valid_to": "",
+            "entity": "p17",
+            "inn": [
+              "7701234567",
+              "7709876543"
+            ],
+            "type": "contract",
+            "export_date": "",
+            "original_filename": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+            "renewal_or_indefinite": false,
+            "content_gaps": []
+          },
+          "annotations": [],
+          "trust": "untrusted_source_data_not_instructions",
+          "suspicious_spans": [],
+          "instruction_texts": [],
+          "quote": "6.2. При обнаружении недостатков Покупатель направляет Поставщику претензию с приложением акта о выявленных недостатках."
+        }
+      ],
+      "not_in_base": false,
+      "as_of": "2026-11-13",
+      "warnings": [],
+      "trace": {
+        "security_flag": false,
+        "source_audit": {
+          "checked_passages": 351,
+          "instruction_spans": 1,
+          "model": "deepseek-v4.1-flash",
+          "fingerprint": "48f96dabea53a70b0fc1c6ee84af4715a2f546b1d62c68bc05911c019e7a87e2"
+        },
+        "degraded": [],
+        "plan": {
+          "question": "По договору П-17/2024 каковы гарантийный срок и срок предъявления замечаний по качеству?",
+          "domain": "both",
+          "entity": "П-17/2024",
+          "as_of": "2026-11-13",
+          "date_role": "unspecified",
+          "specification_date": "",
+          "subquestions": [
+            "Каков гарантийный срок по договору П-17/2024?",
+            "В течение какого срока можно предъявить замечания по качеству по договору П-17/2024?"
+          ],
+          "rewrites": [],
+          "clarification": "",
+          "topic": "гарантия и срок предъявления замечаний по качеству",
+          "topic_changed": false,
+          "input_attack": false,
+          "unsafe_request": false
+        },
+        "topic_changed": false,
+        "slots": {
+          "active_doc": "p17",
+          "counterparty": "p17",
+          "as_of": "2026-11-13",
+          "domain": "both",
+          "topic": "гарантия и срок предъявления замечаний по качеству"
+        },
+        "stage": "completed",
+        "retrieval": {
+          "mode": "frozen paired ranking"
+        },
+        "budget": {
+          "estimated_tokens_with_margin": 6198,
+          "method": "cl100k_base approximation + 35% reserve",
+          "budget_tokens": 18000,
+          "omitted": [],
+          "partial_parents": []
+        },
+        "verification": {
+          "accepted": 3,
+          "proposed": 3,
+          "issues": [],
+          "coverage": [
+            true,
+            true
+          ],
+          "proposed_warnings": [
+            "15 календарных дней — это срок ответа на претензию, а не срок ее предъявления."
+          ],
+          "proposed_conflicts": [],
+          "rejected_local": []
+        },
+        "suppressed_gap_count": 0,
+        "seconds": 53.328
+      },
+      "calls": [
+        {
+          "kind": "chat",
+          "model": "deepseek-v4.1-flash",
+          "seconds": 21.468,
+          "status": "ok",
+          "usage": {
+            "prompt_tokens": 8481,
+            "completion_tokens": 702,
+            "total_tokens": 9183
+          },
+          "http_status": 200,
+          "finish_reason": "stop",
+          "max_tokens": 8192,
+          "estimated_prompt_tokens": 8624
+        },
+        {
+          "kind": "chat",
+          "model": "deepseek-v4.1-flash",
+          "seconds": 23.407,
+          "status": "ok",
+          "usage": {
+            "completion_tokens": 548,
+            "prompt_tokens": 6137,
+            "total_tokens": 6685
+          },
+          "http_status": 200,
+          "finish_reason": "stop",
+          "max_tokens": 8192,
+          "estimated_prompt_tokens": 8088
+        }
+      ]
+    },
+    {
+      "id": "demo-3",
+      "depth": 6,
+      "question": "Какой размер пособия по беременности и родам?",
+      "expected": [],
+      "answer": "В предоставленной базе не удалось подтвердить: Норма о размере пособия по беременности и родам, включая порядок его расчёта и возможные минимальные или максимальные пределы.",
+      "status": "not_in_base",
+      "sources": [],
+      "not_in_base": true,
+      "as_of": "2026-11-13",
+      "warnings": [],
+      "trace": {
+        "security_flag": false,
+        "source_audit": {
+          "checked_passages": 351,
+          "instruction_spans": 1,
+          "model": "deepseek-v4.1-flash",
+          "fingerprint": "48f96dabea53a70b0fc1c6ee84af4715a2f546b1d62c68bc05911c019e7a87e2"
+        },
+        "degraded": [],
+        "plan": {
+          "question": "Какой размер пособия по беременности и родам по состоянию на 13 ноября 2026 года?",
+          "domain": "law",
+          "entity": "",
+          "as_of": "2026-11-13",
+          "date_role": "unspecified",
+          "specification_date": "",
+          "subquestions": [],
+          "rewrites": [],
+          "clarification": "",
+          "topic": "пособие по беременности и родам",
+          "topic_changed": false,
+          "input_attack": false,
+          "unsafe_request": false
+        },
+        "topic_changed": false,
+        "slots": {
+          "active_doc": "",
+          "counterparty": "",
+          "as_of": "2026-11-13",
+          "domain": "law",
+          "topic": "пособие по беременности и родам"
+        },
+        "stage": "completed",
+        "retrieval": {
+          "mode": "frozen paired ranking"
+        },
+        "budget": {
+          "estimated_tokens_with_margin": 9549,
+          "method": "cl100k_base approximation + 35% reserve",
+          "budget_tokens": 18000,
+          "omitted": [],
+          "partial_parents": []
+        },
+        "verification": {
+          "accepted": 0,
+          "proposed": 0,
+          "issues": [
+            "В представленных цитатах отсутствует норма о размере пособия по беременности и родам и порядке его расчёта на 13 ноября 2026 года; приведённые нормы о МРОТ и сверхурочной работе этот вопрос не регулируют."
+          ],
+          "coverage": [
+            false
+          ],
+          "proposed_warnings": [
+            "В представленных материалах отсутствует норма, устанавливающая размер пособия по беременности и родам или порядок его расчёта по состоянию на 13 ноября 2026 года."
+          ],
+          "proposed_conflicts": [],
+          "rejected_local": []
+        },
+        "seconds": 65.906
+      },
+      "calls": [
+        {
+          "kind": "chat",
+          "model": "deepseek-v4.1-flash",
+          "seconds": 10.812,
+          "status": "ok",
+          "usage": {
+            "prompt_tokens": 8980,
+            "completion_tokens": 290,
+            "total_tokens": 9270
+          },
+          "http_status": 200,
+          "finish_reason": "stop",
+          "max_tokens": 8192,
+          "estimated_prompt_tokens": 10993
+        },
+        {
+          "kind": "chat",
+          "model": "deepseek-v4.1-flash",
+          "seconds": 9.156,
+          "status": "ok",
+          "usage": {
+            "prompt_tokens": 7439,
+            "completion_tokens": 131,
+            "total_tokens": 7570
+          },
+          "http_status": 200,
+          "finish_reason": "stop",
+          "max_tokens": 8192,
+          "estimated_prompt_tokens": 10031
+        },
+        {
+          "kind": "chat",
+          "model": "deepseek-v4.1-flash",
+          "seconds": 16.078,
+          "status": "ok",
+          "usage": {
+            "prompt_tokens": 9222,
+            "completion_tokens": 220,
+            "total_tokens": 9442
+          },
+          "http_status": 200,
+          "finish_reason": "stop",
+          "max_tokens": 8192,
+          "estimated_prompt_tokens": 11315
+        },
+        {
+          "kind": "chat",
+          "model": "deepseek-v4.1-flash",
+          "seconds": 21.766,
+          "status": "ok",
+          "usage": {
+            "completion_tokens": 173,
+            "prompt_tokens": 6358,
+            "total_tokens": 6531
+          },
+          "http_status": 200,
+          "finish_reason": "stop",
+          "max_tokens": 8192,
+          "estimated_prompt_tokens": 10045
+        }
+      ]
+    },
+    {
+      "id": "new-40",
+      "depth": 6,
+      "question": "Что говорит действующая ставка НДС и что записано в П-17/2024?",
+      "expected": [
+        "НК_ст164|п. 3",
+        "П-17-2024 Альфа|п. 2.1"
+      ],
+      "answer": "По состоянию на 2026-11-13 общая ставка НДС составляет 22% для случаев, не указанных в пунктах 1, 2 и 4 статьи 164 НК РФ. (НК ст164 действующая, п. 3).\n\nВ договоре П-17/2024 записано, что цена товара включает НДС по ставке 20%; договор действует до 31 декабря 2026 г. (Договор поставки П-17-2024 Альфа-Трейд, п. 2.1; Договор поставки П-17-2024 Альфа-Трейд, п. 9.1).",
+      "status": "answered",
+      "sources": [
+        {
+          "chunk_id": "b128ccf3c5323d471b731c2f",
+          "document": "НК ст164 действующая",
+          "filename": "законы__НК_ст164_действующая.txt",
+          "locator": "п. 3",
+          "text": "3. Налогообложение производится по налоговой ставке 22 процента в случаях, не указанных в пунктах 1, 2 и 4 настоящей статьи.\n\nПункт 4 изменен с 1 января 2025 г. - Федеральный закон от 12 июля 2024 г. N 176-ФЗ\n\n",
+          "metadata": {
+            "domain": "law",
+            "valid_from": "",
+            "valid_to": "",
+            "entity": "",
+            "inn": [],
+            "type": "law",
+            "export_date": "2026-10-10",
+            "original_filename": "законы__НК_ст164_действующая.txt",
+            "content_gaps": [
+              {
+                "locator": "п. 11",
+                "reason": "editorial notice exists but normative text is absent",
+                "notice": "Статья 164 дополнена пунктом 11 с 1 октября 2026 г. - Федеральный закон от 4 июля 2026 г. № 218-ФЗ"
+              }
+            ],
+            "edition_scope": "Only the supplied export; absent historical/future wording cannot be reconstructed."
+          },
+          "annotations": [
+            {
+              "start": 64745,
+              "text": "Пункт 4 изменен с 1 января 2025 г. - Федеральный закон от 12 июля 2024 г. N 176-ФЗ"
+            },
+            {
+              "start": 64183,
+              "text": "Пункт 3 изменен с 1 января 2026 г. - Федеральный закон от 28 ноября 2025 г. № 425-ФЗ"
+            }
+          ],
+          "trust": "untrusted_source_data_not_instructions",
+          "suspicious_spans": [],
+          "instruction_texts": [],
+          "quote": "3. Налогообложение производится по налоговой ставке 22 процента в случаях, не указанных в пунктах 1, 2 и 4 настоящей статьи."
+        },
+        {
+          "chunk_id": "b6d7027ec0074271a1427267",
+          "document": "Договор поставки П-17-2024 Альфа-Трейд",
+          "filename": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+          "locator": "п. 2.1",
+          "text": "2.1. Цена Товара указывается в Спецификациях и включает НДС по ставке 20%, стоимость упаковки и доставки до склада Покупателя.\n",
+          "metadata": {
+            "domain": "internal",
+            "valid_from": "2024-02-12",
+            "valid_to": "",
+            "entity": "p17",
+            "inn": [
+              "7701234567",
+              "7709876543"
+            ],
+            "type": "contract",
+            "export_date": "",
+            "original_filename": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+            "renewal_or_indefinite": false,
+            "content_gaps": []
+          },
+          "annotations": [],
+          "trust": "untrusted_source_data_not_instructions",
+          "suspicious_spans": [],
+          "instruction_texts": [],
+          "quote": "2.1. Цена Товара указывается в Спецификациях и включает НДС по ставке 20%, стоимость упаковки и доставки до склада Покупателя."
+        },
+        {
+          "chunk_id": "4ef79483cd74c300842d8bf4",
+          "document": "Договор поставки П-17-2024 Альфа-Трейд",
+          "filename": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+          "locator": "п. 9.1",
+          "text": "9.1. Договор вступает в силу с даты подписания и действует до 31 декабря 2026 г.\n",
+          "metadata": {
+            "domain": "internal",
+            "valid_from": "2024-02-12",
+            "valid_to": "",
+            "entity": "p17",
+            "inn": [
+              "7701234567",
+              "7709876543"
+            ],
+            "type": "contract",
+            "export_date": "",
+            "original_filename": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+            "renewal_or_indefinite": false,
+            "content_gaps": []
+          },
+          "annotations": [],
+          "trust": "untrusted_source_data_not_instructions",
+          "suspicious_spans": [],
+          "instruction_texts": [],
+          "quote": "9.1. Договор вступает в силу с даты подписания и действует до 31 декабря 2026 г."
+        }
+      ],
+      "not_in_base": false,
+      "as_of": "2026-11-13",
+      "warnings": [],
+      "trace": {
+        "security_flag": false,
+        "source_audit": {
+          "checked_passages": 351,
+          "instruction_spans": 1,
+          "model": "deepseek-v4.1-flash",
+          "fingerprint": "48f96dabea53a70b0fc1c6ee84af4715a2f546b1d62c68bc05911c019e7a87e2"
+        },
+        "degraded": [],
+        "plan": {
+          "question": "Какая ставка НДС действует по состоянию на 2026-11-13 и что записано в П-17/2024?",
+          "domain": "both",
+          "entity": "П-17/2024",
+          "as_of": "2026-11-13",
+          "date_role": "unspecified",
+          "specification_date": "",
+          "subquestions": [
+            "Какая ставка НДС действует по состоянию на 2026-11-13?",
+            "Что записано в П-17/2024?"
+          ],
+          "rewrites": [],
+          "clarification": "",
+          "topic": "Ставка НДС и содержание документа П-17/2024",
+          "topic_changed": false,
+          "input_attack": false,
+          "unsafe_request": false
+        },
+        "topic_changed": false,
+        "slots": {
+          "active_doc": "p17",
+          "counterparty": "p17",
+          "as_of": "2026-11-13",
+          "domain": "both",
+          "topic": "Ставка НДС и содержание документа П-17/2024"
+        },
+        "stage": "completed",
+        "retrieval": {
+          "mode": "frozen paired ranking"
+        },
+        "budget": {
+          "estimated_tokens_with_margin": 17768,
+          "method": "cl100k_base approximation + 35% reserve",
+          "budget_tokens": 18000,
+          "omitted": [
+            "2ff8ef6160ccc8b7710967b2",
+            "ea8225eb3099001955e7a8ba",
+            "684db0f973b9594b47d09085",
+            "499044c55f8e03ff4a4d53c2",
+            "a550098415a4933aea0ddc8d",
+            "85f27275616ae7f6366bc8be",
+            "4ef10af407f150d0026d2197",
+            "0fe76d390b1fe78f76bf6095",
+            "5fe464ee2c9e21053bc46e0d",
+            "be92eeab5e07b1892b225834",
+            "5da79ee3bc0164c9eb99e6d6",
+            "227a81f453a4bca131f452aa",
+            "0e8bb524ab15776197f8289a",
+            "4fd21040d83e5a0350e29274",
+            "263059a7eddfdf96f2658638"
+          ],
+          "partial_parents": []
+        },
+        "verification": {
+          "accepted": 2,
+          "proposed": 2,
+          "issues": [
+            "В выгрузке отсутствует нормативный текст пункта 11 статьи 164 НК РФ, который, согласно редакционной пометке, действует с 1 октября 2026 г.; поэтому нельзя подтвердить содержание всех возможных специальных правил НДС на 13.11.2026 и исключить их влияние на конкретную операцию.",
+            "Из приведённых материалов следует наличие в договоре условия о ставке 20% и наличие в НК РФ положения о ставке 22% в соответствующих случаях, но не следует, какая ставка фактически применялась по конкретной поставке и является ли договорное условие изменённым или недействительным."
+          ],
+          "coverage": [
+            true,
+            true
+          ],
+          "proposed_warnings": [
+            "Нормативный текст пункта 11 статьи 164 в представленной базе отсутствует; его содержание не восстанавливается."
+          ],
+          "proposed_conflicts": [
+            "Формулировка договора предусматривает НДС 20%, тогда как приведенное действующее положение пункта 3 статьи 164 НК РФ предусматривает 22% в соответствующих случаях."
+          ],
+          "rejected_local": []
+        },
+        "suppressed_gap_count": 0,
+        "seconds": 75.703
+      },
+      "calls": [
+        {
+          "kind": "chat",
+          "model": "deepseek-v4.1-flash",
+          "seconds": 26.203,
+          "status": "ok",
+          "usage": {
+            "prompt_tokens": 15225,
+            "completion_tokens": 955,
+            "total_tokens": 16180
+          },
+          "http_status": 200,
+          "finish_reason": "stop",
+          "max_tokens": 8192,
+          "estimated_prompt_tokens": 17518
+        },
+        {
+          "kind": "chat",
+          "model": "deepseek-v4.1-flash",
+          "seconds": 40.782,
+          "status": "ok",
+          "usage": {
+            "completion_tokens": 1199,
+            "prompt_tokens": 12887,
+            "total_tokens": 14086
+          },
+          "http_status": 200,
+          "finish_reason": "stop",
+          "max_tokens": 8192,
+          "estimated_prompt_tokens": 16955
+        }
+      ]
+    },
+    {
+      "id": "demo-4",
+      "depth": 6,
+      "question": "Почему по договору с ООО «Северный Склад» арендная плата 500 000 рублей в месяц?",
+      "expected": [
+        "А-08|п. 3.1",
+        "А-08|п. 3.4"
+      ],
+      "answer": "Предпосылка неверна: по представленному договору арендная плата составляет 450 000 рублей в месяц, включая НДС, а не 500 000 рублей. (Договор аренды А-08-2024 Северный Склад, п. 3.1).\n\nДоговор предоставляет арендодателю право не чаще одного раза в год увеличить плату не более чем на 7%, но представленные материалы не подтверждают, что такое увеличение было произведено или что оно привело к сумме 500 000 рублей. (Договор аренды А-08-2024 Северный Склад, п. 3.4).",
+      "status": "answered",
+      "sources": [
+        {
+          "chunk_id": "7fdc2b716d668fea1e962602",
+          "document": "Договор аренды А-08-2024 Северный Склад",
+          "filename": "документы компании__Договор аренды А-08-2024 Северный Склад.txt",
+          "locator": "п. 3.1",
+          "text": "3.1. Арендная плата составляет 450 000 (четыреста пятьдесят тысяч) рублей в месяц, включая НДС.\n",
+          "metadata": {
+            "domain": "internal",
+            "valid_from": "2024-08-01",
+            "valid_to": "",
+            "entity": "a08",
+            "inn": [
+              "5047112233",
+              "7709876543"
+            ],
+            "type": "contract",
+            "export_date": "",
+            "original_filename": "документы компании__Договор аренды А-08-2024 Северный Склад.txt",
+            "renewal_or_indefinite": true,
+            "content_gaps": []
+          },
+          "annotations": [],
+          "trust": "untrusted_source_data_not_instructions",
+          "suspicious_spans": [],
+          "instruction_texts": [],
+          "quote": "Арендная плата составляет 450 000 (четыреста пятьдесят тысяч) рублей в месяц, включая НДС."
+        },
+        {
+          "chunk_id": "ce8e3d393ce1fdadedcca0f5",
+          "document": "Договор аренды А-08-2024 Северный Склад",
+          "filename": "документы компании__Договор аренды А-08-2024 Северный Склад.txt",
+          "locator": "п. 3.4",
+          "text": "3.4. Арендодатель вправе не чаще одного раза в год увеличить размер арендной платы не более чем на 7%, письменно уведомив Арендатора.\n",
+          "metadata": {
+            "domain": "internal",
+            "valid_from": "2024-08-01",
+            "valid_to": "",
+            "entity": "a08",
+            "inn": [
+              "5047112233",
+              "7709876543"
+            ],
+            "type": "contract",
+            "export_date": "",
+            "original_filename": "документы компании__Договор аренды А-08-2024 Северный Склад.txt",
+            "renewal_or_indefinite": true,
+            "content_gaps": []
+          },
+          "annotations": [],
+          "trust": "untrusted_source_data_not_instructions",
+          "suspicious_spans": [],
+          "instruction_texts": [],
+          "quote": "Арендодатель вправе не чаще одного раза в год увеличить размер арендной платы не более чем на 7%, письменно уведомив Арендатора."
+        }
+      ],
+      "not_in_base": false,
+      "as_of": "2026-11-13",
+      "warnings": [],
+      "trace": {
+        "security_flag": false,
+        "source_audit": {
+          "checked_passages": 351,
+          "instruction_spans": 1,
+          "model": "deepseek-v4.1-flash",
+          "fingerprint": "48f96dabea53a70b0fc1c6ee84af4715a2f546b1d62c68bc05911c019e7a87e2"
+        },
+        "degraded": [],
+        "plan": {
+          "question": "Почему по договору с ООО «Северный Склад» арендная плата составляет 500 000 рублей в месяц?",
+          "domain": "both",
+          "entity": "ООО «Северный Склад»",
+          "as_of": "2026-11-13",
+          "date_role": "unspecified",
+          "specification_date": "",
+          "subquestions": [],
+          "rewrites": [],
+          "clarification": "",
+          "topic": "арендная плата по договору с ООО «Северный Склад»",
+          "topic_changed": false,
+          "input_attack": false,
+          "unsafe_request": false
+        },
+        "topic_changed": false,
+        "slots": {
+          "active_doc": "a08",
+          "counterparty": "a08",
+          "as_of": "2026-11-13",
+          "domain": "both",
+          "topic": "арендная плата по договору с ООО «Северный Склад»"
+        },
+        "stage": "completed",
+        "retrieval": {
+          "mode": "frozen paired ranking"
+        },
+        "budget": {
+          "estimated_tokens_with_margin": 4188,
+          "method": "cl100k_base approximation + 35% reserve",
+          "budget_tokens": 18000,
+          "omitted": [],
+          "partial_parents": []
+        },
+        "verification": {
+          "accepted": 2,
+          "proposed": 2,
+          "issues": [],
+          "coverage": [
+            true
+          ],
+          "proposed_warnings": [
+            "Представленные материалы не содержат объяснения причин установления именно договорной суммы 450 000 рублей."
+          ],
+          "proposed_conflicts": [
+            "Указанная пользователем сумма 500 000 рублей не соответствует пункту 3.1 представленного договора."
+          ],
+          "rejected_local": []
+        },
+        "suppressed_gap_count": 0,
+        "seconds": 60.344
+      },
+      "calls": [
+        {
+          "kind": "chat",
+          "model": "deepseek-v4.1-flash",
+          "seconds": 28.421,
+          "status": "ok",
+          "usage": {
+            "completion_tokens": 639,
+            "prompt_tokens": 5331,
+            "total_tokens": 5970
+          },
+          "http_status": 200,
+          "finish_reason": "stop",
+          "max_tokens": 8192,
+          "estimated_prompt_tokens": 7147
+        },
+        {
+          "kind": "chat",
+          "model": "deepseek-v4.1-flash",
+          "seconds": 30.25,
+          "status": "ok",
+          "usage": {
+            "completion_tokens": 505,
+            "prompt_tokens": 4821,
+            "total_tokens": 5326
+          },
+          "http_status": 200,
+          "finish_reason": "stop",
+          "max_tokens": 8192,
+          "estimated_prompt_tokens": 6498
+        }
+      ]
+    }
+  ],
+  "rent_recheck_seconds": 65.89099999998871
+}

@@ -72,7 +72,7 @@ def validate_claim(claim,evidence):
     for cit in claim.citations:
         if cit.chunk_id not in evidence: issues.append('unknown citation'); continue
         if suspicious(cit.quote): issues.append('instruction is not legal evidence')
-        if any(normalize_quote(cit.quote) in normalize_quote(span) for span in evidence[cit.chunk_id].get('instruction_texts',[])):
+        if any(normalize_quote(span) and (normalize_quote(cit.quote) in normalize_quote(span) or normalize_quote(span) in normalize_quote(cit.quote)) for span in evidence[cit.chunk_id].get('instruction_texts',[])):
             issues.append('quote belongs to instruction span, not a legal rule')
         if normalize_quote(cit.quote) not in normalize_quote(evidence[cit.chunk_id]['text']): issues.append('quote absent')
     if claim.calculation:

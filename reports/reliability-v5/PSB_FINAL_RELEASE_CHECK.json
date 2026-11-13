@@ -1,0 +1,11 @@
+{
+  "archive": "PSB_RAG_SUBMISSION_v5.zip",
+  "sha256": "ebfc4cba45cefaf0f97f0602f7f59d750b26cd5541fef5f8ecf0ab3f411b1092",
+  "flat_archive_entries": 21,
+  "crc_ok": true,
+  "matches_branch_sources": true,
+  "staged_files": 39,
+  "credentials_absent": true,
+  "corpus_not_staged": true,
+  "api_calls": 0
+}

@@ -1,0 +1,6 @@
+{"archive": "submit.zip", "bytes": 2029578, "sha256": "6f5512f7d6ddffc55fcff6c3fff0f19256c2cc39ff81432da5e56dc0039cc5f9", "files": ["solution.py", "settings.py", "schemas.py", "security.py", "corpus.py", "storage.py", "model_api.py", "retrieval.py", "reasoning.py", "pipeline.py", "source_audit.py", "token_budget.py", "prompt_config.py", "diagnostics.py", "prompts.yaml", "aliases.yaml", "relations.yaml", "requirements.txt", "cl100k_base.tiktoken", "source-audit-48f96dabea53a70b0fc1c6ee84af4715a2f546b1d62c68bc05911c019e7a87e2.json", "vectors-0dd34e01fcbb8fc2300b47c362c30e2276d7ff5d7a508307e75179eea6a5eea3.npz"], "dependencies_allowlisted": true, "flat": true, "secrets_excluded": true, "contains_corpus": false, "contains_test_substitutes": false}
+......
+----------------------------------------------------------------------
+Ran 6 tests in 60.266s
+
+OK

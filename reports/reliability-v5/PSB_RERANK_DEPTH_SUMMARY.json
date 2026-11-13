@@ -1,0 +1,63 @@
+[
+  {
+    "top_n": 4,
+    "all_expected_sources": 51,
+    "annotated_cases": 52,
+    "mean_context_tokens": 7032,
+    "mean_context_chunks": 10.3,
+    "cases_with_budget_omissions": 5,
+    "misses": [
+      {
+        "id": "new-22",
+        "sources": [
+          "НК_ст145|п. 5"
+        ]
+      }
+    ]
+  },
+  {
+    "top_n": 5,
+    "all_expected_sources": 52,
+    "annotated_cases": 52,
+    "mean_context_tokens": 7677,
+    "mean_context_chunks": 11.5,
+    "cases_with_budget_omissions": 5,
+    "misses": []
+  },
+  {
+    "top_n": 6,
+    "all_expected_sources": 52,
+    "annotated_cases": 52,
+    "mean_context_tokens": 8417,
+    "mean_context_chunks": 12.6,
+    "cases_with_budget_omissions": 5,
+    "misses": []
+  },
+  {
+    "top_n": 8,
+    "all_expected_sources": 52,
+    "annotated_cases": 52,
+    "mean_context_tokens": 10207,
+    "mean_context_chunks": 15.8,
+    "cases_with_budget_omissions": 6,
+    "misses": []
+  },
+  {
+    "top_n": 10,
+    "all_expected_sources": 52,
+    "annotated_cases": 52,
+    "mean_context_tokens": 11442,
+    "mean_context_chunks": 18.6,
+    "cases_with_budget_omissions": 13,
+    "misses": []
+  },
+  {
+    "top_n": 15,
+    "all_expected_sources": 52,
+    "annotated_cases": 52,
+    "mean_context_tokens": 14315,
+    "mean_context_chunks": 23.7,
+    "cases_with_budget_omissions": 20,
+    "misses": []
+  }
+]

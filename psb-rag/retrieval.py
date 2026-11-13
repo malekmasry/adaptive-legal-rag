@@ -48,8 +48,43 @@ def rrf(lists,k=60):
         for rank,id in enumerate(dict.fromkeys(ranked),1): scores[id]=scores.get(id,0)+1/(k+rank)
     return sorted(scores,key=lambda x:(-scores[x],x)),scores
 
+def explicit_event_date(question):
+    """Explicit historical approval/event dates must survive a mistaken LLM plan.
+
+    A contract number or signature year alone must not date a question about
+    current obligations. Specification dates remain a separate condition.
+    """
+    q=norm(question)
+    if re.search(r'\bсейчас\b|\bсегодня\b|\bтеперь\b',q):return ''
+    if not re.search(r'одобр|соглас(?:ов|у)|на дату|по состоянию|действовал|требовал|нужно было|должен был',q):return ''
+    dates=re.findall(r'\b(\d{2})\.(\d{2})\.(\d{4})\b',q)
+    if len(dates)==1:
+        day,month,year=map(int,dates[0])
+        try:return date(year,month,day).isoformat()
+        except ValueError:return ''
+    iso=re.findall(r'\b(20\d{2}-\d{2}-\d{2})\b',q)
+    if len(iso)==1:
+        try:return date.fromisoformat(iso[0]).isoformat()
+        except ValueError:return ''
+    months={'январ':1,'феврал':2,'март':3,'апрел':4,'ма':5,'июн':6,
+            'июл':7,'август':8,'сентябр':9,'октябр':10,'ноябр':11,'декабр':12}
+    found=re.findall(r'\b(январ[ьяе]|феврал[ьяе]|март[ае]?|апрел[ьяе]|ма[йея]|июн[ьяе]|июл[ьяе]|август[ае]?|сентябр[ьяе]|октябр[ьяе]|ноябр[ьяе]|декабр[ьяе])\s+(20\d{2})\b',q)
+    if len(found)==1:
+        name,year=found[0]
+        month=next(value for stem,value in months.items() if name.startswith(stem))
+        return f'{year}-{month:02}'
+    years=re.findall(r'\b(?:в|за|на)\s+(20\d{2})(?:\s*г(?:оду|од|\.)?)?\b',q)
+    return years[0] if len(set(years))==1 else ''
+
 def event_window(plan,current):
     q=norm(plan.question)
+    explicit=explicit_event_date(q)
+    if explicit:
+        if len(explicit)==10:return explicit,explicit
+        if len(explicit)==7:
+            y,m=map(int,explicit.split('-'))
+            return explicit+'-01',explicit+f'-{calendar.monthrange(y,m)[1]:02}'
+        return explicit+'-01-01',explicit+'-12-31'
     dates=re.findall(r'\b(\d{2})\.(\d{2})\.(\d{4})\b',q)
     if len(dates)==1 and re.search(r'одобр|соглас(?:ов|у)|на дату|по состоянию',q) and not re.search(r'\bсейчас\b|\bсегодня\b|\bтеперь\b',q):
         d,m,y=dates[0]
