@@ -1,0 +1,694 @@
+{
+  "scope": "Offline v7/v8 Pipeline and retrieval replay with cached BGE-M3 vectors; no live generation or reranking. Deadline comparison uses synthetic delayed workers.",
+  "external_api_calls": 0,
+  "cases": 58,
+  "identical_retrieval_cases": 58,
+  "healthy_query_embedding_requests_v7": 88,
+  "healthy_query_embedding_requests_v8": 56,
+  "healthy_query_embedding_request_reduction_percent": 36.36,
+  "maximum_query_batch": 4,
+  "embedding_request_note": "Counts assume a working embedding service for every text. Cached local fixture lacks some rewritten query vectors; recovery calls in that fixture are listed separately and are not a live speed measurement.",
+  "deadline_policy": {
+    "work_seconds": 1100,
+    "finalize_grace_seconds": 30,
+    "new_requests_after_work_deadline": false,
+    "cli_exits_if_workers_still_stuck": true
+  },
+  "deadline_demo": [
+    {
+      "version": "v7",
+      "counts": {
+        "deadline_unprocessed": 3
+      },
+      "seconds": 0.438,
+      "successful_answers_in_csv": 0,
+      "rows_in_csv": 3,
+      "started_questions": [
+        "0",
+        "1"
+      ],
+      "collected_during_drain": 0
+    },
+    {
+      "version": "v8",
+      "counts": {
+        "answered": 2,
+        "deadline_unprocessed": 1
+      },
+      "seconds": 0.609,
+      "successful_answers_in_csv": 2,
+      "rows_in_csv": 3,
+      "started_questions": [
+        "0",
+        "1"
+      ],
+      "collected_during_drain": 2
+    }
+  ],
+  "comparisons": [
+    {
+      "id": "demo-1",
+      "queries": 4,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 4,
+      "fixture_embed_calls_v8": 5,
+      "embedding_mode_v8": "per_query_recovery"
+    },
+    {
+      "id": "demo-2",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "demo-3",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "demo-4",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "demo-5",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "demo-6",
+      "queries": 2,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 2,
+      "fixture_embed_calls_v8": 3,
+      "embedding_mode_v8": "per_query_recovery"
+    },
+    {
+      "id": "demo-7",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "demo-8",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "demo-9",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "demo-10",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "demo-11",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "demo-12",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "demo-13",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "demo-14",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "demo-15",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "demo-16",
+      "queries": 4,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 4,
+      "fixture_embed_calls_v8": 5,
+      "embedding_mode_v8": "per_query_recovery"
+    },
+    {
+      "id": "demo-17",
+      "queries": 2,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 2,
+      "fixture_embed_calls_v8": 3,
+      "embedding_mode_v8": "per_query_recovery"
+    },
+    {
+      "id": "demo-18",
+      "queries": 2,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 2,
+      "fixture_embed_calls_v8": 3,
+      "embedding_mode_v8": "per_query_recovery"
+    },
+    {
+      "id": "new-01",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "new-02",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "new-03",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "new-04",
+      "queries": 4,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 4,
+      "fixture_embed_calls_v8": 5,
+      "embedding_mode_v8": "per_query_recovery"
+    },
+    {
+      "id": "new-05",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "new-06",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "new-07",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "new-08",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "new-09",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "new-10",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "new-11",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "new-12",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "new-13",
+      "queries": 4,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 4,
+      "fixture_embed_calls_v8": 5,
+      "embedding_mode_v8": "per_query_recovery"
+    },
+    {
+      "id": "new-14",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "new-15",
+      "queries": 4,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 4,
+      "fixture_embed_calls_v8": 5,
+      "embedding_mode_v8": "per_query_recovery"
+    },
+    {
+      "id": "new-16",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "new-17",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "new-18",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "new-19",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "new-20",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "new-21",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "new-22",
+      "queries": 2,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 2,
+      "fixture_embed_calls_v8": 3,
+      "embedding_mode_v8": "per_query_recovery"
+    },
+    {
+      "id": "new-23",
+      "queries": 2,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 2,
+      "fixture_embed_calls_v8": 3,
+      "embedding_mode_v8": "per_query_recovery"
+    },
+    {
+      "id": "new-24",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "new-25",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "new-26",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "new-27",
+      "queries": 4,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 4,
+      "fixture_embed_calls_v8": 5,
+      "embedding_mode_v8": "per_query_recovery"
+    },
+    {
+      "id": "new-28",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "new-29",
+      "queries": 3,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 3,
+      "fixture_embed_calls_v8": 4,
+      "embedding_mode_v8": "per_query_recovery"
+    },
+    {
+      "id": "new-30",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "new-31",
+      "queries": 4,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 4,
+      "fixture_embed_calls_v8": 5,
+      "embedding_mode_v8": "per_query_recovery"
+    },
+    {
+      "id": "new-32",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "new-33",
+      "queries": 2,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 2,
+      "fixture_embed_calls_v8": 3,
+      "embedding_mode_v8": "per_query_recovery"
+    },
+    {
+      "id": "new-34",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "new-35",
+      "queries": 2,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 2,
+      "fixture_embed_calls_v8": 3,
+      "embedding_mode_v8": "per_query_recovery"
+    },
+    {
+      "id": "new-36",
+      "queries": 0,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 0,
+      "fixture_embed_calls_v8": 0,
+      "embedding_mode_v8": "sequential"
+    },
+    {
+      "id": "new-37",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "new-38",
+      "queries": 1,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 1,
+      "fixture_embed_calls_v8": 1,
+      "embedding_mode_v8": "batch"
+    },
+    {
+      "id": "new-39",
+      "queries": 0,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 0,
+      "fixture_embed_calls_v8": 0,
+      "embedding_mode_v8": "sequential"
+    },
+    {
+      "id": "new-40",
+      "queries": 3,
+      "rankings": true,
+      "candidates": true,
+      "selected": true,
+      "evidence_ids": true,
+      "fixture_embed_calls_v7": 3,
+      "fixture_embed_calls_v8": 4,
+      "embedding_mode_v8": "per_query_recovery"
+    }
+  ],
+  "limitations": [
+    "No measured platform speed or score.",
+    "Offline equal rankings do not measure numeric batch variation of the remote embedder.",
+    "Results not finished by the final collection cutoff cannot be retained; they are explicitly marked deadline_inflight.",
+    "The 30-second collection window consumes part of the reserve before the 1200-second platform limit."
+  ]
+}

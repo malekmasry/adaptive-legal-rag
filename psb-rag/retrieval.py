@@ -148,23 +148,46 @@ class Retriever:
         scores=self.bm.get_scores(tokens(query))+.15*self.prefix_bm.get_scores(tokens(query)); limit=limit or self.s.top_k
         return [(self.chunks[i].id,float(scores[i])) for i in sorted(pool,key=lambda x:-scores[x])[:limit] if scores[i]>0]
     def dense(self,query,pool):
-        self.prepare_dense(); v=self.api.embed([query])[0]
-        if self.vectors.shape[1]!=len(v): raise ModelError('query embedding dimension mismatch')
-        scores=self.vectors@v
-        return [(self.chunks[i].id,float(scores[i])) for i in sorted(pool,key=lambda x:-scores[x])[:self.s.top_k]]
+        return self.dense_many([query],pool)[0]
+    def dense_many(self,queries,pool):
+        self.prepare_dense()
+        try:vectors=np.asarray(self.api.embed(queries),dtype=np.float32)
+        except (ValueError,TypeError):raise ModelError('embedding contract violation') from None
+        if vectors.ndim!=2 or len(vectors)!=len(queries) or not np.isfinite(vectors).all():
+            raise ModelError('embedding contract violation')
+        if vectors.shape[1]!=self.vectors.shape[1]:raise ModelError('query embedding dimension mismatch')
+        rankings=[]
+        for v in vectors:
+            # Keep the exact per-query dot product and tie order used before batching.
+            scores=self.vectors@v
+            rankings.append([(self.chunks[i].id,float(scores[i])) for i in sorted(pool,key=lambda x:-scores[x])[:self.s.top_k]])
+        return rankings
     def search(self,plan,mode=None,original_query=''):
         start=time.monotonic(); mode=mode or self.s.retrieval_mode; pool=self.pool(plan)
         trace={'mode':mode,'pool':len(pool),'rankings':[],'degraded':[]}
         queries=controlled_queries(plan,original_query)
+        dense_rankings=[None]*len(queries)
+        if mode=='hybrid':
+            trace['query_embedding_batch_size']=len(queries)
+            trace['query_embedding_mode']='batch'
+            try:dense_rankings=self.dense_many(queries,pool)
+            except ModelError as exc:
+                trace['degraded'].append(str(exc))
+                # Do not multiply exhausted retries, auth errors or a deadline by
+                # the number of query variants. Recover item-specific failures only.
+                recoverable=exc.code in {'embedding_contract_invalid','api_response_invalid','http_400','http_413','http_422','model_error'}
+                if len(queries)>1 and recoverable and not self.dense_error:
+                    trace['query_embedding_mode']='per_query_recovery'
+                    for i,q in enumerate(queries):
+                        try:dense_rankings[i]=self.dense(q,pool)
+                        except ModelError as item_error:trace['degraded'].append(str(item_error))
+                else:trace['query_embedding_mode']='unavailable'
         ranked=[]
-        for q in queries:
+        for i,q in enumerate(queries):
             lex=self.lexical(q,pool)
             ranked.append([id for id,_ in lex]);trace['rankings'].append({'method':'bm25','hits':lex})
-            if mode=='hybrid':
-                try:
-                    den=self.dense(q,pool); ranked.append([id for id,_ in den]); trace['rankings'].append({'method':'dense','hits':den})
-                except ModelError as e:
-                    trace['degraded'].append(str(e))
+            if dense_rankings[i] is not None:
+                den=dense_rankings[i];ranked.append([id for id,_ in den]);trace['rankings'].append({'method':'dense','hits':den})
         ids,scores=rrf(ranked)
         trace['fusion']='RRF of BM25 and BGE-M3 dense branches'
         ids=ids[:min(80,self.s.top_k*2)]

@@ -1,3 +1,9 @@
+v8: query embeddings are batched; completed responses are collected after the work deadline.
+102 offline tests pass. See ../reports/batch-deadline-v8/ for the v7/v8 replay.
+Work budget stays 1100s; final collection allows up to 30s, without new API calls.
+CLI exits after persisting results if workers remain stuck. No live v8 API run.
+The v7/v6 scheduler limitation documented below is fixed in v8.
+
 v7: standalone questions bypass the planner; 21/58 retain model planning.
 See ../reports/planner-v7/ for offline routing and retrieval comparisons.
 91 offline tests passed, then 12 routing tests passed after the range guard.

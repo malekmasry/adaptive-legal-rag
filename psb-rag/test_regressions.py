@@ -27,7 +27,7 @@ class Regressions(unittest.TestCase):
         self.assertTrue(any('ред 2023' in n for n in names));self.assertFalse(any('ред 2025' in n for n in names))
     def test_dense_search_independent_of_zero_lexical_scores(self):
         chosen=self.r.chunks[10].id
-        with patch.object(self.r,'lexical',return_value=[]),patch.object(self.r,'dense',return_value=[(chosen,.8)]) as dense:
+        with patch.object(self.r,'lexical',return_value=[]),patch.object(self.r,'dense_many',return_value=[[(chosen,.8)]]) as dense:
             chunks,trace=self.r.search(Plan(question='zzzzzz'),mode='hybrid')
         dense.assert_called_once();self.assertIn(chosen,[c.id for c in chunks])
     def test_explicit_historical_month_survives_unspecified_current_plan(self):
