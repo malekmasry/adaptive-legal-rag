@@ -7,7 +7,7 @@ from model_api import API,ModelError
 from retrieval import Retriever,resolve_entity,exact_entities,ENTITY_LABELS,explicit_event_date
 from schemas import Plan,CompactPlan,Draft,Verdict,MemorySummary,Claim
 from prompt_config import PROMPTS
-from reasoning import parse_history,fallback_plan,direct_plan,correction_reason,evidence_payload,validate_claim,normalize_quote,PLANNER,GENERATOR,VERIFIER
+from reasoning import parse_history,fallback_plan,direct_plan,planning_requirement,correction_reason,evidence_payload,validate_claim,normalize_quote,PLANNER,GENERATOR,VERIFIER
 from security import suspicious
 from source_audit import load_audit,classify
 from diagnostics import emit,error_info
@@ -60,6 +60,7 @@ class Pipeline:
         trace={'security_flag':suspicious(question),'source_audit':self.source_audit,'degraded':[]}
         plan=direct_plan(latest,history,session['summary'],session['slots'],self.s.as_of)
         trace['planning']='direct' if plan else 'compact_model'
+        trace['planning_reason']=planning_requirement(latest,history,session['summary'],session['slots']) or 'standalone_question'
         if plan is None:
             try:
                 wire=self.api.structured(PLANNER,{'question':latest,'history':history,'summary':session['summary'],
@@ -70,7 +71,7 @@ class Pipeline:
             except ModelError as e:
                 plan=fallback_plan(latest,history,self.s.as_of); trace['degraded'].append(str(e))
                 emit(self.s.cache_dir,'planner_fallback',**error_info(e))
-        emit(self.s.cache_dir,'planning_route',route=trace['planning'])
+        emit(self.s.cache_dir,'planning_route',route=trace['planning'],reason=trace['planning_reason'])
         plan.subquestions=list(dict.fromkeys(q.strip() for q in plan.subquestions if q.strip()))
         # Planner must preserve explicit identifiers; a model rewrite cannot switch contract.
         explicit,candidates=resolve_entity(latest)

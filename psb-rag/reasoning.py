@@ -4,7 +4,7 @@ from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from schemas import Plan, Claim
 from corpus import norm
-from retrieval import resolve_entity,exact_entities
+from retrieval import resolve_entity,exact_entities,explicit_event_date
 from security import suspicious
 from token_budget import estimate_tokens,method
 
@@ -25,19 +25,49 @@ def parse_history(text):
             users.append(text[m.end():matches[i+1].start() if i+1<len(matches) else len(text)].strip())
     return (users[-1],[{'user':x} for x in users[:-1]][-3:]) if users else (text,[])
 
+def planning_requirement(question,history,summary,slots):
+    """Return a concrete routing reason; standalone questions default to identity."""
+    if history or summary or slots:return 'conversation_context'
+    if len(question)>1200 or re.search(r'[\n\r;]',question):return 'long_or_structured_question'
+    if suspicious(question) or re.search(r'(?i)администратор|игнорир|отмени|скрыть|поддел|обойти|иначе\s+увол',question):
+        return 'instruction_or_unsafe_request'
+    if len(exact_entities(question))>1:return 'multiple_entities'
+    if len(resolve_entity(question)[1])>1:return 'ambiguous_entity'
+    if question.count('?')>1:return 'multiple_questions'
+    if re.search(r'(?i)сравн|разниц|отличи|что\s+измен',question):return 'comparison'
+    # A rate schedule can require several threshold bands. Offline retrieval
+    # lost a governing clause when its expansion was removed; retain planning.
+    if re.search(r'(?i)\b(?:ставки|тарифы|пороги|диапазоны)\b',question) and re.search(r'(?i)\b(?:больше|меньше|свыше|ниже|выше|между|от|до)\b',question):
+        return 'conditional_ranges'
+    # A named benefit is one subject, not two questions. Other conjunctions may
+    # join independently answerable parts: keep decomposition for those cases.
+    subject=re.sub(r'(?i)беременности\s+и\s+род(?:ам|ов|ы)','беременности',question)
+    if re.search(r'(?i)\b(?:и|также|плюс)\b',subject):return 'compound_question'
+    dates=re.findall(r'\b\d{2}\.\d{2}\.\d{4}\b|\b20\d{2}-\d{2}-\d{2}\b',question)
+    if len(set(dates))>1:return 'multiple_dates'
+    years=re.findall(r'(?i)\b(?:в|за|на|с|до|по)\s+(20\d{2})\b',question)
+    if len(set(years))>1:return 'multiple_dates'
+    if dates and not explicit_event_date('по состоянию '+question) and not re.search(r'(?i)\b(?:сейчас|сегодня|теперь)\b',question):
+        return 'unresolved_date'
+    if re.search(r'(?i)^\s*(?:а\s+)?(?:по\s+нему|по\s+ней|тогда|в\s+этом\s+случае)\b',question):return 'context_reference'
+    return ''
+
+
 def direct_plan(question,history,summary,slots,as_of):
-    """Identity routing for narrow standalone contract lookups, never an answer."""
-    if history or summary or slots or len(question)>240 or suspicious(question):return None
-    if len(exact_entities(question))!=1:return None
-    # Keep dialogue, comparisons, conditions, dates and instructions on the model path.
-    if re.search(r'[\n\r;:.!]|\b(?:и|или|если|после|до|кроме|без|не|чтобы|почему|сравни|игнорируй|отмени|скрыть)\b',question,re.I):return None
-    if question.count('?')>1:return None
-    # Only a single requested property; unrecognized wording keeps full planning.
-    if not re.match(r'(?i)^\s*(?:(?:какой|каков|какая|какова)\s+)?(?:срок\s+оплаты|арендная\s+плата|размер\s+арендной\s+платы|неустойка)\s+',question):return None
-    # Digits are allowed only inside a known contract identifier.
-    remainder=re.sub(r'(?i)(?:ПТ-05[/\-]2023|П-17[/\-]2024|А-08[/\-]2024)','',question)
-    if re.search(r'\d',remainder):return None
-    return Plan(question=question,as_of=as_of)
+    """Reuse a standalone question verbatim; do not classify or answer its facts."""
+    if planning_requirement(question,history,summary,slots):return None
+    plan=Plan(question=question,as_of=as_of)
+    period=explicit_event_date('по состоянию '+re.sub(r'(?i)\bс\s+(20\d{2})\b',r'в \1',question))
+    if period:
+        if explicit_event_date(question):
+            plan.as_of=period;plan.date_role='event'
+        elif re.search(r'(?i)спецификац',question):
+            plan.specification_date=period
+        elif re.search(r'(?i)подписан|заключ[её]н',question):
+            plan.as_of=period;plan.date_role='contract_signature'
+        elif not re.search(r'(?i)прекрат|истек|истеч|окончан|срок\s+действ',question):
+            plan.as_of=period;plan.date_role='event'
+    return plan
 
 
 def correction_reason(draft,verdict,local,byid,coverage_malformed=False):

@@ -1,0 +1,19 @@
+{"event":"planning_route","request_id":"","stage":"bootstrap","time":1794596781.539,"route":"compact_model","reason":"multiple_questions"}
+{"event":"correction_decision","request_id":"","stage":"bootstrap","time":1794596782.496,"reason":"no_actionable_repair"}
+{"event":"answer_completed","request_id":"","stage":"bootstrap","time":1794596782.498,"status":"partial","seconds":0.969,"accepted":1,"proposed":1,"coverage":[true,false],"error_code":null,"fallback_reason":null,"degraded":false,"answer_chars":159,"context_tokens":5784}
+..{"event":"planning_route","request_id":"","stage":"bootstrap","time":1794596784.592,"route":"compact_model","reason":"multiple_questions"}
+{"event":"correction_decision","request_id":"","stage":"bootstrap","time":1794596784.647,"reason":"omitted_available_evidence"}
+{"event":"answer_completed","request_id":"","stage":"bootstrap","time":1794596784.653,"status":"partial","seconds":0.063,"accepted":1,"proposed":1,"coverage":[true,false],"error_code":null,"fallback_reason":null,"degraded":false,"answer_chars":159,"context_tokens":5784}
+.{"event":"api_call","request_id":"","stage":"CompactPlan","time":1794596784.792,"kind":"chat","model":"stub","seconds":0.0,"status":"ok","usage":{},"http_status":200,"finish_reason":"stop","max_tokens":8192,"estimated_prompt_tokens":994}
+...{"event":"planning_route","request_id":"","stage":"bootstrap","time":1794596786.724,"route":"compact_model","reason":"compound_question"}
+{"event":"answer_completed","request_id":"","stage":"bootstrap","time":1794596786.763,"status":"answered","seconds":0.047,"accepted":1,"proposed":1,"coverage":[true],"error_code":null,"fallback_reason":null,"degraded":false,"answer_chars":98,"context_tokens":4938}
+.{"event":"planning_route","request_id":"","stage":"bootstrap","time":1794596788.837,"route":"direct","reason":"standalone_question"}
+{"event":"correction_decision","request_id":"","stage":"bootstrap","time":1794596788.874,"reason":"rejected_claims"}
+{"event":"answer_completed","request_id":"","stage":"bootstrap","time":1794596788.88,"status":"partial","seconds":0.062,"accepted":0,"proposed":1,"coverage":[false],"error_code":null,"fallback_reason":"claims_not_supported","degraded":false,"answer_chars":221,"context_tokens":4938}
+.{"event":"planning_route","request_id":"","stage":"bootstrap","time":1794596790.874,"route":"direct","reason":"standalone_question"}
+{"event":"answer_completed","request_id":"","stage":"bootstrap","time":1794596790.907,"status":"answered","seconds":0.031,"accepted":1,"proposed":1,"coverage":[true],"error_code":null,"fallback_reason":null,"degraded":false,"answer_chars":98,"context_tokens":4938}
+....
+----------------------------------------------------------------------
+Ran 12 tests in 11.471s
+
+OK

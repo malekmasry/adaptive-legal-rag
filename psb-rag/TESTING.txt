@@ -1,3 +1,8 @@
+v7: standalone questions bypass the planner; 21/58 retain model planning.
+See ../reports/planner-v7/ for offline routing and retrieval comparisons.
+91 offline tests passed, then 12 routing tests passed after the range guard.
+No live v7 generation/reranker validation. The 1100s scheduler issue remains.
+
 v6: changes 2/4 only. See ../reports/latency-v6/ for offline call-count comparisons.
 87 offline tests pass; no live model run for v6. The 1100s scheduler issue remains.
 Run python -m unittest discover -p "test_*.py" from psb-rag with the original corpus.
