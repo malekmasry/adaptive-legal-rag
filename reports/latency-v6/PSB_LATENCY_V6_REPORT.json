@@ -1,0 +1,533 @@
+{
+  "scope": "Offline routing and scripted old/new pipeline comparison, NOT a timed live model run.",
+  "external_api_calls": 0,
+  "baseline_wall_seconds": 709.4220000000059,
+  "questions": 58,
+  "direct_plan_ids": [
+    "new-01",
+    "new-02",
+    "new-03"
+  ],
+  "planner_calls_before": 58,
+  "planner_calls_after": 55,
+  "planner_input_estimated_tokens_before": 82545,
+  "planner_input_estimated_tokens_after": 56953,
+  "planner_input_total_reduction_percent": 31.0,
+  "retained_planner_input_reduction_percent": 27.26,
+  "verifier_static_tokens_before": 1691,
+  "verifier_static_tokens_after": 2015,
+  "token_estimator": "cl100k approximation, margin=1; not actual DeepSeek usage",
+  "removed_planners_historical_sum_seconds": 39.358,
+  "baseline_total_model_calls": 250,
+  "baseline_additional_draft_verdict_calls": 25,
+  "baseline_additional_calls_sum_seconds": 535.31,
+  "additional_call_note": "Includes repeated corrections AND format retries. Some remain necessary. First-pass verdicts were not retained, so actual eliminated corrections on the live set cannot be reconstructed.",
+  "timing_note": "Historical API durations overlap across workers; sums are NOT wall-clock savings. No claim about final platform duration.",
+  "fixtures": [
+    {
+      "scenario": "simple_supported",
+      "before": {
+        "model_calls": 3,
+        "stages": [
+          "Plan",
+          "Draft",
+          "Verdict"
+        ],
+        "status": "answered",
+        "answer": "Арендная плата составляет 450000 рублей в месяц (Договор аренды А-08-2024 Северный Склад, п. 3.1)."
+      },
+      "after": {
+        "model_calls": 2,
+        "stages": [
+          "Draft",
+          "Verdict"
+        ],
+        "status": "answered",
+        "answer": "Арендная плата составляет 450000 рублей в месяц (Договор аренды А-08-2024 Северный Склад, п. 3.1)."
+      }
+    },
+    {
+      "scenario": "missing_information",
+      "before": {
+        "model_calls": 5,
+        "stages": [
+          "Plan",
+          "Draft",
+          "Verdict",
+          "Draft",
+          "Verdict"
+        ],
+        "status": "partial",
+        "answer": "Арендная плата составляет 450000 рублей в месяц (Договор аренды А-08-2024 Северный Склад, п. 3.1).\n\nПолноту ответа на все части вопроса подтвердить не удалось."
+      },
+      "after": {
+        "model_calls": 3,
+        "stages": [
+          "CompactPlan",
+          "Draft",
+          "Verdict"
+        ],
+        "status": "partial",
+        "answer": "Арендная плата составляет 450000 рублей в месяц (Договор аренды А-08-2024 Северный Склад, п. 3.1).\n\nПолноту ответа на все части вопроса подтвердить не удалось."
+      }
+    },
+    {
+      "scenario": "complete_after_rejecting_extra",
+      "before": {
+        "model_calls": 5,
+        "stages": [
+          "Plan",
+          "Draft",
+          "Verdict",
+          "Draft",
+          "Verdict"
+        ],
+        "status": "answered",
+        "answer": "Арендная плата составляет 450000 рублей в месяц (Договор аренды А-08-2024 Северный Склад, п. 3.1)."
+      },
+      "after": {
+        "model_calls": 2,
+        "stages": [
+          "Draft",
+          "Verdict"
+        ],
+        "status": "answered",
+        "answer": "Арендная плата составляет 450000 рублей в месяц (Договор аренды А-08-2024 Северный Склад, п. 3.1)."
+      }
+    },
+    {
+      "scenario": "wrong_conclusion_requires_repair",
+      "before": {
+        "model_calls": 5,
+        "stages": [
+          "Plan",
+          "Draft",
+          "Verdict",
+          "Draft",
+          "Verdict"
+        ],
+        "status": "partial",
+        "answer": "В документе «Договор аренды А-08-2024 Северный Склад», п. 3.1, указано: «450 000 (четыреста пятьдесят тысяч) рублей в месяц, включая НДС.».\n\nПриведены найденные положения. Итоговый вывод по вопросу подтвердить не удалось."
+      },
+      "after": {
+        "model_calls": 4,
+        "stages": [
+          "Draft",
+          "Verdict",
+          "Draft",
+          "Verdict"
+        ],
+        "status": "partial",
+        "answer": "В документе «Договор аренды А-08-2024 Северный Склад», п. 3.1, указано: «450 000 (четыреста пятьдесят тысяч) рублей в месяц, включая НДС.».\n\nПриведены найденные положения. Итоговый вывод по вопросу подтвердить не удалось."
+      }
+    }
+  ],
+  "planner_rows": [
+    {
+      "id": "demo-1",
+      "direct": false,
+      "old_input_tokens": 1433,
+      "new_input_tokens": 1045,
+      "compact_input_tokens_if_called": 1045
+    },
+    {
+      "id": "demo-2",
+      "direct": false,
+      "old_input_tokens": 1418,
+      "new_input_tokens": 1030,
+      "compact_input_tokens_if_called": 1030
+    },
+    {
+      "id": "demo-3",
+      "direct": false,
+      "old_input_tokens": 1407,
+      "new_input_tokens": 1019,
+      "compact_input_tokens_if_called": 1019
+    },
+    {
+      "id": "demo-4",
+      "direct": false,
+      "old_input_tokens": 1433,
+      "new_input_tokens": 1045,
+      "compact_input_tokens_if_called": 1045
+    },
+    {
+      "id": "demo-5",
+      "direct": false,
+      "old_input_tokens": 1437,
+      "new_input_tokens": 1049,
+      "compact_input_tokens_if_called": 1049
+    },
+    {
+      "id": "demo-6",
+      "direct": false,
+      "old_input_tokens": 1450,
+      "new_input_tokens": 1062,
+      "compact_input_tokens_if_called": 1062
+    },
+    {
+      "id": "demo-7",
+      "direct": false,
+      "old_input_tokens": 1452,
+      "new_input_tokens": 1064,
+      "compact_input_tokens_if_called": 1064
+    },
+    {
+      "id": "demo-8",
+      "direct": false,
+      "old_input_tokens": 1428,
+      "new_input_tokens": 1040,
+      "compact_input_tokens_if_called": 1040
+    },
+    {
+      "id": "demo-9",
+      "direct": false,
+      "old_input_tokens": 1429,
+      "new_input_tokens": 1041,
+      "compact_input_tokens_if_called": 1041
+    },
+    {
+      "id": "demo-10",
+      "direct": false,
+      "old_input_tokens": 1433,
+      "new_input_tokens": 1045,
+      "compact_input_tokens_if_called": 1045
+    },
+    {
+      "id": "demo-11",
+      "direct": false,
+      "old_input_tokens": 1431,
+      "new_input_tokens": 1043,
+      "compact_input_tokens_if_called": 1043
+    },
+    {
+      "id": "demo-12",
+      "direct": false,
+      "old_input_tokens": 1431,
+      "new_input_tokens": 1043,
+      "compact_input_tokens_if_called": 1043
+    },
+    {
+      "id": "demo-13",
+      "direct": false,
+      "old_input_tokens": 1427,
+      "new_input_tokens": 1039,
+      "compact_input_tokens_if_called": 1039
+    },
+    {
+      "id": "demo-14",
+      "direct": false,
+      "old_input_tokens": 1430,
+      "new_input_tokens": 1042,
+      "compact_input_tokens_if_called": 1042
+    },
+    {
+      "id": "demo-15",
+      "direct": false,
+      "old_input_tokens": 1455,
+      "new_input_tokens": 1067,
+      "compact_input_tokens_if_called": 1067
+    },
+    {
+      "id": "demo-16",
+      "direct": false,
+      "old_input_tokens": 1473,
+      "new_input_tokens": 1085,
+      "compact_input_tokens_if_called": 1085
+    },
+    {
+      "id": "demo-17",
+      "direct": false,
+      "old_input_tokens": 1451,
+      "new_input_tokens": 1063,
+      "compact_input_tokens_if_called": 1063
+    },
+    {
+      "id": "demo-18",
+      "direct": false,
+      "old_input_tokens": 1458,
+      "new_input_tokens": 1070,
+      "compact_input_tokens_if_called": 1070
+    },
+    {
+      "id": "new-01",
+      "direct": true,
+      "old_input_tokens": 1416,
+      "new_input_tokens": 0,
+      "compact_input_tokens_if_called": 1028
+    },
+    {
+      "id": "new-02",
+      "direct": true,
+      "old_input_tokens": 1418,
+      "new_input_tokens": 0,
+      "compact_input_tokens_if_called": 1030
+    },
+    {
+      "id": "new-03",
+      "direct": true,
+      "old_input_tokens": 1418,
+      "new_input_tokens": 0,
+      "compact_input_tokens_if_called": 1030
+    },
+    {
+      "id": "new-04",
+      "direct": false,
+      "old_input_tokens": 1417,
+      "new_input_tokens": 1029,
+      "compact_input_tokens_if_called": 1029
+    },
+    {
+      "id": "new-05",
+      "direct": false,
+      "old_input_tokens": 1422,
+      "new_input_tokens": 1034,
+      "compact_input_tokens_if_called": 1034
+    },
+    {
+      "id": "new-06",
+      "direct": false,
+      "old_input_tokens": 1422,
+      "new_input_tokens": 1034,
+      "compact_input_tokens_if_called": 1034
+    },
+    {
+      "id": "new-07",
+      "direct": false,
+      "old_input_tokens": 1417,
+      "new_input_tokens": 1029,
+      "compact_input_tokens_if_called": 1029
+    },
+    {
+      "id": "new-08",
+      "direct": false,
+      "old_input_tokens": 1417,
+      "new_input_tokens": 1029,
+      "compact_input_tokens_if_called": 1029
+    },
+    {
+      "id": "new-09",
+      "direct": false,
+      "old_input_tokens": 1417,
+      "new_input_tokens": 1029,
+      "compact_input_tokens_if_called": 1029
+    },
+    {
+      "id": "new-10",
+      "direct": false,
+      "old_input_tokens": 1413,
+      "new_input_tokens": 1025,
+      "compact_input_tokens_if_called": 1025
+    },
+    {
+      "id": "new-11",
+      "direct": false,
+      "old_input_tokens": 1413,
+      "new_input_tokens": 1025,
+      "compact_input_tokens_if_called": 1025
+    },
+    {
+      "id": "new-12",
+      "direct": false,
+      "old_input_tokens": 1417,
+      "new_input_tokens": 1029,
+      "compact_input_tokens_if_called": 1029
+    },
+    {
+      "id": "new-13",
+      "direct": false,
+      "old_input_tokens": 1414,
+      "new_input_tokens": 1026,
+      "compact_input_tokens_if_called": 1026
+    },
+    {
+      "id": "new-14",
+      "direct": false,
+      "old_input_tokens": 1416,
+      "new_input_tokens": 1028,
+      "compact_input_tokens_if_called": 1028
+    },
+    {
+      "id": "new-15",
+      "direct": false,
+      "old_input_tokens": 1420,
+      "new_input_tokens": 1032,
+      "compact_input_tokens_if_called": 1032
+    },
+    {
+      "id": "new-16",
+      "direct": false,
+      "old_input_tokens": 1414,
+      "new_input_tokens": 1026,
+      "compact_input_tokens_if_called": 1026
+    },
+    {
+      "id": "new-17",
+      "direct": false,
+      "old_input_tokens": 1415,
+      "new_input_tokens": 1027,
+      "compact_input_tokens_if_called": 1027
+    },
+    {
+      "id": "new-18",
+      "direct": false,
+      "old_input_tokens": 1426,
+      "new_input_tokens": 1038,
+      "compact_input_tokens_if_called": 1038
+    },
+    {
+      "id": "new-19",
+      "direct": false,
+      "old_input_tokens": 1404,
+      "new_input_tokens": 1016,
+      "compact_input_tokens_if_called": 1016
+    },
+    {
+      "id": "new-20",
+      "direct": false,
+      "old_input_tokens": 1411,
+      "new_input_tokens": 1023,
+      "compact_input_tokens_if_called": 1023
+    },
+    {
+      "id": "new-21",
+      "direct": false,
+      "old_input_tokens": 1407,
+      "new_input_tokens": 1019,
+      "compact_input_tokens_if_called": 1019
+    },
+    {
+      "id": "new-22",
+      "direct": false,
+      "old_input_tokens": 1419,
+      "new_input_tokens": 1031,
+      "compact_input_tokens_if_called": 1031
+    },
+    {
+      "id": "new-23",
+      "direct": false,
+      "old_input_tokens": 1413,
+      "new_input_tokens": 1025,
+      "compact_input_tokens_if_called": 1025
+    },
+    {
+      "id": "new-24",
+      "direct": false,
+      "old_input_tokens": 1422,
+      "new_input_tokens": 1034,
+      "compact_input_tokens_if_called": 1034
+    },
+    {
+      "id": "new-25",
+      "direct": false,
+      "old_input_tokens": 1415,
+      "new_input_tokens": 1027,
+      "compact_input_tokens_if_called": 1027
+    },
+    {
+      "id": "new-26",
+      "direct": false,
+      "old_input_tokens": 1415,
+      "new_input_tokens": 1027,
+      "compact_input_tokens_if_called": 1027
+    },
+    {
+      "id": "new-27",
+      "direct": false,
+      "old_input_tokens": 1422,
+      "new_input_tokens": 1034,
+      "compact_input_tokens_if_called": 1034
+    },
+    {
+      "id": "new-28",
+      "direct": false,
+      "old_input_tokens": 1413,
+      "new_input_tokens": 1025,
+      "compact_input_tokens_if_called": 1025
+    },
+    {
+      "id": "new-29",
+      "direct": false,
+      "old_input_tokens": 1424,
+      "new_input_tokens": 1036,
+      "compact_input_tokens_if_called": 1036
+    },
+    {
+      "id": "new-30",
+      "direct": false,
+      "old_input_tokens": 1432,
+      "new_input_tokens": 1044,
+      "compact_input_tokens_if_called": 1044
+    },
+    {
+      "id": "new-31",
+      "direct": false,
+      "old_input_tokens": 1419,
+      "new_input_tokens": 1031,
+      "compact_input_tokens_if_called": 1031
+    },
+    {
+      "id": "new-32",
+      "direct": false,
+      "old_input_tokens": 1419,
+      "new_input_tokens": 1031,
+      "compact_input_tokens_if_called": 1031
+    },
+    {
+      "id": "new-33",
+      "direct": false,
+      "old_input_tokens": 1429,
+      "new_input_tokens": 1041,
+      "compact_input_tokens_if_called": 1041
+    },
+    {
+      "id": "new-34",
+      "direct": false,
+      "old_input_tokens": 1434,
+      "new_input_tokens": 1046,
+      "compact_input_tokens_if_called": 1046
+    },
+    {
+      "id": "new-35",
+      "direct": false,
+      "old_input_tokens": 1418,
+      "new_input_tokens": 1030,
+      "compact_input_tokens_if_called": 1030
+    },
+    {
+      "id": "new-36",
+      "direct": false,
+      "old_input_tokens": 1403,
+      "new_input_tokens": 1015,
+      "compact_input_tokens_if_called": 1015
+    },
+    {
+      "id": "new-37",
+      "direct": false,
+      "old_input_tokens": 1411,
+      "new_input_tokens": 1023,
+      "compact_input_tokens_if_called": 1023
+    },
+    {
+      "id": "new-38",
+      "direct": false,
+      "old_input_tokens": 1403,
+      "new_input_tokens": 1015,
+      "compact_input_tokens_if_called": 1015
+    },
+    {
+      "id": "new-39",
+      "direct": false,
+      "old_input_tokens": 1407,
+      "new_input_tokens": 1019,
+      "compact_input_tokens_if_called": 1019
+    },
+    {
+      "id": "new-40",
+      "direct": false,
+      "old_input_tokens": 1417,
+      "new_input_tokens": 1029,
+      "compact_input_tokens_if_called": 1029
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{"event":"run_configuration","request_id":"","stage":"bootstrap","time":1794595817.151,"max_tokens":8192,"max_tokens_from_environment":false,"request_timeout":90,"run_budget_seconds":1100,"workers":8,"top_k":40,"rerank_top_n":6,"context_tokens":18000,"temperature":0,"generator":"","embedder":"BAAI/bge-m3","reranker":"Qwen/Qwen3-Reranker-8B"}
+{"event":"question_started","request_id":"1","stage":"answer","time":1794595817.275}
+{"event":"planning_route","request_id":"1","stage":"answer","time":1794595817.284,"route":"direct"}
+{"event":"question_started","request_id":"2","stage":"answer","time":1794595817.374}
+{"event":"planning_route","request_id":"2","stage":"answer","time":1794595817.476,"route":"compact_model"}
+{"event":"answer_completed","request_id":"1","stage":"answer","time":1794595818.859,"status":"answered","seconds":1.578,"accepted":1,"proposed":1,"coverage":[true],"error_code":null,"fallback_reason":null,"degraded":false,"answer_chars":98,"context_tokens":4938}
+{"event":"answer_completed","request_id":"2","stage":"answer","time":1794595819.729,"status":"answered","seconds":2.25,"accepted":1,"proposed":1,"coverage":[true],"error_code":null,"fallback_reason":null,"degraded":false,"answer_chars":98,"context_tokens":4938}
+{"event":"run_completed","request_id":"","stage":"bootstrap","time":1794595819.739,"rows":2,"counts":{"answered":2},"seconds":2.516,"error_counts":{}}
+.
+----------------------------------------------------------------------
+Ran 1 test in 5.113s
+
+OK

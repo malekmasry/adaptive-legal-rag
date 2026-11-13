@@ -5,6 +5,17 @@ from pydantic import ValidationError
 from security import TRUST
 from token_budget import estimate_tokens
 from diagnostics import emit, error_info, stage_scope
+from schemas import CompactPlan
+
+def schema_text(schema):
+    value=schema.model_json_schema()
+    if schema is CompactPlan:
+        def prune(node):
+            if isinstance(node,dict):return {k:prune(v) for k,v in node.items() if k!='title'}
+            if isinstance(node,list):return [prune(v) for v in node]
+            return node
+        return json.dumps(prune(value),ensure_ascii=False,separators=(',',':'))
+    return json.dumps(value,ensure_ascii=False)
 
 class ModelError(RuntimeError):
     def __init__(self,message,code=None,details=None):
@@ -88,7 +99,7 @@ class API:
         if not self.s.model: raise ModelError('LLM_MODEL missing')
         data=self.post('/chat/completions',{'model':self.s.model,'temperature':self.s.temperature,
             'max_tokens':self.s.max_tokens,'response_format':{'type':'json_object'},
-            'messages':[{'role':'system','content':TRUST+'\n'+instruction+'\nJSON schema:\n'+json.dumps(schema.model_json_schema(),ensure_ascii=False)},
+            'messages':[{'role':'system','content':TRUST+'\n'+instruction+'\nJSON schema:\n'+schema_text(schema)},
                         {'role':'user','content':json.dumps(payload,ensure_ascii=False)}]},'chat')
         try:
             if data['choices'][0].get('finish_reason')=='length': raise ModelError('chat output truncated: finish_reason=length')

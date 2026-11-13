@@ -4,7 +4,7 @@ from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from schemas import Plan, Claim
 from corpus import norm
-from retrieval import resolve_entity
+from retrieval import resolve_entity,exact_entities
 from security import suspicious
 from token_budget import estimate_tokens,method
 
@@ -24,6 +24,36 @@ def parse_history(text):
         if m[1].lower() in ('пользователь','user'):
             users.append(text[m.end():matches[i+1].start() if i+1<len(matches) else len(text)].strip())
     return (users[-1],[{'user':x} for x in users[:-1]][-3:]) if users else (text,[])
+
+def direct_plan(question,history,summary,slots,as_of):
+    """Identity routing for narrow standalone contract lookups, never an answer."""
+    if history or summary or slots or len(question)>240 or suspicious(question):return None
+    if len(exact_entities(question))!=1:return None
+    # Keep dialogue, comparisons, conditions, dates and instructions on the model path.
+    if re.search(r'[\n\r;:.!]|\b(?:и|или|если|после|до|кроме|без|не|чтобы|почему|сравни|игнорируй|отмени|скрыть)\b',question,re.I):return None
+    if question.count('?')>1:return None
+    # Only a single requested property; unrecognized wording keeps full planning.
+    if not re.match(r'(?i)^\s*(?:(?:какой|каков|какая|какова)\s+)?(?:срок\s+оплаты|арендная\s+плата|размер\s+арендной\s+платы|неустойка)\s+',question):return None
+    # Digits are allowed only inside a known contract identifier.
+    remainder=re.sub(r'(?i)(?:ПТ-05[/\-]2023|П-17[/\-]2024|А-08[/\-]2024)','',question)
+    if re.search(r'\d',remainder):return None
+    return Plan(question=question,as_of=as_of)
+
+
+def correction_reason(draft,verdict,local,byid,coverage_malformed=False):
+    """Require a concrete repair target; missing coverage alone is not one."""
+    if verdict is None:return ''
+    accepted={i for i in verdict.supported_indices if 0<=i<len(draft.claims) and not local.get(i)}
+    if accepted and not coverage_malformed and all(verdict.coverage):return ''
+    if len(accepted)<len(draft.claims):return 'rejected_claims'
+    if coverage_malformed:return ''
+    for repair in verdict.coverage_repairs:
+        i=repair.subquestion_index
+        if 0<=i<len(verdict.coverage) and not verdict.coverage[i]:
+            probe=Claim(text='Evidence for an omitted subquestion',citations=repair.citations)
+            if not validate_claim(probe,byid):return 'omitted_available_evidence'
+    return ''
+
 
 def fallback_plan(question,history,as_of):
     entity,_=resolve_entity(question)

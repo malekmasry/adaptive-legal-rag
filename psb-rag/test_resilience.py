@@ -38,7 +38,7 @@ class Resilience(unittest.TestCase):
     def ask(self, stub):
         core = Pipeline(self.settings, stub)
         try:
-            return core.ask(QUESTION)
+            return core.ask(QUESTION+' И какой размер пособия?' if stub.partial else QUESTION)
         finally:
             core.close()
 
@@ -71,7 +71,12 @@ class Resilience(unittest.TestCase):
             def structured(self, instruction, payload, schema):
                 if schema is Draft and 'previous_draft' in payload:
                     raise ModelError('chat output truncated: finish_reason=length')
-                return super().structured(instruction, payload, schema)
+                result=super().structured(instruction, payload, schema)
+                if schema is Draft:
+                    extra=result.claims[0].model_copy(deep=True)
+                    extra.text='Unverified additional assertion'
+                    result.claims.append(extra)
+                return result
         result = self.ask(FailedCorrection(partial=True))
         self.assertEqual(result['status'], 'partial')
         self.assertIn('450000', result['answer'])
@@ -87,7 +92,12 @@ class Resilience(unittest.TestCase):
                         raise ModelError('Run deadline reached')
                 if schema is Draft and 'previous_draft' in payload:
                     self.wrong = True
-                return super().structured(instruction, payload, schema)
+                result=super().structured(instruction, payload, schema)
+                if schema is Draft and 'previous_draft' not in payload:
+                    extra=result.claims[0].model_copy(deep=True)
+                    extra.text='Unverified additional assertion'
+                    result.claims.append(extra)
+                return result
         result = self.ask(SecondFailure(partial=True))
         self.assertIn('450000', result['answer'])
         self.assertNotIn('500000', result['answer'])
@@ -249,7 +259,7 @@ class Resilience(unittest.TestCase):
         self.assertIn('Норма о размере пособия',result['answer'])
         self.assertIn('450000',result['answer'])
 
-    def test_complete_verified_answer_survives_optional_correction_failure_without_caveat(self):
+    def test_complete_verified_answer_skips_unnecessary_correction_without_caveat(self):
         class FullThenFailure(ScriptedAPI):
             def structured(self,instruction,payload,schema):
                 if schema is Draft and 'previous_draft' in payload:
@@ -265,7 +275,8 @@ class Resilience(unittest.TestCase):
         self.assertIn('450000',result['answer'])
         self.assertNotIn('Полноту ответа',result['answer'])
         self.assertNotIn('Неподтвержденное',result['answer'])
-        self.assertEqual(result['trace']['failures'][0]['error_code'],'run_deadline')
+        self.assertFalse(result['trace'].get('failures'))
+        self.assertEqual(result['trace']['correction_decision'],'no_actionable_repair')
 
 
 if __name__ == '__main__':

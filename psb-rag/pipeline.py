@@ -5,9 +5,9 @@ from corpus import ingest
 from storage import Store
 from model_api import API,ModelError
 from retrieval import Retriever,resolve_entity,exact_entities,ENTITY_LABELS,explicit_event_date
-from schemas import Plan,Draft,Verdict,MemorySummary,Claim
+from schemas import Plan,CompactPlan,Draft,Verdict,MemorySummary,Claim
 from prompt_config import PROMPTS
-from reasoning import parse_history,fallback_plan,evidence_payload,validate_claim,normalize_quote,PLANNER,GENERATOR,VERIFIER
+from reasoning import parse_history,fallback_plan,direct_plan,correction_reason,evidence_payload,validate_claim,normalize_quote,PLANNER,GENERATOR,VERIFIER
 from security import suspicious
 from source_audit import load_audit,classify
 from diagnostics import emit,error_info
@@ -58,12 +58,19 @@ class Pipeline:
         started=time.monotonic(); latest,inline_history=parse_history(question)
         history=inline_history or session['turns']
         trace={'security_flag':suspicious(question),'source_audit':self.source_audit,'degraded':[]}
-        try:
-            plan=self.api.structured(PLANNER,{'question':latest,'history':history,'summary':session['summary'],
-                'slots':session['slots'],'current_date':self.s.as_of},Plan)
-        except ModelError as e:
-            plan=fallback_plan(latest,history,self.s.as_of); trace['degraded'].append(str(e))
-            emit(self.s.cache_dir,'planner_fallback',**error_info(e))
+        plan=direct_plan(latest,history,session['summary'],session['slots'],self.s.as_of)
+        trace['planning']='direct' if plan else 'compact_model'
+        if plan is None:
+            try:
+                wire=self.api.structured(PLANNER,{'question':latest,'history':history,'summary':session['summary'],
+                    'slots':session['slots'],'current_date':self.s.as_of},CompactPlan)
+                plan=Plan.model_validate(wire.model_dump())
+                plan.question=plan.question.strip() or latest
+                plan.as_of=plan.as_of or self.s.as_of
+            except ModelError as e:
+                plan=fallback_plan(latest,history,self.s.as_of); trace['degraded'].append(str(e))
+                emit(self.s.cache_dir,'planner_fallback',**error_info(e))
+        emit(self.s.cache_dir,'planning_route',route=trace['planning'])
         plan.subquestions=list(dict.fromkeys(q.strip() for q in plan.subquestions if q.strip()))
         # Planner must preserve explicit identifiers; a model rewrite cannot switch contract.
         explicit,candidates=resolve_entity(latest)
@@ -136,11 +143,16 @@ class Pipeline:
                     accepted=[]
                 if len(accepted)==len(draft.claims) and (not verdict or all(verdict.coverage) or coverage_malformed): break
                 if attempt==0:
+                    repair=correction_reason(draft,verdict,local,byid,coverage_malformed)
+                    trace['correction_decision']=repair or 'no_actionable_repair'
+                    emit(self.s.cache_dir,'correction_decision',reason=trace['correction_decision'])
+                    if not repair:break
                     trace['stage']='correction'
                     try:
                         draft=self.api.structured(GENERATOR+'\nИсправь только обнаруженные ошибки. Сохрани подтверждённые утверждения. Удали недоказанные выводы.',
                             {**payload,'previous_draft':draft.model_dump(),'issues':issues,
                              'coverage':verdict.coverage if verdict else [],
+                             'coverage_repairs':[r.model_dump() for r in verdict.coverage_repairs] if verdict else [],
                              'local_issues_by_claim':{str(i):errors for i,errors in local.items() if errors}},Draft)
                     except ModelError as exc:
                         self.record_failure(trace,'correction',exc)

@@ -4,7 +4,7 @@ from dataclasses import replace
 from concurrent.futures import ThreadPoolExecutor
 from settings import Settings
 from pipeline import Pipeline,TECHNICAL
-from schemas import Plan,Draft,Claim,Citation,Verdict
+from schemas import Plan,CompactPlan,Draft,Claim,Citation,Verdict
 from model_api import ModelError
 from solution import run
 
@@ -15,8 +15,8 @@ class ScriptedAPI:
     def __init__(self,wrong=False,partial=False):self.calls=[];self.wrong=wrong;self.partial=partial
     def structured(self,instruction,payload,schema):
         self.calls.append((schema.__name__,payload))
-        if schema is Plan:
-            return Plan(question=payload['question'],subquestions=['аренда','пособие'] if self.partial else [])
+        if schema in (Plan,CompactPlan):
+            return schema(question=payload['question'],subquestions=['аренда','пособие'] if self.partial else [])
         if schema is Draft:
             source=next(x for x in payload['evidence'] if '450 000' in x['text'])
             return Draft(status='partial' if self.partial else 'answered',claims=[Claim(
@@ -59,7 +59,8 @@ class TestPipeline(unittest.TestCase):
         report=run(input,out,c)
         with out.open(encoding='utf8',newline='') as f:rows=list(csv.DictReader(f))
         self.assertEqual(len(rows),2);self.assertEqual(list(rows[0]),['id','answer']);self.assertTrue(all(x['answer'] for x in rows))
-        plans=[p for name,p in c.api.calls if name=='Plan'];self.assertTrue(all(not p['history'] and not p['slots'] for p in plans))
+        plans=[p for name,p in c.api.calls if name=='CompactPlan'];self.assertEqual(len(plans),1)
+        self.assertTrue(all(not p['history'] and not p['slots'] for p in plans))
     def test_R54_partial_api_failure(self):
         class Failing(ScriptedAPI):
             def structured(self,instruction,payload,schema):
