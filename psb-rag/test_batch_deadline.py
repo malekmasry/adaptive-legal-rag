@@ -23,7 +23,8 @@ class QueryBatch(unittest.TestCase):
     def setUpClass(cls):cls.docs,cls.chunks,cls.relations=ingest(ROOT/'data')
     def setUp(self):
         self.temp=tempfile.TemporaryDirectory();self.calls=[];self.failure=''
-        self.s=Settings(cache_dir=Path(self.temp.name),base_url='https://test.invalid',api_key='stub',use_rerank=False)
+        # This retained suite explicitly exercises the legacy v8 Retriever.
+        self.s=Settings(cache_dir=Path(self.temp.name),base_url='https://test.invalid',api_key='stub',use_rerank=False,retrieval_mode='hybrid')
         def handler(request):
             texts=json.loads(request.content)['input'];self.calls.append(texts)
             if self.failure=='auth':return httpx.Response(401)

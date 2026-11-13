@@ -8,10 +8,10 @@ class TestSettings(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             with patch.dict(os.environ,{},clear=True):
                 s=Settings(cache_dir=Path(directory))
-                self.assertEqual((s.top_k,s.rerank_n),(40,6))
+                self.assertEqual((s.top_k,s.rerank_n),(12,6))
             with patch.dict(os.environ,{'TOP_K':'35','RERANKER_TOP_N':'6'},clear=True):
                 s=Settings(cache_dir=Path(directory))
-                self.assertEqual((s.top_k,s.rerank_n),(35,6))
+                self.assertEqual((s.top_k,s.rerank_n),(30,6))
 
     def test_blank_or_placeholder_primary_uses_platform_alias(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -28,7 +28,7 @@ class TestSettings(unittest.TestCase):
         mapping={'MAX_WORKERS':('workers',8),'MAX_TOKENS':('max_tokens',8192),
                  'TEMPERATURE':('temperature',0),'CONTEXT_TOKENS':('context_tokens',18000),
                  'REQUEST_TIMEOUT':('request_timeout',90),'RUN_BUDGET_SECONDS':('deadline_seconds',1100),
-                 'SESSION_TTL':('session_ttl',3600),'TOP_K':('top_k',40),'RERANKER_TOP_N':('rerank_n',6)}
+                 'SESSION_TTL':('session_ttl',3600),'TOP_K':('top_k',12),'RERANKER_TOP_N':('rerank_n',6)}
         with tempfile.TemporaryDirectory() as directory:
             for value in ('',' ','not-a-number','nan','inf'):
                 with self.subTest(value=value),patch.dict(os.environ,{k:value for k in mapping},clear=True):

@@ -1,0 +1,37 @@
+{
+  "old_v8_sha256": "4088970c84806b37e2bcbbf4c6baa91943af4bee84222d061808d41cd3bc0d06",
+  "changed_runtime_files": [
+    "settings.py",
+    "pipeline.py"
+  ],
+  "byte_identical_v8_files": [
+    "solution.py",
+    "schemas.py",
+    "security.py",
+    "corpus.py",
+    "storage.py",
+    "model_api.py",
+    "retrieval.py",
+    "reasoning.py",
+    "source_audit.py",
+    "token_budget.py",
+    "prompt_config.py",
+    "diagnostics.py",
+    "prompts.yaml",
+    "aliases.yaml",
+    "relations.yaml",
+    "requirements.txt",
+    "cl100k_base.tiktoken",
+    "source-audit-48f96dabea53a70b0fc1c6ee84af4715a2f546b1d62c68bc05911c019e7a87e2.json"
+  ],
+  "added": [
+    "retriever35.py",
+    "retriever35_core.py",
+    "vectors35-948e718110946ecb662507e90cf3805c8371ca5d422e5e3f874489accacb3f0d.npz"
+  ],
+  "removed": [
+    "vectors-0dd34e01fcbb8fc2300b47c362c30e2276d7ff5d7a508307e75179eea6a5eea3.npz"
+  ],
+  "archive_sha256": "e81079b3eb98283e2339e8e2150dc6305ba5d5a714485ea6e0664baf2233a721",
+  "paid_calls": 0
+}

@@ -1,0 +1,60 @@
+{
+  "unique_tests_checked": 111,
+  "remaining_failures": 0,
+  "donor_parity_cases": 70,
+  "paid_model_calls": 0,
+  "live_quality_evaluation": false,
+  "runs": [
+    {
+      "modules": [
+        "test_pipeline",
+        "test_resilience",
+        "test_latency",
+        "test_batch_deadline"
+      ],
+      "tests": 47,
+      "seconds": 368.46,
+      "initial_failures": 3,
+      "initial_errors": 2,
+      "note": "All five were retained legacy QueryBatch tests using the new conditional default; made their legacy hybrid mode explicit and reran the whole deadline module."
+    },
+    {
+      "modules": [
+        "test_retriever35",
+        "test_settings",
+        "test_contracts",
+        "test_regressions",
+        "test_final_features"
+      ],
+      "tests": 63,
+      "seconds": 92.102,
+      "initial_failures": 1,
+      "note": "New test initially treated validate_claim issue-list as a boolean tuple. Corrected assertion checks the actual instruction-span rejection; entire adapter module rerun."
+    },
+    {
+      "modules": [
+        "test_retriever35",
+        "test_batch_deadline"
+      ],
+      "tests": 20,
+      "seconds": 63.929,
+      "failures": 0,
+      "errors": 0
+    },
+    {
+      "modules": [
+        "test_package"
+      ],
+      "tests": 1,
+      "platform_profiles": 3,
+      "csv_rows_per_profile": 2,
+      "seconds": 124.915,
+      "failures": 0,
+      "errors": 0
+    }
+  ],
+  "limitations": [
+    "Execution and donor-equivalence tests use local substitutes. No platform score or live LLM quality/runtime estimate is claimed.",
+    "Historical platform TOP_K values override defaults; use TOP_K=12 for donor-default comparison."
+  ]
+}

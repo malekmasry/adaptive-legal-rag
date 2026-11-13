@@ -4,7 +4,7 @@ from pathlib import Path
 
 ROOT=Path(__file__).resolve().parent
 FILES=['solution.py','settings.py','schemas.py','security.py','corpus.py','storage.py',
-       'model_api.py','retrieval.py','reasoning.py','pipeline.py','source_audit.py','token_budget.py','prompt_config.py','diagnostics.py','prompts.yaml','aliases.yaml','relations.yaml','requirements.txt']
+       'model_api.py','retriever35.py','retriever35_core.py','retrieval.py','reasoning.py','pipeline.py','source_audit.py','token_budget.py','prompt_config.py','diagnostics.py','prompts.yaml','aliases.yaml','relations.yaml','requirements.txt']
 PACKAGES={'pydantic':'pydantic','httpx':'httpx','numpy':'numpy','sqlalchemy':'SQLAlchemy',
           'rank_bm25':'rank-bm25','rapidfuzz':'rapidfuzz','sklearn':'scikit-learn','yaml':'PyYAML','tiktoken':'tiktoken'}
 
@@ -35,7 +35,7 @@ def build(destination=None):
         if (ROOT/'data'/'knowledge-base').exists():
             from settings import Settings
             from corpus import ingest
-            from retrieval import Retriever
+            from retriever35 import Retriever
             s=Settings(data_dir=ROOT/'data',cache_dir=ROOT/'cache')
             d,c,r=ingest(s.data_dir);retriever=Retriever(d,c,r,None,s)
             from source_audit import fingerprint,load_audit

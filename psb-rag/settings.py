@@ -34,7 +34,7 @@ class Settings:
     rerank_key: str = field(default_factory=lambda: env('RERANKER_API_KEY'))
     data_dir: Path = field(default_factory=lambda: Path(env('DATA_DIR',default='data')))
     cache_dir: Path = field(default_factory=lambda: Path(env('CACHE_DIR',default='cache')))
-    top_k: int = field(default_factory=lambda: env_int('TOP_K',40,1,200))
+    top_k: int = field(default_factory=lambda: env_int('TOP_K',12,4,30))
     rerank_n: int = field(default_factory=lambda: env_int('RERANKER_TOP_N',6,1,30))
     workers: int = field(default_factory=lambda: env_int('MAX_WORKERS',8,1,8))
     max_tokens: int = field(default_factory=lambda: env_int('MAX_TOKENS',8192,128,32768))
@@ -44,12 +44,12 @@ class Settings:
     request_timeout: float = field(default_factory=lambda: env_float('REQUEST_TIMEOUT',90,1,180))
     deadline_seconds: float = field(default_factory=lambda: env_float('RUN_BUDGET_SECONDS',1100,1,1100))
     session_ttl: int = field(default_factory=lambda: env_int('SESSION_TTL',3600,1,86400))
-    retrieval_mode: str = field(default_factory=lambda: env('RETRIEVAL_MODE',default='hybrid'))
+    retrieval_mode: str = field(default_factory=lambda: env('RETRIEVAL_MODE',default='conditional'))
     use_rerank: bool = field(default_factory=lambda: env('USE_RERANK',default='1')=='1')
     as_of: str = field(default_factory=lambda: env('AS_OF',default=date.today().isoformat()))
 
     def __post_init__(self):
-        if self.retrieval_mode not in {'hybrid','bm25'}:
+        if self.retrieval_mode not in {'conditional','hybrid','bm25'}:
             raise ValueError('Invalid RETRIEVAL_MODE')
         if not 1 <= self.rerank_n <= 30 or not 1 <= self.top_k <= 200:
             raise ValueError('Retrieval bounds invalid')

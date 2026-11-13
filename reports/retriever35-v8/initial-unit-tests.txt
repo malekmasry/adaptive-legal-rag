@@ -1,0 +1,37 @@
+{"event":"api_call","request_id":"","stage":"bootstrap","time":1794611009.263,"kind":"rerank","model":"Qwen/Qwen3-Reranker-8B","seconds":0.0,"status":"ok","usage":{},"http_status":200,"finish_reason":null,"max_tokens":null,"estimated_prompt_tokens":null}
+{"event":"api_call","request_id":"","stage":"bootstrap","time":1794611010.695,"kind":"rerank","model":"Qwen/Qwen3-Reranker-8B","seconds":0.0,"status":"ok","usage":{},"http_status":200,"finish_reason":null,"max_tokens":null,"estimated_prompt_tokens":null}
+{"event":"api_call","request_id":"","stage":"bootstrap","time":1794611010.699,"kind":"rerank","model":"Qwen/Qwen3-Reranker-8B","seconds":0.0,"status":"ok","usage":{},"http_status":200,"finish_reason":null,"max_tokens":null,"estimated_prompt_tokens":null}
+{"event":"api_call","request_id":"","stage":"bootstrap","time":1794611010.707,"kind":"rerank","model":"Qwen/Qwen3-Reranker-8B","seconds":0.0,"status":"ok","usage":{},"http_status":200,"finish_reason":null,"max_tokens":null,"estimated_prompt_tokens":null}
+{"event":"api_call","request_id":"","stage":"Plan","time":1794611010.796,"kind":"chat","model":"fake","seconds":0.0,"status":"ok","usage":{},"http_status":200,"finish_reason":"unknown","max_tokens":8192,"estimated_prompt_tokens":833}
+{"event":"api_call","request_id":"","stage":"Plan","time":1794611010.808,"kind":"chat","model":"fake","seconds":0.0,"status":"ok","usage":{},"http_status":200,"finish_reason":"unknown","max_tokens":8192,"estimated_prompt_tokens":833}
+{"event":"structured_failure","request_id":"","stage":"Plan","time":1794611010.811,"schema":"Plan","attempt":1,"validation":[{"path":"question","type":"string_type"}],"error_type":"ModelError","error_code":"json_schema_invalid","frames":[{"file":"model_api.py","line":87,"function":"structured"},{"file":"model_api.py","line":121,"function":"_structured_once"}]}
+{"event":"api_call","request_id":"","stage":"Plan","time":1794611010.822,"kind":"chat","model":"fake","seconds":0.0,"status":"ok","usage":{},"http_status":200,"finish_reason":"unknown","max_tokens":8192,"estimated_prompt_tokens":900}
+{"event":"structured_failure","request_id":"","stage":"Plan","time":1794611010.825,"schema":"Plan","attempt":2,"validation":[{"path":"question","type":"string_type"}],"error_type":"ModelError","error_code":"json_schema_invalid","frames":[{"file":"model_api.py","line":87,"function":"structured"},{"file":"model_api.py","line":121,"function":"_structured_once"}]}
+{"event":"api_call","request_id":"","stage":"bootstrap","time":1794611010.844,"kind":"embedding","model":"BAAI/bge-m3","seconds":0.015,"status":"ok","usage":{},"http_status":200,"finish_reason":null,"max_tokens":null,"estimated_prompt_tokens":null}
+{"event":"api_call","request_id":"","stage":"bootstrap","time":1794611011.091,"kind":"embedding","model":"BAAI/bge-m3","seconds":0.0,"status":"ok","usage":{},"http_status":200,"finish_reason":null,"max_tokens":null,"estimated_prompt_tokens":null}
+{"event":"api_call","request_id":"","stage":"bootstrap","time":1794611011.095,"kind":"embedding","model":"BAAI/bge-m3","seconds":0.0,"status":"ok","usage":{},"http_status":200,"finish_reason":null,"max_tokens":null,"estimated_prompt_tokens":null}
+{"event":"api_call","request_id":"","stage":"bootstrap","time":1794611011.099,"kind":"embedding","model":"BAAI/bge-m3","seconds":0.016,"status":"ok","usage":{},"http_status":200,"finish_reason":null,"max_tokens":null,"estimated_prompt_tokens":null}
+{"event":"api_call","request_id":"","stage":"bootstrap","time":1794611011.105,"kind":"embedding","model":"BAAI/bge-m3","seconds":0.0,"status":"failed","usage":{},"http_status":null,"finish_reason":null,"max_tokens":null,"estimated_prompt_tokens":null}
+{"event":"api_retry","request_id":"","stage":"bootstrap","time":1794611011.111,"kind":"rerank","http_status":429,"attempt":1}
+{"event":"api_call","request_id":"","stage":"bootstrap","time":1794611011.123,"kind":"rerank","model":"Qwen/Qwen3-Reranker-8B","seconds":0.016,"status":"ok","usage":{},"http_status":200,"finish_reason":null,"max_tokens":null,"estimated_prompt_tokens":null}
+{"event":"api_call","request_id":"","stage":"bootstrap","time":1794611011.127,"kind":"rerank","model":"Qwen/Qwen3-Reranker-8B","seconds":0.0,"status":"failed","usage":{},"http_status":401,"finish_reason":null,"max_tokens":null,"estimated_prompt_tokens":null}
+{"event":"api_call","request_id":"","stage":"Plan","time":1794611040.348,"kind":"chat","model":"test","seconds":0.0,"status":"ok","usage":{},"http_status":200,"finish_reason":"length","max_tokens":8192,"estimated_prompt_tokens":833}
+{"event":"structured_failure","request_id":"","stage":"Plan","time":1794611040.358,"schema":"Plan","attempt":1,"validation":[],"error_type":"ModelError","error_code":"output_truncated","frames":[{"file":"model_api.py","line":87,"function":"structured"},{"file":"model_api.py","line":105,"function":"_structured_once"}]}
+{"event":"api_call","request_id":"","stage":"Plan","time":1794611040.371,"kind":"chat","model":"test","seconds":0.016,"status":"ok","usage":{},"http_status":200,"finish_reason":"length","max_tokens":8192,"estimated_prompt_tokens":937}
+{"event":"structured_failure","request_id":"","stage":"Plan","time":1794611040.374,"schema":"Plan","attempt":2,"validation":[],"error_type":"ModelError","error_code":"output_truncated","frames":[{"file":"model_api.py","line":87,"function":"structured"},{"file":"model_api.py","line":105,"function":"_structured_once"}]}
+{"event":"transport_failure","request_id":"","stage":"bootstrap","time":1794611040.657,"kind":"embedding","attempt":1,"error_type":"RemoteProtocolError"}
+{"event":"transport_failure","request_id":"","stage":"bootstrap","time":1794611040.669,"kind":"embedding","attempt":2,"error_type":"RemoteProtocolError"}
+{"event":"api_call","request_id":"","stage":"bootstrap","time":1794611040.672,"kind":"embedding","model":"BAAI/bge-m3","seconds":0.016,"status":"ok","usage":{},"http_status":200,"finish_reason":null,"max_tokens":null,"estimated_prompt_tokens":null}
+{"event":"api_call","request_id":"","stage":"bootstrap","time":1794611040.683,"kind":"rerank","model":"Qwen/Qwen3-Reranker-8B","seconds":0.0,"status":"ok","usage":{},"http_status":200,"finish_reason":null,"max_tokens":null,"estimated_prompt_tokens":null}
+======================================================================
+FAIL: test_v8_instruction_audit_survives_new_boundaries (test_retriever35.TestRetriever35.test_v8_instruction_audit_survives_new_boundaries)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\USRBGDY\.codex\worktrees\psb-retriever35-v8\adaptive-legal-rag\psb-rag\test_retriever35.py", line 64, in test_v8_instruction_audit_survives_new_boundaries
+    self.assertFalse(valid)
+AssertionError: 'instruction is not legal evidence' is not false
+
+----------------------------------------------------------------------
+Ran 63 tests in 92.102s
+
+FAILED (failures=1)

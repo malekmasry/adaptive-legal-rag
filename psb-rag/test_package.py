@@ -73,7 +73,9 @@ class TestPackage(unittest.TestCase):
                         self.assertTrue(all(any(route.endswith(suffix) for route in Handler.routes) for suffix in ('/chat/completions','/embeddings','/rerank')))
                         for route,payload in Handler.requests:
                             if route.endswith('/rerank'):
-                                self.assertEqual(payload['top_n'],6 if i==2 else 8)
+                                self.assertEqual(payload['top_n'],len(payload['documents']))
+                                self.assertEqual(payload['top_n'],64)
+                                self.assertNotIn('<Instruct>',payload['query'])
                                 self.assertEqual(payload['model'],'platform-reranker')
                             elif route.endswith('/chat/completions'):
                                 self.assertEqual(payload['model'],'contract-stub')

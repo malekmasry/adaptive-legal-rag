@@ -4,7 +4,8 @@ from settings import Settings
 from corpus import ingest
 from storage import Store
 from model_api import API,ModelError
-from retrieval import Retriever,resolve_entity,exact_entities,ENTITY_LABELS,explicit_event_date
+from retriever35 import Retriever
+from retrieval import resolve_entity,exact_entities,ENTITY_LABELS,explicit_event_date
 from schemas import Plan,CompactPlan,Draft,Verdict,MemorySummary,Claim
 from prompt_config import PROMPTS
 from reasoning import parse_history,fallback_plan,direct_plan,planning_requirement,correction_reason,evidence_payload,validate_claim,normalize_quote,PLANNER,GENERATOR,VERIFIER
@@ -20,8 +21,9 @@ class Pipeline:
         docs,chunks,relations=ingest(self.s.data_dir)
         self.source_audit=load_audit(chunks,self.s.cache_dir)
         self.docs={d.id:d for d in docs}; self.chunks={c.id:c for c in chunks}
-        self.store=Store(self.s.cache_dir/'rag.sqlite3'); self.store.sync_corpus(docs,chunks,relations)
         self.retriever=Retriever(docs,chunks,relations,self.api,self.s)
+        self.store=Store(self.s.cache_dir/'rag.sqlite3')
+        self.store.sync_corpus(docs,chunks+self.retriever.chunks,relations)
         self.log_lock=threading.Lock()
     def initialize(self):
         if self.source_audit is None:
