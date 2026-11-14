@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+*.private.json
+.env
+private/
+runs/
+*.zip
+*.sqlite3
+*.npz
