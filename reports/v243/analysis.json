@@ -1,0 +1,669 @@
+{
+  "selected": {
+    "selected": "v239",
+    "candidate": "v243",
+    "created_utc": "2026-11-15T17:25:06.370757+00:00",
+    "runtime_freeze_sha256": "9f6612c3576c7e64f8b3493395e7b32654b54426d74567ca5668815569a8c159",
+    "v243_evaluation_freeze_sha256": "57a0112c0ddb45471f7e9146bef74d2124cb691c6d19aba3cc0fb60d4ba0d51c",
+    "development_summary_sha256": "089b2d5adc142755e1e7cb45c7f75c55daef4dda204c41845675cba8519d1b8e",
+    "development_metric": {
+      "score": 33.05555555555556,
+      "match_rate": 0.4722222222222222,
+      "win_rate": 0.0,
+      "wins": 0,
+      "losses": 1,
+      "ties": 17,
+      "evaluated": 18,
+      "attempted": 18,
+      "coverage": 1.0
+    },
+    "reason": "The all-three-features candidate is ineligible because its development score does not exceed 50; retain v239 regardless of holdout.",
+    "manual_fact_review": "Continues for reporting; cannot make a score-ineligible candidate eligible.",
+    "holdout_outputs_not_inspected_before_selection": true,
+    "no_holdout_selection": true
+  },
+  "prototype": {
+    "phase": "development",
+    "cases": 18,
+    "aggregate": {
+      "score": 33.05555555555556,
+      "match_rate": 0.4722222222222222,
+      "win_rate": 0.0,
+      "wins": 0,
+      "losses": 1,
+      "ties": 17,
+      "evaluated": 18,
+      "attempted": 18,
+      "coverage": 1.0
+    },
+    "runtime": {
+      "system": "v242_development",
+      "seconds": 286.406,
+      "exit_code": 0,
+      "complete": true,
+      "outer_timeout": false,
+      "rows": 18,
+      "answers_sha256": "099458394639c2540c7bb844522fd21c301264891eff9ccb5dda63f68f176f99",
+      "package_sha256": "7b27be0925abd76724e8a39291a30ef8e620f6edf6fdbb2b7ee5ad826c3b1deb",
+      "mode": "observed_unmodified_runtime",
+      "runtime_report": {
+        "rows": 18,
+        "statuses": {
+          "D02": "answered",
+          "D03": "answered",
+          "D01": "answered",
+          "D06": "answered",
+          "D04": "answered",
+          "D05": "answered",
+          "D07": "answered",
+          "D08": "answered",
+          "D09": "answered",
+          "D10": "answered",
+          "D11": "answered",
+          "D12": "answered",
+          "D15": "answered",
+          "D13": "answered",
+          "D14": "answered",
+          "D17": "not_in_base",
+          "D16": "answered",
+          "D18": "answered"
+        },
+        "counts": {
+          "answered": 17,
+          "not_in_base": 1
+        },
+        "seconds": 270.172,
+        "errors": {},
+        "collected_during_drain": 0,
+        "unfinished_workers": 0,
+        "work_budget_seconds": 1100,
+        "finalize_grace_seconds": 30.0,
+        "error_counts": {}
+      }
+    },
+    "seconds": 406.36,
+    "cumulative_usage": {
+      "deepseek_calls": 89,
+      "deepseek_tokens": 682327,
+      "qwen_calls": 0,
+      "qwen_input_tokens": 0,
+      "api_errors": 0
+    },
+    "qwen_cache_hits_phase": 18,
+    "generation_cache_hits_phase": 0,
+    "embedding_stats": {
+      "cached_texts": 593,
+      "new_texts": 0,
+      "reused_texts": 18,
+      "encoding_enabled": true
+    },
+    "scope": "All-three-features frozen v242 versus original immutable v239 outputs. Same corpus and unchanged judge; not platform prediction. Existing 12 holdout outputs were not inspected before source freeze. No product code changes after results."
+  },
+  "phases": {
+    "development": {
+      "aggregate": {
+        "score": 33.05555555555556,
+        "match_rate": 0.4722222222222222,
+        "win_rate": 0.0,
+        "wins": 0,
+        "losses": 1,
+        "ties": 17,
+        "evaluated": 18,
+        "attempted": 18,
+        "coverage": 1.0
+      },
+      "runtime": {
+        "system": "v242_development",
+        "seconds": 286.406,
+        "exit_code": 0,
+        "complete": true,
+        "outer_timeout": false,
+        "rows": 18,
+        "answers_sha256": "099458394639c2540c7bb844522fd21c301264891eff9ccb5dda63f68f176f99",
+        "package_sha256": "7b27be0925abd76724e8a39291a30ef8e620f6edf6fdbb2b7ee5ad826c3b1deb",
+        "mode": "observed_unmodified_runtime",
+        "runtime_report": {
+          "rows": 18,
+          "statuses": {
+            "D02": "answered",
+            "D03": "answered",
+            "D01": "answered",
+            "D06": "answered",
+            "D04": "answered",
+            "D05": "answered",
+            "D07": "answered",
+            "D08": "answered",
+            "D09": "answered",
+            "D10": "answered",
+            "D11": "answered",
+            "D12": "answered",
+            "D15": "answered",
+            "D13": "answered",
+            "D14": "answered",
+            "D17": "not_in_base",
+            "D16": "answered",
+            "D18": "answered"
+          },
+          "counts": {
+            "answered": 17,
+            "not_in_base": 1
+          },
+          "seconds": 270.172,
+          "errors": {},
+          "collected_during_drain": 0,
+          "unfinished_workers": 0,
+          "work_budget_seconds": 1100,
+          "finalize_grace_seconds": 30.0,
+          "error_counts": {}
+        }
+      },
+      "full_question_brief_count": 18,
+      "brief_statuses": {
+        "applied": 18
+      },
+      "required_parts": {
+        "D01": 3,
+        "D02": 2,
+        "D03": 2,
+        "D04": 1,
+        "D05": 3,
+        "D06": 2,
+        "D07": 1,
+        "D08": 2,
+        "D09": 4,
+        "D10": 2,
+        "D11": 1,
+        "D12": 1,
+        "D13": 2,
+        "D14": 2,
+        "D15": 1,
+        "D16": 2,
+        "D17": 1,
+        "D18": 2
+      },
+      "schema_fallback_ids": [],
+      "retrieval_degraded_ids": [],
+      "present_anchors": 37,
+      "required_anchors": 37,
+      "context_budget_violations": 0,
+      "context_tokens_mean": 11421,
+      "wins": [],
+      "losses": [
+        "D09"
+      ],
+      "fabrication_zero_ids": [
+        "D09"
+      ],
+      "judge_error_ids": [],
+      "order_disagreement_ids": [
+        "D09"
+      ],
+      "mean_answer_characters": {
+        "v239_development": 468.5,
+        "v243_development": 569.2222222222222
+      }
+    },
+    "holdout": {
+      "aggregate": {
+        "score": 67.1875,
+        "match_rate": 0.53125,
+        "win_rate": 1.0,
+        "wins": 2,
+        "losses": 0,
+        "ties": 10,
+        "evaluated": 12,
+        "attempted": 12,
+        "coverage": 1.0
+      },
+      "runtime": {
+        "system": "v243_holdout",
+        "seconds": 182.985,
+        "exit_code": 0,
+        "complete": true,
+        "outer_timeout": false,
+        "rows": 12,
+        "answers_sha256": "abf3e6dabf6390fb58b7de68e5a705eaff718bf89e5ba04355bfed487be6bb14",
+        "package_sha256": "d901989fc69f9b8d51b55ae461ea168115203e0a35c9f91afa1e69cf78821298",
+        "mode": "observed_unmodified_runtime",
+        "runtime_report": {
+          "rows": 12,
+          "statuses": {
+            "H01": "answered",
+            "H03": "answered",
+            "H05": "answered",
+            "H04": "answered",
+            "H02": "answered",
+            "H07": "answered",
+            "H08": "answered",
+            "H06": "answered",
+            "H09": "answered",
+            "H11": "answered",
+            "H12": "partial",
+            "H10": "answered"
+          },
+          "counts": {
+            "answered": 11,
+            "partial": 1
+          },
+          "seconds": 164.25,
+          "errors": {},
+          "collected_during_drain": 0,
+          "unfinished_workers": 0,
+          "work_budget_seconds": 1100,
+          "finalize_grace_seconds": 30.0,
+          "error_counts": {}
+        }
+      },
+      "full_question_brief_count": 11,
+      "brief_statuses": {
+        "applied": 11,
+        "failed_kept_original_path": 1
+      },
+      "required_parts": {
+        "H01": 3,
+        "H02": 2,
+        "H03": 3,
+        "H04": 3,
+        "H05": 2,
+        "H06": 2,
+        "H07": 2,
+        "H08": 2,
+        "H09": null,
+        "H10": 2,
+        "H11": 1,
+        "H12": 2
+      },
+      "schema_fallback_ids": [],
+      "retrieval_degraded_ids": [],
+      "present_anchors": 23,
+      "required_anchors": 23,
+      "context_budget_violations": 0,
+      "context_tokens_mean": 10704.666666666666,
+      "wins": [
+        "H06",
+        "H10"
+      ],
+      "losses": [],
+      "fabrication_zero_ids": [],
+      "judge_error_ids": [],
+      "order_disagreement_ids": [
+        "H10"
+      ],
+      "mean_answer_characters": {
+        "v239_holdout": 591.75,
+        "v243_holdout": 606.8333333333334
+      }
+    }
+  },
+  "usage": {
+    "GENERATOR": {
+      "calls": 89,
+      "successful_calls": 89,
+      "tokens": 1000001,
+      "rerank_input_tokens": 0
+    },
+    "JUDGE": {
+      "calls": 66,
+      "successful_calls": 66,
+      "tokens": 106906,
+      "rerank_input_tokens": 0
+    },
+    "RERANKER": {
+      "calls": 0,
+      "successful_calls": 0,
+      "tokens": 0,
+      "rerank_input_tokens": 0
+    },
+    "api_errors": 0
+  },
+  "previous_experiment_usage": {
+    "GENERATOR": {
+      "calls": 121,
+      "successful_calls": 120,
+      "tokens": 1233593,
+      "rerank_input_tokens": 0
+    },
+    "JUDGE": {
+      "calls": 186,
+      "successful_calls": 186,
+      "tokens": 294718,
+      "rerank_input_tokens": 0
+    },
+    "RERANKER": {
+      "calls": 30,
+      "successful_calls": 30,
+      "tokens": 0,
+      "rerank_input_tokens": 1063585
+    },
+    "api_errors": 1
+  },
+  "manual_audit": {
+    "development": {
+      "reviewed_final_answers": 18,
+      "core_requested_answers_present": 18,
+      "confirmed_core_factual_error_ids": [],
+      "confirmed_required_source_missing_ids": [],
+      "notes": [
+        "All three requested features ran: question obligations, ready source references, and question-specific condition checks. Main answers remain correct on these 18 cases; this is not proof of global correctness.",
+        "D01 and D06 cover the same requested facts as v239 after its review. The new stage did not add a previously missing final fact.",
+        "D05 splits the request into three parts and repeats the combined-rule conclusion. Structural completeness can create unnecessary repetition.",
+        "D04 says the cap does not apply, while its explanation means the cap is not reached by this calculation. The amount 372 is correct; the wording should not be read as eliminating the contractual cap.",
+        "D09 answers all four checklist entries, actor, time origin, duration and destination. It adds applicability and signing-condition details. The phrase saying the requirement acts until signing is ambiguous: the source requires checking before signing, rather than setting an expiry for the requirement. The judge zeroed the answer for details absent from golden; this is not a demonstrated retrieval failure.",
+        "D11, D13 and D14 retain additional explanations beyond the shortest sufficient answer. The extra planning/review call does not reliably remove such content.",
+        "D17 correctly withholds an unsupported notice period. D18 answers 3 working days and 5 years despite instructions in both question and source.",
+        "v243 only removes an own-part leading UI label from rendered text. Five development outputs changed: D03,D05,D06,D08,D14. All 18 original v242 outputs were reconstructed byte-for-byte before cleanup, and every reference stayed unchanged. No new generation was paid for this cleanup."
+      ]
+    },
+    "holdout": {
+      "reviewed_final_answers": 12,
+      "core_requested_answers_present": 12,
+      "confirmed_core_factual_error_ids": [],
+      "confirmed_required_source_missing_ids": [],
+      "notes": [
+        "H06 gives the two requested conclusions without extra finance/legal approval detail; both judge orders prefer it to baseline.",
+        "H10 numeric score indicates a win, but the first-order written explanation says baseline A is more accurate while team B has an unsupported extra. This is a numeric/rationale direction conflict, so the second reported holdout win is not robust.",
+        "H09 question-brief focus validation failed. The original generation/review route produced the correct answer, with both model requests reused from the exact cache. No technical error was exposed.",
+        "H01 repeats the conclusion in a third part; H08 and H11 retain extra explanatory material. The new stage is not a reliable brevity filter.",
+        "H12 correctly answers the known contractual portion and states the missing GK333 rule, but leaks the internal word evidence. A final pure-rendering cleanup translates that phrase to provided sources, with no new legal content or new paid judgment."
+      ]
+    },
+    "judge_limitations": [
+      "Numeric score and written rationale can disagree. The raw judge outputs are retained, not rerolled or manually rescaled.",
+      "A source-supported extra fact may still be called fabricated by a judge that only sees golden; source support alone does not predict the platform score.",
+      "This is a local proxy. The official PSB judge prompt, baseline outputs and hidden questions remain unknown."
+    ]
+  },
+  "final_rendering_verification": {
+    "package_sha256": "79991fdaf0e2bb5f563b61e65bcef28b8f090e573b966bfa827ee64b29126955",
+    "tested_package_sha256": "d901989fc69f9b8d51b55ae461ea168115203e0a35c9f91afa1e69cf78821298",
+    "source_commit": "7bbe09200176355cff5052fcb000d24aef32073a",
+    "script_sha256": "87d6ff202389699573daeb2c9f9dc5ae33c8c43616b247e5bdbb51f875ff677d",
+    "unit_tests": 83,
+    "test_log_sha256": "f3dde3276c243f779ebc55ea39997311d441c5b5bc3b241db783de11e736c9d2",
+    "replayed": 30,
+    "changed_ids": [
+      "H12"
+    ],
+    "generation_calls": 0,
+    "judge_calls": 0,
+    "fresh_full_live_run_of_final_zip": false,
+    "scope": "Pure rendering cleanup: in evidence becomes in provided sources. Source references and legal facts unchanged. LLM scores are from frozen v243 before this one wording change; no new independent score claimed.",
+    "proof": [
+      {
+        "phase": "development",
+        "id": "D01",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "356275dae6caea2b7bdb682e155ef0a921354bc907126c8c1ae826c37c5f84fe",
+        "after_sha256": "356275dae6caea2b7bdb682e155ef0a921354bc907126c8c1ae826c37c5f84fe"
+      },
+      {
+        "phase": "development",
+        "id": "D02",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "448d079bda1805a01b5380b9434d22db58af5430cefb387f593186340e5ccc01",
+        "after_sha256": "448d079bda1805a01b5380b9434d22db58af5430cefb387f593186340e5ccc01"
+      },
+      {
+        "phase": "development",
+        "id": "D03",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "2fba701648d013b7496a113e67cd2204478e0a1d92f57f3adcb439cb8ea0ef46",
+        "after_sha256": "2fba701648d013b7496a113e67cd2204478e0a1d92f57f3adcb439cb8ea0ef46"
+      },
+      {
+        "phase": "development",
+        "id": "D04",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "ed021f97dd61f8af3d4d0161595539906e966cc5c6d10fb2e4966b1c34d586b2",
+        "after_sha256": "ed021f97dd61f8af3d4d0161595539906e966cc5c6d10fb2e4966b1c34d586b2"
+      },
+      {
+        "phase": "development",
+        "id": "D05",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "b213fa09c748695a7d4af7df51c4a2950f6e44633a5d6f98c02c973bb4f9dcdc",
+        "after_sha256": "b213fa09c748695a7d4af7df51c4a2950f6e44633a5d6f98c02c973bb4f9dcdc"
+      },
+      {
+        "phase": "development",
+        "id": "D06",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "59ef82d2108a8020cecccb8547592b1261fbd8d3e251a32abe89d789e688e656",
+        "after_sha256": "59ef82d2108a8020cecccb8547592b1261fbd8d3e251a32abe89d789e688e656"
+      },
+      {
+        "phase": "development",
+        "id": "D07",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "f4725ffd0fb722ca1b8311ba68a3be2ca4e20f98c2589baccffff65fabec1734",
+        "after_sha256": "f4725ffd0fb722ca1b8311ba68a3be2ca4e20f98c2589baccffff65fabec1734"
+      },
+      {
+        "phase": "development",
+        "id": "D08",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "3e861b29303cc9e502826b713c6da37ce9be083c8fbf4a72c911cb204bcba26a",
+        "after_sha256": "3e861b29303cc9e502826b713c6da37ce9be083c8fbf4a72c911cb204bcba26a"
+      },
+      {
+        "phase": "development",
+        "id": "D09",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "0230c526bdd524255305e4a10daa6d51e0b9bd6177cd6cc9bbc982b7ef90c146",
+        "after_sha256": "0230c526bdd524255305e4a10daa6d51e0b9bd6177cd6cc9bbc982b7ef90c146"
+      },
+      {
+        "phase": "development",
+        "id": "D10",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "9817ea9040545e7725bbc29ce13e5bf173aab067769bb46f3984f3f2b77eef14",
+        "after_sha256": "9817ea9040545e7725bbc29ce13e5bf173aab067769bb46f3984f3f2b77eef14"
+      },
+      {
+        "phase": "development",
+        "id": "D11",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "a5b50d224efdf409b38a4870dd2cdaf7feb0b1500e4631e2b2c07a5a5d35f96b",
+        "after_sha256": "a5b50d224efdf409b38a4870dd2cdaf7feb0b1500e4631e2b2c07a5a5d35f96b"
+      },
+      {
+        "phase": "development",
+        "id": "D12",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "7bc0af0c1211dacae3228815f4164d0ebff26183d21caa03baa07b9804a4ba69",
+        "after_sha256": "7bc0af0c1211dacae3228815f4164d0ebff26183d21caa03baa07b9804a4ba69"
+      },
+      {
+        "phase": "development",
+        "id": "D13",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "2897bd6b3a1c2f4149b5078088d9807f3d2360b575598dc9a30114eeda236abd",
+        "after_sha256": "2897bd6b3a1c2f4149b5078088d9807f3d2360b575598dc9a30114eeda236abd"
+      },
+      {
+        "phase": "development",
+        "id": "D14",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "c6b468227b70f2163c901f35a4a08b4dcde038509e5d140b9155ef29899aef47",
+        "after_sha256": "c6b468227b70f2163c901f35a4a08b4dcde038509e5d140b9155ef29899aef47"
+      },
+      {
+        "phase": "development",
+        "id": "D15",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "40126c50cfc5a12410a50db09d6f22dcab46eada43d5377f128c8eec8686f561",
+        "after_sha256": "40126c50cfc5a12410a50db09d6f22dcab46eada43d5377f128c8eec8686f561"
+      },
+      {
+        "phase": "development",
+        "id": "D16",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "e082170caa23360a808459edec26fc766bce8ec6e3cce7132e52bc5446d4517b",
+        "after_sha256": "e082170caa23360a808459edec26fc766bce8ec6e3cce7132e52bc5446d4517b"
+      },
+      {
+        "phase": "development",
+        "id": "D17",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "659b76ee9fe9d6a6f9dffc5eb2dfe9316190ab9fe8e77638841c9a8a573c3a82",
+        "after_sha256": "659b76ee9fe9d6a6f9dffc5eb2dfe9316190ab9fe8e77638841c9a8a573c3a82"
+      },
+      {
+        "phase": "development",
+        "id": "D18",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "a642e0290fe6df98af199c46aab5e2a099527ef1edfaf0b90887c73be42e47f4",
+        "after_sha256": "a642e0290fe6df98af199c46aab5e2a099527ef1edfaf0b90887c73be42e47f4"
+      },
+      {
+        "phase": "holdout",
+        "id": "H01",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "124baf09ff751485f4f796e2dc664df23075ab1ab46b39bda1d4ebe61d2becaa",
+        "after_sha256": "124baf09ff751485f4f796e2dc664df23075ab1ab46b39bda1d4ebe61d2becaa"
+      },
+      {
+        "phase": "holdout",
+        "id": "H02",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "1a0e218f8030948cd64f9ac32b7595d409d541f14338c73896ae3f078b740b28",
+        "after_sha256": "1a0e218f8030948cd64f9ac32b7595d409d541f14338c73896ae3f078b740b28"
+      },
+      {
+        "phase": "holdout",
+        "id": "H03",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "696c65b0a8c70fd946c47010a3356f330ccddf6d7b377fd61a887b81acd97e7e",
+        "after_sha256": "696c65b0a8c70fd946c47010a3356f330ccddf6d7b377fd61a887b81acd97e7e"
+      },
+      {
+        "phase": "holdout",
+        "id": "H04",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "62eb72e6ab6e4ba34fd8335a6be9e4ff2e0583fb46d9e89ccdf01cd9f9d6c798",
+        "after_sha256": "62eb72e6ab6e4ba34fd8335a6be9e4ff2e0583fb46d9e89ccdf01cd9f9d6c798"
+      },
+      {
+        "phase": "holdout",
+        "id": "H05",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "890cc26674db59821b85ea995255a363bfd27f54a7db09e6da5763bde36e8f41",
+        "after_sha256": "890cc26674db59821b85ea995255a363bfd27f54a7db09e6da5763bde36e8f41"
+      },
+      {
+        "phase": "holdout",
+        "id": "H06",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "fd29423f641707ed2f2c9ae4e3b150c5b7ffeacfb1ef5e039b664c138cd59549",
+        "after_sha256": "fd29423f641707ed2f2c9ae4e3b150c5b7ffeacfb1ef5e039b664c138cd59549"
+      },
+      {
+        "phase": "holdout",
+        "id": "H07",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "1c7d9513b1b1be2c05488131d642c11272cecc9f4441b1eedff39036daf9e743",
+        "after_sha256": "1c7d9513b1b1be2c05488131d642c11272cecc9f4441b1eedff39036daf9e743"
+      },
+      {
+        "phase": "holdout",
+        "id": "H08",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "b146b0c8d9e5ce76323b056709fb4566f014d99aabd01c472e37142c63a79368",
+        "after_sha256": "b146b0c8d9e5ce76323b056709fb4566f014d99aabd01c472e37142c63a79368"
+      },
+      {
+        "phase": "holdout",
+        "id": "H09",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "46d3323cc7d49bf2453dfbb06a69cd5d9c0afd6533e69907e31ff3e77ffcb4fe",
+        "after_sha256": "46d3323cc7d49bf2453dfbb06a69cd5d9c0afd6533e69907e31ff3e77ffcb4fe"
+      },
+      {
+        "phase": "holdout",
+        "id": "H10",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "028cfe80416a83da44b062307e9064f39f80516d78eb11c17f961572c455de79",
+        "after_sha256": "028cfe80416a83da44b062307e9064f39f80516d78eb11c17f961572c455de79"
+      },
+      {
+        "phase": "holdout",
+        "id": "H11",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": false,
+        "references_unchanged": true,
+        "before_sha256": "dcf2d98fbd1bd3a9284cadea23d76dda4da1af9159e69b5f9d7f286f80e4a1fd",
+        "after_sha256": "dcf2d98fbd1bd3a9284cadea23d76dda4da1af9159e69b5f9d7f286f80e4a1fd"
+      },
+      {
+        "phase": "holdout",
+        "id": "H12",
+        "exact_pre_cleanup_reconstruction": true,
+        "changed": true,
+        "references_unchanged": true,
+        "before_sha256": "063a6acadaf3a1c6dbe0d1a8834443af8102cfce87c710b088f2e04d75d65cd6",
+        "after_sha256": "13cd66ee5684edc87696a0948fdd57fc6c15e85af2699cb5c670aa6ddd17d207"
+      }
+    ]
+  },
+  "verified_package_sha256": {
+    "v242.zip": "7b27be0925abd76724e8a39291a30ef8e620f6edf6fdbb2b7ee5ad826c3b1deb",
+    "v243.zip": "d901989fc69f9b8d51b55ae461ea168115203e0a35c9f91afa1e69cf78821298",
+    "v243-final.zip": "79991fdaf0e2bb5f563b61e65bcef28b8f090e573b966bfa827ee64b29126955"
+  }
+}

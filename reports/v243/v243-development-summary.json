@@ -1,0 +1,33 @@
+{
+  "phase": "development",
+  "aggregate": {
+    "score": 33.05555555555556,
+    "match_rate": 0.4722222222222222,
+    "win_rate": 0.0,
+    "wins": 0,
+    "losses": 1,
+    "ties": 17,
+    "evaluated": 18,
+    "attempted": 18,
+    "coverage": 1.0
+  },
+  "rows": 18,
+  "changed_outputs": [
+    "D03",
+    "D05",
+    "D06",
+    "D08",
+    "D14"
+  ],
+  "fresh_generation_calls": 0,
+  "reused_generation_rows": 18,
+  "seconds": 43.92199999999866,
+  "cumulative_usage": {
+    "deepseek_calls": 99,
+    "deepseek_tokens": 698721,
+    "qwen_calls": 0,
+    "qwen_input_tokens": 0,
+    "api_errors": 0
+  },
+  "scope": "Exact replay of frozen v242 responses with UI label cleanup. All unchanged scores, including failures/losses, retained. Runtime timing remains the v242 full run."
+}

@@ -1,0 +1,22 @@
+{
+  "created_utc": "2026-11-15T17:10:22.155281+00:00",
+  "source_commit": "8bf354eec29198c37eac0edef91d2c3bc099676b",
+  "package_sha256": "7b27be0925abd76724e8a39291a30ef8e620f6edf6fdbb2b7ee5ad826c3b1deb",
+  "unit_tests": 81,
+  "test_log_sha256": "3c535af46f7e7f88aa57a5feda13c236f436e5597a6df53d5eeeadef273ee02a",
+  "development_sha256": "79389bea9ee1b207c0cdc79f8a094590f8446024869a9369111e5d3909b4f011",
+  "holdout_sha256": "131534b1aa021253d6a83a2e29f3d145e881005617546267849566631ff08e4b",
+  "old_runtime_freeze_sha256": "9dd65ad68b534d4a578d68f9cee613f285841253407e2e95655233c0ed475a8f",
+  "holdout_answers_not_inspected_before_source_freeze": true,
+  "changes": "All three requested features combined; original v239 retrieval/context/notes/rendering retained. One additional DeepSeek question-brief stage, coverage-constrained answer schema, source-exact citation catalog, question-specific condition checks. No new dependencies. Bounded fallbacks retain original answer route.",
+  "protocol": {
+    "selection": "Development only: v242 if score>50, full judge coverage, no runtime errors or manually confirmed factual regressions; else retain v239. No code changes after results.",
+    "holdout": "12 existing held-out questions, answers and scores not inspected before this source freeze. Compare whole frozen version; no per-case selection.",
+    "judge": "Same frozen team-relative two-order judge and PSB aggregation. Known numerical/reason inconsistencies are reported, not rerolled.",
+    "limits": {
+      "chat_calls": 220,
+      "rerank_calls": 5,
+      "conservative_chat_byte_token_reservation": 10000000
+    }
+  }
+}
