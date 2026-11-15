@@ -1,0 +1,62 @@
+{
+  "reported_date": "2026-11-16",
+  "source": "User reports in the project conversation; no platform logs or per-question outcomes.",
+  "user_messages": [
+    "говно 245 дало 26 а 244 27",
+    "245 - 447 244- 365"
+  ],
+  "platform_reference": {
+    "variant": "v243-final",
+    "score_out_of_100": 37.5,
+    "runtime_seconds": 484,
+    "source_commit": "7bbe09200176355cff5052fcb000d24aef32073a",
+    "local_package_sha256": "79991fdaf0e2bb5f563b61e65bcef28b8f090e573b966bfa827ee64b29126955",
+    "association": "Earlier user report; archive identity inferred from conversation, not a platform hash."
+  },
+  "candidates": [
+    {
+      "variant": "v244",
+      "score_out_of_100": 27,
+      "runtime_seconds": 365,
+      "source_commit": "ed60eabc37b4897e6cf14c96f862360e3f818fc3",
+      "local_package": "v244.zip",
+      "local_package_sha256": "18ffcb078029c3d20dc01ff7c4da166c96f43f4687b45abd7c153631b85a4868",
+      "association": "User explicitly named the variant; submitted archive hash and platform settings were not supplied.",
+      "comparison_with_v243": {
+        "score_point_difference": -10.5,
+        "runtime_second_difference": -119,
+        "runtime_reduction_percent": 24.5868
+      }
+    },
+    {
+      "variant": "v245",
+      "score_out_of_100": 26,
+      "runtime_seconds": 447,
+      "source_commit": "d88fd4d5440c2eb33f9c982f9d2d5ee402b4c8f8",
+      "local_package": "v245.zip",
+      "local_package_sha256": "cae446031d6dd1c6444e0b62d68b3993f28791776165e7c66d7829600e898f96",
+      "association": "User explicitly named the variant; submitted archive hash and platform settings were not supplied.",
+      "comparison_with_v243": {
+        "score_point_difference": -11.5,
+        "runtime_second_difference": -37,
+        "runtime_reduction_percent": 7.6446
+      }
+    }
+  ],
+  "decision": "Reject v244 and v245 as default candidates. Keep v243-final as the strongest recorded platform reference. Do not combine the two changes on the assumption of benefit.",
+  "runtime_interpretation": "Reported runtimes are well below the 1100-second product work budget and 1200-second outer limit; global deadline exhaustion is not supported. Per-request failures, incomplete outputs or quality failures cannot be excluded without logs.",
+  "local_evaluation_failure": {
+    "scope": "30 previously exposed regression questions, common corpus/author; exact shared caches.",
+    "v244": "All 30 local ties failed to reveal the 10.5-point reported platform regression. Dense fallback ran only on the absent-answer case D17, so the main recovery branch was not exercised on a factual question needing it.",
+    "v245": "Local numeric win D07 was contradicted by its first-round written rationale. Only two edits were applied among 29 reviews; 27 reviewed drafts remained unchanged. This set did not establish the reviewer ability to repair consequential defects.",
+    "metric_note": "The unchanged formula produced 65.2917 from one dubious win and 29 ties. Raw scores remain valid records of what the judge returned, not reliable evidence for deployment selection.",
+    "new_selection_rule": "Use this set as a regression check only, not as a predictor of PSB score or a sole candidate-selection criterion. Future evaluation must distinguish retrieval completeness, meaningful draft correction, and judge score/rationale consistency."
+  },
+  "hypotheses_not_confirmed": [
+    "v244: a single high rerank score can keep the lexical route despite missing a complementary source or subquestion.",
+    "v245: restrictive exact patches may preserve draft omissions or wording that a full-answer reviewer would repair."
+  ],
+  "causal_limits": "Separate single platform reports; hidden questions, baseline, per-question errors, settings and repeat variance are unavailable. A lower score does not establish any one mechanism as its cause.",
+  "new_api_calls": 0,
+  "frozen_source_packages_answers_judgments_unchanged": true
+}
