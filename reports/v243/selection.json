@@ -1,0 +1,23 @@
+{
+  "selected": "v239",
+  "candidate": "v243",
+  "created_utc": "2026-11-15T17:25:06.370757+00:00",
+  "runtime_freeze_sha256": "9f6612c3576c7e64f8b3493395e7b32654b54426d74567ca5668815569a8c159",
+  "v243_evaluation_freeze_sha256": "57a0112c0ddb45471f7e9146bef74d2124cb691c6d19aba3cc0fb60d4ba0d51c",
+  "development_summary_sha256": "089b2d5adc142755e1e7cb45c7f75c55daef4dda204c41845675cba8519d1b8e",
+  "development_metric": {
+    "score": 33.05555555555556,
+    "match_rate": 0.4722222222222222,
+    "win_rate": 0.0,
+    "wins": 0,
+    "losses": 1,
+    "ties": 17,
+    "evaluated": 18,
+    "attempted": 18,
+    "coverage": 1.0
+  },
+  "reason": "The all-three-features candidate is ineligible because its development score does not exceed 50; retain v239 regardless of holdout.",
+  "manual_fact_review": "Continues for reporting; cannot make a score-ineligible candidate eligible.",
+  "holdout_outputs_not_inspected_before_selection": true,
+  "no_holdout_selection": true
+}

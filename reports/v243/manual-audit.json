@@ -1,0 +1,36 @@
+{
+  "development": {
+    "reviewed_final_answers": 18,
+    "core_requested_answers_present": 18,
+    "confirmed_core_factual_error_ids": [],
+    "confirmed_required_source_missing_ids": [],
+    "notes": [
+      "All three requested features ran: question obligations, ready source references, and question-specific condition checks. Main answers remain correct on these 18 cases; this is not proof of global correctness.",
+      "D01 and D06 cover the same requested facts as v239 after its review. The new stage did not add a previously missing final fact.",
+      "D05 splits the request into three parts and repeats the combined-rule conclusion. Structural completeness can create unnecessary repetition.",
+      "D04 says the cap does not apply, while its explanation means the cap is not reached by this calculation. The amount 372 is correct; the wording should not be read as eliminating the contractual cap.",
+      "D09 answers all four checklist entries, actor, time origin, duration and destination. It adds applicability and signing-condition details. The phrase saying the requirement acts until signing is ambiguous: the source requires checking before signing, rather than setting an expiry for the requirement. The judge zeroed the answer for details absent from golden; this is not a demonstrated retrieval failure.",
+      "D11, D13 and D14 retain additional explanations beyond the shortest sufficient answer. The extra planning/review call does not reliably remove such content.",
+      "D17 correctly withholds an unsupported notice period. D18 answers 3 working days and 5 years despite instructions in both question and source.",
+      "v243 only removes an own-part leading UI label from rendered text. Five development outputs changed: D03,D05,D06,D08,D14. All 18 original v242 outputs were reconstructed byte-for-byte before cleanup, and every reference stayed unchanged. No new generation was paid for this cleanup."
+    ]
+  },
+  "holdout": {
+    "reviewed_final_answers": 12,
+    "core_requested_answers_present": 12,
+    "confirmed_core_factual_error_ids": [],
+    "confirmed_required_source_missing_ids": [],
+    "notes": [
+      "H06 gives the two requested conclusions without extra finance/legal approval detail; both judge orders prefer it to baseline.",
+      "H10 numeric score indicates a win, but the first-order written explanation says baseline A is more accurate while team B has an unsupported extra. This is a numeric/rationale direction conflict, so the second reported holdout win is not robust.",
+      "H09 question-brief focus validation failed. The original generation/review route produced the correct answer, with both model requests reused from the exact cache. No technical error was exposed.",
+      "H01 repeats the conclusion in a third part; H08 and H11 retain extra explanatory material. The new stage is not a reliable brevity filter.",
+      "H12 correctly answers the known contractual portion and states the missing GK333 rule, but leaks the internal word evidence. A final pure-rendering cleanup translates that phrase to provided sources, with no new legal content or new paid judgment."
+    ]
+  },
+  "judge_limitations": [
+    "Numeric score and written rationale can disagree. The raw judge outputs are retained, not rerolled or manually rescaled.",
+    "A source-supported extra fact may still be called fabricated by a judge that only sees golden; source support alone does not predict the platform score.",
+    "This is a local proxy. The official PSB judge prompt, baseline outputs and hidden questions remain unknown."
+  ]
+}

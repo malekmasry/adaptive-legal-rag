@@ -1,0 +1,288 @@
+{
+  "package_sha256": "79991fdaf0e2bb5f563b61e65bcef28b8f090e573b966bfa827ee64b29126955",
+  "tested_package_sha256": "d901989fc69f9b8d51b55ae461ea168115203e0a35c9f91afa1e69cf78821298",
+  "source_commit": "7bbe09200176355cff5052fcb000d24aef32073a",
+  "script_sha256": "87d6ff202389699573daeb2c9f9dc5ae33c8c43616b247e5bdbb51f875ff677d",
+  "unit_tests": 83,
+  "test_log_sha256": "f3dde3276c243f779ebc55ea39997311d441c5b5bc3b241db783de11e736c9d2",
+  "replayed": 30,
+  "changed_ids": [
+    "H12"
+  ],
+  "generation_calls": 0,
+  "judge_calls": 0,
+  "fresh_full_live_run_of_final_zip": false,
+  "scope": "Pure rendering cleanup: in evidence becomes in provided sources. Source references and legal facts unchanged. LLM scores are from frozen v243 before this one wording change; no new independent score claimed.",
+  "proof": [
+    {
+      "phase": "development",
+      "id": "D01",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "356275dae6caea2b7bdb682e155ef0a921354bc907126c8c1ae826c37c5f84fe",
+      "after_sha256": "356275dae6caea2b7bdb682e155ef0a921354bc907126c8c1ae826c37c5f84fe"
+    },
+    {
+      "phase": "development",
+      "id": "D02",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "448d079bda1805a01b5380b9434d22db58af5430cefb387f593186340e5ccc01",
+      "after_sha256": "448d079bda1805a01b5380b9434d22db58af5430cefb387f593186340e5ccc01"
+    },
+    {
+      "phase": "development",
+      "id": "D03",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "2fba701648d013b7496a113e67cd2204478e0a1d92f57f3adcb439cb8ea0ef46",
+      "after_sha256": "2fba701648d013b7496a113e67cd2204478e0a1d92f57f3adcb439cb8ea0ef46"
+    },
+    {
+      "phase": "development",
+      "id": "D04",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "ed021f97dd61f8af3d4d0161595539906e966cc5c6d10fb2e4966b1c34d586b2",
+      "after_sha256": "ed021f97dd61f8af3d4d0161595539906e966cc5c6d10fb2e4966b1c34d586b2"
+    },
+    {
+      "phase": "development",
+      "id": "D05",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "b213fa09c748695a7d4af7df51c4a2950f6e44633a5d6f98c02c973bb4f9dcdc",
+      "after_sha256": "b213fa09c748695a7d4af7df51c4a2950f6e44633a5d6f98c02c973bb4f9dcdc"
+    },
+    {
+      "phase": "development",
+      "id": "D06",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "59ef82d2108a8020cecccb8547592b1261fbd8d3e251a32abe89d789e688e656",
+      "after_sha256": "59ef82d2108a8020cecccb8547592b1261fbd8d3e251a32abe89d789e688e656"
+    },
+    {
+      "phase": "development",
+      "id": "D07",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "f4725ffd0fb722ca1b8311ba68a3be2ca4e20f98c2589baccffff65fabec1734",
+      "after_sha256": "f4725ffd0fb722ca1b8311ba68a3be2ca4e20f98c2589baccffff65fabec1734"
+    },
+    {
+      "phase": "development",
+      "id": "D08",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "3e861b29303cc9e502826b713c6da37ce9be083c8fbf4a72c911cb204bcba26a",
+      "after_sha256": "3e861b29303cc9e502826b713c6da37ce9be083c8fbf4a72c911cb204bcba26a"
+    },
+    {
+      "phase": "development",
+      "id": "D09",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "0230c526bdd524255305e4a10daa6d51e0b9bd6177cd6cc9bbc982b7ef90c146",
+      "after_sha256": "0230c526bdd524255305e4a10daa6d51e0b9bd6177cd6cc9bbc982b7ef90c146"
+    },
+    {
+      "phase": "development",
+      "id": "D10",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "9817ea9040545e7725bbc29ce13e5bf173aab067769bb46f3984f3f2b77eef14",
+      "after_sha256": "9817ea9040545e7725bbc29ce13e5bf173aab067769bb46f3984f3f2b77eef14"
+    },
+    {
+      "phase": "development",
+      "id": "D11",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "a5b50d224efdf409b38a4870dd2cdaf7feb0b1500e4631e2b2c07a5a5d35f96b",
+      "after_sha256": "a5b50d224efdf409b38a4870dd2cdaf7feb0b1500e4631e2b2c07a5a5d35f96b"
+    },
+    {
+      "phase": "development",
+      "id": "D12",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "7bc0af0c1211dacae3228815f4164d0ebff26183d21caa03baa07b9804a4ba69",
+      "after_sha256": "7bc0af0c1211dacae3228815f4164d0ebff26183d21caa03baa07b9804a4ba69"
+    },
+    {
+      "phase": "development",
+      "id": "D13",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "2897bd6b3a1c2f4149b5078088d9807f3d2360b575598dc9a30114eeda236abd",
+      "after_sha256": "2897bd6b3a1c2f4149b5078088d9807f3d2360b575598dc9a30114eeda236abd"
+    },
+    {
+      "phase": "development",
+      "id": "D14",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "c6b468227b70f2163c901f35a4a08b4dcde038509e5d140b9155ef29899aef47",
+      "after_sha256": "c6b468227b70f2163c901f35a4a08b4dcde038509e5d140b9155ef29899aef47"
+    },
+    {
+      "phase": "development",
+      "id": "D15",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "40126c50cfc5a12410a50db09d6f22dcab46eada43d5377f128c8eec8686f561",
+      "after_sha256": "40126c50cfc5a12410a50db09d6f22dcab46eada43d5377f128c8eec8686f561"
+    },
+    {
+      "phase": "development",
+      "id": "D16",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "e082170caa23360a808459edec26fc766bce8ec6e3cce7132e52bc5446d4517b",
+      "after_sha256": "e082170caa23360a808459edec26fc766bce8ec6e3cce7132e52bc5446d4517b"
+    },
+    {
+      "phase": "development",
+      "id": "D17",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "659b76ee9fe9d6a6f9dffc5eb2dfe9316190ab9fe8e77638841c9a8a573c3a82",
+      "after_sha256": "659b76ee9fe9d6a6f9dffc5eb2dfe9316190ab9fe8e77638841c9a8a573c3a82"
+    },
+    {
+      "phase": "development",
+      "id": "D18",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "a642e0290fe6df98af199c46aab5e2a099527ef1edfaf0b90887c73be42e47f4",
+      "after_sha256": "a642e0290fe6df98af199c46aab5e2a099527ef1edfaf0b90887c73be42e47f4"
+    },
+    {
+      "phase": "holdout",
+      "id": "H01",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "124baf09ff751485f4f796e2dc664df23075ab1ab46b39bda1d4ebe61d2becaa",
+      "after_sha256": "124baf09ff751485f4f796e2dc664df23075ab1ab46b39bda1d4ebe61d2becaa"
+    },
+    {
+      "phase": "holdout",
+      "id": "H02",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "1a0e218f8030948cd64f9ac32b7595d409d541f14338c73896ae3f078b740b28",
+      "after_sha256": "1a0e218f8030948cd64f9ac32b7595d409d541f14338c73896ae3f078b740b28"
+    },
+    {
+      "phase": "holdout",
+      "id": "H03",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "696c65b0a8c70fd946c47010a3356f330ccddf6d7b377fd61a887b81acd97e7e",
+      "after_sha256": "696c65b0a8c70fd946c47010a3356f330ccddf6d7b377fd61a887b81acd97e7e"
+    },
+    {
+      "phase": "holdout",
+      "id": "H04",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "62eb72e6ab6e4ba34fd8335a6be9e4ff2e0583fb46d9e89ccdf01cd9f9d6c798",
+      "after_sha256": "62eb72e6ab6e4ba34fd8335a6be9e4ff2e0583fb46d9e89ccdf01cd9f9d6c798"
+    },
+    {
+      "phase": "holdout",
+      "id": "H05",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "890cc26674db59821b85ea995255a363bfd27f54a7db09e6da5763bde36e8f41",
+      "after_sha256": "890cc26674db59821b85ea995255a363bfd27f54a7db09e6da5763bde36e8f41"
+    },
+    {
+      "phase": "holdout",
+      "id": "H06",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "fd29423f641707ed2f2c9ae4e3b150c5b7ffeacfb1ef5e039b664c138cd59549",
+      "after_sha256": "fd29423f641707ed2f2c9ae4e3b150c5b7ffeacfb1ef5e039b664c138cd59549"
+    },
+    {
+      "phase": "holdout",
+      "id": "H07",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "1c7d9513b1b1be2c05488131d642c11272cecc9f4441b1eedff39036daf9e743",
+      "after_sha256": "1c7d9513b1b1be2c05488131d642c11272cecc9f4441b1eedff39036daf9e743"
+    },
+    {
+      "phase": "holdout",
+      "id": "H08",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "b146b0c8d9e5ce76323b056709fb4566f014d99aabd01c472e37142c63a79368",
+      "after_sha256": "b146b0c8d9e5ce76323b056709fb4566f014d99aabd01c472e37142c63a79368"
+    },
+    {
+      "phase": "holdout",
+      "id": "H09",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "46d3323cc7d49bf2453dfbb06a69cd5d9c0afd6533e69907e31ff3e77ffcb4fe",
+      "after_sha256": "46d3323cc7d49bf2453dfbb06a69cd5d9c0afd6533e69907e31ff3e77ffcb4fe"
+    },
+    {
+      "phase": "holdout",
+      "id": "H10",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "028cfe80416a83da44b062307e9064f39f80516d78eb11c17f961572c455de79",
+      "after_sha256": "028cfe80416a83da44b062307e9064f39f80516d78eb11c17f961572c455de79"
+    },
+    {
+      "phase": "holdout",
+      "id": "H11",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": false,
+      "references_unchanged": true,
+      "before_sha256": "dcf2d98fbd1bd3a9284cadea23d76dda4da1af9159e69b5f9d7f286f80e4a1fd",
+      "after_sha256": "dcf2d98fbd1bd3a9284cadea23d76dda4da1af9159e69b5f9d7f286f80e4a1fd"
+    },
+    {
+      "phase": "holdout",
+      "id": "H12",
+      "exact_pre_cleanup_reconstruction": true,
+      "changed": true,
+      "references_unchanged": true,
+      "before_sha256": "063a6acadaf3a1c6dbe0d1a8834443af8102cfce87c710b088f2e04d75d65cd6",
+      "after_sha256": "13cd66ee5684edc87696a0948fdd57fc6c15e85af2699cb5c670aa6ddd17d207"
+    }
+  ]
+}

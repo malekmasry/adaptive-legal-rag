@@ -1,0 +1,12 @@
+{
+  "source_freeze_sha256": "c64cac89d14d5f31065253583ae51406d4d5dd12ac3e3b49288fcae97a148d54",
+  "prototype_runtime_freeze_sha256": "9f6612c3576c7e64f8b3493395e7b32654b54426d74567ca5668815569a8c159",
+  "runner_sha256": "7f67be1c966d12a282e52ec444550c6cd048e69397f07e1248026b354fb9b82d",
+  "worker_sha256": "41b0789d93864d2425188fa00b67a9cbb0109db07e74b29aecb44c75a6b621d6",
+  "baseline_hashes": {
+    "development": "ac37c2f1f62c95384e6b209942249eb56f1787dd5d762ccbbb5e247c756e4925",
+    "holdout": "51174cbbb4f930600f127a3c7376c1b05df2c9147752f465fa2bcb78e9fad368"
+  },
+  "judge_prompt_sha256": "03d8d5cf42a3a00c85563cf684971f161c8924cea699fb4582e08359eac2505e",
+  "scope": "Only own-part leading UI labels are removed. No model prompt/input changes; no factual optimization after seeing results."
+}

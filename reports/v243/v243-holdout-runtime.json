@@ -1,0 +1,39 @@
+{
+  "system": "v243_holdout",
+  "seconds": 182.985,
+  "exit_code": 0,
+  "complete": true,
+  "outer_timeout": false,
+  "rows": 12,
+  "answers_sha256": "abf3e6dabf6390fb58b7de68e5a705eaff718bf89e5ba04355bfed487be6bb14",
+  "package_sha256": "d901989fc69f9b8d51b55ae461ea168115203e0a35c9f91afa1e69cf78821298",
+  "mode": "observed_unmodified_runtime",
+  "runtime_report": {
+    "rows": 12,
+    "statuses": {
+      "H01": "answered",
+      "H03": "answered",
+      "H05": "answered",
+      "H04": "answered",
+      "H02": "answered",
+      "H07": "answered",
+      "H08": "answered",
+      "H06": "answered",
+      "H09": "answered",
+      "H11": "answered",
+      "H12": "partial",
+      "H10": "answered"
+    },
+    "counts": {
+      "answered": 11,
+      "partial": 1
+    },
+    "seconds": 164.25,
+    "errors": {},
+    "collected_during_drain": 0,
+    "unfinished_workers": 0,
+    "work_budget_seconds": 1100,
+    "finalize_grace_seconds": 30.0,
+    "error_counts": {}
+  }
+}
