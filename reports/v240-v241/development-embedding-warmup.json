@@ -1,0 +1,9 @@
+{
+  "seconds": 0.0,
+  "stats": {
+    "cached_texts": 580,
+    "new_texts": 0,
+    "reused_texts": 18,
+    "encoding_enabled": true
+  }
+}

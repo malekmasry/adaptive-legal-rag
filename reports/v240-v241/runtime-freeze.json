@@ -1,0 +1,57 @@
+{
+  "dataset_freeze_sha256": "6070541ff6807328918390bdb2cc8470e36f4c58b0d0d2cbcac2b3cf8d74f967",
+  "runner_sha256": "91d0b1a7c38b9799d432f855726d47ae4209d4c7f2fea8c7791cf551c0aa701a",
+  "worker_sha256": "7cc59464716ebf05f216d0c2610d07b045e0376f47dd3b1db032fd5474e739b4",
+  "code_hashes": {
+    "compare_candidate.py": "53bc0ead3824bc9143a69e900b3bb46be5d24865a9f0bb56738bdc0f7ed46ba5",
+    "compare_checked_candidate.py": "97a6ea5dd4ebcbaf338888293aab8f40cf9e29fd0556634efb9b729c6957a548",
+    "compare_guided_candidate.py": "25934995c63e51f6dd114beb068ae88feb7dc1208848a78fb3c1dc9392a6cc1e",
+    "compare_team_score.py": "4783a36ecf8b4c03bd5f745f8d9392f7b5a2cb17ff7329b4da68ebc5d687311c",
+    "judge.py": "637400bc8756b058a7ce4cbbca967e70c0267220b088d81a0ada537fb4daa986",
+    "prepare.py": "234085f5f6e5f7e57bd83f633eb2bda19532fee8ca0b2ca35818f60ebcf31b8b",
+    "prepare_stress.py": "2518b0f2a1687c5b77131bb35a98119a9b83753e8d48f2bdd5afd27542ebe636",
+    "resume_checked_candidate.py": "edcd867e0d1588171712d54e0a2be44a3f78daca6c723de7a58b6e4f50ed62ea",
+    "run.py": "fd52746c629a012f6c8d9844aede57d9e3f8330c0b507381ab310814d737dea4",
+    "run_checked_regression.py": "80cf82f4dfedc6d0150d453f8bb86ed605b458118fd077846c68ee214d642731",
+    "run_guided_regression.py": "43ede10b6ecffe7e246b084e6ab3ed17d0cbab14f5b0b591b3460ab3a1fd2e8d",
+    "run_regression.py": "772c5165e8d730a00976f1884776048f4a94af20ec0419a9bbeaa17ad190094e",
+    "run_stress.py": "06f587cb11015eb623ccfa3cc01be830267b01028914baa8fa6ce73f1a4a5c59",
+    "run_v108_v228.py": "4fe906c36e465f8c18ff8200b69f3ee693dcdc60ee790a911222660765f93f8e",
+    "run_v229.py": "6e3dd1f0971de7211fca82e4074536a082486c41675d2f2d7924b1aa460ac911",
+    "run_v229_final.py": "ffd61920af6ac96161b59c66a567bf8c0afecadd707e7a6a77ae5a90994711e5",
+    "run_v230.py": "50a1389ab3545d4c36703921f05d20192778ba512c047ca882764a66693b7b42",
+    "services.py": "1ab1da1b9d8687ed684b6df8633f4e16ea380eb19deba2373025b90ca23e69b3",
+    "stress_runtime.py": "1604ae1f7ded05fc1ef4bd6a3960dcdf8b8f00dd69a61ef46fda783b85f538a6",
+    "test_proxy.py": "ac5c89f174e0ad21255269cfb0122b65706874121b8939f02578f6f4e6d8d7eb",
+    "test_recovery.py": "f912b00a5d10ab2a0ef8965d908d8fd67aa229809fa0ad1ab75c9e14db53c963",
+    "test_stress.py": "910bbff51cb7ffd133887c77bcff743aa59cb0dc01bdbb84430f18d66004a8cd"
+  },
+  "embedding_code_hashes": {
+    "embedding_cache.py": "d558051df075a28c17e9a90e42f560f1078722d86dfbb8d6c9714e2411300fae",
+    "live_embedding_server.py": "5714e4fdb74f94d01c749b6491ee344a99a89b2134fb286cbd84bb2650bcca45",
+    "bge_weights.json": "ea138ce7c3b5fb37fd213522fab68a71ac446149b257e6bdb753e55ce33196fc"
+  },
+  "judge_prompt_sha256": "03d8d5cf42a3a00c85563cf684971f161c8924cea699fb4582e08359eac2505e",
+  "packages": {
+    "v239.zip": {
+      "sha256": "22ef21bfcb725e6a83feba8e094053d9113b642ff1bd7c228a8966d402beaeb7",
+      "bytes": 2105315
+    },
+    "v240.zip": {
+      "sha256": "0c2bbf9b79c0b104f92ba34de176a356cd3b86f1b77c38cdc289e5c40e2e4b32",
+      "bytes": 2107222
+    },
+    "v241.zip": {
+      "sha256": "64b349eaeb310758309ca61a8d23b5242e949221e3dc12e40f2d18863eb8a851",
+      "bytes": 2105385
+    }
+  },
+  "source_commits": {
+    "v239": "932bc4ed295b20b39854705e759932175665a3ca",
+    "v240": "32226e25652e83aebd0aa96b89e3bd2b500fe7e2",
+    "v241": "36ead05a040faef4a55c1ec59fab169503ff3c30"
+  },
+  "proof": "v240 changes only context assembly and adds its allocator; v241 changes only the one ready-draft assignment. Retrieval, prompts, hints, review, models and renderer are unchanged. External worker observes normal execution and separately supplies a marked source-only oracle.",
+  "full_run_as_of": "2026-11-15",
+  "selection_and_holdout": "No paid model calls before this freeze. Product code will not be changed after results."
+}

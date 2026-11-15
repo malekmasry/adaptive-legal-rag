@@ -1,0 +1,36 @@
+{
+  "version": "v240-diagnostic-v2-before-any-run",
+  "created_date": "2026-11-15",
+  "runner_sha256": "eecd48031c88e85fa3ea332b0239dde14c2fb44bea37c2573b22e169fca498fe",
+  "knowledge_base_sha256": "cea8ef2c8f6c8b9f498efacf705b97bf3da53cc78f366f9b1fef7a6de66327e0",
+  "development_sha256": "79389bea9ee1b207c0cdc79f8a094590f8446024869a9369111e5d3909b4f011",
+  "holdout_sha256": "131534b1aa021253d6a83a2e29f3d145e881005617546267849566631ff08e4b",
+  "development_count": 18,
+  "holdout_count": 12,
+  "as_of": "2026-11-15",
+  "protocol": {
+    "arms": [
+      "v239",
+      "oracle_v239",
+      "context_only_v240",
+      "no_ready_drafts_v241"
+    ],
+    "oracle": "Development only; manually selected original source spans, full small documents. Goldens and answer text never enter product input. Original generator/reviewer, notes and rule drafts remain enabled.",
+    "holdout": "Do not examine answers or judge results until all code is frozen and development selection.json is written. No tuning after holdout. Same author/corpus; selection holdout, not proof of hidden PSB generalization.",
+    "selection": "Choose whole candidate on development only: require no runtime errors, full judge coverage, no manually confirmed factual regressions versus v239, and pairwise score>50. Highest score; exact tie prefers context-only then baseline. If neither qualifies, retain v239. Both alternatives still reported on holdout without further selection.",
+    "review_diagnostic": "Capture original initial draft and final answer; judge changed drafts on development only, with final as team and initial as baseline.",
+    "judge": "Unchanged frozen team-relative two-order DeepSeek judge and PSB arithmetic. New baseline is fresh v239; do not compare these scores to old20 scores.",
+    "reuse": "Only identical complete model requests, embeddings and Qwen requests may reuse results. All calls and cache hits recorded. No unfavorable-judge rerolls.",
+    "limits": {
+      "chat_calls": 420,
+      "rerank_calls": 35,
+      "conservative_chat_byte_token_reservation": 18000000
+    },
+    "no_platform_submission": true
+  },
+  "pre_run_revision": {
+    "initial_freeze_sha256": "2653f39733890b065f906c3a3225a3dead011854637295f81753e791d2a8e0e5",
+    "script_sha256": "fc96554452660a45121ed42416e4dae27627d8072309d06f239a77d4c36aa202",
+    "scope": "Whitespace only in question/golden text; no fact changes. Applied before any model call or product experiment."
+  }
+}

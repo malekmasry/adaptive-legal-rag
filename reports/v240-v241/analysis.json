@@ -1,0 +1,719 @@
+{
+  "phases": {
+    "development": {
+      "phase": "development",
+      "systems": {
+        "v239_development": {
+          "answer_count": 18,
+          "status_counts": {
+            "answered": 17,
+            "not_in_base": 1
+          },
+          "all_required_anchors_cases": 17,
+          "cases_with_anchors": 17,
+          "present_anchors": 37,
+          "required_anchors": 37,
+          "missing_anchor_ids": [],
+          "ready_draft_ids": [
+            "D01",
+            "D06"
+          ],
+          "review_status_counts": {
+            "applied": 17,
+            "not_needed_or_deadline": 1
+          },
+          "evidence_changed_vs_v239": [],
+          "first_payload_changed_vs_v239": [],
+          "only_context_metadata_changed_vs_v239": [],
+          "only_unordered_topic_labels_changed_vs_v239": [],
+          "answer_changed_vs_v239": [],
+          "omitted_document_ids": [
+            "D10",
+            "D11",
+            "D13",
+            "D14",
+            "D15",
+            "D16"
+          ],
+          "retrieval_degraded": {},
+          "context_budget_violations": 0,
+          "evidence_tokens_mean": 10528.833333333334,
+          "evidence_tokens_max": 16814,
+          "logical_model_calls_including_retained_failed_review_attempts": 35,
+          "runtime_seconds_with_shared_caches": 192.375
+        },
+        "oracle_development": {
+          "answer_count": 18,
+          "status_counts": {
+            "answered": 17,
+            "not_in_base": 1
+          },
+          "all_required_anchors_cases": 17,
+          "cases_with_anchors": 17,
+          "present_anchors": 37,
+          "required_anchors": 37,
+          "missing_anchor_ids": [],
+          "ready_draft_ids": [
+            "D01",
+            "D06"
+          ],
+          "review_status_counts": {
+            "applied": 17,
+            "not_needed_or_deadline": 1
+          },
+          "evidence_changed_vs_v239": [
+            "D01",
+            "D02",
+            "D03",
+            "D04",
+            "D05",
+            "D06",
+            "D07",
+            "D08",
+            "D09",
+            "D10",
+            "D11",
+            "D12",
+            "D13",
+            "D14",
+            "D15",
+            "D16",
+            "D17",
+            "D18"
+          ],
+          "first_payload_changed_vs_v239": [
+            "D01",
+            "D02",
+            "D03",
+            "D04",
+            "D05",
+            "D06",
+            "D07",
+            "D08",
+            "D09",
+            "D10",
+            "D11",
+            "D12",
+            "D13",
+            "D14",
+            "D15",
+            "D16",
+            "D17",
+            "D18"
+          ],
+          "only_context_metadata_changed_vs_v239": [],
+          "only_unordered_topic_labels_changed_vs_v239": [],
+          "answer_changed_vs_v239": [
+            "D01",
+            "D02",
+            "D03",
+            "D04",
+            "D05",
+            "D06",
+            "D07",
+            "D08",
+            "D09",
+            "D10",
+            "D11",
+            "D12",
+            "D13",
+            "D14",
+            "D15",
+            "D16",
+            "D17",
+            "D18"
+          ],
+          "omitted_document_ids": [],
+          "retrieval_degraded": {},
+          "context_budget_violations": 0,
+          "evidence_tokens_mean": 4370.5,
+          "evidence_tokens_max": 14869,
+          "logical_model_calls_including_retained_failed_review_attempts": 33,
+          "runtime_seconds_with_shared_caches": 143.313
+        },
+        "v240_development": {
+          "answer_count": 18,
+          "status_counts": {
+            "answered": 17,
+            "not_in_base": 1
+          },
+          "all_required_anchors_cases": 17,
+          "cases_with_anchors": 17,
+          "present_anchors": 37,
+          "required_anchors": 37,
+          "missing_anchor_ids": [],
+          "ready_draft_ids": [
+            "D01",
+            "D06"
+          ],
+          "review_status_counts": {
+            "applied": 17,
+            "not_needed_or_deadline": 1
+          },
+          "evidence_changed_vs_v239": [
+            "D10",
+            "D14",
+            "D16"
+          ],
+          "first_payload_changed_vs_v239": [
+            "D08",
+            "D10",
+            "D11",
+            "D13",
+            "D14",
+            "D15",
+            "D16",
+            "D18"
+          ],
+          "only_context_metadata_changed_vs_v239": [
+            "D08",
+            "D11",
+            "D13",
+            "D15",
+            "D18"
+          ],
+          "only_unordered_topic_labels_changed_vs_v239": [
+            "D08",
+            "D18"
+          ],
+          "answer_changed_vs_v239": [
+            "D08",
+            "D10",
+            "D11",
+            "D13",
+            "D14",
+            "D15",
+            "D16",
+            "D18"
+          ],
+          "omitted_document_ids": [
+            "D13",
+            "D14",
+            "D15"
+          ],
+          "retrieval_degraded": {},
+          "context_budget_violations": 0,
+          "evidence_tokens_mean": 10554.055555555555,
+          "evidence_tokens_max": 16722,
+          "logical_model_calls_including_retained_failed_review_attempts": 33,
+          "runtime_seconds_with_shared_caches": 72.656
+        },
+        "v241_development": {
+          "answer_count": 18,
+          "status_counts": {
+            "answered": 17,
+            "not_in_base": 1
+          },
+          "all_required_anchors_cases": 17,
+          "cases_with_anchors": 17,
+          "present_anchors": 37,
+          "required_anchors": 37,
+          "missing_anchor_ids": [],
+          "ready_draft_ids": [],
+          "review_status_counts": {
+            "applied": 17,
+            "not_needed_or_deadline": 1
+          },
+          "evidence_changed_vs_v239": [],
+          "first_payload_changed_vs_v239": [
+            "D01",
+            "D06"
+          ],
+          "only_context_metadata_changed_vs_v239": [],
+          "only_unordered_topic_labels_changed_vs_v239": [],
+          "answer_changed_vs_v239": [
+            "D01",
+            "D06"
+          ],
+          "omitted_document_ids": [
+            "D10",
+            "D11",
+            "D13",
+            "D14",
+            "D15",
+            "D16"
+          ],
+          "retrieval_degraded": {},
+          "context_budget_violations": 0,
+          "evidence_tokens_mean": 10528.833333333334,
+          "evidence_tokens_max": 16814,
+          "logical_model_calls_including_retained_failed_review_attempts": 35,
+          "runtime_seconds_with_shared_caches": 32.297
+        }
+      },
+      "judge_audit": {
+        "oracle_vs_v239": {
+          "metric": {
+            "score": 67.91666666666666,
+            "match_rate": 0.5416666666666666,
+            "win_rate": 1.0,
+            "wins": 3,
+            "losses": 0,
+            "ties": 15,
+            "evaluated": 18,
+            "attempted": 18,
+            "coverage": 1.0
+          },
+          "wins": [
+            "D01",
+            "D10",
+            "D18"
+          ],
+          "losses": [],
+          "ties": [
+            "D02",
+            "D03",
+            "D04",
+            "D05",
+            "D06",
+            "D07",
+            "D08",
+            "D09",
+            "D11",
+            "D12",
+            "D13",
+            "D14",
+            "D15",
+            "D16",
+            "D17"
+          ],
+          "errors": [],
+          "fabrication_zero_ids": [],
+          "order_disagreement_ids": [
+            "D10",
+            "D18"
+          ],
+          "fabrication_disagreement_ids": []
+        },
+        "v240_vs_v239": {
+          "metric": {
+            "score": 50.0,
+            "match_rate": 0.5,
+            "win_rate": 0.5,
+            "wins": 0,
+            "losses": 0,
+            "ties": 18,
+            "evaluated": 18,
+            "attempted": 18,
+            "coverage": 1.0
+          },
+          "wins": [],
+          "losses": [],
+          "ties": [
+            "D01",
+            "D02",
+            "D03",
+            "D04",
+            "D05",
+            "D06",
+            "D07",
+            "D08",
+            "D09",
+            "D10",
+            "D11",
+            "D12",
+            "D13",
+            "D14",
+            "D15",
+            "D16",
+            "D17",
+            "D18"
+          ],
+          "errors": [],
+          "fabrication_zero_ids": [],
+          "order_disagreement_ids": [],
+          "fabrication_disagreement_ids": []
+        },
+        "v241_vs_v239": {
+          "metric": {
+            "score": 50.0,
+            "match_rate": 0.5,
+            "win_rate": 0.5,
+            "wins": 0,
+            "losses": 0,
+            "ties": 18,
+            "evaluated": 18,
+            "attempted": 18,
+            "coverage": 1.0
+          },
+          "wins": [],
+          "losses": [],
+          "ties": [
+            "D01",
+            "D02",
+            "D03",
+            "D04",
+            "D05",
+            "D06",
+            "D07",
+            "D08",
+            "D09",
+            "D10",
+            "D11",
+            "D12",
+            "D13",
+            "D14",
+            "D15",
+            "D16",
+            "D17",
+            "D18"
+          ],
+          "errors": [],
+          "fabrication_zero_ids": [],
+          "order_disagreement_ids": [],
+          "fabrication_disagreement_ids": []
+        },
+        "v239_review_effect": {
+          "metric": {
+            "score": 69.66666666666666,
+            "match_rate": 0.5666666666666667,
+            "win_rate": 1.0,
+            "wins": 2,
+            "losses": 0,
+            "ties": 13,
+            "evaluated": 15,
+            "attempted": 15,
+            "coverage": 1.0
+          },
+          "wins": [
+            "D01",
+            "D06"
+          ],
+          "losses": [],
+          "ties": [
+            "D02",
+            "D03",
+            "D05",
+            "D07",
+            "D08",
+            "D09",
+            "D10",
+            "D11",
+            "D12",
+            "D13",
+            "D14",
+            "D15",
+            "D16"
+          ],
+          "errors": [],
+          "fabrication_zero_ids": [],
+          "order_disagreement_ids": [],
+          "fabrication_disagreement_ids": []
+        },
+        "oracle_review_effect": {
+          "metric": {
+            "score": 69.375,
+            "match_rate": 0.5625,
+            "win_rate": 1.0,
+            "wins": 2,
+            "losses": 0,
+            "ties": 14,
+            "evaluated": 16,
+            "attempted": 16,
+            "coverage": 1.0
+          },
+          "wins": [
+            "D01",
+            "D06"
+          ],
+          "losses": [],
+          "ties": [
+            "D03",
+            "D04",
+            "D05",
+            "D07",
+            "D08",
+            "D09",
+            "D10",
+            "D11",
+            "D12",
+            "D13",
+            "D14",
+            "D15",
+            "D16",
+            "D18"
+          ],
+          "errors": [],
+          "fabrication_zero_ids": [],
+          "order_disagreement_ids": [],
+          "fabrication_disagreement_ids": []
+        }
+      },
+      "wall_seconds": 709.328,
+      "summary_sha256": "3d8932299295b02da9872f09ee574b690f4b2f7f9db551468dbcceaaa885b94b"
+    },
+    "holdout": {
+      "phase": "holdout",
+      "systems": {
+        "v239_holdout": {
+          "answer_count": 12,
+          "status_counts": {
+            "answered": 11,
+            "partial": 1
+          },
+          "all_required_anchors_cases": 12,
+          "cases_with_anchors": 12,
+          "present_anchors": 23,
+          "required_anchors": 23,
+          "missing_anchor_ids": [],
+          "ready_draft_ids": [],
+          "review_status_counts": {
+            "applied": 12
+          },
+          "evidence_changed_vs_v239": [],
+          "first_payload_changed_vs_v239": [],
+          "only_context_metadata_changed_vs_v239": [],
+          "only_unordered_topic_labels_changed_vs_v239": [],
+          "answer_changed_vs_v239": [],
+          "omitted_document_ids": [
+            "H07",
+            "H08",
+            "H11"
+          ],
+          "retrieval_degraded": {},
+          "context_budget_violations": 0,
+          "evidence_tokens_mean": 9800.583333333334,
+          "evidence_tokens_max": 16168,
+          "logical_model_calls_including_retained_failed_review_attempts": 24,
+          "runtime_seconds_with_shared_caches": 135.375
+        },
+        "v240_holdout": {
+          "answer_count": 12,
+          "status_counts": {
+            "answered": 11,
+            "partial": 1
+          },
+          "all_required_anchors_cases": 12,
+          "cases_with_anchors": 12,
+          "present_anchors": 23,
+          "required_anchors": 23,
+          "missing_anchor_ids": [],
+          "ready_draft_ids": [],
+          "review_status_counts": {
+            "applied": 12
+          },
+          "evidence_changed_vs_v239": [],
+          "first_payload_changed_vs_v239": [
+            "H05",
+            "H07",
+            "H08",
+            "H11"
+          ],
+          "only_context_metadata_changed_vs_v239": [
+            "H05",
+            "H07",
+            "H08",
+            "H11"
+          ],
+          "only_unordered_topic_labels_changed_vs_v239": [
+            "H05"
+          ],
+          "answer_changed_vs_v239": [
+            "H05",
+            "H07",
+            "H08",
+            "H11"
+          ],
+          "omitted_document_ids": [
+            "H07",
+            "H08",
+            "H11"
+          ],
+          "retrieval_degraded": {},
+          "context_budget_violations": 0,
+          "evidence_tokens_mean": 9800.583333333334,
+          "evidence_tokens_max": 16168,
+          "logical_model_calls_including_retained_failed_review_attempts": 24,
+          "runtime_seconds_with_shared_caches": 66.328
+        },
+        "v241_holdout": {
+          "answer_count": 12,
+          "status_counts": {
+            "answered": 11,
+            "partial": 1
+          },
+          "all_required_anchors_cases": 12,
+          "cases_with_anchors": 12,
+          "present_anchors": 23,
+          "required_anchors": 23,
+          "missing_anchor_ids": [],
+          "ready_draft_ids": [],
+          "review_status_counts": {
+            "applied": 12
+          },
+          "evidence_changed_vs_v239": [],
+          "first_payload_changed_vs_v239": [
+            "H05"
+          ],
+          "only_context_metadata_changed_vs_v239": [
+            "H05"
+          ],
+          "only_unordered_topic_labels_changed_vs_v239": [
+            "H05"
+          ],
+          "answer_changed_vs_v239": [
+            "H05"
+          ],
+          "omitted_document_ids": [
+            "H07",
+            "H08",
+            "H11"
+          ],
+          "retrieval_degraded": {},
+          "context_budget_violations": 0,
+          "evidence_tokens_mean": 9800.583333333334,
+          "evidence_tokens_max": 16168,
+          "logical_model_calls_including_retained_failed_review_attempts": 24,
+          "runtime_seconds_with_shared_caches": 52.109
+        }
+      },
+      "judge_audit": {
+        "v240_vs_v239": {
+          "metric": {
+            "score": 50.0,
+            "match_rate": 0.5,
+            "win_rate": 0.5,
+            "wins": 0,
+            "losses": 0,
+            "ties": 12,
+            "evaluated": 12,
+            "attempted": 12,
+            "coverage": 1.0
+          },
+          "wins": [],
+          "losses": [],
+          "ties": [
+            "H01",
+            "H02",
+            "H03",
+            "H04",
+            "H05",
+            "H06",
+            "H07",
+            "H08",
+            "H09",
+            "H10",
+            "H11",
+            "H12"
+          ],
+          "errors": [],
+          "fabrication_zero_ids": [],
+          "order_disagreement_ids": [],
+          "fabrication_disagreement_ids": []
+        },
+        "v241_vs_v239": {
+          "metric": {
+            "score": 50.0,
+            "match_rate": 0.5,
+            "win_rate": 0.5,
+            "wins": 0,
+            "losses": 0,
+            "ties": 12,
+            "evaluated": 12,
+            "attempted": 12,
+            "coverage": 1.0
+          },
+          "wins": [],
+          "losses": [],
+          "ties": [
+            "H01",
+            "H02",
+            "H03",
+            "H04",
+            "H05",
+            "H06",
+            "H07",
+            "H08",
+            "H09",
+            "H10",
+            "H11",
+            "H12"
+          ],
+          "errors": [],
+          "fabrication_zero_ids": [],
+          "order_disagreement_ids": [],
+          "fabrication_disagreement_ids": []
+        }
+      },
+      "wall_seconds": 496.094,
+      "summary_sha256": "c790ec20183d09a1e4c9c5cf5319bbd9d7a03984accd2dec56df289cef0e4bab"
+    }
+  },
+  "selection": {
+    "selected": "v239",
+    "created_utc": "2026-11-15T16:50:23.524554+00:00",
+    "runtime_freeze_sha256": "9dd65ad68b534d4a578d68f9cee613f285841253407e2e95655233c0ed475a8f",
+    "development_summary_sha256": "3d8932299295b02da9872f09ee574b690f4b2f7f9db551468dbcceaaa885b94b",
+    "manual_development_audit_sha256": "4b8df094d145d07d3754cd02cbe216ff61169e4d8baf3fec33a7d72934779f19",
+    "checks": {
+      "v240": {
+        "criteria": {
+          "runtime_clean": true,
+          "full_judge_coverage": true,
+          "no_confirmed_factual_regression": true,
+          "score_above_fifty": false
+        },
+        "metric": {
+          "score": 50.0,
+          "match_rate": 0.5,
+          "win_rate": 0.5,
+          "wins": 0,
+          "losses": 0,
+          "ties": 18,
+          "evaluated": 18,
+          "attempted": 18,
+          "coverage": 1.0
+        }
+      },
+      "v241": {
+        "criteria": {
+          "runtime_clean": true,
+          "full_judge_coverage": true,
+          "no_confirmed_factual_regression": true,
+          "score_above_fifty": false
+        },
+        "metric": {
+          "score": 50.0,
+          "match_rate": 0.5,
+          "win_rate": 0.5,
+          "wins": 0,
+          "losses": 0,
+          "ties": 18,
+          "evaluated": 18,
+          "attempted": 18,
+          "coverage": 1.0
+        }
+      }
+    },
+    "reason": "No deployable candidate exceeded the baseline on development; retain v239.",
+    "holdout_started": false,
+    "no_holdout_selection": true,
+    "note": "Oracle is diagnostic and ineligible. All three deployable variants will still be measured on holdout without changing this decision."
+  },
+  "usage": {
+    "GENERATOR": {
+      "calls": 121,
+      "successful": 120,
+      "tokens": 1233593,
+      "rerank_input_tokens": 0
+    },
+    "JUDGE": {
+      "calls": 186,
+      "successful": 186,
+      "tokens": 294718,
+      "rerank_input_tokens": 0
+    },
+    "RERANKER": {
+      "calls": 30,
+      "successful": 30,
+      "tokens": 0,
+      "rerank_input_tokens": 1063585
+    },
+    "api_errors": 1
+  },
+  "verified_package_sha256": {
+    "v239.zip": "22ef21bfcb725e6a83feba8e094053d9113b642ff1bd7c228a8966d402beaeb7",
+    "v240.zip": "0c2bbf9b79c0b104f92ba34de176a356cd3b86f1b77c38cdc289e5c40e2e4b32",
+    "v241.zip": "64b349eaeb310758309ca61a8d23b5242e949221e3dc12e40f2d18863eb8a851"
+  }
+}

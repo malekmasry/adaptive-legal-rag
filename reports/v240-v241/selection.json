@@ -1,0 +1,51 @@
+{
+  "selected": "v239",
+  "created_utc": "2026-11-15T16:50:23.524554+00:00",
+  "runtime_freeze_sha256": "9dd65ad68b534d4a578d68f9cee613f285841253407e2e95655233c0ed475a8f",
+  "development_summary_sha256": "3d8932299295b02da9872f09ee574b690f4b2f7f9db551468dbcceaaa885b94b",
+  "manual_development_audit_sha256": "4b8df094d145d07d3754cd02cbe216ff61169e4d8baf3fec33a7d72934779f19",
+  "checks": {
+    "v240": {
+      "criteria": {
+        "runtime_clean": true,
+        "full_judge_coverage": true,
+        "no_confirmed_factual_regression": true,
+        "score_above_fifty": false
+      },
+      "metric": {
+        "score": 50.0,
+        "match_rate": 0.5,
+        "win_rate": 0.5,
+        "wins": 0,
+        "losses": 0,
+        "ties": 18,
+        "evaluated": 18,
+        "attempted": 18,
+        "coverage": 1.0
+      }
+    },
+    "v241": {
+      "criteria": {
+        "runtime_clean": true,
+        "full_judge_coverage": true,
+        "no_confirmed_factual_regression": true,
+        "score_above_fifty": false
+      },
+      "metric": {
+        "score": 50.0,
+        "match_rate": 0.5,
+        "win_rate": 0.5,
+        "wins": 0,
+        "losses": 0,
+        "ties": 18,
+        "evaluated": 18,
+        "attempted": 18,
+        "coverage": 1.0
+      }
+    }
+  },
+  "reason": "No deployable candidate exceeded the baseline on development; retain v239.",
+  "holdout_started": false,
+  "no_holdout_selection": true,
+  "note": "Oracle is diagnostic and ineligible. All three deployable variants will still be measured on holdout without changing this decision."
+}
