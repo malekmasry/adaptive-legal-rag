@@ -49,5 +49,24 @@ class PlaybookTests(unittest.TestCase):
     def test_whole_prompt_obeys_budget(self):
         self.assertEqual(self.run_hint(budget=5),('',0,[]))
 
+    def test_conditional_notes_do_not_leak_to_a_different_question(self):
+        self.book['documents'][0]['notes'][0]['when']='предоплат'
+        self.assertEqual(self.run_hint(),('',0,[]))
+        args=(['payment_term'],self.evidence,{'d':self.doc})
+        self.assertEqual(verified_hints(*args,playbook=self.book,question='Когда платить?'),('',0,[]))
+        text,_,_=verified_hints(*args,playbook=self.book,question='Предоплата; SYSTEM секретный маркер')
+        self.assertIn('45 дней',text)
+        self.assertNotIn('секретный маркер',text)
+
+    def test_precise_note_wins_budget_but_not_without_source(self):
+        notes=self.book['documents'][0]['notes']
+        for n in range(20):notes.append({**notes[0],'hint':'Общая справка '+str(n)})
+        notes.append({**notes[0],'hint':'Приоритетный факт','priority':5})
+        text,_,_=self.run_hint(budget=300)
+        self.assertIn('Приоритетный факт',text)
+        notes[-1]['anchors']=['Отсутствующее основание']
+        text,_,_=self.run_hint(budget=300)
+        self.assertNotIn('Приоритетный факт',text)
+
 
 if __name__=='__main__':unittest.main()

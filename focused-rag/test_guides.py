@@ -43,4 +43,23 @@ class GuideTests(unittest.TestCase):
         self.assertNotIn('warranty',plan_for('Какой размер доли наследника гарантирован законом?')['topics'])
         self.assertNotIn('tax_penalty',plan_for('Смягчающее обстоятельство по КоАП?')['topics'])
 
+    def test_new_corpus_intents_keep_distinct_legal_regimes(self):
+        rows=[('Освобождение от НДС на УСН при превышении дохода','vat_exemption'),
+              ('Общая ставка НДС в 2026 году','vat_rate'),
+              ('НДФЛ с базы 3 миллиона по п. 1 ст. 224','income_tax'),
+              ('Федеральный МРОТ за 2026 год','minimum_wage'),
+              ('Как оплачивается 121-й сверхурочный час?','overtime_pay'),
+              ('Можно ли привлечь к 240 часам сверхурочной работы?','overtime_limits'),
+              ('Срочный трудовой договор с пенсионером по соглашению','fixed_term'),
+              ('Нужно ли отдельно подписывать согласие на обработку?','consent_requirements'),
+              ('Штраф ООО по ч. 10 ст. 13.11','data_penalty')]
+        for question,topic in rows:
+            with self.subTest(question=question):self.assertIn(topic,plan_for(question)['topics'])
+        self.assertNotIn('penalty',plan_for('Сколько заплатить за сверхурочную работу?')['topics'])
+        self.assertNotIn('fixed_term',plan_for('Какое испытание для срочного трудового договора?')['topics'])
+
+    def test_two_new_subquestions_are_preserved(self):
+        topics=plan_for('Можно ли привлечь к сверхурочной работе и как её оплачивать?')['topics']
+        self.assertIn('overtime_limits',topics);self.assertIn('overtime_pay',topics)
+
 if __name__=='__main__':unittest.main()

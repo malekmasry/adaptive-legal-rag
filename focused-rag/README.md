@@ -21,9 +21,9 @@ CSV scheduler of v8; its context assembly and generation pipeline are new.
 5. Present related editions, amendment conditions, and effective dates together.
    No guessed entity/date router removes source candidates. The generator must
    determine applicability from the actual source text.
-   This branch deliberately adds corpus-specific assistance: 18 answer plans
+   This branch deliberately adds corpus-specific assistance: 34 answer plans
    select required answer slots and exact primary provision cards. A second
-   layer contains 31 developer-reviewed factual notes for 12 source documents,
+   layer contains 107 developer-reviewed factual notes for all 21 source documents,
    including the different payment periods of the two Alfa contracts, amendment
    applicability, regulation thresholds, and exceptions. The notes are inserted
    into both generator and reviewer system prompts only when the live source
@@ -31,11 +31,17 @@ CSV scheduler of v8; its context assembly and generation pipeline are new.
    unseen documents disable the corresponding static note; ordinary RAG and
    dynamically copied source cards remain available. Source text and question
    instructions are never promoted into this system-note layer.
-   Notes use at most 1,500 tokens, sharing a 3,500-token reserve with primary
+   Notes use at most 2,500 tokens, sharing a 3,500-token reserve with primary
    cards inside the same 18,000-token evidence allowance. There are no extra
    model calls and no question-ID/golden-answer lookup. Unknown topics use the
    original full context budget. Topic recognition and curated notes are
    deliberate development-set/corpus tailoring, not generalization evidence.
+   Conditional notes are selected by question intent and optional topic patterns;
+   specific notes take precedence within the budget. All 107 still require the
+   exact live source hash and visible anchors. This includes VAT regimes, NDFL
+   calculation bands, special profit-tax rates, overtime, MROT, fixed-term
+   contracts, consent requirements and distinct personal-data offenses. It does
+   not mean that every possible question about these documents is covered.
 6. `rule_drafts.py` can prepare an actual answer draft for supported intents
    when complete, hash-matching sources are in evidence. Rules distinguish the
    two contracts, evaluate edition/amendment dates, preserve separate answer

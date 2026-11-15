@@ -10,6 +10,7 @@ import zipfile
 ROOT=Path(__file__).resolve().parent/'focused-rag'
 sys.path.insert(0,str(ROOT))
 from answer_guides import numbered_span
+from corpus_notes_v229 import EXTRA_NOTES
 
 # Each note is written by the developer after reading the named source.
 # Selectors bind the exact supporting text; the runtime also checks the full
@@ -78,11 +79,16 @@ def build(archive, output):
     with zipfile.ZipFile(archive) as z:
         sources={n:z.read(n).decode('utf-8-sig') for n in z.namelist() if n.endswith('.txt')}
     entries=[]
-    for name,notes in NOTES.items():
+    all_notes={name:list(notes) for name,notes in NOTES.items()}
+    for name,notes in EXTRA_NOTES.items():all_notes.setdefault(name,[]).extend(notes)
+    for name,notes in all_notes.items():
         matching=[n for n in sources if n.endswith('__'+name+'.txt')]
         assert len(matching)==1,name
         filename=matching[0];raw=sources[filename];rows=[]
-        for topics,selectors,hint in notes:
+        for item in notes:
+            topics,selectors,hint=item[:3]
+            options=item[3] if len(item)>3 else {}
+            if options.get('when'):re.compile(options['when'])
             anchors=[]
             for sel in selectors:
                 if sel.startswith('~'):
@@ -92,9 +98,9 @@ def build(archive, output):
                 else:quote=numbered_span(raw,sel)
                 assert quote and quote in raw,(name,sel)
                 anchors.append(quote)
-            rows.append({'topics':topics,'anchors':anchors,'hint':hint})
+            rows.append({'topics':topics,'anchors':anchors,'hint':hint,**options})
         entries.append({'filename':filename,'sha256':hashlib.sha256(raw.encode('utf8')).hexdigest(),'notes':rows})
-    data={'version':1,'origin':'Developer-reviewed supplied source documents; no benchmark answers used as data.',
+    data={'version':2,'origin':'Developer-reviewed supplied source documents; no benchmark answers used as data.',
           'documents':entries}
     output.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
     print(json.dumps({'documents':len(entries),'notes':sum(len(e['notes']) for e in entries)}))

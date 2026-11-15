@@ -86,7 +86,7 @@ class Pipeline:
         chunks, retrieval = self.retriever.search(plan, original_query=subs[-1] if subs else query)
         reserve=min(3500,self.s.context_tokens//4) if plan_for(query)['topics'] else 0
         evidence, budget = context_bundle(chunks, self.docs, self.relations, self.s.context_tokens-reserve,query)
-        hints,hint_tokens,active_hints=verified_hints(plan_for(query)['topics'],evidence,self.docs,min(1500,reserve))
+        hints,hint_tokens,active_hints=verified_hints(plan_for(query)['topics'],evidence,self.docs,min(2500,reserve),question=query)
         response_plan,cards,card_tokens=prepare_guides(query,evidence,max(0,reserve-hint_tokens))
         budget.update(primary_card_tokens=card_tokens,verified_hint_tokens=hint_tokens,verified_hint_count=len(active_hints),
                       total_evidence_tokens=budget['estimated_tokens']+card_tokens+hint_tokens,
@@ -120,7 +120,7 @@ class Pipeline:
             try:
                 review_instruction=INSTRUCTION+'\n\n'+REVIEW+'\n\n'+GUIDANCE+'\n\n'+hints
                 if prepared:
-                    review_instruction+='\nДля программного черновика используй специальную схему DraftCheck вместо обычного формата: {"keep_prepared":true,"correction":null}, если черновик правильный и покрывает все запрошенные подвопросы. Не переписывай его ради стиля, дополнительных справок или раскрытия уже достаточной ссылки. Если есть конкретная фактическая ошибка, неверная применимость, пропущенный подвопрос или черновик не отвечает на вопрос, верни keep_prepared=false и correction с полным исправленным Answer. Проверяй по вопросу и evidence, не по памяти. Правильный программный черновик будет выдан дословно, без добавления рассуждений проверяющего.'
+                    review_instruction+='\nДля программного черновика используй специальную схему DraftCheck вместо обычного формата: {"keep_prepared":true,"correction":null}, если черновик правильный и покрывает все запрошенные подвопросы. Не переписывай его ради стиля, дополнительных справок или раскрытия уже достаточной ссылки. Если есть конкретная фактическая ошибка, неверная применимость, пропущенный подвопрос или черновик не отвечает на вопрос, верни keep_prepared=false и correction с полным исправленным Answer. Проверяй по вопросу и evidence, не по памяти. Правильный программный черновик будет выдан дословно, без добавления рассуждений проверяющего. В частности, не заменяй keep_prepared=true добавлением дат вступления редакций, названий органов или альтернативных сценариев, если без этих деталей вывод уже верен для условий вопроса. Достаточная точная ссылка на пункт не требует пересказа всех его соседей. Если исправление нужно, исправь только ошибку и сохрани остальные верные краткие формулировки и ссылки.'
                     checked=self.api.structured(review_instruction,{**payload,'previous_draft':draft.model_dump()},DraftCheck)
                     if checked.keep_prepared:revised=draft;trace['draft_preserved']=True
                     elif checked.correction is not None:revised=checked.correction;trace['draft_preserved']=False
