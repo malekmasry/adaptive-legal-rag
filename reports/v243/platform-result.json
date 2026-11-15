@@ -1,0 +1,26 @@
+{
+  "reported_date": "2026-11-15",
+  "source": "User report in the project conversation; no platform logs or per-question results supplied.",
+  "user_message": "37.5 484 сек",
+  "score_out_of_100": 37.5,
+  "runtime_seconds": 484,
+  "package": "v243-final.zip",
+  "package_association": "Latest delivered archive in the immediately preceding exchange; inferred from conversation context, without a platform artifact hash.",
+  "local_package_sha256": "79991fdaf0e2bb5f563b61e65bcef28b8f090e573b966bfa827ee64b29126955",
+  "source_commit": "7bbe09200176355cff5052fcb000d24aef32073a",
+  "earlier_documented_platform_result": {
+    "variant": "v229",
+    "score_out_of_100": 35.5,
+    "runtime_seconds": 258,
+    "source": "Earlier user report preserved in reports/v230-v229/report.txt and reports/v239/report.txt",
+    "is_proven_immediate_predecessor": false
+  },
+  "comparison_with_v229": {
+    "score_point_difference": 2.0,
+    "runtime_second_difference": 226,
+    "runtime_ratio": 1.875968992248062
+  },
+  "interpretation": "Highest documented platform score in these reports. Preserve v243-final as the platform reference for future candidates. This does not establish which feature caused the gain, isolate the extra model call's latency, or change the earlier local judge results and pre-holdout selection.",
+  "local_experiment_artifacts_unchanged": true,
+  "new_api_calls": 0
+}
