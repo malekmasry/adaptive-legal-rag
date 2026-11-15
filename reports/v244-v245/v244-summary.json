@@ -1,0 +1,90 @@
+{
+  "variant": "v244",
+  "cases": 30,
+  "aggregate": {
+    "score": 50.0,
+    "match_rate": 0.5,
+    "win_rate": 0.5,
+    "wins": 0,
+    "losses": 0,
+    "ties": 30,
+    "evaluated": 30,
+    "attempted": 30,
+    "coverage": 1.0
+  },
+  "runtime": {
+    "system": "v244_regression",
+    "seconds": 123.734,
+    "exit_code": 0,
+    "complete": true,
+    "outer_timeout": false,
+    "rows": 30,
+    "answers_sha256": "92a4ad313fecff14e86a569d313811323ba1322142e20c0a9252de24cb10d32e",
+    "package_sha256": "18ffcb078029c3d20dc01ff7c4da166c96f43f4687b45abd7c153631b85a4868",
+    "mode": "observed_unmodified_runtime",
+    "runtime_report": {
+      "rows": 30,
+      "statuses": {
+        "D01": "answered",
+        "D02": "answered",
+        "D03": "answered",
+        "D05": "answered",
+        "D04": "answered",
+        "D06": "answered",
+        "D07": "answered",
+        "D09": "answered",
+        "D10": "answered",
+        "D11": "answered",
+        "D13": "answered",
+        "D14": "answered",
+        "D08": "answered",
+        "D12": "answered",
+        "D15": "answered",
+        "D16": "answered",
+        "H01": "answered",
+        "D17": "not_in_base",
+        "H02": "answered",
+        "H03": "answered",
+        "H04": "answered",
+        "H06": "answered",
+        "H07": "answered",
+        "H08": "answered",
+        "D18": "answered",
+        "H09": "answered",
+        "H10": "answered",
+        "H11": "answered",
+        "H12": "partial",
+        "H05": "answered"
+      },
+      "counts": {
+        "answered": 28,
+        "not_in_base": 1,
+        "partial": 1
+      },
+      "seconds": 113.062,
+      "errors": {},
+      "collected_during_drain": 0,
+      "unfinished_workers": 0,
+      "work_budget_seconds": 1100,
+      "finalize_grace_seconds": 30.0,
+      "error_counts": {}
+    }
+  },
+  "seconds": 267.969,
+  "cumulative_usage": {
+    "deepseek_calls": 71,
+    "deepseek_tokens": 268886,
+    "qwen_calls": 31,
+    "qwen_input_tokens": 798099,
+    "api_errors": 0
+  },
+  "qwen_cache_hits": 0,
+  "generation_cache_hits": 76,
+  "embedding_stats": {
+    "cached_texts": 593,
+    "new_texts": 0,
+    "reused_texts": 1,
+    "encoding_enabled": true
+  },
+  "scope": "Known regression questions; paired against frozen v243 answers. Both judge orders retained. No live platform score."
+}

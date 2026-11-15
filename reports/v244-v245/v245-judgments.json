@@ -1,0 +1,1682 @@
+[
+  {
+    "system": "v245_vs_v243",
+    "id": "D01",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ полностью соответствует эталону: верно указаны дата передачи, бессрочный характер договора и акт возврата."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ полностью соответствует эталону: верно указаны дата передачи, бессрочный характер договора и акт возврата."
+          },
+          "reason": "Ответы идентичны и одинаково полно отвечают на все части вопроса; команда B сопоставима с baseline.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": ""
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": ""
+          },
+          "reason": "Оба ответа полностью совпадают с эталоном: правильно указаны предельная дата передачи, бессрочный характер договора и возврат помещения по акту; ссылки на пункты корректны.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.5,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": false,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "D02",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": true,
+            "quote": "",
+            "reason": "Ответ полностью соответствует эталону; фраза о текущей дате не нужна, но не меняет вывод."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": true,
+            "quote": "",
+            "reason": "Ответ полностью соответствует эталону; фраза о текущей дате не нужна, но не меняет вывод."
+          },
+          "reason": "Ответы идентичны и одинаково правильно проверяют обе позиции и называют обеспечение 450000 рублей.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": true,
+            "quote": "",
+            "reason": "Ответ правильно отражает оба пункта и сумму обеспечения; фраза «по состоянию на текущую дату» лишняя, но не влияет на содержание."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": true,
+            "quote": "",
+            "reason": "Ответ правильно отражает оба пункта и сумму обеспечения; фраза «по состоянию на текущую дату» лишняя, но не влияет на содержание."
+          },
+          "reason": "Ответы полностью совпадают и одинаково соответствуют эталону; команда A и baseline сопоставимы.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.0,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": true,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "D03",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Точно отражает оба требования golden и корректно ссылается на п. 4.2 и п. 6.1."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Точно отражает оба требования golden и корректно ссылается на п. 4.2 и п. 6.1."
+          },
+          "reason": "Ответы по существу эквивалентны и полностью совпадают с эталоном; у команды B нет преимущества или недостатка относительно A.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Полностью соответствует эталону: верно указаны письменное согласие по п. 4.2 и письменное дополнительное соглашение по п. 6.1."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Полностью соответствует эталону: верно указаны письменное согласие по п. 4.2 и письменное дополнительное соглашение по п. 6.1."
+          },
+          "reason": "Ответы эквивалентны по правильности, полноте и ссылкам; команда A не имеет преимущества перед baseline.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.5,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": false,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "D04",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": true,
+            "quote": "",
+            "reason": "Расчёт и ссылка на п. 7.2 соответствуют эталону; упоминание стороны договора и «текущей даты» не подтверждено, но не влияет на результат."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": true,
+            "quote": "",
+            "reason": "Расчёт и предел 10% соответствуют эталону; дополнительная ссылка на п. 4.2 и упоминание «текущей даты» не подтверждены эталоном."
+          },
+          "reason": "Ответы содержательно сопоставимы и дают правильную сумму 372 рубля; у B ссылка на п. 4.2 лишняя, но существенного преимущества или недостатка нет.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": true,
+            "quote": "",
+            "reason": "Расчёт и вывод о пределах полностью совпадают с эталоном; ссылка на п. 4.2 и указание стороны договора — лишние, но не опровергнуты."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": true,
+            "quote": "",
+            "reason": "Расчёт совпадает с эталоном; формулировка о неприменении предела менее точна, поскольку предел действует, но фактически не достигается."
+          },
+          "reason": "Оба ответа дают правильную сумму 372 рубля. A немного точнее описывает предел, но содержит лишнюю неподтверждённую ссылку; различие несущественно, поэтому ответы сопоставимы.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.0,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": true,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "D05",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": true,
+            "quote": "Вывод дан на текущую дату.",
+            "reason": "По существу полностью соответствует эталону, но добавляет ненужное неподтверждённое утверждение о текущей дате."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": true,
+            "quote": "Вывод дан на текущую дату.",
+            "reason": "По существу полностью соответствует эталону, но добавляет ненужное неподтверждённое утверждение о текущей дате."
+          },
+          "reason": "Ответы сопоставимы: оба правильно различают 30 дней от подписания УПД для мебели и 45 дней от поставки для компьютеров; команда B не имеет преимущества перед A.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Точно передаёт оба срока, начальные события и ссылки на пункты договоров."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Также точно передаёт оба срока, начальные события и ссылки на пункты договоров."
+          },
+          "reason": "Ответы эквивалентны по существу и полностью соответствуют golden; у A лишь чуть подробнее сформулирована ошибка правила для П-17/2024, что не меняет оценку.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.0,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": true,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "D06",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Правильно определены исходный адрес, неприменимость изменения к спецификации от 1 октября и включение доставки в цену; ссылки соответствуют golden."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Правильно определены исходный адрес, неприменимость изменения к спецификации от 1 октября и включение доставки в цену; ссылки соответствуют golden."
+          },
+          "reason": "Ответы по существу равноценны и совпадают с golden; команда B сопоставима с baseline.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Верно указаны исходный адрес, правило о спецификациях после 1 октября, значение даты доставки и включение доставки в цену."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Верно указаны исходный адрес, правило о спецификациях после 1 октября, значение даты доставки и включение доставки в цену."
+          },
+          "reason": "Ответы по существу равноценны и соответствуют эталону.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.5,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": false,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "D07",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.75,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ полностью соответствует эталону и корректно ссылается на специальное правило п. 2.5 и общий порог п. 2.3."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Вывод и ссылка на специальное правило п. 2.5 верны, но не упомянут п. 2.3, поэтому связь с общим суммовым порогом раскрыта менее полно."
+          },
+          "reason": "Ответ команды B правильный, но ответ A немного полнее: он прямо ссылается на п. 2.3 и поясняет, что общий порог не отменяет специальное правило.",
+          "a_score": 0.25
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Корректно применено специальное правило п. 2.5: согласование требуется независимо от суммы; учтён порог п. 2.3."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Корректно применено специальное правило п. 2.5 и дополнительно указана ссылка на общий порог п. 2.3."
+          },
+          "reason": "Ответы по существу эквивалентны и соответствуют эталону; преимущество B по дополнительной ссылке на п. 2.3 не является существенным.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.625,
+    "literal_stress_score": 0.625,
+    "raw_score": 0.625,
+    "fabrication_zero": false,
+    "unsupported_extra": false,
+    "order_gap": 0.25,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "D08",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Верно указаны отдельные предельные сроки и срок передачи оригинала со ссылками на нужные пункты."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Верно указаны отдельные предельные сроки и срок передачи оригинала со ссылками на нужные пункты; уточнение о пределе продления соответствует эталону."
+          },
+          "reason": "Оба ответа правильно и полно передают сведения из эталона; существенного различия нет.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ точно передаёт сроки из эталона: 5 дней для юриста, 4 для главного бухгалтера и 3 рабочих дня на передачу оригинала; ссылки на пункты корректны."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ также полностью совпадает с эталоном по срокам и ссылкам; существенных отличий от A нет."
+          },
+          "reason": "Оба ответа одинаково правильны и полно отвечают на все части вопроса; команда A сопоставима с baseline.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.5,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": false,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "D09",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": true,
+            "quote": "Требование письма применяется с 21 апреля 2025 года и действует до подписания договора с иностранным контрагентом",
+            "reason": "Правильно переданы четыре позиции, проверяющий, срок и место заключения; дополнительно приведены сведения, не требовавшиеся вопросом и не подтвержденные golden."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": true,
+            "quote": "Требование К-12 действует с 21 апреля 2025 года и применяется до подписания договора с иностранным контрагентом",
+            "reason": "По существу совпадает с A и golden; также содержит лишнее, не подтвержденное golden описание периода действия и запрета подписания без заключения."
+          },
+          "reason": "Оба ответа одинаково полно воспроизводят требуемые четыре позиции, службу комплаенс, трехдневный срок с получения запроса и прикрепление заключения к договору в СЭД; существенного преимущества нет.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Все четыре пункта, ответственная служба, срок от получения запроса и место заключения соответствуют эталону; дополнительные сведения не меняют ответ."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": true,
+            "quote": "",
+            "reason": "Основные сведения соответствуют эталону, но уточнение, что запрос должен быть получен именно службой комплаенс, эталоном не подтверждено."
+          },
+          "reason": "Ответы по существу равноценны; у A формулировка события для начала срока точнее совпадает с эталоном. Оценка команды A — немного лучше baseline.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.0,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": true,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "D10",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": ""
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": ""
+          },
+          "reason": "Оба ответа одинаково правильно применяют статью 70: запрет испытания для лиц младше 18 лет имеет приоритет над двухнедельным пределом для договора на 2–6 месяцев; ссылки соответствуют приведённому эталону.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ точно отражает эталон: запрет испытания для лиц младше 18 лет имеет приоритет над правилом о двух неделях для договора на 2–6 месяцев."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ также полностью совпадает с эталоном по выводу, обоснованию и ссылке на статью 70."
+          },
+          "reason": "Ответы эквивалентны по правильности, полноте и корректности ссылок; команда A не имеет преимущества перед baseline B.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.5,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": false,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "D11",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ полностью соответствует эталону: правильно указывает на отсутствие испытания и невозможность изменить вывод соглашением после начала работы."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ полностью соответствует эталону: правильно указывает на отсутствие испытания и невозможность изменить вывод соглашением после начала работы."
+          },
+          "reason": "Ответы практически идентичны по правильности, полноте и ссылкам; существенных различий нет.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ полностью совпадает с эталоном по выводу и обоснованию; ссылки на ст. 70 релевантны."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ полностью совпадает с эталоном по выводу и обоснованию; ссылки на ст. 70 релевантны."
+          },
+          "reason": "Оба ответа одинаково правильно указывают, что испытание не установлено, а соглашение после начала работы, включая задним числом, этого не меняет.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.5,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": false,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "D12",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ полностью совпадает с эталоном по выводу и расчёту; ссылка указывает на ст. 152, хотя приведена усечённо."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ полностью совпадает с эталоном по выводу и расчёту; ссылка указывает на ст. 152, хотя приведена усечённо."
+          },
+          "reason": "Ответы содержательно идентичны: все три часа относятся к часам после 120-го и оплачиваются по двойной ставке, итого 2400 рублей.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ точно совпадает с эталоном: все три часа относятся к часам после 120-го, расчёт 3×400×2=2400 рублей."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ точно совпадает с эталоном: все три часа относятся к часам после 120-го, расчёт 3×400×2=2400 рублей."
+          },
+          "reason": "Ответы идентичны и оба полностью соответствуют golden; команда A сопоставима с baseline.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.5,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": false,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "D13",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ верно оценивает равенство порогу и срок подачи; дополнительные сведения о документах и ограничении по подакцизным товарам не противоречат эталону."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ верно указывает допустимость освобождения и срок 20 ноября 2026 года; по существу сопоставим с A и соответствует эталону."
+          },
+          "reason": "Оба ответа правильно охватывают критерий выручки и срок подачи уведомления и документов.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": true,
+            "quote": "",
+            "reason": "Основной вывод полностью совпадает с эталоном: равенство 2 млн допустимо, срок — 20 ноября 2026 года. Уточнение о конкретных подтверждающих документах не требуется эталоном, но явного противоречия нет."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": true,
+            "quote": "",
+            "reason": "Основной вывод полностью совпадает с эталоном: равенство 2 млн допустимо, срок — 20 ноября 2026 года. Дополнительное утверждение о реализации подакцизных товаров и перечисление документов не подтверждены эталоном, но явного противоречия нет."
+          },
+          "reason": "Ответы сопоставимы по существенным для вопроса пунктам; команда A не имеет заметного преимущества перед baseline B.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.0,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": true,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "D14",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": true,
+            "quote": "",
+            "reason": "Оба ответа правильно указали 1 августа 2026 года и ставки 25% (8%/17%); в A есть дополнительные сведения об учете отдельных доходов, не требуемые golden."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Полностью совпадает с требуемыми выводами и содержит уместные ссылки на ст. 145 и ст. 284 НК РФ."
+          },
+          "reason": "Ответы сопоставимы по существенным требованиям; B немного точнее и не содержит лишних неподтвержденных деталей, но это не дает значимого преимущества.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": true,
+            "quote": "",
+            "reason": "Обе строки соответствуют golden; добавленное условие об учете доходов не подтверждено golden, но не противоречит ему."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": true,
+            "quote": "",
+            "reason": "Основной ответ совпадает с golden; дополнительные утверждения о доходах АУСН, курсовой разнице и субсидиях не подтверждены golden."
+          },
+          "reason": "Ответы сопоставимы по правильности и полноте; команда A не имеет существенного преимущества, поскольку дополнительные сведения B не меняют основной ответ.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.0,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": true,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "D15",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Полностью соответствует эталону: отдельное взыскание, непоглощение меньшего штрафа и сумма 19 000 рублей."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Полностью соответствует эталону: отдельное взыскание, непоглощение меньшего штрафа и сумма 19 000 рублей."
+          },
+          "reason": "Ответы по существу идентичны и одинаково правильно отвечают на вопрос; команда B сопоставима с baseline.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Полностью соответствует эталону: отдельное взыскание, непоглощение меньшего штрафа и сумма 19 000 рублей."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Полностью соответствует эталону: отдельное взыскание, непоглощение меньшего штрафа и сумма 19 000 рублей."
+          },
+          "reason": "Ответы по существу и ссылке на п. 5 ст. 114 идентичны; команда A сопоставима с baseline B.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.5,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": false,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "D16",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": true,
+            "unsupported_extra": false,
+            "quote": "(НК_ст284_действующая, п. 1, абзац «сумма налога, исчисленная по налоговой ставке в размере 7 процентов», абзац «сумма налога, исчисленная по налоговой ставке в размере 18 процентов»)",
+            "reason": "Ссылка на абзацы о ставках 7% и 18% противоречит golden, где для 2026 года указаны 8% и 17%."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Корректно указаны ставка налога на прибыль, распределение 8%/17% и расчёт НДФЛ по пункту 1 статьи 224."
+          },
+          "reason": "Ответы по существу совпадают, но A содержит ошибочную конкретизацию ссылки на абзацы статьи 284; B этой ошибки не содержит.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Оба ответа правильно указывают ставку 25%, распределение 8%/17% и рассчитывают НДФЛ по формуле пункта 1 статьи 224: 774000 рублей."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ по существу совпадает с эталоном; приведённые дополнительные обозначения абзацев статьи 284 не меняют правильный результат и не подтверждают выдумку."
+          },
+          "reason": "Ответы сопоставимы по правильности, полноте расчёта и результату; команда A не имеет существенного преимущества или недостатка.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.5,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": false,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "D17",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Точно соответствует эталону: не называет срок без статьи 80 в базе."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Точно соответствует эталону: не называет срок без статьи 80 в базе."
+          },
+          "reason": "Ответы идентичны и полностью соответствуют golden; команда B сопоставима с baseline.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Корректно сообщает, что по материалам базы срок определить нельзя."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Корректно сообщает, что по материалам базы срок определить нельзя."
+          },
+          "reason": "Ответы одинаковы и соответствуют golden: не называют срок по памяти.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.5,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": false,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "D18",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": true,
+            "quote": "По состоянию на текущую дату.",
+            "reason": "Лишнее утверждение о дате не подтверждено запиской."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": true,
+            "quote": "По состоянию на текущую дату.",
+            "reason": "Лишнее утверждение о дате не подтверждено запиской."
+          },
+          "reason": "Оба ответа верно указывают сроки и одинаково добавляют неподтверждённую фразу о текущей дате; ответы сопоставимы.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ точно передает оба требуемых срока и не содержит существенных ошибок."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ также точно передает оба требуемых срока и не содержит существенных ошибок."
+          },
+          "reason": "Ответы практически идентичны и полностью соответствуют эталону; преимущество команды A отсутствует.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.0,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": true,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "H01",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Полностью соответствует эталону: корректно различает условия п. 4.3 и п. 4.2 и указывает, что доступ не заменяет письменное согласие на субаренду."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Полностью соответствует эталону: корректно различает условия п. 4.3 и п. 4.2 и указывает, что доступ не заменяет письменное согласие на субаренду."
+          },
+          "reason": "Ответы эквивалентны по правильности, полноте и ссылкам; команда B и baseline сопоставимы.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Точно воспроизводит оба условия договора и правильно объясняет, что доступ не заменяет письменное согласие на субаренду."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Также точно воспроизводит оба условия и корректно отвечает на вопрос о независимости согласия на субаренду."
+          },
+          "reason": "Ответы содержательно эквивалентны; команда A и baseline одинаково полно и корректно отвечают на вопрос.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.5,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": false,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "H02",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Верно указывает действие договора в 2026 году и срок заявления не позднее чем за 30 дней до окончания срока."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": true,
+            "quote": "",
+            "reason": "Правильный вывод и срок 30 дней; уточнение «календарных» не подтверждено golden."
+          },
+          "reason": "Ответы по существу сопоставимы. B добавляет неподтверждённое уточнение о календарных днях, не меняющее основного ответа.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Полностью совпадает с эталоном: договор действует в 2026 году, срок заявления — не позднее чем за 30 дней до окончания срока."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Также полностью соответствует эталону: правильно указаны автоматическое продление на 2026 год и минимальный 30-дневный срок."
+          },
+          "reason": "Оба ответа одинаково правильны и ссылаются на п. 8.1 ПТ-05/2023; существенного преимущества команды A нет.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.0,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": true,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "H03",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Все три запрошенных условия и ссылки на пункты договора совпадают с golden."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Все три запрошенных условия и ссылки на пункты договора совпадают с golden."
+          },
+          "reason": "Ответы идентичны и полностью соответствуют golden, поэтому команда B сопоставима с baseline.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": true,
+            "quote": "",
+            "reason": "Ответ полностью совпадает с эталоном; фраза о текущей дате лишняя, но не влияет на содержание."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": true,
+            "quote": "",
+            "reason": "Ответ полностью совпадает с эталоном; фраза о текущей дате лишняя, но не влияет на содержание."
+          },
+          "reason": "Ответы идентичны и одинаково полно отвечают на вопрос; команда A не имеет преимущества перед baseline.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.0,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": true,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "H04",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Полностью называет три требуемых дополнительных согласования и учитывает, что сумма не влияет на согласование финансового директора."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Полностью называет три требуемых дополнительных согласования; отсутствие отдельного упоминания о сумме 200 000 рублей не меняет правильность вывода."
+          },
+          "reason": "Ответы по существу и ссылкам эквивалентны golden; команда B и baseline сопоставимы.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ полностью перечисляет все три требуемых согласования и корректно указывает, что аффилированность требует согласования независимо от суммы."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ также полностью и корректно перечисляет три согласования; уточнение о том, что сумма 200 000 рублей не меняет вывода, соответствует golden."
+          },
+          "reason": "Ответы сопоставимы по правильности, полноте и ссылкам; команда A не получает преимущества, поскольку добавленное в B пояснение лишь дублирует требование golden.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.5,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": false,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "H05",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ полностью совпадает с golden по сроку оплаты и переходу собственности; ссылки на пункты корректны."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ полностью совпадает с golden по сроку оплаты и переходу собственности; ссылки на пункты корректны."
+          },
+          "reason": "Оба ответа одинаково правильно учитывают последнее уточнение и не переносят условия из предыдущего договора; существенных различий нет.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": true,
+            "quote": "",
+            "reason": "Ответ правильно передаёт оба условия из golden; ссылка на абзац договора и фраза «по состоянию на текущую дату» не нужны, но существенной ошибки нет."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": true,
+            "quote": "",
+            "reason": "Ответ правильно передаёт оба условия из golden; дополнительное утверждение о сфере применения договора и ссылка на п. 1.1 не подтверждены golden, но не противоречат ему."
+          },
+          "reason": "Оба ответа сопоставимы: корректно указаны 45 дней с поставки и переход собственности при подписании товарной накладной; команда A не имеет существенного преимущества.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.0,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": true,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "H06",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ полностью соответствует эталону: применяет редакцию на дату согласования, указывает СЭД, отсутствие бумажного листа и неприменимость порога 15 млн рублей."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ полностью соответствует эталону и дополнительно корректно учитывает отсутствие особых условий; существенных отличий от A нет."
+          },
+          "reason": "Оба ответа одинаково правильно и полно отвечают на вопрос; команда B сопоставима с baseline A.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ правильно определяет применимую редакцию по дате согласования, СЭД, отсутствие бумажного листа и неприменимость порога свыше 15 млн рублей."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ также полностью соответствует golden: применяет редакцию на 02.03.2025, указывает СЭД без бумажного листа и отсутствие одобрения при сумме 14 млн рублей."
+          },
+          "reason": "Оба ответа одинаково корректны и полно отвечают на вопрос; различия лишь в формулировках и дополнительных пояснениях.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.5,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": false,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "H07",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ полностью соответствует эталону: болезнь не засчитывается, окончание испытания сдвигается, предел в две недели не заменяется месяцем."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ также полностью соответствует эталону и корректно указывает специальный двухнедельный предел; формулировка о приостановлении и продлении согласуется с исключением дней болезни из исчисления."
+          },
+          "reason": "Ответы сопоставимы по правильности, полноте и ссылкам; оба верно отвечают на оба вопроса.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Верно указывает, что дни болезни не засчитываются и месячный предел неприменим; «продлевается на эти семь дней» согласуется с эталоном."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Верно отвечает на оба вопроса и сохраняет двухнедельный предел; по существу сопоставим с A."
+          },
+          "reason": "Оба ответа соответствуют эталону по ключевым вопросам, существенного преимущества у ответа команды A нет.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.5,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": false,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "H08",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Верно передаёт самостоятельное основание по соглашению сторон и поясняет, что сезонность нужна лишь для отдельного основания сезонных работ."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Верно отвечает на вопрос и приводит соответствующие ссылки на статью 59."
+          },
+          "reason": "Ответы по существу и полноте равноценны; команда B не имеет заметного преимущества перед A.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Полностью соответствует эталону: правильно указаны самостоятельность основания для очного студента и отсутствие требования сезонности; ссылки релевантны."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Также полностью соответствует эталону и содержит те же корректные ссылки и выводы."
+          },
+          "reason": "Ответы по существу эквивалентны и одинаково полно отвечают на вопрос; преимущество команды A перед baseline отсутствует.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.5,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": false,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "H09",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Корректно применены обе формулы и рассчитаны отдельные суммы 762 000 и 710 000 рублей; ссылки на пункты соответствуют условию."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Корректно применены обе формулы, суммы совпадают с эталоном, а раздельность баз и шкал явно указана."
+          },
+          "reason": "Ответы A и B эквивалентны по правильности и полноте; у B лишь явно проговорено, что расчёты раздельны, что соответствует требованию, но не даёт существенного преимущества.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Точно приведены обе формулы, расчёты и раздельное применение пунктов 1.1 и 1.2."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Точно приведены обе формулы, расчёты и раздельное применение пунктов 1.1 и 1.2."
+          },
+          "reason": "Ответы полностью совпадают по существу с golden; оба корректно считают независимые базы и не смешивают шкалы.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.5,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": false,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "H10",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Корректно применяет пределы 4 часа в день и 120 часов в год; упоминание редакции статьи не мешает ответу."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Корректно применяет пределы 4 часа в день и 120 часов в год и отвечает в рамках поставленного вопроса."
+          },
+          "reason": "Ответы по существу эквивалентны: оба верно указывают отсутствие нарушения дневного и годового ограничений; команда B сопоставима с baseline A.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Верно применяет дневной предел 4 часа и годовой предел 120 часов; отвечает по заданным ограничениям."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Также верно применяет оба предела и приходит к правильному выводу."
+          },
+          "reason": "Ответы по существу сопоставимы и соответствуют golden; команда A не имеет существенного преимущества перед baseline.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.5,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": false,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "H11",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": ""
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": ""
+          },
+          "reason": "Оба ответа правильно указывают запрет добровольного отказа через четыре месяца, 12-месячный срок и исключение при утрате права по п. 5. Ответ A дополнительно уточняет срок подачи уведомления, но это не влияет на ответ на поставленный вопрос; существенных различий нет.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Ответ точно соответствует эталону: отказ через 4 месяца невозможен, действует 12-месячный период, исключение связано с утратой права по п. 5."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": true,
+            "quote": "",
+            "reason": "Основной вывод совпадает с эталоном; дополнительное утверждение о сроке подачи уведомления и неполная ссылка на абзац не нужны для ответа и не подтверждены эталоном."
+          },
+          "reason": "Оба ответа правильно решают вопрос; ответ B содержит лишнюю неподтвержденную деталь, но это не меняет сопоставимость по существу.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.5,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": false,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  },
+  {
+    "system": "v245_vs_v243",
+    "id": "H12",
+    "rounds": [
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Точно указаны ставка, предел и невозможность установить условия снижения по статье 333 ГК по материалам базы."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Точно указаны ставка, предел и невозможность установить условия снижения по статье 333 ГК по материалам базы."
+          },
+          "reason": "Ответы по существу эквивалентны и полностью соответствуют эталону; различия лишь редакционные.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      },
+      {
+        "status": "ok",
+        "decision": {
+          "team_score": 0.5,
+          "A": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Полностью совпадает с эталоном по ставке, пределу и невозможности установить условия снижения по ст. 333 ГК."
+          },
+          "B": {
+            "confirmed_fabrication": false,
+            "unsupported_extra": false,
+            "quote": "",
+            "reason": "Полностью совпадает с эталоном по ставке, пределу и невозможности установить условия снижения по ст. 333 ГК."
+          },
+          "reason": "Ответы эквивалентны по существу; преимущество команды A над baseline B отсутствует.",
+          "a_score": 0.5
+        },
+        "error_type": null
+      }
+    ],
+    "status": "ok",
+    "score": 0.5,
+    "literal_stress_score": 0.5,
+    "raw_score": 0.5,
+    "fabrication_zero": false,
+    "unsupported_extra": false,
+    "order_gap": 0.0,
+    "fabrication_disagreement": false
+  }
+]

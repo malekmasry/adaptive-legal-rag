@@ -1,0 +1,19 @@
+{
+  "archive": "v244-v245-AUDIT.zip",
+  "sha256": "85906b8bcd76beb6cb15a388045957f71d207ee1e0c396beeaca131d49714fb1",
+  "bytes": 12615980,
+  "logical_files": 1040,
+  "unique_objects": 885,
+  "recursive_known_credential_scan": "passed",
+  "packages": {
+    "v243-final.zip": {
+      "sha256": "79991fdaf0e2bb5f563b61e65bcef28b8f090e573b966bfa827ee64b29126955"
+    },
+    "v244.zip": {
+      "sha256": "18ffcb078029c3d20dc01ff7c4da166c96f43f4687b45abd7c153631b85a4868"
+    },
+    "v245.zip": {
+      "sha256": "cae446031d6dd1c6444e0b62d68b3993f28791776165e7c66d7829600e898f96"
+    }
+  }
+}

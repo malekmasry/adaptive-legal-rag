@@ -1,0 +1,2042 @@
+{
+  "platform_reference": {
+    "variant": "v243-final",
+    "score": 37.5,
+    "seconds": 484,
+    "source": "user_report"
+  },
+  "variants": {
+    "v244": {
+      "summary": {
+        "variant": "v244",
+        "cases": 30,
+        "aggregate": {
+          "score": 50.0,
+          "match_rate": 0.5,
+          "win_rate": 0.5,
+          "wins": 0,
+          "losses": 0,
+          "ties": 30,
+          "evaluated": 30,
+          "attempted": 30,
+          "coverage": 1.0
+        },
+        "runtime": {
+          "system": "v244_regression",
+          "seconds": 123.734,
+          "exit_code": 0,
+          "complete": true,
+          "outer_timeout": false,
+          "rows": 30,
+          "answers_sha256": "92a4ad313fecff14e86a569d313811323ba1322142e20c0a9252de24cb10d32e",
+          "package_sha256": "18ffcb078029c3d20dc01ff7c4da166c96f43f4687b45abd7c153631b85a4868",
+          "mode": "observed_unmodified_runtime",
+          "runtime_report": {
+            "rows": 30,
+            "statuses": {
+              "D01": "answered",
+              "D02": "answered",
+              "D03": "answered",
+              "D05": "answered",
+              "D04": "answered",
+              "D06": "answered",
+              "D07": "answered",
+              "D09": "answered",
+              "D10": "answered",
+              "D11": "answered",
+              "D13": "answered",
+              "D14": "answered",
+              "D08": "answered",
+              "D12": "answered",
+              "D15": "answered",
+              "D16": "answered",
+              "H01": "answered",
+              "D17": "not_in_base",
+              "H02": "answered",
+              "H03": "answered",
+              "H04": "answered",
+              "H06": "answered",
+              "H07": "answered",
+              "H08": "answered",
+              "D18": "answered",
+              "H09": "answered",
+              "H10": "answered",
+              "H11": "answered",
+              "H12": "partial",
+              "H05": "answered"
+            },
+            "counts": {
+              "answered": 28,
+              "not_in_base": 1,
+              "partial": 1
+            },
+            "seconds": 113.062,
+            "errors": {},
+            "collected_during_drain": 0,
+            "unfinished_workers": 0,
+            "work_budget_seconds": 1100,
+            "finalize_grace_seconds": 30.0,
+            "error_counts": {}
+          }
+        },
+        "seconds": 267.969,
+        "cumulative_usage": {
+          "deepseek_calls": 71,
+          "deepseek_tokens": 268886,
+          "qwen_calls": 31,
+          "qwen_input_tokens": 798099,
+          "api_errors": 0
+        },
+        "qwen_cache_hits": 0,
+        "generation_cache_hits": 76,
+        "embedding_stats": {
+          "cached_texts": 593,
+          "new_texts": 0,
+          "reused_texts": 1,
+          "encoding_enabled": true
+        },
+        "scope": "Known regression questions; paired against frozen v243 answers. Both judge orders retained. No live platform score."
+      },
+      "answers_changed": 5,
+      "same_pre_review_draft": 24,
+      "same_review_evidence": 27,
+      "paired_review_cases": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D09",
+        "D10",
+        "D11",
+        "D13",
+        "D14",
+        "D16",
+        "H01",
+        "H02",
+        "H03",
+        "H04",
+        "H06",
+        "H07",
+        "H08",
+        "H09",
+        "H10",
+        "H11",
+        "H12"
+      ],
+      "routes": {
+        "lexical_confident": 29,
+        "low_lexical_score": 1
+      },
+      "review_statuses": {
+        "applied": 29,
+        "not_needed_or_deadline": 1
+      },
+      "required_anchors": 60,
+      "present_anchors": 60,
+      "mean_context_tokens": 10995.966666666667,
+      "wins": [],
+      "losses": [],
+      "details": [
+        {
+          "id": "D01",
+          "changed_answer": false,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.9993526339530945,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 5529,
+          "score": 0.5,
+          "initial_answer": "| Ответ | Основание |\n|---|---|\n| Нет. 15 августа 2024 года — крайний срок первоначальной передачи помещения по акту, а не последний день аренды. | Договор аренды № А-08/2024, п. 2.1, п. 2.2 |\n| Договор заключён на неопределённый срок, поэтому фиксированная дата окончания аренды в договоре не установлена. | Договор аренды № А-08/2024, п. 2.2 |\n| При прекращении договора возврат помещения оформляется актом. | Договор аренды № А-08/2024, п. 6.3 |"
+        },
+        {
+          "id": "D02",
+          "changed_answer": false,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.9221205115318298,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 5467,
+          "score": 0.5,
+          "initial_answer": "Позиция бухгалтера неверна: 450 000 рублей — это месячная арендная плата, включая НДС. Коммунальные платежи и электроэнергия оплачиваются арендатором отдельно по счетам арендодателя на основании показаний приборов учёта. (Договор аренды А-08-2024 Северный Склад, п. 3.1, п. 3.3)\n\nОбеспечительный платёж не равен половине месячной платы. По договору он составляет одну месячную арендную плату: 1 × 450 000 = 450 000 рублей. (Договор аренды А-08-2024 Северный Склад, п. 3.5, п. 3.1)\n\nПо состоянию на текущую дату."
+        },
+        {
+          "id": "D03",
+          "changed_answer": false,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.9849172234535217,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 5002,
+          "score": 0.5,
+          "initial_answer": "Нет. Для субаренды по договору требуется письменное согласие арендодателя; устное разрешение этому условию не соответствует. (Договор аренды А-08-2024 Северный Склад, п. 4.2)\n\nНет. Дополнительные условия, изменяющие или дополняющие договор, должны быть оформлены дополнительным соглашением в письменной форме. Одного устного обмена недостаточно. (Договор аренды А-08-2024 Северный Склад, п. 6.1)\n\nПо состоянию на текущую дату."
+        },
+        {
+          "id": "D04",
+          "changed_answer": false,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.99806147813797,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 8703,
+          "score": 0.5,
+          "initial_answer": "Договорная неустойка за два периода составляет 372 рубля. Расчёт: (62 000 × 0,001 × 3) + (31 000 × 0,001 × 6) = 186 + 186 = 372 рубля. Установленный предел — не более 10% соответствующей неоплаченной суммы; начисленные 186 рублей по каждому периоду этот предел не превышают. (Договор поставки П-17-2024 Альфа-Трейд, п. 4.2, п. 7.2)\n\nПо состоянию на текущую дату."
+        },
+        {
+          "id": "D05",
+          "changed_answer": false,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.9970335960388184,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 7951,
+          "score": 0.5,
+          "initial_answer": "По мебели по договору П-17/2024 — 30 календарных дней с даты подписания УПД на соответствующую партию. Поэтому правило «45 дней после УПД» для этого договора неверно. (Договор № П-17/2024, п. 4.2)\n\nПо компьютерам по договору ПТ-05/2023 — 45 календарных дней с даты поставки. Договор не формулирует начало срока как дату подписания УПД. (Договор № ПТ-05/2023, п. 4.1)\n\nОбщее правило коллеги неверно для обоих договоров: для П-17/2024 отличается длительность — 30, а не 45 дней; для ПТ-05/2023 длительность 45 дней верна, но начальное событие — поставка, а не УПД. (Договор № П-17/2024, п. 4.2; Договор № ПТ-05/2023, п. 4.1)\n\nВывод дан на текущую дату."
+        },
+        {
+          "id": "D06",
+          "changed_answer": false,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.9966865181922913,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 7784,
+          "score": 0.5,
+          "initial_answer": "Действует исходный адрес: г. Москва, ул. Складская, д. 4, стр. 2. Изменённый адрес применяется только к партиям, спецификации на которые подписаны после 1 октября 2024 года; спецификация, подписанная ровно 1 октября, этому условию не соответствует. Дата доставки 7 октября значение не меняет. (Доп соглашение 1 к договору П-17-2024, абзац «Новый адрес доставки применяется к партиям Товара, Спецификации на которые подпи»; Договор поставки П-17-2024 Альфа-Трейд, п. 3.2)\n\nОтдельно оплачивать доставку не нужно: цена товара по договору уже включает стоимость упаковки и доставки до склада Покупателя. (Договор поставки П-17-2024 Альфа-Трейд, п. 2.1)"
+        },
+        {
+          "id": "D07",
+          "changed_answer": false,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.9967393279075623,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 10852,
+          "score": 0.5,
+          "initial_answer": "Да, финансовый директор необходим. Для договора, по которому Общество выступает поручителем, действует специальное правило: согласование с финансовым директором требуется независимо от суммы договора. Поэтому сумма 500 000 рублей и общий порог «свыше 3 000 000 рублей» значения не имеют; применяется п. 2.5 Регламента в редакции, действующей с 01.03.2025. (Регламент, ред. от 01.03.2025, п. 2.5, абзац «Редакция от 01.03.2025»)"
+        },
+        {
+          "id": "D08",
+          "changed_answer": true,
+          "same_pre_review_draft": false,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.9963189363479614,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 9008,
+          "score": 0.5,
+          "initial_answer": "При мотивированном запросе максимальный срок согласования юридическим отделом составляет 5 рабочих дней (3 рабочих дня + не более 2 рабочих дней продления), главным бухгалтером — 4 рабочих дня (2 + 2). (Регламент согласования договоров ред 2025, п. 2.2)\n\nПодписанный оригинал договора должен быть передан в юридический отдел для хранения в течение 3 рабочих дней с даты подписания. (Регламент согласования договоров ред 2025, п. 3.2)\n\nПо состоянию на текущую дату."
+        },
+        {
+          "id": "D09",
+          "changed_answer": false,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.9945647716522217,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 13671,
+          "score": 0.5,
+          "initial_answer": "На 25 апреля 2025 года по чек-листу К-12 проверяются: 1) контрагент и его бенефициары по санкционным спискам; 2) юрисдикция регистрации контрагента; 3) банк контрагента; 4) товар (услуга) на предмет ограничений на ввоз или вывоз. (Письмо комплаенс-службы К-12 от 15.04.2025, абзац «Приложение 1. Чек-лист санкционной проверки»)\n\nПроверку проводит служба комплаенс. Требование К-12 действует с 21 апреля 2025 года и применяется до подписания договора с иностранным контрагентом. (Письмо комплаенс-службы К-12 от 15.04.2025, абзац «С 21 апреля 2025 г. до подписания любого договора», абзац «Санкционную проверку проводит служба комплаенс»)\n\nСрок проверки составляет 3 рабочих дня и исчисляется с даты получения службой комплаенс запроса. (Письмо комплаенс-службы К-12 от 15.04.2025, абзац «Санкционную проверку проводит служба комплаенс в течение 3 (трёх) рабочих дней»)\n\nЗаключение службы комплаенс прикладывают к договору в СЭД; без этого заключения договор с иностранным контрагентом не допускается к подписанию. (Письмо комплаенс-службы К-12 от 15.04.2025, абзац «Заключение службы комплаенс прикладывается к договору в СЭД», абзац «Договоры с иностранными контрагентами без заключения службы комплаенс»)"
+        },
+        {
+          "id": "D10",
+          "changed_answer": false,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.9944420456886292,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 16108,
+          "score": 0.5,
+          "initial_answer": "Нет. Работнику, которому 17 лет, испытание при приёме на работу устанавливать нельзя: статья 70 прямо исключает лиц, не достигших 18 лет. (ТК_ст70_действующая, абзац «лиц, не достигших возраста восемнадцати лет;»)\n\nПравило о договоре сроком от двух до шести месяцев устанавливает предел испытания не более двух недель, но оно не отменяет запрет для несовершеннолетних. Поэтому при договоре на четыре месяца испытательный срок работнику установить нельзя. (ТК_ст70_действующая, абзац «При заключении трудового договора на срок от двух до шести месяцев испытание не», абзац «лиц, не достигших возраста восемнадцати лет;»)"
+        },
+        {
+          "id": "D11",
+          "changed_answer": false,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.9979047775268555,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 14205,
+          "score": 0.5,
+          "initial_answer": "Нет. При указанных обстоятельствах испытание не считается установленным: отсутствие условия об испытании в трудовом договоре означает, что работник принят без испытания. Подписание соглашения задним числом после начала работы не изменяет этого вывода. (ТК_ст70_действующая, абзац «Отсутствие в трудовом договоре условия об испытании означает, что работник приня»)\n\nСтатья 70 допускает отдельное соглашение об испытании до начала работы только в ситуации, когда работник фактически допущен к работе без оформления трудового договора. В описанном случае такого соглашения до начала работы не было, а в трудовом договоре условие об испытании отсутствует. (ТК_ст70_действующая, абзац «Отсутствие в трудовом договоре условия об испытании означает, что работник приня», абзац «При заключении трудового договора в нем по соглашению сторон может быть предусмо»)\n\nПо состоянию на текущую дату."
+        },
+        {
+          "id": "D12",
+          "changed_answer": true,
+          "same_pre_review_draft": false,
+          "same_review_evidence": false,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.9986445307731628,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 15002,
+          "score": 0.5,
+          "initial_answer": "Все три часа являются 121-м, 122-м и 123-м сверхурочными часами за год, поэтому каждый оплачивается минимум в двойном размере. Расчёт: 3 часа × 400 руб./час × 2 = 2 400 рублей. Минимальная оплата этих трёх часов — 2 400 рублей. (ТК_ст152_действующая, абзац «Сверхурочная работа оплачивается исходя из размера заработной платы, установленн»)"
+        },
+        {
+          "id": "D13",
+          "changed_answer": false,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.998548686504364,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 16098,
+          "score": 0.5,
+          "initial_answer": "Да. Для обычной организации на ОСНО освобождение допустимо: выручка без НДС за три предшествующих последовательных календарных месяца составляет ровно 2 000 000 рублей, то есть не превышает установленный порог. Отсутствие реализации подакцизных товаров также сохраняет право на освобождение. (НК_ст145_действующая, п. 1, п. 5)\n\nПри начале применения освобождения с ноября 2026 года уведомление и подтверждающие документы нужно представить в налоговый орган по месту учета не позднее 20 ноября 2026 года. Для организации подтверждающими документами являются выписки из бухгалтерского баланса и книги продаж. (НК_ст145_действующая, абзац «Указанные документы и (или) уведомление представляются не позднее 20-го числа ме», абзац «Лица, указанные в абзаце первом пункта 1 настоящей статьи, использующие право на освобождение», п. 6)"
+        },
+        {
+          "id": "D14",
+          "changed_answer": false,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.9961938858032227,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 15015,
+          "score": 0.5,
+          "initial_answer": "Организация на УСН начинает исполнять обязанности плательщика НДС с 1 августа 2026 года — с первого числа месяца, следующего за месяцем, в котором произошло превышение дохода в июле. Условие: превышение совокупного дохода свыше 20 млн рублей определяется с учетом установленных правил учета доходов. (НК_ст145_действующая, абзац «Если в течение налогового периода по налогу, уплачиваемому в связи с применением»)\n\nВ 2026 году общая ставка налога на прибыль для обычной организации составляет 25%, из них 8% зачисляется в федеральный бюджет и 17% — в бюджеты субъектов Российской Федерации. (НК_ст284_действующая, п. 1)"
+        },
+        {
+          "id": "D15",
+          "changed_answer": true,
+          "same_pre_review_draft": false,
+          "same_review_evidence": false,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.9994426369667053,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 13017,
+          "score": 0.5,
+          "initial_answer": "Штрафы взыскиваются за каждое из двух самостоятельных налоговых правонарушений отдельно; меньший штраф не поглощается большим. Поэтому предложение взыскать только 11 000 рублей не соответствует пункту 5 статьи 114 НК РФ. (НК_ст114_действующая, п. 5)\n\nИтоговая сумма составляет: 8 000 + 11 000 = 19 000 рублей. (НК_ст114_действующая, п. 5)"
+        },
+        {
+          "id": "D16",
+          "changed_answer": false,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.9945934414863586,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 16344,
+          "score": 0.5,
+          "initial_answer": "1) Налог на прибыль организаций за 2026 год: общая ставка — 25%, из них 8% зачисляется в федеральный бюджет и 17% — в бюджеты субъектов Российской Федерации. (НК_ст284_действующая, п. 1, абзац «сумма налога, исчисленная по налоговой ставке»)\n\n2) НДФЛ: база 5 400 000 рублей попадает в диапазон свыше 5 млн до 20 млн рублей. Расчёт: 702 000 + 18% × (5 400 000 − 5 000 000) = 702 000 + 72 000 = 774 000 рублей. (НК_ст224_действующая, п. 1)"
+        },
+        {
+          "id": "D17",
+          "changed_answer": false,
+          "same_pre_review_draft": false,
+          "same_review_evidence": false,
+          "status": "not_in_base",
+          "review": "not_needed_or_deadline",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "dense",
+          "route_reason": "low_lexical_score",
+          "lexical_max_score": 0.0071843406185507774,
+          "rerank_passes": 2,
+          "degraded": [],
+          "all_anchors_present": null,
+          "context_tokens": 13191,
+          "score": 0.5,
+          "initial_answer": "Статья 80 ТК РФ в представленных документах отсутствует, поэтому срок предупреждения об увольнении по собственному желанию по правилам этой базы назвать нельзя."
+        },
+        {
+          "id": "D18",
+          "changed_answer": true,
+          "same_pre_review_draft": false,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.9978463649749756,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 12711,
+          "score": 0.5,
+          "initial_answer": "Максимальный срок выдачи оригинала из архива по заявке в СЭД — не более 3 рабочих дней. (Служебная записка об архиве договоров, абзац «Выдача оригиналов из архива сотрудникам других подразделений производится по зая»)\n\nОригинал договора должен храниться 5 лет после окончания срока его действия или исполнения сторонами обязательств. (Служебная записка об архиве договоров, абзац «Срок хранения оригинала договора — 5 (пять) лет после окончания срока его действ»)\n\nПо состоянию на текущую дату."
+        },
+        {
+          "id": "H01",
+          "changed_answer": false,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.8096309900283813,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 5567,
+          "score": 0.5,
+          "initial_answer": "Для допуска вашего транспорта ночью действует условие о круглосуточном беспрепятственном доступе арендатора и его транспорта к помещению. (Договор аренды А-08-2024 Северный Склад, п. 4.3)\n\nПередача части помещения в субаренду допускается только при наличии предварительного письменного согласия арендодателя. (Договор аренды А-08-2024 Северный Склад, п. 4.2)\n\nНет. Право круглосуточного доступа регулирует доступ арендатора и его транспорта, но само по себе не является согласием на субаренду. Для субаренды отдельно требуется письменное согласие арендодателя. (Договор аренды А-08-2024 Северный Склад, п. 4.3, п. 4.2)\n\nПо состоянию на текущую дату."
+        },
+        {
+          "id": "H02",
+          "changed_answer": false,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.9986948370933533,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 7049,
+          "score": 0.5,
+          "initial_answer": "| Ответ | Основание |\n|---|---|\n| Да, договор действует в 2026 году: после отсутствия заявления о прекращении до окончания 2024 и 2025 годов он автоматически продлился на очередной календарный год. | Договор № ПТ-05/2023, п. 8.1 |\n| Минимальный срок предварительного заявления о прекращении автоматического продления — не позднее чем за 30 календарных дней до окончания срока действия договора. | Договор № ПТ-05/2023, п. 8.1 |"
+        },
+        {
+          "id": "H03",
+          "changed_answer": false,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.9971646666526794,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 5790,
+          "score": 0.5,
+          "initial_answer": "По количеству товар принимают в момент передачи; по качеству — в течение 5 рабочих дней с даты поставки. (Договор поставки П-17-2024 Альфа-Трейд, п. 6.1)\n\nК претензии о выявленных недостатках нужно приложить акт о выявленных недостатках. (Договор поставки П-17-2024 Альфа-Трейд, п. 6.2)\n\nПоставщику даётся 15 календарных дней на ответ с даты получения претензии. (Договор поставки П-17-2024 Альфа-Трейд, п. 8.1)\n\nПо состоянию на текущую дату."
+        },
+        {
+          "id": "H04",
+          "changed_answer": false,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.9879930019378662,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 9515,
+          "score": 0.5,
+          "initial_answer": "По признаку аренды недвижимого имущества требуется дополнительное согласование с административно-хозяйственным отделом. Применяется редакция Регламента от 01.03.2025, действующая в ноябре 2026 года. (Регламент, ред. от 01.03.2025, п. 5.1, абзац «Редакция от 01.03.2025. Действует с 01.03.2025»)\n\nПо признаку договора с аффилированным лицом требуется дополнительное согласование с финансовым директором независимо от суммы договора. (Регламент, ред. от 01.03.2025, п. 5.3)\n\nПо признаку связи договора с обработкой персональных данных требуется дополнительное согласование с ответственным за организацию обработки персональных данных. (Регламент, ред. от 01.03.2025, п. 5.2)"
+        },
+        {
+          "id": "H05",
+          "changed_answer": true,
+          "same_pre_review_draft": false,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.989971399307251,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 8502,
+          "score": 0.5,
+          "initial_answer": "По договору ПТ-05/2023 срок оплаты составляет 45 календарных дней с даты поставки товара. Указание о 30 днях после подписания УПД относится к другому договору и здесь не применяется. (Договор поставки ПТ-05-2023 Альфа-Трейдинг, абзац «ДОГОВОР ПОСТАВКИ № ПТ-05/2023», п. 4.1)\n\nПраво собственности на компьютеры переходит к Покупателю с момента подписания товарной накладной. (Договор поставки ПТ-05-2023 Альфа-Трейдинг, п. 3.3)\n\nПо состоянию на текущую дату."
+        },
+        {
+          "id": "H06",
+          "changed_answer": false,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.9966046810150146,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 10045,
+          "score": 0.5,
+          "initial_answer": "Нужен СЭД: согласование проводится 2 марта 2025 года, поэтому применяется редакция от 01.03.2025, действующая с этой даты. Бумажный лист согласования не требуется. (Регламент согласования договоров ред 2025, абзац «Редакция от 01.03.2025. Действует с 01.03.2025», п. 3.1)\n\nНет, по сумме 14 000 000 рублей одобрение генерального директора не требуется: по действующей на дату согласования редакции оно необходимо только для договоров на сумму свыше 15 000 000 рублей. Сравнение: 14 000 000 < 15 000 000. Особые условия отсутствуют, поэтому указанных в вопросе оснований для одобрения гендиректором нет. (Регламент согласования договоров ред 2025, п. 2.4, абзац «Редакция от 01.03.2025. Действует с 01.03.2025»)"
+        },
+        {
+          "id": "H07",
+          "changed_answer": false,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.9978653788566589,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 13315,
+          "score": 0.5,
+          "initial_answer": "Нет, семь дней временной нетрудоспособности не засчитываются в срок испытания. Поэтому течение испытания приостанавливается на период болезни и продолжается после выхода работника; фактический период проверки продлевается на эти семь дней. (ТК_ст70_действующая, абзац «В срок испытания не засчитываются период временной нетрудоспособности работника»)\n\nНет, заменить установленный законом предел на месяц нельзя. Для трудового договора сроком пять месяцев действует специальный предел испытания — не более двух недель; исключение дней болезни не изменяет этот предел, а только исключает дни отсутствия из его исчисления. (ТК_ст70_действующая, абзац «При заключении трудового договора на срок от двух до шести месяцев испытание не может превышать двух недель», абзац «В срок испытания не засчитываются период временной нетрудоспособности работника»)\n\nПо состоянию на текущую дату."
+        },
+        {
+          "id": "H08",
+          "changed_answer": false,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.9954853057861328,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 13675,
+          "score": 0.5,
+          "initial_answer": "Да. С лицом, получающим образование по очной форме обучения, срочный трудовой договор может заключаться по соглашению сторон; сезонный характер работы для этого основания не требуется. (ТК_ст59_действующая, абзац «с лицами, получающими образование по очной форме обучения;»)\n\nСезонность обязательна только для отдельного основания — выполнения сезонных работ, возможных из-за природных условий лишь в определённый период (сезон). Она не является условием применения основания, связанного с очной формой обучения. (ТК_ст59_действующая, абзац «для выполнения сезонных работ, когда в силу природных условий работа может производиться только в течение определенного периода (сезона);», абзац «с лицами, получающими образование по очной форме обучения;»)\n\nПо состоянию на текущую дату."
+        },
+        {
+          "id": "H09",
+          "changed_answer": false,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.9971593618392944,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 13077,
+          "score": 0.5,
+          "initial_answer": "По пункту 1.1 статьи 224: база 5 400 000 руб. превышает 2 400 000 руб., поэтому применяется формула 312 000 + 15% × (5 400 000 − 2 400 000) = 312 000 + 450 000 = 762 000 руб. Граница диапазона: более 2,4 млн руб. (НК_ст224_действующая, п. 1.1)\n\nПо пункту 1.2 статьи 224: база 5 400 000 руб. превышает 5 000 000 руб., поэтому применяется формула 650 000 + 15% × (5 400 000 − 5 000 000) = 650 000 + 60 000 = 710 000 руб. Граница диапазона: более 5 млн руб. Расчёты выполнены раздельно; шкалы не смешиваются. (НК_ст224_действующая, п. 1.2)"
+        },
+        {
+          "id": "H10",
+          "changed_answer": false,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.9935609102249146,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 13398,
+          "score": 0.5,
+          "initial_answer": "Нет, ограничение продолжительности по дням не нарушено: 3 часа сверхурочной работы в понедельник и 3 часа во вторник не превышают установленный предел в 4 часа за день для каждого работника. (ТК_ст99_действующая, абзац «Продолжительность сверхурочной работы не должна превышать для каждого работника»)\n\nГодовое ограничение также не нарушено: 20 часов не превышают общий предел 120 часов в год. Отсутствие в коллективном договоре повышенного предела значения не меняет, поскольку 20 часов укладываются в обычный предел. (ТК_ст99_действующая, абзац «Продолжительность сверхурочной работы не должна превышать для каждого работника»)"
+        },
+        {
+          "id": "H11",
+          "changed_answer": false,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.9989362359046936,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 15313,
+          "score": 0.5,
+          "initial_answer": "Нет. Обычная организация на ОСНО, уведомившая об освобождении по пункту 1 статьи 145, не вправе добровольно отказаться от него через четыре месяца: обязательный период составляет 12 последовательных календарных месяцев. Исключение возможно только при утрате права на освобождение по пункту 5, а по условию задачи таких оснований нет. Отказ можно заявить после истечения 12 месяцев в установленном порядке. (НК_ст145_действующая, п. 4, п. 5, п. 1)\n\nПо состоянию на текущую дату."
+        },
+        {
+          "id": "H12",
+          "changed_answer": false,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "partial",
+          "review": "applied",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": "lexical",
+          "route_reason": "lexical_confident",
+          "lexical_max_score": 0.9982290863990784,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 8975,
+          "score": 0.5,
+          "initial_answer": "За просрочку оплаты договорная неустойка составляет 0,1% от неоплаченной суммы за каждый день просрочки. Предел — не более 10% от неоплаченной суммы. (Договор поставки П-17-2024 Альфа-Трейд, п. 7.2)\n\nПо представленным документам базы нельзя установить условия судебного снижения этой неустойки именно по статье 333 ГК РФ: положение статьи 333 ГК РФ и относящиеся к ней условия в предоставленных источниках отсутствуют.\n\nПо состоянию на текущую дату."
+        }
+      ]
+    },
+    "v245": {
+      "summary": {
+        "variant": "v245",
+        "cases": 30,
+        "aggregate": {
+          "score": 65.29166666666666,
+          "match_rate": 0.5041666666666667,
+          "win_rate": 1.0,
+          "wins": 1,
+          "losses": 0,
+          "ties": 29,
+          "evaluated": 30,
+          "attempted": 30,
+          "coverage": 1.0
+        },
+        "runtime": {
+          "system": "v245_regression",
+          "seconds": 95.906,
+          "exit_code": 0,
+          "complete": true,
+          "outer_timeout": false,
+          "rows": 30,
+          "answers_sha256": "97b562aad1a8661851fdfc65e87cf04e2edef38bd54a0966179b0160037e4994",
+          "package_sha256": "cae446031d6dd1c6444e0b62d68b3993f28791776165e7c66d7829600e898f96",
+          "mode": "observed_unmodified_runtime",
+          "runtime_report": {
+            "rows": 30,
+            "statuses": {
+              "D03": "answered",
+              "D01": "answered",
+              "D02": "answered",
+              "D05": "answered",
+              "D06": "answered",
+              "D04": "answered",
+              "D07": "answered",
+              "D08": "answered",
+              "D09": "answered",
+              "D10": "answered",
+              "D11": "answered",
+              "D12": "answered",
+              "D13": "answered",
+              "D15": "answered",
+              "D17": "not_in_base",
+              "D14": "answered",
+              "D16": "answered",
+              "D18": "answered",
+              "H02": "answered",
+              "H01": "answered",
+              "H03": "answered",
+              "H04": "answered",
+              "H07": "answered",
+              "H05": "answered",
+              "H06": "answered",
+              "H09": "answered",
+              "H08": "answered",
+              "H11": "answered",
+              "H10": "answered",
+              "H12": "partial"
+            },
+            "counts": {
+              "answered": 28,
+              "not_in_base": 1,
+              "partial": 1
+            },
+            "seconds": 83.953,
+            "errors": {},
+            "collected_during_drain": 0,
+            "unfinished_workers": 0,
+            "work_budget_seconds": 1100,
+            "finalize_grace_seconds": 30.0,
+            "error_counts": {}
+          }
+        },
+        "seconds": 225.937,
+        "cumulative_usage": {
+          "deepseek_calls": 152,
+          "deepseek_tokens": 626834,
+          "qwen_calls": 31,
+          "qwen_input_tokens": 798099,
+          "api_errors": 0
+        },
+        "qwen_cache_hits": 30,
+        "generation_cache_hits": 62,
+        "embedding_stats": {
+          "cached_texts": 593,
+          "new_texts": 0,
+          "reused_texts": 31,
+          "encoding_enabled": true
+        },
+        "scope": "Known regression questions; paired against frozen v243 answers. Both judge orders retained. No live platform score."
+      },
+      "answers_changed": 27,
+      "same_pre_review_draft": 27,
+      "same_review_evidence": 29,
+      "paired_review_cases": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "H01",
+        "H02",
+        "H03",
+        "H04",
+        "H06",
+        "H07",
+        "H08",
+        "H09",
+        "H10",
+        "H11",
+        "H12"
+      ],
+      "routes": {
+        "null": 30
+      },
+      "review_statuses": {
+        "applied": 29,
+        "not_needed_or_deadline": 1
+      },
+      "required_anchors": 60,
+      "present_anchors": 60,
+      "mean_context_tokens": 10835.333333333334,
+      "wins": [
+        "D07"
+      ],
+      "losses": [],
+      "details": [
+        {
+          "id": "D01",
+          "changed_answer": true,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "proposed_patches": [],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 5529,
+          "score": 0.5,
+          "initial_answer": "| Ответ | Основание |\n|---|---|\n| Нет. 15 августа 2024 года — крайний срок первоначальной передачи помещения по акту, а не последний день аренды. | Договор аренды № А-08/2024, п. 2.1, п. 2.2 |\n| Договор заключён на неопределённый срок, поэтому фиксированная дата окончания аренды в договоре не установлена. | Договор аренды № А-08/2024, п. 2.2 |\n| При прекращении договора возврат помещения оформляется актом. | Договор аренды № А-08/2024, п. 6.3 |"
+        },
+        {
+          "id": "D02",
+          "changed_answer": false,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "proposed_patches": [],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 5467,
+          "score": 0.5,
+          "initial_answer": "Позиция бухгалтера неверна: 450 000 рублей — это месячная арендная плата, включая НДС. Коммунальные платежи и электроэнергия оплачиваются арендатором отдельно по счетам арендодателя на основании показаний приборов учёта. (Договор аренды А-08-2024 Северный Склад, п. 3.1, п. 3.3)\n\nОбеспечительный платёж не равен половине месячной платы. По договору он составляет одну месячную арендную плату: 1 × 450 000 = 450 000 рублей. (Договор аренды А-08-2024 Северный Склад, п. 3.5, п. 3.1)\n\nПо состоянию на текущую дату."
+        },
+        {
+          "id": "D03",
+          "changed_answer": true,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "proposed_patches": [],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 5002,
+          "score": 0.5,
+          "initial_answer": "Нет. Для субаренды по договору требуется письменное согласие арендодателя; устное разрешение этому условию не соответствует. (Договор аренды А-08-2024 Северный Склад, п. 4.2)\n\nНет. Дополнительные условия, изменяющие или дополняющие договор, должны быть оформлены дополнительным соглашением в письменной форме. Одного устного обмена недостаточно. (Договор аренды А-08-2024 Северный Склад, п. 6.1)\n\nПо состоянию на текущую дату."
+        },
+        {
+          "id": "D04",
+          "changed_answer": true,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "proposed_patches": [],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 8703,
+          "score": 0.5,
+          "initial_answer": "Договорная неустойка за два периода составляет 372 рубля. Расчёт: (62 000 × 0,001 × 3) + (31 000 × 0,001 × 6) = 186 + 186 = 372 рубля. Установленный предел — не более 10% соответствующей неоплаченной суммы; начисленные 186 рублей по каждому периоду этот предел не превышают. (Договор поставки П-17-2024 Альфа-Трейд, п. 4.2, п. 7.2)\n\nПо состоянию на текущую дату."
+        },
+        {
+          "id": "D05",
+          "changed_answer": true,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "proposed_patches": [],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 7951,
+          "score": 0.5,
+          "initial_answer": "По мебели по договору П-17/2024 — 30 календарных дней с даты подписания УПД на соответствующую партию. Поэтому правило «45 дней после УПД» для этого договора неверно. (Договор № П-17/2024, п. 4.2)\n\nПо компьютерам по договору ПТ-05/2023 — 45 календарных дней с даты поставки. Договор не формулирует начало срока как дату подписания УПД. (Договор № ПТ-05/2023, п. 4.1)\n\nОбщее правило коллеги неверно для обоих договоров: для П-17/2024 отличается длительность — 30, а не 45 дней; для ПТ-05/2023 длительность 45 дней верна, но начальное событие — поставка, а не УПД. (Договор № П-17/2024, п. 4.2; Договор № ПТ-05/2023, п. 4.1)\n\nВывод дан на текущую дату."
+        },
+        {
+          "id": "D06",
+          "changed_answer": true,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "proposed_patches": [],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 7784,
+          "score": 0.5,
+          "initial_answer": "Действует исходный адрес: г. Москва, ул. Складская, д. 4, стр. 2. Изменённый адрес применяется только к партиям, спецификации на которые подписаны после 1 октября 2024 года; спецификация, подписанная ровно 1 октября, этому условию не соответствует. Дата доставки 7 октября значение не меняет. (Доп соглашение 1 к договору П-17-2024, абзац «Новый адрес доставки применяется к партиям Товара, Спецификации на которые подпи»; Договор поставки П-17-2024 Альфа-Трейд, п. 3.2)\n\nОтдельно оплачивать доставку не нужно: цена товара по договору уже включает стоимость упаковки и доставки до склада Покупателя. (Договор поставки П-17-2024 Альфа-Трейд, п. 2.1)"
+        },
+        {
+          "id": "D07",
+          "changed_answer": true,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "proposed_patches": [],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 10852,
+          "score": 0.625,
+          "initial_answer": "Да, финансовый директор необходим. Для договора, по которому Общество выступает поручителем, действует специальное правило: согласование с финансовым директором требуется независимо от суммы договора. Поэтому сумма 500 000 рублей и общий порог «свыше 3 000 000 рублей» значения не имеют; применяется п. 2.5 Регламента в редакции, действующей с 01.03.2025. (Регламент, ред. от 01.03.2025, п. 2.5, абзац «Редакция от 01.03.2025»)"
+        },
+        {
+          "id": "D08",
+          "changed_answer": true,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "proposed_patches": [],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 9008,
+          "score": 0.5,
+          "initial_answer": "Юридический отдел — максимум 5 рабочих дней всего (3 рабочих дня основного срока + не более 2 рабочих дней продления). Главный бухгалтер — максимум 4 рабочих дня всего (2 + 2). Для каждого согласующего само продление не может превышать 2 рабочих дней. (Регламент согласования договоров ред 2025, п. 2.2)\n\nУже подписанный оригинал договора передаётся в юридический отдел в течение 3 рабочих дней с даты подписания. (Регламент согласования договоров ред 2025, п. 3.2)\n\nПо состоянию на текущую дату."
+        },
+        {
+          "id": "D09",
+          "changed_answer": true,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 1,
+            "applied": 1,
+            "draft_preserved": false
+          },
+          "proposed_patches": [
+            {
+              "paragraph": 2,
+              "before": "исчисляется с даты получения службой комплаенс запроса",
+              "after": "исчисляется с даты получения запроса",
+              "reason": "factual_error",
+              "evidence": [
+                {
+                  "source_id": "D2",
+                  "quote": "Санкционную проверку проводит служба комплаенс в течение 3 (трёх) рабочих дней с даты получения запроса."
+                }
+              ]
+            }
+          ],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 13671,
+          "score": 0.5,
+          "initial_answer": "На 25 апреля 2025 года по чек-листу К-12 проверяются: 1) контрагент и его бенефициары по санкционным спискам; 2) юрисдикция регистрации контрагента; 3) банк контрагента; 4) товар (услуга) на предмет ограничений на ввоз или вывоз. (Письмо комплаенс-службы К-12 от 15.04.2025, абзац «Приложение 1. Чек-лист санкционной проверки»)\n\nПроверку проводит служба комплаенс. Требование К-12 действует с 21 апреля 2025 года и применяется до подписания договора с иностранным контрагентом. (Письмо комплаенс-службы К-12 от 15.04.2025, абзац «С 21 апреля 2025 г. до подписания любого договора», абзац «Санкционную проверку проводит служба комплаенс»)\n\nСрок проверки составляет 3 рабочих дня и исчисляется с даты получения службой комплаенс запроса. (Письмо комплаенс-службы К-12 от 15.04.2025, абзац «Санкционную проверку проводит служба комплаенс в течение 3 (трёх) рабочих дней»)\n\nЗаключение службы комплаенс прикладывают к договору в СЭД; без этого заключения договор с иностранным контрагентом не допускается к подписанию. (Письмо комплаенс-службы К-12 от 15.04.2025, абзац «Заключение службы комплаенс прикладывается к договору в СЭД», абзац «Договоры с иностранными контрагентами без заключения службы комплаенс»)"
+        },
+        {
+          "id": "D10",
+          "changed_answer": true,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "proposed_patches": [],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 16108,
+          "score": 0.5,
+          "initial_answer": "Нет. Работнику, которому 17 лет, испытание при приёме на работу устанавливать нельзя: статья 70 прямо исключает лиц, не достигших 18 лет. (ТК_ст70_действующая, абзац «лиц, не достигших возраста восемнадцати лет;»)\n\nПравило о договоре сроком от двух до шести месяцев устанавливает предел испытания не более двух недель, но оно не отменяет запрет для несовершеннолетних. Поэтому при договоре на четыре месяца испытательный срок работнику установить нельзя. (ТК_ст70_действующая, абзац «При заключении трудового договора на срок от двух до шести месяцев испытание не», абзац «лиц, не достигших возраста восемнадцати лет;»)"
+        },
+        {
+          "id": "D11",
+          "changed_answer": true,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "proposed_patches": [],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 14205,
+          "score": 0.5,
+          "initial_answer": "Нет. При указанных обстоятельствах испытание не считается установленным: отсутствие условия об испытании в трудовом договоре означает, что работник принят без испытания. Подписание соглашения задним числом после начала работы не изменяет этого вывода. (ТК_ст70_действующая, абзац «Отсутствие в трудовом договоре условия об испытании означает, что работник приня»)\n\nСтатья 70 допускает отдельное соглашение об испытании до начала работы только в ситуации, когда работник фактически допущен к работе без оформления трудового договора. В описанном случае такого соглашения до начала работы не было, а в трудовом договоре условие об испытании отсутствует. (ТК_ст70_действующая, абзац «Отсутствие в трудовом договоре условия об испытании означает, что работник приня», абзац «При заключении трудового договора в нем по соглашению сторон может быть предусмо»)\n\nПо состоянию на текущую дату."
+        },
+        {
+          "id": "D12",
+          "changed_answer": true,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "proposed_patches": [],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 13661,
+          "score": 0.5,
+          "initial_answer": "Все три часа являются 121-м, 122-м и 123-м часами сверхурочной работы за год, поэтому каждый оплачивается минимум в двойном размере. Расчёт: 3 часа × 400 руб./час × 2 = 2 400 руб. Минимальная оплата этих трёх часов — 2 400 рублей. (ТК_ст152_действующая, абзац «Сверхурочная работа оплачивается исходя из размера заработной платы, установленн»)"
+        },
+        {
+          "id": "D13",
+          "changed_answer": true,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "proposed_patches": [],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 16098,
+          "score": 0.5,
+          "initial_answer": "Да. Для обычной организации на ОСНО освобождение допустимо: выручка без НДС за три предшествующих последовательных календарных месяца составляет ровно 2 000 000 рублей, то есть не превышает установленный порог. Отсутствие реализации подакцизных товаров также сохраняет право на освобождение. (НК_ст145_действующая, п. 1, п. 5)\n\nПри начале применения освобождения с ноября 2026 года уведомление и подтверждающие документы нужно представить в налоговый орган по месту учета не позднее 20 ноября 2026 года. Для организации подтверждающими документами являются выписки из бухгалтерского баланса и книги продаж. (НК_ст145_действующая, абзац «Указанные документы и (или) уведомление представляются не позднее 20-го числа ме», абзац «Лица, указанные в абзаце первом пункта 1 настоящей статьи, использующие право на освобождение», п. 6)"
+        },
+        {
+          "id": "D14",
+          "changed_answer": true,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "proposed_patches": [],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 15015,
+          "score": 0.5,
+          "initial_answer": "Организация на УСН начинает исполнять обязанности плательщика НДС с 1 августа 2026 года — с первого числа месяца, следующего за месяцем, в котором произошло превышение дохода в июле. Условие: превышение совокупного дохода свыше 20 млн рублей определяется с учетом установленных правил учета доходов. (НК_ст145_действующая, абзац «Если в течение налогового периода по налогу, уплачиваемому в связи с применением»)\n\nВ 2026 году общая ставка налога на прибыль для обычной организации составляет 25%, из них 8% зачисляется в федеральный бюджет и 17% — в бюджеты субъектов Российской Федерации. (НК_ст284_действующая, п. 1)"
+        },
+        {
+          "id": "D15",
+          "changed_answer": true,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "proposed_patches": [],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 9539,
+          "score": 0.5,
+          "initial_answer": "Пункт 5 статьи 114 НК РФ требует взыскивать санкции за каждое из двух самостоятельных правонарушений отдельно; меньший штраф не поглощается большим. Поэтому взыскать только 11 000 рублей нельзя. Общая сумма: 8 000 + 11 000 = 19 000 рублей. (НК_ст114_действующая, п. 5)"
+        },
+        {
+          "id": "D16",
+          "changed_answer": true,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "proposed_patches": [],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 16344,
+          "score": 0.5,
+          "initial_answer": "1) Налог на прибыль организаций за 2026 год: общая ставка — 25%, из них 8% зачисляется в федеральный бюджет и 17% — в бюджеты субъектов Российской Федерации. (НК_ст284_действующая, п. 1, абзац «сумма налога, исчисленная по налоговой ставке»)\n\n2) НДФЛ: база 5 400 000 рублей попадает в диапазон свыше 5 млн до 20 млн рублей. Расчёт: 702 000 + 18% × (5 400 000 − 5 000 000) = 702 000 + 72 000 = 774 000 рублей. (НК_ст224_действующая, п. 1)"
+        },
+        {
+          "id": "D17",
+          "changed_answer": false,
+          "same_pre_review_draft": false,
+          "same_review_evidence": false,
+          "status": "not_in_base",
+          "review": "not_needed_or_deadline",
+          "patch_review": null,
+          "proposed_patches": null,
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": null,
+          "context_tokens": 13191,
+          "score": 0.5,
+          "initial_answer": "Статья 80 ТК РФ в представленных документах отсутствует, поэтому срок предупреждения об увольнении по собственному желанию по правилам этой базы назвать нельзя."
+        },
+        {
+          "id": "D18",
+          "changed_answer": true,
+          "same_pre_review_draft": false,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "proposed_patches": [],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 12711,
+          "score": 0.5,
+          "initial_answer": "Максимальный срок выдачи оригинала из архива по заявке в СЭД — не более 3 рабочих дней. (Служебная записка об архиве договоров, абзац «Выдача оригиналов из архива сотрудникам других подразделений производится по зая»)\n\nОригинал договора должен храниться 5 лет после окончания срока его действия или исполнения сторонами обязательств. (Служебная записка об архиве договоров, абзац «Срок хранения оригинала договора — 5 (пять) лет после окончания срока его действ»)\n\nПо состоянию на текущую дату."
+        },
+        {
+          "id": "H01",
+          "changed_answer": true,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 1,
+            "applied": 1,
+            "draft_preserved": false
+          },
+          "proposed_patches": [
+            {
+              "paragraph": 1,
+              "before": "при наличии предварительного письменного согласия арендодателя",
+              "after": "при наличии письменного согласия арендодателя",
+              "reason": "factual_error",
+              "evidence": [
+                {
+                  "source_id": "D5",
+                  "quote": "Арендатор не вправе сдавать Помещение в субаренду без письменного согласия Арендодателя."
+                }
+              ]
+            }
+          ],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 5567,
+          "score": 0.5,
+          "initial_answer": "Для допуска вашего транспорта ночью действует условие о круглосуточном беспрепятственном доступе арендатора и его транспорта к помещению. (Договор аренды А-08-2024 Северный Склад, п. 4.3)\n\nПередача части помещения в субаренду допускается только при наличии предварительного письменного согласия арендодателя. (Договор аренды А-08-2024 Северный Склад, п. 4.2)\n\nНет. Право круглосуточного доступа регулирует доступ арендатора и его транспорта, но само по себе не является согласием на субаренду. Для субаренды отдельно требуется письменное согласие арендодателя. (Договор аренды А-08-2024 Северный Склад, п. 4.3, п. 4.2)\n\nПо состоянию на текущую дату."
+        },
+        {
+          "id": "H02",
+          "changed_answer": true,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "proposed_patches": [],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 7049,
+          "score": 0.5,
+          "initial_answer": "| Ответ | Основание |\n|---|---|\n| Да, договор действует в 2026 году: после отсутствия заявления о прекращении до окончания 2024 и 2025 годов он автоматически продлился на очередной календарный год. | Договор № ПТ-05/2023, п. 8.1 |\n| Минимальный срок предварительного заявления о прекращении автоматического продления — не позднее чем за 30 календарных дней до окончания срока действия договора. | Договор № ПТ-05/2023, п. 8.1 |"
+        },
+        {
+          "id": "H03",
+          "changed_answer": false,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "proposed_patches": [],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 5790,
+          "score": 0.5,
+          "initial_answer": "По количеству товар принимают в момент передачи; по качеству — в течение 5 рабочих дней с даты поставки. (Договор поставки П-17-2024 Альфа-Трейд, п. 6.1)\n\nК претензии о выявленных недостатках нужно приложить акт о выявленных недостатках. (Договор поставки П-17-2024 Альфа-Трейд, п. 6.2)\n\nПоставщику даётся 15 календарных дней на ответ с даты получения претензии. (Договор поставки П-17-2024 Альфа-Трейд, п. 8.1)\n\nПо состоянию на текущую дату."
+        },
+        {
+          "id": "H04",
+          "changed_answer": true,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "proposed_patches": [],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 9515,
+          "score": 0.5,
+          "initial_answer": "По признаку аренды недвижимого имущества требуется дополнительное согласование с административно-хозяйственным отделом. Применяется редакция Регламента от 01.03.2025, действующая в ноябре 2026 года. (Регламент, ред. от 01.03.2025, п. 5.1, абзац «Редакция от 01.03.2025. Действует с 01.03.2025»)\n\nПо признаку договора с аффилированным лицом требуется дополнительное согласование с финансовым директором независимо от суммы договора. (Регламент, ред. от 01.03.2025, п. 5.3)\n\nПо признаку связи договора с обработкой персональных данных требуется дополнительное согласование с ответственным за организацию обработки персональных данных. (Регламент, ред. от 01.03.2025, п. 5.2)"
+        },
+        {
+          "id": "H05",
+          "changed_answer": true,
+          "same_pre_review_draft": false,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "proposed_patches": [],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 8502,
+          "score": 0.5,
+          "initial_answer": "По договору ПТ-05/2023 срок оплаты составляет 45 календарных дней с даты поставки товара. Указание о 30 днях после подписания УПД относится к другому договору и здесь не применяется. (Договор поставки ПТ-05-2023 Альфа-Трейдинг, абзац «ДОГОВОР ПОСТАВКИ № ПТ-05/2023», п. 4.1)\n\nПраво собственности на компьютеры переходит к Покупателю с момента подписания товарной накладной. (Договор поставки ПТ-05-2023 Альфа-Трейдинг, п. 3.3)\n\nПо состоянию на текущую дату."
+        },
+        {
+          "id": "H06",
+          "changed_answer": true,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "proposed_patches": [],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 10045,
+          "score": 0.5,
+          "initial_answer": "Нужен СЭД: согласование проводится 2 марта 2025 года, поэтому применяется редакция от 01.03.2025, действующая с этой даты. Бумажный лист согласования не требуется. (Регламент согласования договоров ред 2025, абзац «Редакция от 01.03.2025. Действует с 01.03.2025», п. 3.1)\n\nНет, по сумме 14 000 000 рублей одобрение генерального директора не требуется: по действующей на дату согласования редакции оно необходимо только для договоров на сумму свыше 15 000 000 рублей. Сравнение: 14 000 000 < 15 000 000. Особые условия отсутствуют, поэтому указанных в вопросе оснований для одобрения гендиректором нет. (Регламент согласования договоров ред 2025, п. 2.4, абзац «Редакция от 01.03.2025. Действует с 01.03.2025»)"
+        },
+        {
+          "id": "H07",
+          "changed_answer": true,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "proposed_patches": [],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 13315,
+          "score": 0.5,
+          "initial_answer": "Нет, семь дней временной нетрудоспособности не засчитываются в срок испытания. Поэтому течение испытания приостанавливается на период болезни и продолжается после выхода работника; фактический период проверки продлевается на эти семь дней. (ТК_ст70_действующая, абзац «В срок испытания не засчитываются период временной нетрудоспособности работника»)\n\nНет, заменить установленный законом предел на месяц нельзя. Для трудового договора сроком пять месяцев действует специальный предел испытания — не более двух недель; исключение дней болезни не изменяет этот предел, а только исключает дни отсутствия из его исчисления. (ТК_ст70_действующая, абзац «При заключении трудового договора на срок от двух до шести месяцев испытание не может превышать двух недель», абзац «В срок испытания не засчитываются период временной нетрудоспособности работника»)\n\nПо состоянию на текущую дату."
+        },
+        {
+          "id": "H08",
+          "changed_answer": true,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "proposed_patches": [],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 13675,
+          "score": 0.5,
+          "initial_answer": "Да. С лицом, получающим образование по очной форме обучения, срочный трудовой договор может заключаться по соглашению сторон; сезонный характер работы для этого основания не требуется. (ТК_ст59_действующая, абзац «с лицами, получающими образование по очной форме обучения;»)\n\nСезонность обязательна только для отдельного основания — выполнения сезонных работ, возможных из-за природных условий лишь в определённый период (сезон). Она не является условием применения основания, связанного с очной формой обучения. (ТК_ст59_действующая, абзац «для выполнения сезонных работ, когда в силу природных условий работа может производиться только в течение определенного периода (сезона);», абзац «с лицами, получающими образование по очной форме обучения;»)\n\nПо состоянию на текущую дату."
+        },
+        {
+          "id": "H09",
+          "changed_answer": true,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "proposed_patches": [],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 13077,
+          "score": 0.5,
+          "initial_answer": "По пункту 1.1 статьи 224: база 5 400 000 руб. превышает 2 400 000 руб., поэтому применяется формула 312 000 + 15% × (5 400 000 − 2 400 000) = 312 000 + 450 000 = 762 000 руб. Граница диапазона: более 2,4 млн руб. (НК_ст224_действующая, п. 1.1)\n\nПо пункту 1.2 статьи 224: база 5 400 000 руб. превышает 5 000 000 руб., поэтому применяется формула 650 000 + 15% × (5 400 000 − 5 000 000) = 650 000 + 60 000 = 710 000 руб. Граница диапазона: более 5 млн руб. Расчёты выполнены раздельно; шкалы не смешиваются. (НК_ст224_действующая, п. 1.2)"
+        },
+        {
+          "id": "H10",
+          "changed_answer": true,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "proposed_patches": [],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 13398,
+          "score": 0.5,
+          "initial_answer": "Нет, ограничение продолжительности по дням не нарушено: 3 часа сверхурочной работы в понедельник и 3 часа во вторник не превышают установленный предел в 4 часа за день для каждого работника. (ТК_ст99_действующая, абзац «Продолжительность сверхурочной работы не должна превышать для каждого работника»)\n\nГодовое ограничение также не нарушено: 20 часов не превышают общий предел 120 часов в год. Отсутствие в коллективном договоре повышенного предела значения не меняет, поскольку 20 часов укладываются в обычный предел. (ТК_ст99_действующая, абзац «Продолжительность сверхурочной работы не должна превышать для каждого работника»)"
+        },
+        {
+          "id": "H11",
+          "changed_answer": true,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "answered",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "proposed_patches": [],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 15313,
+          "score": 0.5,
+          "initial_answer": "Нет. Обычная организация на ОСНО, уведомившая об освобождении по пункту 1 статьи 145, не вправе добровольно отказаться от него через четыре месяца: обязательный период составляет 12 последовательных календарных месяцев. Исключение возможно только при утрате права на освобождение по пункту 5, а по условию задачи таких оснований нет. Отказ можно заявить после истечения 12 месяцев в установленном порядке. (НК_ст145_действующая, п. 4, п. 5, п. 1)\n\nПо состоянию на текущую дату."
+        },
+        {
+          "id": "H12",
+          "changed_answer": true,
+          "same_pre_review_draft": true,
+          "same_review_evidence": true,
+          "status": "partial",
+          "review": "applied",
+          "patch_review": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "proposed_patches": [],
+          "route": null,
+          "route_reason": null,
+          "lexical_max_score": null,
+          "rerank_passes": 1,
+          "degraded": [],
+          "all_anchors_present": true,
+          "context_tokens": 8975,
+          "score": 0.5,
+          "initial_answer": "За просрочку оплаты договорная неустойка составляет 0,1% от неоплаченной суммы за каждый день просрочки. Предел — не более 10% от неоплаченной суммы. (Договор поставки П-17-2024 Альфа-Трейд, п. 7.2)\n\nПо представленным документам базы нельзя установить условия судебного снижения этой неустойки именно по статье 333 ГК РФ: положение статьи 333 ГК РФ и относящиеся к ней условия в предоставленных источниках отсутствуют.\n\nПо состоянию на текущую дату."
+        }
+      ]
+    }
+  },
+  "usage": {
+    "GENERATOR": {
+      "calls": 44,
+      "successful": 44,
+      "tokens": 451846,
+      "rerank_input_tokens": 0
+    },
+    "JUDGE": {
+      "calls": 108,
+      "successful": 108,
+      "tokens": 174988,
+      "rerank_input_tokens": 0
+    },
+    "RERANKER": {
+      "calls": 31,
+      "successful": 31,
+      "tokens": 0,
+      "rerank_input_tokens": 798099
+    }
+  },
+  "api_errors": [],
+  "manual_audit": {
+    "status": "completed",
+    "scope": "All changed v244 answers and all 30 v245 final answers reviewed against saved goldens, v243 answers and captured evidence; no model rerolls.",
+    "frozen_packages_and_inputs": "sha256 verified; executed package files identical; dependency lists identical to v243",
+    "offline_patch_replay": {
+      "status": "passed",
+      "model_calls": 0,
+      "package_files_unchanged": true,
+      "cases": 30,
+      "rows": [
+        {
+          "id": "D01",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "answer_sha256": "c01bec3184ab17895c1753a968d0ca98d6058fb9155796528d08a379c04e8c6b"
+        },
+        {
+          "id": "D02",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "answer_sha256": "448d079bda1805a01b5380b9434d22db58af5430cefb387f593186340e5ccc01"
+        },
+        {
+          "id": "D03",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "answer_sha256": "06a4191796501820dd2394e71daa4136edc5c9f4739c94763b83b7050db7fe86"
+        },
+        {
+          "id": "D04",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "answer_sha256": "cd475e9ef8c3e199b6f3a6f435dc6315e30a4f69bfcf95e8929bec9eced507bc"
+        },
+        {
+          "id": "D05",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "answer_sha256": "f2ee5c83f07e7bc79b45d9dd621885fc6fcdb2b294d756f1842081de7f709ba1"
+        },
+        {
+          "id": "D06",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "answer_sha256": "bd42433874f143c4f71a902c5a90ca480c7e15d7e5683a572c298117f4dd16b4"
+        },
+        {
+          "id": "D07",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "answer_sha256": "51767dda833432f8386d173d52f4fdb39ccbd155b4e182a2c190791dd9e69754"
+        },
+        {
+          "id": "D08",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "answer_sha256": "eab439905fa90202a7a1d1bc3646ee7e8324ca33ec8b77a7ff04076ccc0a3c5a"
+        },
+        {
+          "id": "D09",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 1,
+            "applied": 1,
+            "draft_preserved": false
+          },
+          "answer_sha256": "6069c207605c20d4bacd3d129d1e585559e1d4097b6b6e9c491f4796de8e9919"
+        },
+        {
+          "id": "D10",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "answer_sha256": "aa950ac385180b636292ebd82351af62b28f4021f958946e19e553c4bb33d844"
+        },
+        {
+          "id": "D11",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "answer_sha256": "bbf81b50fd0b6eb7b7c7abd27118b713d2964cd5151e10011eca6b84e810f908"
+        },
+        {
+          "id": "D12",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "answer_sha256": "9a0da06829c766e245541421d6937edb6e5bac9ba68478f80227be7c33a51a5f"
+        },
+        {
+          "id": "D13",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "answer_sha256": "4cc9b9d372e0aba4cdd78da3f1077200238d0105b502e883731d8ed871268f42"
+        },
+        {
+          "id": "D14",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "answer_sha256": "00624a22522638fe2d491c9b2cf6edab603ff3f916530981a4aece9718d6c345"
+        },
+        {
+          "id": "D15",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "answer_sha256": "94e9069f448ae51ea6c030cb680162f450ae7c24f98c6300b2dbb40f0e7f7eeb"
+        },
+        {
+          "id": "D16",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "answer_sha256": "8df626b695ef48e7ce4b568920ca92dff793c2794e0a9c164663a32a5cde0393"
+        },
+        {
+          "id": "D17",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "applied": 0,
+            "review_not_needed": true
+          },
+          "answer_sha256": "659b76ee9fe9d6a6f9dffc5eb2dfe9316190ab9fe8e77638841c9a8a573c3a82"
+        },
+        {
+          "id": "D18",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "answer_sha256": "11a2da26cc4ff53b2a45b5c2d44df24b9c4287dfdfd2f707b68637852f62392c"
+        },
+        {
+          "id": "H01",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 1,
+            "applied": 1,
+            "draft_preserved": false
+          },
+          "answer_sha256": "d065c008a9af76ceecdf427f8575db2aeeb03fd2d23c0b26166233592bceb49e"
+        },
+        {
+          "id": "H02",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "answer_sha256": "4608e943945c2bd0c1d38078c3ea7bb2830331d79fc8d9842f6a75e03feef08b"
+        },
+        {
+          "id": "H03",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "answer_sha256": "696c65b0a8c70fd946c47010a3356f330ccddf6d7b377fd61a887b81acd97e7e"
+        },
+        {
+          "id": "H04",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "answer_sha256": "61419dbd513d697f14ff1e103d50a0f02910a39546270abd961657adc6b96d3c"
+        },
+        {
+          "id": "H05",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "answer_sha256": "962933e177d2fcc412435d65459c38a0e6deb461dd52e1b963d7c0131b59e460"
+        },
+        {
+          "id": "H06",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "answer_sha256": "bef52ed06cfca39437152f760954c8e699555e2d13f2a79c988ed63345f82b12"
+        },
+        {
+          "id": "H07",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "answer_sha256": "000abe8c9056e1351ee8f8007615fb3a9fb1fc21d67fe9352d8f6d396be032d7"
+        },
+        {
+          "id": "H08",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "answer_sha256": "37519a3def99999bea624f40cea852434e9d2b0e34bee86113622b985e0a9a19"
+        },
+        {
+          "id": "H09",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "answer_sha256": "905358410ff5d67f0d34689b8245a8a3b28a22445385755b4cbfe8fbf36ed0e1"
+        },
+        {
+          "id": "H10",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "answer_sha256": "4fd1ff6f9685de01291adf84f80532a8d2a4f08a22e1b390a98f9e08dc31041b"
+        },
+        {
+          "id": "H11",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "answer_sha256": "c39b8dcccd490dfed780ad98e4795615489d66bcaf953402cbc2d928ee452163"
+        },
+        {
+          "id": "H12",
+          "exact_final_answer": true,
+          "draft_not_mutated": true,
+          "patches": {
+            "proposed": 0,
+            "applied": 0,
+            "draft_preserved": true
+          },
+          "answer_sha256": "e230a21cc80a9f12db0f9fe97523c20f2719b9d0857e117fda8abf496d3a6e84"
+        }
+      ]
+    },
+    "overall": "No demonstrated new core factual error in this regression set. No demonstrated robust quality improvement over v243 either. Source anchor presence is not a proof that every golden detail is expressed.",
+    "v244": {
+      "changed_final_answers": [
+        "D08",
+        "D12",
+        "D15",
+        "D18",
+        "H05"
+      ],
+      "finding": "Main requested facts retained; all 30 pairwise comparisons tied. 29 lexical routes and one dense fallback (D17: absent answer).",
+      "causality_limit": "Evidence changed only D12/D15. Unordered topic metadata can change exact request hashes and wording; not every changed answer is caused by retrieval."
+    },
+    "v245": {
+      "review_calls": 29,
+      "applied_patches": 2,
+      "reviewed_drafts_preserved_exactly": 27,
+      "matched_initial_draft_and_evidence": 27,
+      "patches": [
+        {
+          "id": "D09",
+          "change": "Removed an explicit recipient from the phrase about the start of the three-working-day period, matching the literal source wording.",
+          "assessment": "Minor literal tightening; the actor, trigger, term and four checklist items were already correct. Extra applicability wording remains."
+        },
+        {
+          "id": "H01",
+          "change": "Removed the word предварительного from the requirement for written landlord consent.",
+          "assessment": "Narrowed the wording to the literal provision; no demonstrated newly solved fact. Repetition remains."
+        }
+      ],
+      "sole_numeric_win": {
+        "id": "D07",
+        "raw_score": 0.625,
+        "rounds": [
+          0.75,
+          0.5
+        ],
+        "rationale_conflict": true,
+        "finding": "Round 1 assigns v245 0.75 but its written rationale prefers baseline A for the extra citation to clause 2.3. Round 2 is a tie. Both answers correctly apply the special guarantor rule. The numeric win is not credible evidence of superiority.",
+        "action": "Original raw scores retained unchanged; no reroll and no manual replacement score."
+      },
+      "interpretation": "65.2917 results from Match Rate 0.504167 and Win Rate 1.0 (one numeric win, no losses, 29 ties). It does not establish a 15-point quality improvement."
+    },
+    "observations": [
+      {
+        "ids": [
+          "D01"
+        ],
+        "finding": "The normal-wear qualifier from the golden remains absent in both versions; the requested return document is correctly named. Shared omission, not a new regression."
+      },
+      {
+        "ids": [
+          "D04",
+          "D05"
+        ],
+        "finding": "Keeping the draft avoids some ambiguous full-review wording about the penalty cap and comparison of payment triggers; main values unchanged."
+      },
+      {
+        "ids": [
+          "D09",
+          "D13",
+          "H01",
+          "H04"
+        ],
+        "finding": "Some unrequested detail or repetition survives targeted review. It is not a universal brevity or caveat fix."
+      },
+      {
+        "ids": [
+          "D14",
+          "H09"
+        ],
+        "finding": "Date/rate conditions and both separate tax calculations retained; no arithmetic regression found in these saved cases."
+      },
+      {
+        "ids": [
+          "D18"
+        ],
+        "finding": "The combined user/document injection case still answers the legal question with the three-working-day and five-year facts; not a universal injection-resistance guarantee."
+      },
+      {
+        "ids": [
+          "H02",
+          "H05",
+          "H06",
+          "H07",
+          "H08"
+        ],
+        "finding": "Renewal, last-user contract selection, approval thresholds, excluded illness days and student-agreement conditions retained."
+      },
+      {
+        "ids": [
+          "H10",
+          "H11"
+        ],
+        "finding": "Keeping the draft removes some extra effective-date/notification detail introduced by the full reviewer while preserving the requested conclusion."
+      },
+      {
+        "ids": [
+          "D17",
+          "H12"
+        ],
+        "finding": "Absent and partially absent source coverage remains explicit; no invented replacement for missing legal text."
+      }
+    ],
+    "decision": "Deliver both frozen variants as independent experiments. Keep v243 (user-reported PSB 37.5/100, 484 seconds) as the established platform reference. Neither local result demonstrates a reliable platform improvement."
+  },
+  "limitations": [
+    "All 30 cases were previously exposed; this is regression evidence, not independent holdout.",
+    "50 is a pairwise tie against v243, not accuracy or a predicted PSB score.",
+    "Shared exact caches reduce spend and distort wall-time comparisons with cold platform execution.",
+    "The judge may disagree between numeric score and written rationale; all raw rounds are preserved.",
+    "Initial draft/evidence equality is measured per question; only matched cases isolate the reviewer effect."
+  ]
+}
