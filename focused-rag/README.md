@@ -36,7 +36,16 @@ CSV scheduler of v8; its context assembly and generation pipeline are new.
    model calls and no question-ID/golden-answer lookup. Unknown topics use the
    original full context budget. Topic recognition and curated notes are
    deliberate development-set/corpus tailoring, not generalization evidence.
-6. DeepSeek generation returns status and short paragraphs, each
+6. `rule_drafts.py` can prepare an actual answer draft for supported intents
+   when complete, hash-matching sources are in evidence. Rules distinguish the
+   two contracts, evaluate edition/amendment dates, preserve separate answer
+   slots, and calculate penalties using `Decimal` and amounts/days from the
+   question. Ambiguous amounts, unsupported operations and missing/changed
+   sources fall back to generation. These drafts replace the initial generator
+   call; the same mandatory review stage still checks the full question and
+   sources. This makes common known operations cheaper and less dependent on
+   model improvisation; it is not a proof of semantic routing completeness.
+   Otherwise, DeepSeek generation returns status and short paragraphs, each
    with separate source IDs and provision locators. The renderer inserts document
    names and locators. One additional direct review checks arithmetic, factual
    comparisons, applicability and citation relevance, returning corrected

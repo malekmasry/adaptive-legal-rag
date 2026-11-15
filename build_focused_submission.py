@@ -5,7 +5,7 @@ from pathlib import Path
 import zipfile
 
 ROOT=Path(__file__).resolve().parent/'focused-rag'
-MODULES=['solution.py','pipeline.py','focused_context.py','answer_guides.py','corpus_playbook.py','corpus_playbook.json','settings.py','model_api.py',
+MODULES=['solution.py','pipeline.py','focused_context.py','answer_guides.py','corpus_playbook.py','corpus_playbook.json','rule_drafts.py','settings.py','model_api.py',
          'corpus.py','retrieval.py','security.py','diagnostics.py','schemas.py',
          'prompt_config.py','token_budget.py','requirements.txt','aliases.yaml',
          'relations.yaml','prompts.yaml','cl100k_base.tiktoken']

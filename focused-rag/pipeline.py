@@ -10,6 +10,7 @@ from focused_context import ScopeRetriever, context_bundle, render_paragraphs, s
 from diagnostics import emit, error_info
 from answer_guides import prepare_guides, plan_for, GUIDANCE
 from corpus_playbook import verified_hints
+from rule_drafts import build_rule_draft
 
 TECHNICAL = 'Не удалось получить ответ из-за технического сбоя. Это не означает отсутствия нужных сведений в базе.'
 
@@ -88,11 +89,13 @@ class Pipeline:
         payload = {'question':question, 'current_date':self.s.as_of, 'evidence':evidence,
                    'inventory':[d.filename for d in self.docs.values()], 'context_limits':budget,
                    'response_plan':response_plan,'primary_cards':cards}
-        trace = {'retrieval':retrieval, 'budget':budget, 'failures':[]}
+        prepared=build_rule_draft(query,evidence,self.docs,self.s.as_of)
+        trace = {'retrieval':retrieval, 'budget':budget, 'failures':[],
+                 'draft_origin':'source_rules' if prepared else 'generator'}
         # Tiny JSON schema; no factual verdict indices or quote matching gates.
         instruction = INSTRUCTION+'\n\n'+GUIDANCE+'\n\n'+hints
         for attempt in range(2):
-            draft = self.api.structured(instruction, payload, Answer)
+            draft = Answer.model_validate(prepared) if prepared and attempt==0 else self.api.structured(instruction, payload, Answer)
             try:
                 answer, refs = render_paragraphs([p.model_dump() for p in draft.paragraphs], evidence)
                 answer = date_note(question, answer, self.s.as_of, bool(refs))
@@ -110,7 +113,10 @@ class Pipeline:
         remaining=getattr(self.api,'deadline',float('inf'))-time.monotonic()
         if refs and remaining>20:
             try:
-                revised=self.api.structured(INSTRUCTION+'\n\n'+REVIEW+'\n\n'+GUIDANCE+'\n\n'+hints,{**payload,'previous_draft':draft.model_dump()},Answer)
+                review_instruction=INSTRUCTION+'\n\n'+REVIEW+'\n\n'+GUIDANCE+'\n\n'+hints
+                if prepared:
+                    review_instruction+='\nЧерновик подготовлен программными правилами по проверенным документам. Сохрани его формулировки, если они верны. Исправляй ошибки применимости и расчёта, отвечай на пропущенные подвопросы, но не расширяй правильный текст новыми справками, расшифровками и оговорками. Не сообщай пользователю о происхождении черновика.'
+                revised=self.api.structured(review_instruction,{**payload,'previous_draft':draft.model_dump()},Answer)
                 revised_answer,revised_refs=render_paragraphs([p.model_dump() for p in revised.paragraphs],evidence)
                 if revised.status in ('answered','partial') and not revised_refs:
                     raise ValueError('Reviewed answer lacks citations')
@@ -123,5 +129,5 @@ class Pipeline:
         else:
             trace['review']='not_needed_or_deadline'
         emit(self.s.cache_dir, 'focused_answer', status=draft.status, seconds=round(time.monotonic()-start,3),
-             context=budget, retrieval=retrieval, source_ids=refs, review=trace['review'])
+             context=budget, retrieval=retrieval, source_ids=refs, review=trace['review'],draft_origin=trace['draft_origin'])
         return {'answer':answer, 'status':draft.status, 'trace':trace}
