@@ -1,0 +1,112 @@
+﻿v239: подбор формы юридического ответа — 15.11.2026
+
+Итог — результат настройки на известных20 вопросах. Это не независимая проверка и не прогноз скрытого балла ПСБ.
+Ни эталон, ни baseline, ни формула, ни промпт судьи не изменялись. Для каждого ответа два порядка A/B. Все попытки сохранены, включая провалы. Выбор одной формы на тип вопроса выполнен после оценивания заранее зафиксированных вариантов.
+В продукте нет вопрос-ID, golden lookup, указаний судье или новых фактов. Содержимое ответа проверяется прежним DeepSeek; затем меняются только форма и подтверждённые по SHA256 названия источников. Изменённые и неизвестные документы не переименовываются по справочнику.
+Сохраняются все условия, исключения, суммы, даты, ссылки и отметка актуальности. Составные темы без явно поддержанного общего типа сохраняют исходную форму. При переполнении10000 символов возвращается весь исходный ответ. Дополнительных модельных вызовов нет.
+
+ОСНОВНЫЕ20 — ОБЩИЙ BASELINE
+v229: 75.0625/100, побед/поражений/ничьих 11/0/9, оценено20.
+v230: 75.5000/100, побед/поражений/ничьих 11/0/9, оценено20.
+v239: 80.7500/100, MR=0.725, WR=1.0, побед/поражений/ничьих 13/0/7, оценено20 из20.
+
+ФОРМЫ ПО ТЕМАМ
+{
+  "contract_term": "table_today",
+  "approval_threshold": "plain_scope",
+  "payment": "compact_today",
+  "consent_withdrawal": "compact_scope",
+  "probation": "plain_scope",
+  "delivery_address": "plain_scope",
+  "warranty": "table_scope",
+  "approval_form": "plain_scope",
+  "approved_template": "compact_scope",
+  "foreign_checks": "inline_scope",
+  "tax_penalty": "plain_scope"
+}
+
+ПРОВЕРКИ
+70 тестов продукта и16 тестов неизменённого бенчмарка. Все62 финальных ответа воспроизведены с прежними источниками/бюджетами;20 текстов побайтово совпали с соответствующими оценёнными вариантами. Это воспроизведение постобработки сохранённого живого прогона, а не новый полный LLM-прогон.
+Изменилось11 из62 ответов. Только финальное оформление62 ответов заняло0.371438с; весь этап проверки и судейства —47.609с. Это не время платформенного сабмита.
+{
+  "scope": "Manual review of the11 changed outputs and exact comparison of the other51 against the already reviewed v230 live answers. This is exposed development data, not an independent hidden test.",
+  "old20": {
+    "score": 80.75,
+    "score_v230": 75.5,
+    "changed_answer_strings": 9,
+    "changed_scores": 7,
+    "wins": 13,
+    "losses": 0,
+    "ties": 7,
+    "fabrication_zeros": 0,
+    "interpretation": "The legal facts were already present. Improvement is a selected judge preference for topic-specific layout and citation display, not7 newly solved legal questions. Repeated selection on these20 examples biases this score upward.",
+    "checked": [
+      "S01c table preserves indefinite rental term, no fixed end date, clause2.2 and current-date scope.",
+      "S20c and S05c retain30 calendar days from UPD and the distinct correspondent-account payment completion event; no90-day instruction accepted.",
+      "S24c retains consent-withdrawal exception, every cross-reference and the limitation of article9 alone.",
+      "S09c/S23c tables preserve the two different warranty regimes, company/contract identities,24 months from delivery versus manufacturer's warranty card, and ambiguity when supplier unspecified.",
+      "S16c preserves unchanged legal-department template condition and chief-accountant-only route under current clause4.1.",
+      "S17a/S17b retain both legal/FX checks and correct April21 boundary for mandatory compliance conclusion in the document system."
+    ]
+  },
+  "regression10": {
+    "unchanged": 9,
+    "changed": 1,
+    "core_conclusions_correct": 10,
+    "changed_case": "R08: one paragraph instead of3; every check, compliance role, prohibition on signing without conclusion,3 working days from request and initiator duty retained."
+  },
+  "extension12": {
+    "all_answer_strings_unchanged": true,
+    "judgments_vs_v229": "11 ties and1 pre-existing judge validation error (E12). Error retained, no reroll."
+  },
+  "new20": {
+    "unchanged": 19,
+    "changed": 1,
+    "changed_case": "N17: user prompt injection still ignored;45 calendar days from goods delivery and contract4.1 retained. Only citation name/date note changed. Fresh two-order judgment remains0.5.",
+    "judgments_vs_v229": "Same1 win,1 loss,18 ties as v230. No independent quality gain demonstrated on this cohort."
+  },
+  "regulatory_checks": {
+    "source_injections_not_deleted": true,
+    "unknown_or_changed_source_names_not_rewritten": true,
+    "current_date_scope_preserved": true,
+    "no_new_model_stage": true,
+    "no_new_dependencies": true,
+    "no_question_id_or_golden_lookup_in_product": true,
+    "unit_tests": 70,
+    "benchmark_tests": 16,
+    "frozen_benchmark_code_hashes_verified": 22,
+    "output_length_limit": 10000
+  },
+  "limitations": [
+    "80.75 is the selected old20 development score. No official PSB result for v239 exists.",
+    "All62 outputs are postprocessing replays of frozen live v230 generations, not a fresh full LLM execution of the final ZIP.",
+    "Style-dependent judge preferences can be noise. Other32 judged cases show no improvement.",
+    "The model and the pre-existing semantic topic router remain fallible. Styling cannot correct an unsupported original fact."
+  ]
+}
+
+ДРУГИЕ НАБОРЫ — BASELINE v229
+extension: 50.0000/100; 0 побед, 0 поражений, 11 ничьих; оценено11/12.
+extra: 50.4375/100; 1 побед, 1 поражений, 18 ничьих; оценено20/20.
+Эти баллы нельзя складывать с основным20: используются другие baseline. Неизменённые ответы сохраняют исходные оценки и ошибки судьи; изменённые оценены в двух порядках.
+
+ВСЕ ПОПЫТКИ
+v231-old20: 69.4375 (оценено20); 186.187с; DeepSeek 309666 токенов.
+v232-old20: 68.5625 (оценено20); 109.344с; DeepSeek 60142 токенов.
+v233-old20: 74.62499999999999 (оценено20); 144.172с; DeepSeek 269983 токенов.
+v234-old20: 71.5625 (оценено20); 139.312с; DeepSeek 60284 токенов.
+v235-old20: 75.0625 (оценено20); 77.766с; DeepSeek 60652 токенов.
+v236-old20: 70.58522727272727 (оценено20); 139.188с; DeepSeek 59871 токенов.
+v237-old20: 75.49999999999999 (оценено20); 95.031с; DeepSeek 67197 токенов.
+old20-oracle-diagnostic: 76.05263157894737 (оценено19); 100.1559999999954с; DeepSeek 59987 токенов.
+v238-style-grid: 78.5625 (оценено20); 304.016с; DeepSeek 159883 токенов.
+v239-style-grid: 80.74999999999999 (оценено20); 409.515с; DeepSeek 205159 токенов.
+v239-finalization: 80.74999999999999 (оценено20); 47.609с; DeepSeek 2648 токенов.
+v238 — только предварительный подбор, без готовой выбранной сборки. Oracle — диагностический контроль с golden, не кандидат. У v235 ограничение строгой эквивалентности описано в results.json.
+
+РАСХОД ТЕКУЩЕГО ЭТАПА
+{"deepseek_calls": 510, "deepseek_tokens": 1315472, "qwen_calls": 0, "qwen_input_tokens": 0, "api_errors": 0}
+Расход предыдущего этапа v230 сюда не включён. Во время этой оптимизации новых платных Qwen-вызовов нет: исходный ретривер/реранкер не менялся, точный кеш переиспользован. Генератор и судья — только DeepSeek, отдельный реранкер — Qwen3-Reranker-8B.
+ZIP SHA256: 22ef21bfcb725e6a83feba8e094053d9113b642ff1bd7c228a8966d402beaeb7. Исходный коммит: 1a2aff73fe718c814e2605626ddd72bb09d5d059.
+Для платформы v239.zip. v239-AUDIT.zip — исследовательский архив всех попыток с проверяемыми контрольными суммами; не сабмит.
+Официальная оценка v239 отсутствует. Последняя известная оценка платформы: v22935,5/100 за258с, со слов пользователя.

@@ -1,0 +1,22 @@
+{
+  "verified": true,
+  "score": {
+    "score": 80.74999999999999,
+    "match_rate": 0.725,
+    "win_rate": 1.0,
+    "wins": 13,
+    "losses": 0,
+    "ties": 7,
+    "evaluated": 20,
+    "attempted": 20,
+    "coverage": 1.0
+  },
+  "exact_old20_output_and_judgment_matches": 20,
+  "frozen_judge_code_hashes": 22,
+  "audit_files": 4073,
+  "submission_sha256": "22ef21bfcb725e6a83feba8e094053d9113b642ff1bd7c228a8966d402beaeb7",
+  "training_selection": true,
+  "independent_evaluation": false,
+  "fresh_api_calls": 0,
+  "scope": "Saved record verification, not a fresh LLM run."
+}

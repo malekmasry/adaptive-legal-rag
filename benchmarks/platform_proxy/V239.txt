@@ -1,0 +1,37 @@
+v239 development-set presentation tuning
+
+This branch starts directly from Moonvolk f19a327 (psb_rag_benchmark).
+The22 platform_proxy Python files from the frozen v230 experiment are unchanged.
+verify_v239.py is a new offline evidence verifier, not a replacement judge.
+
+Product branch: codex/v239. Submission: submissions/v239.zip on that branch.
+Score80.75/100 on exposed old20 (13 wins,0 losses,7 ties), versus v23075.5
+and v22975.0625 against the same baseline. This is explicit training-set
+selection after unsuccessful v231-v237 experiments and12 frozen presentation
+styles. The judge, goldens, baseline and scoring arithmetic were not changed.
+No independent or official PSB80 result is claimed. Other32 judged cases show
+no improvement. Full details and all limitations are in reports/v239/.
+
+research/v239-AUDIT.zip is NOT a submission. It stores all attempts, source
+packages, paid-call ledgers, cached judgments, frozen inputs, selected policy,
+failed candidates, diagnostics and the complete prior v230 audit. Identical
+objects are deduplicated by SHA256. Extract restore.py alongside the ZIP and run
+python restore.py <empty-destination> to verify and restore logical files.
+No private service configuration, API keys or embedding databases are included.
+
+Offline verification (no API access or token spending):
+python benchmarks/platform_proxy/verify_v239.py benchmarks/platform_proxy/research/v239-AUDIT.zip
+
+The verifier checks every audit object, all20 exact answer/judgment matches,
+unchanged22 benchmark code hashes, unchanged generator/retrieval runtime and
+the final artifact digest, then recalculates the score. It does not claim to
+reproduce stochastic model behavior. All62 final outputs were postprocessing
+replays of frozen live v230 generations;11 changed strings,51 identical.
+
+Exact executed experiment scripts are in the audit under tools/. Their original
+Windows working paths are retained to preserve executed-file hashes. A fresh
+API run requires separate private DeepSeek/Qwen3-Reranker-8B configuration and
+local BGE-M3; do not accidentally run original paid scripts to view results.
+Oracle golden-copy diagnostic is not a product candidate or a judge ceiling.
+v235 reuse has one documented wire-hash mismatch; it is not strict target
+evidence. Final v239 uses only frozen v230 generation plus proven presentation.

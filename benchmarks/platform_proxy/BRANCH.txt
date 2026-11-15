@@ -1,0 +1,5 @@
+Branch: codex/benchmark-v239
+Direct parent: Moonvolk f19a327d0a2a9e84d966c1ba2586e9664cee7b1e
+Frozen v230 judge/runtime helpers retained byte-for-byte.
+Current evidence and limitations: V239.txt and ../../reports/v239/
+Audit: research/v239-AUDIT.zip. Product: codex/v239.
