@@ -1,0 +1,95 @@
+{
+  "version": "v239",
+  "source_commit": "1a2aff73fe718c814e2605626ddd72bb09d5d059",
+  "submission_sha256": "22ef21bfcb725e6a83feba8e094053d9113b642ff1bd7c228a8966d402beaeb7",
+  "final": {
+    "system": "v239",
+    "aggregate": {
+      "score": 80.74999999999999,
+      "match_rate": 0.725,
+      "win_rate": 1.0,
+      "wins": 13,
+      "losses": 0,
+      "ties": 7,
+      "evaluated": 20,
+      "attempted": 20,
+      "coverage": 1.0
+    },
+    "training_selection": true,
+    "independent_evaluation": false,
+    "not_platform_prediction": true,
+    "target_80_reached": true,
+    "other_cohorts": {
+      "extension": {
+        "score": 50.0,
+        "match_rate": 0.5,
+        "win_rate": 0.5,
+        "wins": 0,
+        "losses": 0,
+        "ties": 11,
+        "evaluated": 11,
+        "attempted": 12,
+        "coverage": 0.9166666666666666
+      },
+      "extra": {
+        "score": 50.43749999999999,
+        "match_rate": 0.50625,
+        "win_rate": 0.5,
+        "wins": 1,
+        "losses": 1,
+        "ties": 18,
+        "evaluated": 20,
+        "attempted": 20,
+        "coverage": 1.0
+      }
+    },
+    "replay_rows": 62,
+    "changed_rows": 11,
+    "new_generation_calls": 0,
+    "old20_exact_output_matches": 20,
+    "formatter_seconds_all62": 0.37143820001074346,
+    "other_cases_rejudged": 1,
+    "seconds": 47.609,
+    "usage": {
+      "deepseek_calls": 2,
+      "deepseek_tokens": 2648,
+      "qwen_calls": 0,
+      "qwen_input_tokens": 0,
+      "api_errors": 0
+    }
+  },
+  "selected_policy": {
+    "contract_term": "table_today",
+    "approval_threshold": "plain_scope",
+    "payment": "compact_today",
+    "consent_withdrawal": "compact_scope",
+    "probation": "plain_scope",
+    "delivery_address": "plain_scope",
+    "warranty": "table_scope",
+    "approval_form": "plain_scope",
+    "approved_template": "compact_scope",
+    "foreign_checks": "inline_scope",
+    "tax_penalty": "plain_scope"
+  },
+  "usage_this_optimization_only": {
+    "deepseek_calls": 510,
+    "deepseek_tokens": 1315472,
+    "qwen_calls": 0,
+    "qwen_input_tokens": 0,
+    "api_errors": 0
+  },
+  "platform_reference": {
+    "version": "v229",
+    "score": 35.5,
+    "seconds": 258,
+    "provenance": "User report only; no question-level logs"
+  },
+  "limitations": [
+    "Selection on exposed old20, including repeated presentation experiments: training score, not independent validation or official PSB prediction.",
+    "The same golden, common baseline, two-order judge prompt and arithmetic were retained. All failures and judge errors are preserved; unchanged judgments were not rerolled.",
+    "v235 has15/16 exact paid-first-request hash matches for reused generation; one mismatch (S05c) makes it ineligible as strict target evidence. v237 uses strict wire verification.",
+    "Oracle diagnostic copies golden answers only to study judge behavior; it is not a product candidate or a ceiling and is never shipped.",
+    "Final artifact changes only pure post-review presentation. It replays all62 saved live v230 outputs; no second full live generation of v239 occurred.",
+    "Other cohorts use v229 as the comparator, different from the common old20 baseline. Their scores must not be merged."
+  ]
+}

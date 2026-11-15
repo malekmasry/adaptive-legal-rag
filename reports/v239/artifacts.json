@@ -1,0 +1,14 @@
+{
+  "submission": {
+    "sha256": "22ef21bfcb725e6a83feba8e094053d9113b642ff1bd7c228a8966d402beaeb7",
+    "bytes": 2105315
+  },
+  "audit": {
+    "sha256": "62866cefa8d191309153e0db72578d11aee0090f96be99b6b9f3f564f8f39b0f",
+    "bytes": 49572734,
+    "logical_files": 4073,
+    "unique_objects": 962
+  },
+  "secret_scan": "passed",
+  "source_commit": "1a2aff73fe718c814e2605626ddd72bb09d5d059"
+}
