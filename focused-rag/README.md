@@ -1,3 +1,17 @@
+# v230 additions
+
+`decision_index.py` independently searches316 catalogued structural passages and128 reviewed notes using source wording and authored question paraphrases. `decision_catalog.json` stores source hashes and offsets, not another copy of the corpus. A matching live document is required. Up to6000 tokens of complete source scopes/anchor groups are reserved first, within the same18000-token allowance. Ordinary hybrid retrieval and Qwen remain unchanged; catalog results can supply a source missed by their top hits. Unknown or changed sources use ordinary RAG.
+
+`intent_rules.py` supplies independent question facets and43 search/answer intents. Negated template mentions, incidental words and multiple requested subjects are distinguished by tested lexical rules; this remains a fallible router, not a proof of complete semantic understanding. Cross-topic avoid lists are disabled for compound requests.
+
+`decision_checks.py` supplies source-cited Decimal workpapers for supported numeric cases and explicit applicability checks. Up to1100 tokens share the existing3500-token hints/cards reserve. The generator retains the full question and sources and writes the answer. Existing ready drafts are retained for supported complete-source cases. No extra model stage is added.
+
+65 local tests pass in the final version, alongside16 benchmark tests. An additional62-row offline plumbing run checked source IDs and the18000-token budget; it did not evaluate model quality. Live comparison results are recorded separately.
+
+`citation_labels.py` runs only after completed review. It corrects a part-versus-note citation label only when the cited exact excerpt proves that location in the current source, and drops the exact unrelated order-entry paragraph of the existing delivery template only for a deadline-only question. No generation or reviewer input changes. The full live run produced62 answers; final formatting was replayed on all62 with identical reconstructed evidence budgets, changed2 texts, and only those changed texts were judged again in both orders. This is not a second full live run of the final ZIP.
+
+---
+
 # Focused evidence RAG
 
 This candidate removes the semantic claim rejection loop that discarded valid
@@ -21,9 +35,9 @@ CSV scheduler of v8; its context assembly and generation pipeline are new.
 5. Present related editions, amendment conditions, and effective dates together.
    No guessed entity/date router removes source candidates. The generator must
    determine applicability from the actual source text.
-   This branch deliberately adds corpus-specific assistance: 35 answer plans
+   This branch deliberately adds corpus-specific assistance: 43 answer plans
    select required answer slots and exact primary provision cards. A second
-   layer contains 107 developer-reviewed factual notes for all 21 source documents,
+   layer contains 128 developer-reviewed factual notes for all 21 source documents,
    including the different payment periods of the two Alfa contracts, amendment
    applicability, regulation thresholds, and exceptions. The notes are inserted
    into both generator and reviewer system prompts only when the live source
@@ -37,7 +51,7 @@ CSV scheduler of v8; its context assembly and generation pipeline are new.
    original full context budget. Topic recognition and curated notes are
    deliberate development-set/corpus tailoring, not generalization evidence.
    Conditional notes are selected by question intent and optional topic patterns;
-   specific notes take precedence within the budget. All 107 still require the
+   specific notes take precedence within the budget. All 128 still require the
    exact live source hash and visible anchors. This includes VAT regimes, NDFL
    calculation bands, special profit-tax rates, overtime, MROT, fixed-term
    contracts, consent requirements and distinct personal-data offenses. It does
@@ -46,8 +60,8 @@ CSV scheduler of v8; its context assembly and generation pipeline are new.
    tokens of exact anchors can be recovered from that same hash-matching source.
    All missing anchors for a note must fit together; partial condition snippets
    are not inserted. Recovery shares the existing 3,500-token reserve with notes
-   and cards and never changes the total 18,000-token allowance. It does not
-   search unselected documents. Special profit-tax questions have a distinct
+   and cards and never changes the total 18,000-token allowance. This older recovery stage does not
+   search unselected documents; the new independent decision index above can find them first. Special profit-tax questions have a distinct
    plan so the general-rate plan cannot override an explicitly requested regime.
 6. `rule_drafts.py` can prepare an actual answer draft for supported intents
    when complete, hash-matching sources are in evidence. Rules distinguish the

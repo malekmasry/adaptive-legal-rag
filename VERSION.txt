@@ -2,4 +2,8 @@ v230 — source-bound decision catalog and independent question facets.
 Parent: v229 (platform score35.5/100 and258s, user report).
 128 reviewed hints,316 structural search units,43 intent plans.
 Catalog uses exact supplied-source hashes and offsets; no benchmark answers are packaged.
-Local comparison results will be recorded after frozen run.
+Local common-baseline score: v22975.0625, v23075.5 (20 development questions).
+New20 direct comparison:1 win,1 loss,18 ties; old12:11 ties,1 judge error excluded.
+65 product tests;16 benchmark tests;62 live answers without runtime errors.
+Final output-only formatting replay:62 rows,2 changed and rejudged,60 identical.
+Details: reports/v230-v229. No official platform result for v230 yet.

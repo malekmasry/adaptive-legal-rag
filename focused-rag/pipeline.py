@@ -12,6 +12,7 @@ from answer_guides import prepare_guides, plan_for, GUIDANCE
 from corpus_playbook import verified_hints,recover_hint_sources
 from rule_drafts import build_rule_draft
 from decision_index import DecisionIndex,combine_evidence
+from citation_labels import finish_answer
 from decision_checks import checks,INSTRUCTIONS as DECISION_INSTRUCTIONS
 from token_budget import estimate_tokens
 import json
@@ -169,6 +170,7 @@ class Pipeline:
                 emit(self.s.cache_dir,'review_degraded_kept_draft',**error_info(exc))
         else:
             trace['review']='not_needed_or_deadline'
+        answer=finish_answer(answer,query,refs,evidence,self.docs)
         emit(self.s.cache_dir, 'focused_answer', status=draft.status, seconds=round(time.monotonic()-start,3),
              context=budget, retrieval=retrieval, source_ids=refs, review=trace['review'],draft_origin=trace['draft_origin'],
              draft_preserved=trace.get('draft_preserved'))
