@@ -10,6 +10,7 @@ from pipeline import Pipeline, Answer
 from schemas import Plan
 from settings import Settings
 from solution import run
+from targeted_review import PatchReview
 
 
 def doc(identifier, text):
@@ -64,6 +65,7 @@ class FocusedTests(unittest.TestCase):
             calls=[]
             def generate(instruction,payload,schema):
                 calls.append((instruction,payload))
+                if schema is PatchReview:return PatchReview(patches=[])
                 return Answer(status='answered',paragraphs=[{'text':'37000 × 0,002 × 7 = 518 рублей.','citations':[{'source_id':'D1','locator':'п. 2'}]}])
             core.api=SimpleNamespace(structured=generate)
             result=core.ask('Долг 37000, семь дней. Сколько пени?')

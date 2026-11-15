@@ -16,6 +16,7 @@ from citation_labels import finish_answer
 from decision_checks import checks,INSTRUCTIONS as DECISION_INSTRUCTIONS
 from token_budget import estimate_tokens
 from question_brief import prepare_question_brief,answer_schema,resolved_paragraphs,ANSWER_GUIDANCE
+from targeted_review import PatchReview,apply_patches,INSTRUCTION as PATCH_INSTRUCTION
 import json
 
 TECHNICAL = 'Не удалось получить ответ из-за технического сбоя. Это не означает отсутствия нужных сведений в базе.'
@@ -172,22 +173,15 @@ class Pipeline:
                 emit(self.s.cache_dir, 'answer_format_repair', reason=str(exc))
                 payload={**payload,'previous_draft':draft.model_dump(),'format_error':str(exc)}
                 instruction += '\nИсправь только ошибку формата previous_draft по format_error. Используй существующие source_id; для содержательного ответа обязательны ссылки на положения. Не добавляй новых тем.'
-        # One direct correction, not a verdict/claim-filter/rewrite loop. A
-        # failed reviewer must not erase the already rendered valid draft.
+        # One bounded patch review replaces the full-answer rewrite. Every
+        # untouched character survives; rejected patches retain the valid draft.
         remaining=getattr(self.api,'deadline',float('inf'))-time.monotonic()
         if refs and remaining>20:
             try:
-                review_instruction=INSTRUCTION+'\n\n'+REVIEW+'\n\n'+GUIDANCE+'\n\n'+DECISION_INSTRUCTIONS+'\n\n'+hints
-                if catalog:review_instruction+='\n\n'+ANSWER_GUIDANCE
-                if catalog and schema is Answer:review_instruction+=fallback_format
-                if prepared:
-                    review_instruction+='\nДля программного черновика используй специальную схему DraftCheck вместо обычного формата: {"keep_prepared":true,"correction":null}, если черновик правильный и покрывает все запрошенные подвопросы. Не переписывай его ради стиля, дополнительных справок или раскрытия уже достаточной ссылки. Если есть конкретная фактическая ошибка, неверная применимость, пропущенный подвопрос или черновик не отвечает на вопрос, верни keep_prepared=false и correction с полным исправленным Answer. Проверяй по вопросу и evidence, не по памяти. Правильный программный черновик будет выдан дословно, без добавления рассуждений проверяющего. В частности, не заменяй keep_prepared=true добавлением дат вступления редакций, названий органов или альтернативных сценариев, если без этих деталей вывод уже верен для условий вопроса. Достаточная точная ссылка на пункт не требует пересказа всех его соседей. Если исправление нужно, исправь только ошибку и сохрани остальные верные краткие формулировки и ссылки.'
-                    checked=self.api.structured(review_instruction,{**payload,'previous_draft':draft.model_dump()},DraftCheck)
-                    if checked.keep_prepared:revised=draft;trace['draft_preserved']=True
-                    elif checked.correction is not None:revised=checked.correction;trace['draft_preserved']=False
-                    else:raise ValueError('Draft correction is missing')
-                else:
-                    revised=self.api.structured(review_instruction,{**payload,'previous_draft':draft.model_dump()},schema)
+                review_instruction=GUIDANCE+'\n\n'+DECISION_INSTRUCTIONS+'\n\n'+hints+'\n\n'+PATCH_INSTRUCTION
+                checked=self.api.structured(review_instruction,{**payload,'previous_draft':draft.model_dump()},PatchReview)
+                revised,patch_report=apply_patches(draft,evidence,checked,catalog)
+                trace['patch_review']=patch_report;trace['draft_preserved']=patch_report['draft_preserved']
                 revised_answer,revised_refs=render_paragraphs(resolved_paragraphs(revised,catalog),evidence)
                 if revised.status in ('answered','partial') and not revised_refs:
                     raise ValueError('Reviewed answer lacks citations')

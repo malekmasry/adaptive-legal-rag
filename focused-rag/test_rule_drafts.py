@@ -64,16 +64,20 @@ class RuleDraftTests(unittest.TestCase):
         for keep in (True,False):
             with self.subTest(keep=keep),tempfile.TemporaryDirectory() as tmp:
                 core=object.__new__(Pipeline);core.s=Settings(cache_dir=Path(tmp))
-                core.docs={'d':SimpleNamespace(id='d',filename='test.txt',raw='1. Срок 45 дней.',title='test')};core.relations=[]
+                core.docs={'d':SimpleNamespace(id='d',filename='test.txt',raw='1. Срок 45 дней от поставки.',title='test')};core.relations=[]
                 core.retriever=SimpleNamespace(search=lambda *a,**k:([SimpleNamespace(doc_id='d')],{}))
                 core.all_chunks=[];core.decision_index=SimpleNamespace(select=lambda *a,**k:([],{'selected':[],'tokens':0}))
                 calls=[]
                 def review(prompt,payload,schema):
+                    from targeted_review import PatchReview
                     calls.append(schema)
-                    return DraftCheck(keep_prepared=keep,correction=None if keep else Answer(status='answered',paragraphs=[{'text':'Срок 45 дней от поставки.','citations':[{'source_id':'D1','locator':'п. 1'}]}]))
+                    return PatchReview(patches=[] if keep else [{'paragraph':0,'before':'Срок 45 дней.',
+                        'after':'Срок 45 дней от поставки.','reason':'missing_condition',
+                        'evidence':[{'source_id':'D1','quote':'Срок 45 дней от поставки.'}]}])
                 core.api=SimpleNamespace(structured=review)
                 with patch('pipeline.build_rule_draft',return_value=prepared):result=core.ask('Какой срок?')
-                self.assertEqual(calls,[DraftCheck])
+                from targeted_review import PatchReview
+                self.assertEqual(calls,[PatchReview])
                 self.assertEqual(result['trace']['draft_preserved'],keep)
                 self.assertEqual('от поставки' in result['answer'],not keep)
 
