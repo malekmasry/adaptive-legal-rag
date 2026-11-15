@@ -4,6 +4,10 @@ from types import SimpleNamespace
 from unittest.mock import patch
 import unittest
 from rule_drafts import build_rule_draft,available_sources,number,event_date,FAMILIES
+import tempfile
+from pathlib import Path
+from pipeline import Pipeline,DraftCheck,Answer
+from settings import Settings
 
 
 class RuleDraftTests(unittest.TestCase):
@@ -53,6 +57,23 @@ class RuleDraftTests(unittest.TestCase):
         self.assertEqual(draft['status'],'answered')
         for p in draft['paragraphs']:
             self.assertTrue(p['citations']);self.assertTrue(all(r['locator'] for r in p['citations']))
+
+    def test_review_acknowledgment_keeps_exact_draft_and_correction_is_used(self):
+        prepared={'status':'answered','paragraphs':[{'text':'Срок 45 дней.','citations':[{'source_id':'D1','locator':'п. 1'}]}]}
+        for keep in (True,False):
+            with self.subTest(keep=keep),tempfile.TemporaryDirectory() as tmp:
+                core=object.__new__(Pipeline);core.s=Settings(cache_dir=Path(tmp))
+                core.docs={'d':SimpleNamespace(id='d',filename='test.txt',raw='1. Срок 45 дней.',title='test')};core.relations=[]
+                core.retriever=SimpleNamespace(search=lambda *a,**k:([SimpleNamespace(doc_id='d')],{}))
+                calls=[]
+                def review(prompt,payload,schema):
+                    calls.append(schema)
+                    return DraftCheck(keep_prepared=keep,correction=None if keep else Answer(status='answered',paragraphs=[{'text':'Срок 45 дней от поставки.','citations':[{'source_id':'D1','locator':'п. 1'}]}]))
+                core.api=SimpleNamespace(structured=review)
+                with patch('pipeline.build_rule_draft',return_value=prepared):result=core.ask('Какой срок?')
+                self.assertEqual(calls,[DraftCheck])
+                self.assertEqual(result['trace']['draft_preserved'],keep)
+                self.assertEqual('от поставки' in result['answer'],not keep)
 
 
 if __name__=='__main__':unittest.main()

@@ -56,6 +56,11 @@ class Answer(BaseModel):
     paragraphs: list[Paragraph] = Field(min_length=1,max_length=12)
 
 
+class DraftCheck(BaseModel):
+    keep_prepared: bool
+    correction: Answer | None = None
+
+
 class Pipeline:
     def __init__(self, settings=None, api=None):
         self.s = settings or Settings()
@@ -115,8 +120,13 @@ class Pipeline:
             try:
                 review_instruction=INSTRUCTION+'\n\n'+REVIEW+'\n\n'+GUIDANCE+'\n\n'+hints
                 if prepared:
-                    review_instruction+='\nЧерновик подготовлен программными правилами по проверенным документам. Сохрани его формулировки, если они верны. Исправляй ошибки применимости и расчёта, отвечай на пропущенные подвопросы, но не расширяй правильный текст новыми справками, расшифровками и оговорками. Не сообщай пользователю о происхождении черновика.'
-                revised=self.api.structured(review_instruction,{**payload,'previous_draft':draft.model_dump()},Answer)
+                    review_instruction+='\nДля программного черновика используй специальную схему DraftCheck вместо обычного формата: {"keep_prepared":true,"correction":null}, если черновик правильный и покрывает все запрошенные подвопросы. Не переписывай его ради стиля, дополнительных справок или раскрытия уже достаточной ссылки. Если есть конкретная фактическая ошибка, неверная применимость, пропущенный подвопрос или черновик не отвечает на вопрос, верни keep_prepared=false и correction с полным исправленным Answer. Проверяй по вопросу и evidence, не по памяти. Правильный программный черновик будет выдан дословно, без добавления рассуждений проверяющего.'
+                    checked=self.api.structured(review_instruction,{**payload,'previous_draft':draft.model_dump()},DraftCheck)
+                    if checked.keep_prepared:revised=draft;trace['draft_preserved']=True
+                    elif checked.correction is not None:revised=checked.correction;trace['draft_preserved']=False
+                    else:raise ValueError('Draft correction is missing')
+                else:
+                    revised=self.api.structured(review_instruction,{**payload,'previous_draft':draft.model_dump()},Answer)
                 revised_answer,revised_refs=render_paragraphs([p.model_dump() for p in revised.paragraphs],evidence)
                 if revised.status in ('answered','partial') and not revised_refs:
                     raise ValueError('Reviewed answer lacks citations')
@@ -129,5 +139,6 @@ class Pipeline:
         else:
             trace['review']='not_needed_or_deadline'
         emit(self.s.cache_dir, 'focused_answer', status=draft.status, seconds=round(time.monotonic()-start,3),
-             context=budget, retrieval=retrieval, source_ids=refs, review=trace['review'],draft_origin=trace['draft_origin'])
+             context=budget, retrieval=retrieval, source_ids=refs, review=trace['review'],draft_origin=trace['draft_origin'],
+             draft_preserved=trace.get('draft_preserved'))
         return {'answer':answer, 'status':draft.status, 'trace':trace}

@@ -45,6 +45,12 @@ CSV scheduler of v8; its context assembly and generation pipeline are new.
    call; the same mandatory review stage still checks the full question and
    sources. This makes common known operations cheaper and less dependent on
    model improvisation; it is not a proof of semantic routing completeness.
+   For a prepared draft, the reviewer uses a two-field `DraftCheck`: either
+   acknowledge that the original is correct and complete, or supply a corrected
+   `Answer` for an actual factual/applicability error or omitted subquestion.
+   An acknowledged draft is rendered verbatim; stylistic rewriting cannot add
+   new factual claims. The reviewer is still fallible and can wrongly accept or
+   correct a draft. This is not the former per-claim rejection/filtering loop.
    Otherwise, DeepSeek generation returns status and short paragraphs, each
    with separate source IDs and provision locators. The renderer inserts document
    names and locators. One additional direct review checks arithmetic, factual
