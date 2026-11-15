@@ -65,6 +65,7 @@ class RuleDraftTests(unittest.TestCase):
                 core=object.__new__(Pipeline);core.s=Settings(cache_dir=Path(tmp))
                 core.docs={'d':SimpleNamespace(id='d',filename='test.txt',raw='1. Срок 45 дней.',title='test')};core.relations=[]
                 core.retriever=SimpleNamespace(search=lambda *a,**k:([SimpleNamespace(doc_id='d')],{}))
+                core.all_chunks=[];core.decision_index=SimpleNamespace(select=lambda *a,**k:([],{'selected':[],'tokens':0}))
                 calls=[]
                 def review(prompt,payload,schema):
                     calls.append(schema)

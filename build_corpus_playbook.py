@@ -11,6 +11,7 @@ ROOT=Path(__file__).resolve().parent/'focused-rag'
 sys.path.insert(0,str(ROOT))
 from answer_guides import numbered_span
 from corpus_notes_v229 import EXTRA_NOTES
+from corpus_notes_v230 import NOTES as V230_NOTES
 
 # Each note is written by the developer after reading the named source.
 # Selectors bind the exact supporting text; the runtime also checks the full
@@ -80,7 +81,8 @@ def build(archive, output):
         sources={n:z.read(n).decode('utf-8-sig') for n in z.namelist() if n.endswith('.txt')}
     entries=[]
     all_notes={name:list(notes) for name,notes in NOTES.items()}
-    for name,notes in EXTRA_NOTES.items():all_notes.setdefault(name,[]).extend(notes)
+    for table in (EXTRA_NOTES,V230_NOTES):
+        for name,notes in table.items():all_notes.setdefault(name,[]).extend(notes)
     for name,notes in all_notes.items():
         matching=[n for n in sources if n.endswith('__'+name+'.txt')]
         assert len(matching)==1,name

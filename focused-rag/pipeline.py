@@ -11,6 +11,10 @@ from diagnostics import emit, error_info
 from answer_guides import prepare_guides, plan_for, GUIDANCE
 from corpus_playbook import verified_hints,recover_hint_sources
 from rule_drafts import build_rule_draft
+from decision_index import DecisionIndex,combine_evidence
+from decision_checks import checks,INSTRUCTIONS as DECISION_INSTRUCTIONS
+from token_budget import estimate_tokens
+import json
 
 TECHNICAL = 'Не удалось получить ответ из-за технического сбоя. Это не означает отсутствия нужных сведений в базе.'
 
@@ -67,6 +71,8 @@ class Pipeline:
         self.api = api or API(self.s)
         docs, chunks, self.relations = ingest(self.s.data_dir)
         self.docs = {d.id:d for d in docs}
+        self.decision_index=DecisionIndex(self.docs)
+        self.all_chunks=chunks
         self.retriever = ScopeRetriever(docs, chunks, self.relations, self.api, self.s)
 
     def initialize(self):
@@ -84,8 +90,20 @@ class Pipeline:
         query, subs = search_queries(question)
         plan = Plan(question=query, subquestions=subs, as_of=self.s.as_of)
         chunks, retrieval = self.retriever.search(plan, original_query=subs[-1] if subs else query)
-        reserve=min(3500,self.s.context_tokens//4) if plan_for(query)['topics'] else 0
-        evidence, budget = context_bundle(chunks, self.docs, self.relations, self.s.context_tokens-reserve,query)
+        topics=plan_for(query)['topics']
+        reserve=min(3500,self.s.context_tokens//4) if topics else 0
+        priority,decision_trace=self.decision_index.select(query,topics,min(6000,(self.s.context_tokens-reserve)//2))
+        extra_names={r['document'] for r in decision_trace['selected']}
+        found={c.doc_id for c in chunks}
+        for d in self.docs.values():
+            if d.filename in extra_names and d.id not in found:
+                first=next((c for c in self.all_chunks if c.doc_id==d.id and c.kind=='passage'),None)
+                if first:chunks.append(first);found.add(d.id)
+        ordinary,budget=context_bundle(chunks,self.docs,self.relations,self.s.context_tokens-reserve-decision_trace['tokens'],query)
+        evidence=combine_evidence(priority,ordinary)
+        budget['estimated_tokens']+=decision_trace['tokens']
+        budget['budget']+=decision_trace['tokens']
+        budget['decision_search']=decision_trace
         evidence,recovered_tokens=recover_hint_sources(plan_for(query)['topics'],evidence,self.docs,
             {self.docs[c.doc_id].filename for c in chunks},min(1800,reserve),question=query)
         if recovered_tokens:
@@ -93,19 +111,25 @@ class Pipeline:
             budget['estimated_tokens']+=recovered_tokens
             budget['budget']+=recovered_tokens
             budget['recovered_source_tokens']=recovered_tokens
+        calculations=checks(query,evidence,self.docs,self.s.as_of)
+        calculation_tokens=estimate_tokens(json.dumps(calculations,ensure_ascii=False)) if calculations else 0
+        while calculations and calculation_tokens>min(1100,reserve):
+            calculations.pop();calculation_tokens=estimate_tokens(json.dumps(calculations,ensure_ascii=False)) if calculations else 0
+        reserve-=calculation_tokens
         hints,hint_tokens,active_hints=verified_hints(plan_for(query)['topics'],evidence,self.docs,min(2500,reserve),question=query)
         response_plan,cards,card_tokens=prepare_guides(query,evidence,max(0,reserve-hint_tokens))
         budget.update(primary_card_tokens=card_tokens,verified_hint_tokens=hint_tokens,verified_hint_count=len(active_hints),
-                      total_evidence_tokens=budget['estimated_tokens']+card_tokens+hint_tokens,
+                      total_evidence_tokens=budget['estimated_tokens']+card_tokens+hint_tokens+calculation_tokens,
+                      calculation_tokens=calculation_tokens,calculation_count=len(calculations),
                       configured_context_budget=self.s.context_tokens)
         payload = {'question':question, 'current_date':self.s.as_of, 'evidence':evidence,
                    'inventory':[d.filename for d in self.docs.values()], 'context_limits':budget,
-                   'response_plan':response_plan,'primary_cards':cards}
+                   'response_plan':response_plan,'primary_cards':cards,'decision_checks':calculations}
         prepared=build_rule_draft(query,evidence,self.docs,self.s.as_of)
         trace = {'retrieval':retrieval, 'budget':budget, 'failures':[],
                  'draft_origin':'source_rules' if prepared else 'generator'}
         # Tiny JSON schema; no factual verdict indices or quote matching gates.
-        instruction = INSTRUCTION+'\n\n'+GUIDANCE+'\n\n'+hints
+        instruction = INSTRUCTION+'\n\n'+GUIDANCE+'\n\n'+DECISION_INSTRUCTIONS+'\n\n'+hints
         for attempt in range(2):
             draft = Answer.model_validate(prepared) if prepared and attempt==0 else self.api.structured(instruction, payload, Answer)
             try:
@@ -125,7 +149,7 @@ class Pipeline:
         remaining=getattr(self.api,'deadline',float('inf'))-time.monotonic()
         if refs and remaining>20:
             try:
-                review_instruction=INSTRUCTION+'\n\n'+REVIEW+'\n\n'+GUIDANCE+'\n\n'+hints
+                review_instruction=INSTRUCTION+'\n\n'+REVIEW+'\n\n'+GUIDANCE+'\n\n'+DECISION_INSTRUCTIONS+'\n\n'+hints
                 if prepared:
                     review_instruction+='\nДля программного черновика используй специальную схему DraftCheck вместо обычного формата: {"keep_prepared":true,"correction":null}, если черновик правильный и покрывает все запрошенные подвопросы. Не переписывай его ради стиля, дополнительных справок или раскрытия уже достаточной ссылки. Если есть конкретная фактическая ошибка, неверная применимость, пропущенный подвопрос или черновик не отвечает на вопрос, верни keep_prepared=false и correction с полным исправленным Answer. Проверяй по вопросу и evidence, не по памяти. Правильный программный черновик будет выдан дословно, без добавления рассуждений проверяющего. В частности, не заменяй keep_prepared=true добавлением дат вступления редакций, названий органов или альтернативных сценариев, если без этих деталей вывод уже верен для условий вопроса. Достаточная точная ссылка на пункт не требует пересказа всех его соседей. Если исправление нужно, исправь только ошибку и сохрани остальные верные краткие формулировки и ссылки.'
                     checked=self.api.structured(review_instruction,{**payload,'previous_draft':draft.model_dump()},DraftCheck)

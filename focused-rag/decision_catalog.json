@@ -1,0 +1,3857 @@
+{
+  "version": 1,
+  "documents": [
+    {
+      "id": "988aebf20721857f7b5c",
+      "filename": "документы компании__Договор аренды А-08-2024 Северный Склад.txt",
+      "sha256": "ea312cfd0c2727eb321a8a764512ec977725e93e08131048fb77af6bd9700b29"
+    },
+    {
+      "id": "b93f18c66ca5bd5cd729",
+      "filename": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+      "sha256": "b5df5ca3e2b746cbbaa1757e77697f28ad87d015c66d44fade45a10aae754e25"
+    },
+    {
+      "id": "325b77b4ea7724fc0597",
+      "filename": "документы компании__Договор поставки ПТ-05-2023 Альфа-Трейдинг.txt",
+      "sha256": "8c2171e4c1bfe5a915a5d3cd7fdfb64ead0866858bf7914f8b84c67be618530d"
+    },
+    {
+      "id": "b8d10bac552077f92511",
+      "filename": "документы компании__Доп соглашение 1 к договору П-17-2024.txt",
+      "sha256": "f37f50f7bcb0900854230903be263bebdea60b3cae4be93ee9ed7ec02e4a380a"
+    },
+    {
+      "id": "0c170b71bd0dad40b08a",
+      "filename": "документы компании__Письмо комплаенс-службы К-12 от 15.04.2025.txt",
+      "sha256": "9d256e900a22e14c01f341d4172dc2923aa8696b0639f5ab8eed5a6ff5884449"
+    },
+    {
+      "id": "02b38e67428c4c4aacb5",
+      "filename": "документы компании__Регламент согласования договоров ред 2023 (утратил силу).txt",
+      "sha256": "27dcb53da4f654f50bdf233aa00b3e006075a85086f10dac57800473e499575d"
+    },
+    {
+      "id": "df3a7d8fd67f2dc6235a",
+      "filename": "документы компании__Регламент согласования договоров ред 2025.txt",
+      "sha256": "6b899e69657be2b5357d37619cbe31e151bf8ab02f838603a4d55b4257f00e44"
+    },
+    {
+      "id": "c536cb8fbe9b923e7256",
+      "filename": "документы компании__Служебная записка об архиве договоров.txt",
+      "sha256": "a90d426b390e892ba490fde5c5bb85367ed71232a48442728a8e1363232a27ee"
+    },
+    {
+      "id": "9995101881e9d4bd4d23",
+      "filename": "законы__152ФЗ_ст9_действующая.txt",
+      "sha256": "26fc061b84c6f730cfbcc2c2a6a143ba391c5e0988befa694ec8afa2c36d71ec"
+    },
+    {
+      "id": "80268aeb09d0f7ab7987",
+      "filename": "законы__КоАП_ст13.11_действующая.txt",
+      "sha256": "d982e1ebdc409e93fe4434ada02e7a0801971eacb9dfaad511186004628e097f"
+    },
+    {
+      "id": "ec7a0868d92ef4f1ff32",
+      "filename": "законы__МРОТ_ст1_действующая.txt",
+      "sha256": "a487d40fa1afb4ff37be1fc4a773a93d16e275c1314a06ed316073ee72936d83"
+    },
+    {
+      "id": "1ce8895593a1db4231bd",
+      "filename": "законы__НК_ст112_действующая.txt",
+      "sha256": "9f6e55f1968576d70d195cabffbdd1bca1f9747a29f9af665fa29025e43b3d9a"
+    },
+    {
+      "id": "fc1844e134bc2dc5082c",
+      "filename": "законы__НК_ст114_действующая.txt",
+      "sha256": "ef0c299cf34b6a7e2ab91c08f46e6bfb0d157557d7bd9161d7a40f5e13b42941"
+    },
+    {
+      "id": "f7b96918455100864288",
+      "filename": "законы__НК_ст145_действующая.txt",
+      "sha256": "59c61690bda78bf26dab36ece2cc3374dc5fed94dd408c0d24b7991776c336b8"
+    },
+    {
+      "id": "ab451e8a8e4db9fffc98",
+      "filename": "законы__НК_ст164_действующая.txt",
+      "sha256": "90f7d1f6c472be5e5a89fc1fe9bcdc3a1b57171c475c772150bb463333bb7066"
+    },
+    {
+      "id": "3c32e615822f15a45660",
+      "filename": "законы__НК_ст224_действующая.txt",
+      "sha256": "b4a2313836aadf260106ae02607b14ec6bf803ffc5e029dec2a92b1ba10e0067"
+    },
+    {
+      "id": "25185ccfa824a6837f39",
+      "filename": "законы__НК_ст284_действующая.txt",
+      "sha256": "f4805aaa721b5256be3ba2d5a19a4a650623f11598863ff98ee98d313e6558e3"
+    },
+    {
+      "id": "f9d1690746ce85662c3a",
+      "filename": "законы__ТК_ст152_действующая.txt",
+      "sha256": "7b08540d0e22b14b3413ddd77dbd2e404073938de90e580b896e3ee5f6f448c3"
+    },
+    {
+      "id": "4c40fbb120c76f3ee126",
+      "filename": "законы__ТК_ст59_действующая.txt",
+      "sha256": "8956e946db720da15cf3d359cb70cbbc51d5dc1c3aab5a77df43fb78a592643e"
+    },
+    {
+      "id": "c44375dde054668e3c8f",
+      "filename": "законы__ТК_ст70_действующая.txt",
+      "sha256": "faa132894aee5508be9c53bd6af10c28fd6c110c3734a46f32d0c70324c358fb"
+    },
+    {
+      "id": "09de5d918bdc4fdb725f",
+      "filename": "законы__ТК_ст99_действующая.txt",
+      "sha256": "428df66e32e77301db52f526ae76b47b11ad239b0562b787cf2235c984e07d8b"
+    }
+  ],
+  "units": [
+    {
+      "id": "4fe830480c2841743df5fde2",
+      "doc_id": "988aebf20721857f7b5c",
+      "start": 0,
+      "end": 504,
+      "search_start": 0,
+      "search_end": 504,
+      "locator": "преамбула",
+      "topics": [
+        "approval_threshold",
+        "requisites"
+      ]
+    },
+    {
+      "id": "a33c776853585c3bb7be7b60",
+      "doc_id": "988aebf20721857f7b5c",
+      "start": 524,
+      "end": 752,
+      "search_start": 524,
+      "search_end": 752,
+      "locator": "п. 1.1",
+      "topics": [
+        "requisites"
+      ]
+    },
+    {
+      "id": "9385f3166abe437859bc5ccf",
+      "doc_id": "988aebf20721857f7b5c",
+      "start": 752,
+      "end": 837,
+      "search_start": 752,
+      "search_end": 837,
+      "locator": "п. 1.2",
+      "topics": []
+    },
+    {
+      "id": "e1930fa82854de4c0466efe3",
+      "doc_id": "988aebf20721857f7b5c",
+      "start": 837,
+      "end": 901,
+      "search_start": 837,
+      "search_end": 901,
+      "locator": "п. 1.3",
+      "topics": [
+        "ownership"
+      ]
+    },
+    {
+      "id": "5a5dd50a80723405c5b9f291",
+      "doc_id": "988aebf20721857f7b5c",
+      "start": 916,
+      "end": 1007,
+      "search_start": 916,
+      "search_end": 1007,
+      "locator": "п. 2.1",
+      "topics": []
+    },
+    {
+      "id": "1ae023cdb3d8aed14aabb6ab",
+      "doc_id": "988aebf20721857f7b5c",
+      "start": 1007,
+      "end": 1053,
+      "search_start": 1007,
+      "search_end": 1053,
+      "locator": "п. 2.2",
+      "topics": [
+        "contract_term"
+      ]
+    },
+    {
+      "id": "7fdc2b716d668fea1e962602",
+      "doc_id": "988aebf20721857f7b5c",
+      "start": 1071,
+      "end": 1167,
+      "search_start": 1071,
+      "search_end": 1167,
+      "locator": "п. 3.1",
+      "topics": [
+        "vat_rate"
+      ]
+    },
+    {
+      "id": "286d7bebdc4e73b890baf0a6",
+      "doc_id": "988aebf20721857f7b5c",
+      "start": 1167,
+      "end": 1247,
+      "search_start": 1167,
+      "search_end": 1247,
+      "locator": "п. 3.2",
+      "topics": []
+    },
+    {
+      "id": "e1ea85549d64e26985362fde",
+      "doc_id": "988aebf20721857f7b5c",
+      "start": 1247,
+      "end": 1386,
+      "search_start": 1247,
+      "search_end": 1386,
+      "locator": "п. 3.3",
+      "topics": [
+        "rent_price"
+      ]
+    },
+    {
+      "id": "ce8e3d393ce1fdadedcca0f5",
+      "doc_id": "988aebf20721857f7b5c",
+      "start": 1386,
+      "end": 1520,
+      "search_start": 1386,
+      "search_end": 1520,
+      "locator": "п. 3.4",
+      "topics": [
+        "rent_increase",
+        "rent_price"
+      ]
+    },
+    {
+      "id": "8e5149f7d142e3b884b8be03",
+      "doc_id": "988aebf20721857f7b5c",
+      "start": 1520,
+      "end": 1624,
+      "search_start": 1520,
+      "search_end": 1624,
+      "locator": "п. 3.5",
+      "topics": [
+        "rental_use"
+      ]
+    },
+    {
+      "id": "8e4ee83661e282aabc6a8f0f",
+      "doc_id": "988aebf20721857f7b5c",
+      "start": 1654,
+      "end": 1793,
+      "search_start": 1654,
+      "search_end": 1793,
+      "locator": "п. 4.1",
+      "topics": []
+    },
+    {
+      "id": "412d6c0d7373d7f3cf219274",
+      "doc_id": "988aebf20721857f7b5c",
+      "start": 1793,
+      "end": 1887,
+      "search_start": 1793,
+      "search_end": 1887,
+      "locator": "п. 4.2",
+      "topics": [
+        "rental_use"
+      ]
+    },
+    {
+      "id": "95f78661d8d830d995ead135",
+      "doc_id": "988aebf20721857f7b5c",
+      "start": 1887,
+      "end": 2003,
+      "search_start": 1887,
+      "search_end": 2003,
+      "locator": "п. 4.3",
+      "topics": [
+        "rental_use"
+      ]
+    },
+    {
+      "id": "69c07dff52476cf7ff388b2e",
+      "doc_id": "988aebf20721857f7b5c",
+      "start": 2029,
+      "end": 2161,
+      "search_start": 2029,
+      "search_end": 2161,
+      "locator": "п. 5.1",
+      "topics": [
+        "penalty"
+      ]
+    },
+    {
+      "id": "e6b7a3d76fdde541da490184",
+      "doc_id": "988aebf20721857f7b5c",
+      "start": 2197,
+      "end": 2297,
+      "search_start": 2197,
+      "search_end": 2297,
+      "locator": "п. 6.1",
+      "topics": [
+        "contract_change"
+      ]
+    },
+    {
+      "id": "3996c6337c09c5f0f846ecd8",
+      "doc_id": "988aebf20721857f7b5c",
+      "start": 2297,
+      "end": 2434,
+      "search_start": 2297,
+      "search_end": 2434,
+      "locator": "п. 6.2",
+      "topics": [
+        "termination"
+      ]
+    },
+    {
+      "id": "07834c29e26ea450eab15fb5",
+      "doc_id": "988aebf20721857f7b5c",
+      "start": 2434,
+      "end": 2571,
+      "search_start": 2434,
+      "search_end": 2571,
+      "locator": "п. 6.3",
+      "topics": [
+        "contract_change"
+      ]
+    },
+    {
+      "id": "21fdf6a3f66230c4fd1b1727",
+      "doc_id": "b93f18c66ca5bd5cd729",
+      "start": 0,
+      "end": 465,
+      "search_start": 0,
+      "search_end": 465,
+      "locator": "преамбула",
+      "topics": [
+        "approval_threshold",
+        "requisites"
+      ]
+    },
+    {
+      "id": "c5b7ddfa08a449c13983df5b",
+      "doc_id": "b93f18c66ca5bd5cd729",
+      "start": 485,
+      "end": 674,
+      "search_start": 485,
+      "search_end": 674,
+      "locator": "п. 1.1",
+      "topics": [
+        "payment_term",
+        "ownership"
+      ]
+    },
+    {
+      "id": "789ba10a47775167d2f2600a",
+      "doc_id": "b93f18c66ca5bd5cd729",
+      "start": 674,
+      "end": 811,
+      "search_start": 674,
+      "search_end": 811,
+      "locator": "п. 1.2",
+      "topics": []
+    },
+    {
+      "id": "b6d7027ec0074271a1427267",
+      "doc_id": "b93f18c66ca5bd5cd729",
+      "start": 828,
+      "end": 955,
+      "search_start": 828,
+      "search_end": 955,
+      "locator": "п. 2.1",
+      "topics": [
+        "vat_rate",
+        "delivery_cost"
+      ]
+    },
+    {
+      "id": "34960c7bcdcca493438fb811",
+      "doc_id": "b93f18c66ca5bd5cd729",
+      "start": 955,
+      "end": 1073,
+      "search_start": 955,
+      "search_end": 1073,
+      "locator": "п. 2.2",
+      "topics": [
+        "vat_rate",
+        "contract_price"
+      ]
+    },
+    {
+      "id": "2e031c484119336baa4cc9bf",
+      "doc_id": "b93f18c66ca5bd5cd729",
+      "start": 1093,
+      "end": 1241,
+      "search_start": 1093,
+      "search_end": 1241,
+      "locator": "п. 3.1",
+      "topics": []
+    },
+    {
+      "id": "dec1480267533bdeddf3b94b",
+      "doc_id": "b93f18c66ca5bd5cd729",
+      "start": 1241,
+      "end": 1328,
+      "search_start": 1241,
+      "search_end": 1328,
+      "locator": "п. 3.2",
+      "topics": [
+        "delivery_address"
+      ]
+    },
+    {
+      "id": "6582d4d3d738e4597d327e58",
+      "doc_id": "b93f18c66ca5bd5cd729",
+      "start": 1328,
+      "end": 1432,
+      "search_start": 1328,
+      "search_end": 1432,
+      "locator": "п. 3.3",
+      "topics": [
+        "payment_term",
+        "payment_completion"
+      ]
+    },
+    {
+      "id": "a150719769277024a9793126",
+      "doc_id": "b93f18c66ca5bd5cd729",
+      "start": 1452,
+      "end": 1576,
+      "search_start": 1452,
+      "search_end": 1576,
+      "locator": "п. 4.1",
+      "topics": []
+    },
+    {
+      "id": "a531fd4ef6198b87b450d4ec",
+      "doc_id": "b93f18c66ca5bd5cd729",
+      "start": 1576,
+      "end": 1740,
+      "search_start": 1576,
+      "search_end": 1740,
+      "locator": "п. 4.2",
+      "topics": [
+        "payment_term"
+      ]
+    },
+    {
+      "id": "02717698aecb709a8d2289fa",
+      "doc_id": "b93f18c66ca5bd5cd729",
+      "start": 1740,
+      "end": 1883,
+      "search_start": 1740,
+      "search_end": 1883,
+      "locator": "п. 4.3",
+      "topics": [
+        "payment_term",
+        "payment_completion"
+      ]
+    },
+    {
+      "id": "827bc5b6d92521eebcef25a2",
+      "doc_id": "b93f18c66ca5bd5cd729",
+      "start": 1906,
+      "end": 1986,
+      "search_start": 1906,
+      "search_end": 1986,
+      "locator": "п. 5.1",
+      "topics": []
+    },
+    {
+      "id": "609166d4a770d3cb40670ff6",
+      "doc_id": "b93f18c66ca5bd5cd729",
+      "start": 1986,
+      "end": 2073,
+      "search_start": 1986,
+      "search_end": 2073,
+      "locator": "п. 5.2",
+      "topics": [
+        "warranty"
+      ]
+    },
+    {
+      "id": "8e585aa8292fa715b72f7cd8",
+      "doc_id": "b93f18c66ca5bd5cd729",
+      "start": 2091,
+      "end": 2220,
+      "search_start": 2091,
+      "search_end": 2220,
+      "locator": "п. 6.1",
+      "topics": [
+        "acceptance"
+      ]
+    },
+    {
+      "id": "3c9b2add7533a40edefedc24",
+      "doc_id": "b93f18c66ca5bd5cd729",
+      "start": 2220,
+      "end": 2341,
+      "search_start": 2220,
+      "search_end": 2341,
+      "locator": "п. 6.2",
+      "topics": [
+        "acceptance"
+      ]
+    },
+    {
+      "id": "c99fe484a41199ec78227717",
+      "doc_id": "b93f18c66ca5bd5cd729",
+      "start": 2367,
+      "end": 2580,
+      "search_start": 2367,
+      "search_end": 2580,
+      "locator": "п. 7.1",
+      "topics": [
+        "penalty"
+      ]
+    },
+    {
+      "id": "d54f980f1d64cbb53997333e",
+      "doc_id": "b93f18c66ca5bd5cd729",
+      "start": 2580,
+      "end": 2757,
+      "search_start": 2580,
+      "search_end": 2757,
+      "locator": "п. 7.2",
+      "topics": [
+        "penalty"
+      ]
+    },
+    {
+      "id": "63444f0c15d87ae6cfb4a7e8",
+      "doc_id": "b93f18c66ca5bd5cd729",
+      "start": 2757,
+      "end": 2842,
+      "search_start": 2757,
+      "search_end": 2842,
+      "locator": "п. 7.3",
+      "topics": [
+        "penalty"
+      ]
+    },
+    {
+      "id": "845ec9c44a02d66607e57dd2",
+      "doc_id": "b93f18c66ca5bd5cd729",
+      "start": 2842,
+      "end": 3062,
+      "search_start": 2842,
+      "search_end": 3062,
+      "locator": "п. 7.4",
+      "topics": [
+        "force_majeure"
+      ]
+    },
+    {
+      "id": "deac9548c1d85d857ab7f074",
+      "doc_id": "b93f18c66ca5bd5cd729",
+      "start": 3062,
+      "end": 3250,
+      "search_start": 3062,
+      "search_end": 3250,
+      "locator": "п. 7.5",
+      "topics": [
+        "liability_limit",
+        "contract_price",
+        "penalty"
+      ]
+    },
+    {
+      "id": "1ef984e8ebd7b8f0561c0733",
+      "doc_id": "b93f18c66ca5bd5cd729",
+      "start": 3271,
+      "end": 3413,
+      "search_start": 3271,
+      "search_end": 3413,
+      "locator": "п. 8.1",
+      "topics": [
+        "dispute"
+      ]
+    },
+    {
+      "id": "99d821430f6ea03512998c18",
+      "doc_id": "b93f18c66ca5bd5cd729",
+      "start": 3413,
+      "end": 3529,
+      "search_start": 3413,
+      "search_end": 3529,
+      "locator": "п. 8.2",
+      "topics": [
+        "dispute"
+      ]
+    },
+    {
+      "id": "4ef79483cd74c300842d8bf4",
+      "doc_id": "b93f18c66ca5bd5cd729",
+      "start": 3555,
+      "end": 3636,
+      "search_start": 3555,
+      "search_end": 3636,
+      "locator": "п. 9.1",
+      "topics": []
+    },
+    {
+      "id": "be8ef5cff365fd5b5d20d54c",
+      "doc_id": "b93f18c66ca5bd5cd729",
+      "start": 3636,
+      "end": 3784,
+      "search_start": 3636,
+      "search_end": 3784,
+      "locator": "п. 9.2",
+      "topics": [
+        "termination"
+      ]
+    },
+    {
+      "id": "720d7d98b42236d067d7d2bc",
+      "doc_id": "325b77b4ea7724fc0597",
+      "start": 0,
+      "end": 464,
+      "search_start": 0,
+      "search_end": 464,
+      "locator": "преамбула",
+      "topics": [
+        "approval_threshold",
+        "requisites"
+      ]
+    },
+    {
+      "id": "d85127600f88da79a7a5ca0e",
+      "doc_id": "325b77b4ea7724fc0597",
+      "start": 484,
+      "end": 669,
+      "search_start": 484,
+      "search_end": 669,
+      "locator": "п. 1.1",
+      "topics": []
+    },
+    {
+      "id": "989ba925f01241f629190188",
+      "doc_id": "325b77b4ea7724fc0597",
+      "start": 669,
+      "end": 804,
+      "search_start": 669,
+      "search_end": 804,
+      "locator": "п. 1.2",
+      "topics": [
+        "order_delivery"
+      ]
+    },
+    {
+      "id": "c265b0934b45233fe8064f78",
+      "doc_id": "325b77b4ea7724fc0597",
+      "start": 819,
+      "end": 931,
+      "search_start": 819,
+      "search_end": 931,
+      "locator": "п. 2.1",
+      "topics": [
+        "vat_rate",
+        "order_delivery"
+      ]
+    },
+    {
+      "id": "de06f18f256bce9c90de44d9",
+      "doc_id": "325b77b4ea7724fc0597",
+      "start": 931,
+      "end": 1040,
+      "search_start": 931,
+      "search_end": 1040,
+      "locator": "п. 2.2",
+      "topics": [
+        "price_change"
+      ]
+    },
+    {
+      "id": "c108d725b30bb01ae8687c03",
+      "doc_id": "325b77b4ea7724fc0597",
+      "start": 1060,
+      "end": 1169,
+      "search_start": 1060,
+      "search_end": 1169,
+      "locator": "п. 3.1",
+      "topics": [
+        "order_delivery"
+      ]
+    },
+    {
+      "id": "b6cd8d7f6bd37181bf8d1c5c",
+      "doc_id": "325b77b4ea7724fc0597",
+      "start": 1169,
+      "end": 1270,
+      "search_start": 1169,
+      "search_end": 1270,
+      "locator": "п. 3.2",
+      "topics": [
+        "delivery_address"
+      ]
+    },
+    {
+      "id": "a52f4e29504c7ba1cf33e076",
+      "doc_id": "325b77b4ea7724fc0597",
+      "start": 1270,
+      "end": 1368,
+      "search_start": 1270,
+      "search_end": 1368,
+      "locator": "п. 3.3",
+      "topics": [
+        "ownership"
+      ]
+    },
+    {
+      "id": "f44603b8b754de39493b2d87",
+      "doc_id": "325b77b4ea7724fc0597",
+      "start": 1388,
+      "end": 1482,
+      "search_start": 1388,
+      "search_end": 1482,
+      "locator": "п. 4.1",
+      "topics": []
+    },
+    {
+      "id": "359da38c2f2a5fd78cfee12f",
+      "doc_id": "325b77b4ea7724fc0597",
+      "start": 1482,
+      "end": 1582,
+      "search_start": 1482,
+      "search_end": 1582,
+      "locator": "п. 4.2",
+      "topics": [
+        "prepayment"
+      ]
+    },
+    {
+      "id": "4fa6667a1bc66d0d169ac9e5",
+      "doc_id": "325b77b4ea7724fc0597",
+      "start": 1608,
+      "end": 1744,
+      "search_start": 1608,
+      "search_end": 1744,
+      "locator": "п. 5.1",
+      "topics": [
+        "penalty"
+      ]
+    },
+    {
+      "id": "63e83b58768ba4f32ade1565",
+      "doc_id": "325b77b4ea7724fc0597",
+      "start": 1744,
+      "end": 1865,
+      "search_start": 1744,
+      "search_end": 1865,
+      "locator": "п. 5.2",
+      "topics": [
+        "penalty"
+      ]
+    },
+    {
+      "id": "97b388996d3f66baa969fcde",
+      "doc_id": "325b77b4ea7724fc0597",
+      "start": 1865,
+      "end": 2026,
+      "search_start": 1865,
+      "search_end": 2026,
+      "locator": "п. 5.3",
+      "topics": []
+    },
+    {
+      "id": "af3d6d3c593359ca1f056fe9",
+      "doc_id": "325b77b4ea7724fc0597",
+      "start": 2038,
+      "end": 2136,
+      "search_start": 2038,
+      "search_end": 2136,
+      "locator": "п. 6.1",
+      "topics": [
+        "warranty"
+      ]
+    },
+    {
+      "id": "e2be28e062e7e2f9f550b1a2",
+      "doc_id": "325b77b4ea7724fc0597",
+      "start": 2157,
+      "end": 2263,
+      "search_start": 2157,
+      "search_end": 2263,
+      "locator": "п. 7.1",
+      "topics": [
+        "dispute"
+      ]
+    },
+    {
+      "id": "60d88421bc607055a6c90408",
+      "doc_id": "325b77b4ea7724fc0597",
+      "start": 2289,
+      "end": 2517,
+      "search_start": 2289,
+      "search_end": 2517,
+      "locator": "п. 8.1",
+      "topics": [
+        "contract_term"
+      ]
+    },
+    {
+      "id": "8397700b9d1184f97665c859",
+      "doc_id": "b8d10bac552077f92511",
+      "start": 0,
+      "end": 966,
+      "search_start": 0,
+      "search_end": 966,
+      "locator": "преамбула",
+      "topics": [
+        "approval_threshold",
+        "delivery_address"
+      ]
+    },
+    {
+      "id": "36e7572cb90683a4b392389c",
+      "doc_id": "0c170b71bd0dad40b08a",
+      "start": 0,
+      "end": 1349,
+      "search_start": 0,
+      "search_end": 1349,
+      "locator": "преамбула",
+      "topics": [
+        "approval_route",
+        "foreign_checks"
+      ]
+    },
+    {
+      "id": "b66a0109cd01b630c05996b1",
+      "doc_id": "02b38e67428c4c4aacb5",
+      "start": 0,
+      "end": 249,
+      "search_start": 0,
+      "search_end": 249,
+      "locator": "преамбула",
+      "topics": [
+        "approval_threshold",
+        "approval_route"
+      ]
+    },
+    {
+      "id": "c4604a27e864abc4a6a9ff80",
+      "doc_id": "02b38e67428c4c4aacb5",
+      "start": 268,
+      "end": 385,
+      "search_start": 268,
+      "search_end": 385,
+      "locator": "п. 1.1",
+      "topics": [
+        "approval_route"
+      ]
+    },
+    {
+      "id": "2eaa0922b761b006c16e3dc7",
+      "doc_id": "02b38e67428c4c4aacb5",
+      "start": 385,
+      "end": 456,
+      "search_start": 385,
+      "search_end": 456,
+      "locator": "п. 1.2",
+      "topics": []
+    },
+    {
+      "id": "3dad536cc4dcdb0bb7feaa4b",
+      "doc_id": "02b38e67428c4c4aacb5",
+      "start": 456,
+      "end": 565,
+      "search_start": 456,
+      "search_end": 565,
+      "locator": "п. 1.3",
+      "topics": [
+        "approval_route"
+      ]
+    },
+    {
+      "id": "4ade8dbb910f3235cb1d5193",
+      "doc_id": "02b38e67428c4c4aacb5",
+      "start": 589,
+      "end": 667,
+      "search_start": 589,
+      "search_end": 667,
+      "locator": "п. 2.1",
+      "topics": [
+        "approval_route"
+      ]
+    },
+    {
+      "id": "d194a84d5b72bccafaef91bf",
+      "doc_id": "02b38e67428c4c4aacb5",
+      "start": 667,
+      "end": 776,
+      "search_start": 667,
+      "search_end": 776,
+      "locator": "п. 2.2",
+      "topics": [
+        "approval_route"
+      ]
+    },
+    {
+      "id": "2f266ec93bce6f106a0bb9e5",
+      "doc_id": "02b38e67428c4c4aacb5",
+      "start": 776,
+      "end": 891,
+      "search_start": 776,
+      "search_end": 891,
+      "locator": "п. 2.3",
+      "topics": [
+        "approval_route"
+      ]
+    },
+    {
+      "id": "0f081dfd330aa8e3664a41d4",
+      "doc_id": "02b38e67428c4c4aacb5",
+      "start": 891,
+      "end": 1014,
+      "search_start": 891,
+      "search_end": 1014,
+      "locator": "п. 2.4",
+      "topics": [
+        "approval_threshold"
+      ]
+    },
+    {
+      "id": "665008912122e1b8fc2f1e61",
+      "doc_id": "02b38e67428c4c4aacb5",
+      "start": 1041,
+      "end": 1114,
+      "search_start": 1041,
+      "search_end": 1114,
+      "locator": "п. 3.1",
+      "topics": []
+    },
+    {
+      "id": "d81071e620bfacdef4b2fff6",
+      "doc_id": "02b38e67428c4c4aacb5",
+      "start": 1114,
+      "end": 1244,
+      "search_start": 1114,
+      "search_end": 1244,
+      "locator": "п. 3.2",
+      "topics": [
+        "archive"
+      ]
+    },
+    {
+      "id": "47f625eb8be65cc3a85f7ed4",
+      "doc_id": "02b38e67428c4c4aacb5",
+      "start": 1261,
+      "end": 1379,
+      "search_start": 1261,
+      "search_end": 1379,
+      "locator": "п. 4.1",
+      "topics": [
+        "approval_route",
+        "foreign_checks"
+      ]
+    },
+    {
+      "id": "279a38463aa7c51494b00345",
+      "doc_id": "df3a7d8fd67f2dc6235a",
+      "start": 0,
+      "end": 199,
+      "search_start": 0,
+      "search_end": 199,
+      "locator": "преамбула",
+      "topics": [
+        "approval_threshold",
+        "approval_route"
+      ]
+    },
+    {
+      "id": "3db4d97901aaa5ec22ecbe24",
+      "doc_id": "df3a7d8fd67f2dc6235a",
+      "start": 218,
+      "end": 335,
+      "search_start": 218,
+      "search_end": 335,
+      "locator": "п. 1.1",
+      "topics": [
+        "approval_route"
+      ]
+    },
+    {
+      "id": "787ad1b292320b7fcc740023",
+      "doc_id": "df3a7d8fd67f2dc6235a",
+      "start": 335,
+      "end": 406,
+      "search_start": 335,
+      "search_end": 406,
+      "locator": "п. 1.2",
+      "topics": []
+    },
+    {
+      "id": "ecc89c7e82b3caf7270a0af1",
+      "doc_id": "df3a7d8fd67f2dc6235a",
+      "start": 406,
+      "end": 515,
+      "search_start": 406,
+      "search_end": 515,
+      "locator": "п. 1.3",
+      "topics": [
+        "approval_route"
+      ]
+    },
+    {
+      "id": "1cd6a364beed510b0ccdf187",
+      "doc_id": "df3a7d8fd67f2dc6235a",
+      "start": 515,
+      "end": 600,
+      "search_start": 515,
+      "search_end": 600,
+      "locator": "п. 1.4",
+      "topics": []
+    },
+    {
+      "id": "4ec5b410142b0c11d6dadbd8",
+      "doc_id": "df3a7d8fd67f2dc6235a",
+      "start": 624,
+      "end": 702,
+      "search_start": 624,
+      "search_end": 702,
+      "locator": "п. 2.1",
+      "topics": [
+        "approval_route"
+      ]
+    },
+    {
+      "id": "99109fdf7851234f8de69139",
+      "doc_id": "df3a7d8fd67f2dc6235a",
+      "start": 702,
+      "end": 906,
+      "search_start": 702,
+      "search_end": 906,
+      "locator": "п. 2.2",
+      "topics": [
+        "approval_route"
+      ]
+    },
+    {
+      "id": "57bab93daedebeeb021250cd",
+      "doc_id": "df3a7d8fd67f2dc6235a",
+      "start": 906,
+      "end": 1020,
+      "search_start": 906,
+      "search_end": 1020,
+      "locator": "п. 2.3",
+      "topics": [
+        "approval_route"
+      ]
+    },
+    {
+      "id": "b216d66b804c8b01989a7080",
+      "doc_id": "df3a7d8fd67f2dc6235a",
+      "start": 1020,
+      "end": 1147,
+      "search_start": 1020,
+      "search_end": 1147,
+      "locator": "п. 2.4",
+      "topics": [
+        "approval_threshold"
+      ]
+    },
+    {
+      "id": "de80016a852eeede5f354f75",
+      "doc_id": "df3a7d8fd67f2dc6235a",
+      "start": 1147,
+      "end": 1280,
+      "search_start": 1147,
+      "search_end": 1280,
+      "locator": "п. 2.5",
+      "topics": [
+        "approval_route"
+      ]
+    },
+    {
+      "id": "09ceec4adecca6cc263a2f1b",
+      "doc_id": "df3a7d8fd67f2dc6235a",
+      "start": 1307,
+      "end": 1397,
+      "search_start": 1307,
+      "search_end": 1397,
+      "locator": "п. 3.1",
+      "topics": [
+        "approval_form"
+      ]
+    },
+    {
+      "id": "f66def7def41d3a18a3ab891",
+      "doc_id": "df3a7d8fd67f2dc6235a",
+      "start": 1397,
+      "end": 1527,
+      "search_start": 1397,
+      "search_end": 1527,
+      "locator": "п. 3.2",
+      "topics": [
+        "archive"
+      ]
+    },
+    {
+      "id": "99773cb6e50fa0de5d0e6f79",
+      "doc_id": "df3a7d8fd67f2dc6235a",
+      "start": 1544,
+      "end": 1689,
+      "search_start": 1544,
+      "search_end": 1689,
+      "locator": "п. 4.1",
+      "topics": [
+        "approved_template"
+      ]
+    },
+    {
+      "id": "271bf441de75ed7e9ddef27d",
+      "doc_id": "df3a7d8fd67f2dc6235a",
+      "start": 1706,
+      "end": 1802,
+      "search_start": 1706,
+      "search_end": 1802,
+      "locator": "п. 5.1",
+      "topics": []
+    },
+    {
+      "id": "a2757a55a7ff2b5514b85706",
+      "doc_id": "df3a7d8fd67f2dc6235a",
+      "start": 1802,
+      "end": 1935,
+      "search_start": 1802,
+      "search_end": 1935,
+      "locator": "п. 5.2",
+      "topics": []
+    },
+    {
+      "id": "f09f294245c4e356686c05c3",
+      "doc_id": "df3a7d8fd67f2dc6235a",
+      "start": 1935,
+      "end": 2031,
+      "search_start": 1935,
+      "search_end": 2031,
+      "locator": "п. 5.3",
+      "topics": [
+        "approval_route"
+      ]
+    },
+    {
+      "id": "fff56f08b19a01919e7f023e",
+      "doc_id": "df3a7d8fd67f2dc6235a",
+      "start": 2031,
+      "end": 2234,
+      "search_start": 2031,
+      "search_end": 2234,
+      "locator": "п. 5.4",
+      "topics": [
+        "foreign_checks"
+      ]
+    },
+    {
+      "id": "9969dc90564ff24a02697d68",
+      "doc_id": "c536cb8fbe9b923e7256",
+      "start": 0,
+      "end": 852,
+      "search_start": 0,
+      "search_end": 852,
+      "locator": "преамбула",
+      "topics": [
+        "order_delivery",
+        "payment_term",
+        "payment_completion",
+        "archive"
+      ]
+    },
+    {
+      "id": "bf769ff75b182037bd7cf04c",
+      "doc_id": "9995101881e9d4bd4d23",
+      "start": 0,
+      "end": 644,
+      "search_start": 0,
+      "search_end": 644,
+      "locator": "преамбула",
+      "topics": [
+        "consent_requirements"
+      ]
+    },
+    {
+      "id": "70b15f190b958362fad28adc",
+      "doc_id": "9995101881e9d4bd4d23",
+      "start": 644,
+      "end": 1548,
+      "search_start": 644,
+      "search_end": 1548,
+      "locator": "п. 1",
+      "topics": [
+        "consent_requirements"
+      ]
+    },
+    {
+      "id": "062d5a1651a05f90965651d6",
+      "doc_id": "9995101881e9d4bd4d23",
+      "start": 1548,
+      "end": 1970,
+      "search_start": 1548,
+      "search_end": 1970,
+      "locator": "п. 2",
+      "topics": [
+        "consent_requirements"
+      ]
+    },
+    {
+      "id": "d8bbe7f3b4fc5dcbe4647771",
+      "doc_id": "9995101881e9d4bd4d23",
+      "start": 1970,
+      "end": 2278,
+      "search_start": 1970,
+      "search_end": 2278,
+      "locator": "п. 3",
+      "topics": [
+        "consent_requirements"
+      ]
+    },
+    {
+      "id": "57f7974883d7524ef3434aa7",
+      "doc_id": "9995101881e9d4bd4d23",
+      "start": 2278,
+      "end": 4162,
+      "search_start": 2278,
+      "search_end": 3969,
+      "locator": "п. 4",
+      "topics": [
+        "consent_requirements",
+        "requisites"
+      ]
+    },
+    {
+      "id": "057eaa0a947ba99bdfbc53f5",
+      "doc_id": "9995101881e9d4bd4d23",
+      "start": 2278,
+      "end": 4162,
+      "search_start": 3969,
+      "search_end": 4162,
+      "locator": "п. 4",
+      "topics": [
+        "consent_requirements"
+      ]
+    },
+    {
+      "id": "d706ca8b806e135530a5623a",
+      "doc_id": "9995101881e9d4bd4d23",
+      "start": 4162,
+      "end": 4524,
+      "search_start": 4162,
+      "search_end": 4524,
+      "locator": "п. 5",
+      "topics": [
+        "consent_requirements"
+      ]
+    },
+    {
+      "id": "efd18234b79ddfca9e5cff22",
+      "doc_id": "9995101881e9d4bd4d23",
+      "start": 4524,
+      "end": 4687,
+      "search_start": 4524,
+      "search_end": 4687,
+      "locator": "п. 6",
+      "topics": [
+        "consent_requirements"
+      ]
+    },
+    {
+      "id": "4bbde2de5d9867874f533931",
+      "doc_id": "9995101881e9d4bd4d23",
+      "start": 4687,
+      "end": 4906,
+      "search_start": 4687,
+      "search_end": 4906,
+      "locator": "п. 7",
+      "topics": [
+        "consent_requirements"
+      ]
+    },
+    {
+      "id": "5594e7104ae06dfadb935aca",
+      "doc_id": "9995101881e9d4bd4d23",
+      "start": 4906,
+      "end": 5299,
+      "search_start": 4906,
+      "search_end": 5299,
+      "locator": "п. 8",
+      "topics": []
+    },
+    {
+      "id": "f70c39915e7a891468745512",
+      "doc_id": "9995101881e9d4bd4d23",
+      "start": 5299,
+      "end": 5517,
+      "search_start": 5299,
+      "search_end": 5517,
+      "locator": "п. 9",
+      "topics": [
+        "consent_requirements"
+      ]
+    },
+    {
+      "id": "8e4943caab69a5520d93b4d7",
+      "doc_id": "80268aeb09d0f7ab7987",
+      "start": 0,
+      "end": 717,
+      "search_start": 0,
+      "search_end": 717,
+      "locator": "преамбула",
+      "topics": [
+        "data_penalty"
+      ]
+    },
+    {
+      "id": "02804c252a9cc45010f8cb8a",
+      "doc_id": "80268aeb09d0f7ab7987",
+      "start": 717,
+      "end": 1437,
+      "search_start": 717,
+      "search_end": 1437,
+      "locator": "п. 1",
+      "topics": []
+    },
+    {
+      "id": "209a6bfcb3ecc54824ca6f0c",
+      "doc_id": "80268aeb09d0f7ab7987",
+      "start": 1437,
+      "end": 1866,
+      "search_start": 1437,
+      "search_end": 1866,
+      "locator": "п. 1.1",
+      "topics": []
+    },
+    {
+      "id": "409ae4d85587984d386ab969",
+      "doc_id": "80268aeb09d0f7ab7987",
+      "start": 1866,
+      "end": 2865,
+      "search_start": 1866,
+      "search_end": 2865,
+      "locator": "п. 2",
+      "topics": [
+        "data_penalty",
+        "consent_requirements"
+      ]
+    },
+    {
+      "id": "a19c13fb1439cf7b7d20ad7d",
+      "doc_id": "80268aeb09d0f7ab7987",
+      "start": 2865,
+      "end": 3383,
+      "search_start": 2865,
+      "search_end": 3383,
+      "locator": "п. 2.1",
+      "topics": []
+    },
+    {
+      "id": "71a28ea456fbbb47ba54e431",
+      "doc_id": "80268aeb09d0f7ab7987",
+      "start": 3383,
+      "end": 4146,
+      "search_start": 3383,
+      "search_end": 4146,
+      "locator": "п. 3",
+      "topics": [
+        "data_penalty"
+      ]
+    },
+    {
+      "id": "2cbb1f9004d9ccd54468891b",
+      "doc_id": "80268aeb09d0f7ab7987",
+      "start": 4146,
+      "end": 4781,
+      "search_start": 4146,
+      "search_end": 4781,
+      "locator": "п. 4",
+      "topics": [
+        "data_penalty"
+      ]
+    },
+    {
+      "id": "d34ca090d132fdc096d8066b",
+      "doc_id": "80268aeb09d0f7ab7987",
+      "start": 4781,
+      "end": 5683,
+      "search_start": 4781,
+      "search_end": 5683,
+      "locator": "п. 5",
+      "topics": [
+        "data_penalty"
+      ]
+    },
+    {
+      "id": "af939445f5cb987d8d41247b",
+      "doc_id": "80268aeb09d0f7ab7987",
+      "start": 5683,
+      "end": 6193,
+      "search_start": 5683,
+      "search_end": 6193,
+      "locator": "п. 5.1",
+      "topics": []
+    },
+    {
+      "id": "5e7e7ff9275ce858ed3dd1f7",
+      "doc_id": "80268aeb09d0f7ab7987",
+      "start": 6193,
+      "end": 7254,
+      "search_start": 6193,
+      "search_end": 7254,
+      "locator": "п. 6",
+      "topics": []
+    },
+    {
+      "id": "53e383e7f129367d33a6a9d2",
+      "doc_id": "80268aeb09d0f7ab7987",
+      "start": 7254,
+      "end": 7783,
+      "search_start": 7254,
+      "search_end": 7783,
+      "locator": "п. 7",
+      "topics": [
+        "data_penalty"
+      ]
+    },
+    {
+      "id": "d0e99efc46d304963541c3f5",
+      "doc_id": "80268aeb09d0f7ab7987",
+      "start": 7783,
+      "end": 8592,
+      "search_start": 7783,
+      "search_end": 8592,
+      "locator": "п. 8",
+      "topics": [
+        "data_penalty"
+      ]
+    },
+    {
+      "id": "f5f39d1213800a8d00de2f5f",
+      "doc_id": "80268aeb09d0f7ab7987",
+      "start": 8592,
+      "end": 9350,
+      "search_start": 8592,
+      "search_end": 9350,
+      "locator": "п. 9",
+      "topics": [
+        "data_penalty"
+      ]
+    },
+    {
+      "id": "253bef198b394a63487d5bda",
+      "doc_id": "80268aeb09d0f7ab7987",
+      "start": 9350,
+      "end": 9976,
+      "search_start": 9350,
+      "search_end": 9976,
+      "locator": "п. 10",
+      "topics": [
+        "data_penalty"
+      ]
+    },
+    {
+      "id": "d9f94579c79e9177dea2439a",
+      "doc_id": "80268aeb09d0f7ab7987",
+      "start": 9976,
+      "end": 10743,
+      "search_start": 9976,
+      "search_end": 10743,
+      "locator": "п. 11",
+      "topics": [
+        "data_penalty"
+      ]
+    },
+    {
+      "id": "a5cc8719133164331a2aee1b",
+      "doc_id": "80268aeb09d0f7ab7987",
+      "start": 10743,
+      "end": 11435,
+      "search_start": 10743,
+      "search_end": 11435,
+      "locator": "п. 12",
+      "topics": [
+        "data_penalty",
+        "delivery_cost"
+      ]
+    },
+    {
+      "id": "f1a74190803aeb6a9e0d1664",
+      "doc_id": "80268aeb09d0f7ab7987",
+      "start": 11435,
+      "end": 12130,
+      "search_start": 11435,
+      "search_end": 12130,
+      "locator": "п. 13",
+      "topics": [
+        "data_penalty",
+        "delivery_cost"
+      ]
+    },
+    {
+      "id": "81a5de8eff143fc14ee89e70",
+      "doc_id": "80268aeb09d0f7ab7987",
+      "start": 12130,
+      "end": 12815,
+      "search_start": 12130,
+      "search_end": 12815,
+      "locator": "п. 14",
+      "topics": [
+        "data_penalty",
+        "delivery_cost"
+      ]
+    },
+    {
+      "id": "d90d3d0a4fdad274f7cd3f0e",
+      "doc_id": "80268aeb09d0f7ab7987",
+      "start": 12815,
+      "end": 14068,
+      "search_start": 12815,
+      "search_end": 14068,
+      "locator": "п. 15",
+      "topics": [
+        "data_penalty"
+      ]
+    },
+    {
+      "id": "5d6afb7781b169a59dbf8c71",
+      "doc_id": "80268aeb09d0f7ab7987",
+      "start": 14068,
+      "end": 14614,
+      "search_start": 14068,
+      "search_end": 14614,
+      "locator": "п. 16",
+      "topics": [
+        "data_penalty",
+        "delivery_cost"
+      ]
+    },
+    {
+      "id": "b950ef09b9056cb3e16ea060",
+      "doc_id": "80268aeb09d0f7ab7987",
+      "start": 14614,
+      "end": 15245,
+      "search_start": 14614,
+      "search_end": 15245,
+      "locator": "п. 17",
+      "topics": [
+        "data_penalty",
+        "delivery_cost"
+      ]
+    },
+    {
+      "id": "c003dbbddcf50020b03b5272",
+      "doc_id": "80268aeb09d0f7ab7987",
+      "start": 15245,
+      "end": 16492,
+      "search_start": 15245,
+      "search_end": 16492,
+      "locator": "п. 18",
+      "topics": []
+    },
+    {
+      "id": "1da98909ac2f4153f2089ba5",
+      "doc_id": "80268aeb09d0f7ab7987",
+      "start": 16492,
+      "end": 16750,
+      "search_start": 16492,
+      "search_end": 16750,
+      "locator": "п. 1",
+      "topics": []
+    },
+    {
+      "id": "8062d1960d4a1a5e23ba10cf",
+      "doc_id": "80268aeb09d0f7ab7987",
+      "start": 16750,
+      "end": 16914,
+      "search_start": 16750,
+      "search_end": 16914,
+      "locator": "п. 2",
+      "topics": []
+    },
+    {
+      "id": "3c8555a301a2b4d6502b42aa",
+      "doc_id": "80268aeb09d0f7ab7987",
+      "start": 16914,
+      "end": 17104,
+      "search_start": 16914,
+      "search_end": 17104,
+      "locator": "п. 3",
+      "topics": []
+    },
+    {
+      "id": "21a7283e61ad53fb94c72469",
+      "doc_id": "80268aeb09d0f7ab7987",
+      "start": 17104,
+      "end": 17312,
+      "search_start": 17104,
+      "search_end": 17312,
+      "locator": "п. 4",
+      "topics": []
+    },
+    {
+      "id": "9a8e7a87e0bcd29d2ede4d97",
+      "doc_id": "80268aeb09d0f7ab7987",
+      "start": 17312,
+      "end": 18034,
+      "search_start": 17312,
+      "search_end": 18034,
+      "locator": "п. 5",
+      "topics": []
+    },
+    {
+      "id": "e9d2d9618387954f134e8965",
+      "doc_id": "ec7a0868d92ef4f1ff32",
+      "start": 0,
+      "end": 2058,
+      "search_start": 0,
+      "search_end": 1733,
+      "locator": "преамбула",
+      "topics": [
+        "minimum_wage",
+        "payment_term"
+      ]
+    },
+    {
+      "id": "fdcd1befbbd35057295a5c83",
+      "doc_id": "ec7a0868d92ef4f1ff32",
+      "start": 0,
+      "end": 2058,
+      "search_start": 1733,
+      "search_end": 2058,
+      "locator": "преамбула",
+      "topics": []
+    },
+    {
+      "id": "4472a0548dfd6e076aeeb09d",
+      "doc_id": "1ce8895593a1db4231bd",
+      "start": 0,
+      "end": 546,
+      "search_start": 0,
+      "search_end": 546,
+      "locator": "преамбула",
+      "topics": [
+        "tax_penalty"
+      ]
+    },
+    {
+      "id": "6561a84b05da2b388598b925",
+      "doc_id": "1ce8895593a1db4231bd",
+      "start": 546,
+      "end": 1127,
+      "search_start": 546,
+      "search_end": 1127,
+      "locator": "п. 1",
+      "topics": [
+        "tax_penalty"
+      ]
+    },
+    {
+      "id": "a1a96f63ed7805ecdd089f98",
+      "doc_id": "1ce8895593a1db4231bd",
+      "start": 1127,
+      "end": 1299,
+      "search_start": 1127,
+      "search_end": 1299,
+      "locator": "п. 2",
+      "topics": [
+        "tax_penalty"
+      ]
+    },
+    {
+      "id": "590f7fa36bc864010a94b422",
+      "doc_id": "1ce8895593a1db4231bd",
+      "start": 1299,
+      "end": 1478,
+      "search_start": 1299,
+      "search_end": 1478,
+      "locator": "п. 3",
+      "topics": [
+        "tax_sanctions"
+      ]
+    },
+    {
+      "id": "6bf04bf345d3e144c393c97c",
+      "doc_id": "1ce8895593a1db4231bd",
+      "start": 1478,
+      "end": 1695,
+      "search_start": 1478,
+      "search_end": 1695,
+      "locator": "п. 4",
+      "topics": [
+        "tax_penalty",
+        "tax_sanctions"
+      ]
+    },
+    {
+      "id": "9ec46ba1c591d1929b89f9ea",
+      "doc_id": "fc1844e134bc2dc5082c",
+      "start": 0,
+      "end": 393,
+      "search_start": 0,
+      "search_end": 393,
+      "locator": "преамбула",
+      "topics": [
+        "tax_sanctions"
+      ]
+    },
+    {
+      "id": "218da0b34e6b9b441017d535",
+      "doc_id": "fc1844e134bc2dc5082c",
+      "start": 393,
+      "end": 487,
+      "search_start": 393,
+      "search_end": 487,
+      "locator": "п. 1",
+      "topics": [
+        "tax_sanctions"
+      ]
+    },
+    {
+      "id": "2408c745b76d509ae91dc24c",
+      "doc_id": "fc1844e134bc2dc5082c",
+      "start": 487,
+      "end": 727,
+      "search_start": 487,
+      "search_end": 727,
+      "locator": "п. 2",
+      "topics": [
+        "tax_sanctions"
+      ]
+    },
+    {
+      "id": "8b0325b46d954d850aee35e3",
+      "doc_id": "fc1844e134bc2dc5082c",
+      "start": 727,
+      "end": 1279,
+      "search_start": 727,
+      "search_end": 1279,
+      "locator": "п. 3",
+      "topics": [
+        "tax_penalty"
+      ]
+    },
+    {
+      "id": "ede51a7a24fffc4c139bd2ce",
+      "doc_id": "fc1844e134bc2dc5082c",
+      "start": 1279,
+      "end": 1396,
+      "search_start": 1279,
+      "search_end": 1396,
+      "locator": "п. 4",
+      "topics": []
+    },
+    {
+      "id": "e0f7ff74bd994405eba53bcc",
+      "doc_id": "fc1844e134bc2dc5082c",
+      "start": 1396,
+      "end": 1587,
+      "search_start": 1396,
+      "search_end": 1587,
+      "locator": "п. 5",
+      "topics": [
+        "tax_sanctions"
+      ]
+    },
+    {
+      "id": "0eee3e8863d535865b0356d7",
+      "doc_id": "fc1844e134bc2dc5082c",
+      "start": 1587,
+      "end": 1671,
+      "search_start": 1587,
+      "search_end": 1671,
+      "locator": "п. 6",
+      "topics": []
+    },
+    {
+      "id": "4b3830c28d8453869d818599",
+      "doc_id": "fc1844e134bc2dc5082c",
+      "start": 1671,
+      "end": 1706,
+      "search_start": 1671,
+      "search_end": 1706,
+      "locator": "п. 7",
+      "topics": []
+    },
+    {
+      "id": "05169a3122021d078cb6894e",
+      "doc_id": "f7b96918455100864288",
+      "start": 0,
+      "end": 551,
+      "search_start": 0,
+      "search_end": 551,
+      "locator": "преамбула",
+      "topics": [
+        "vat_exemption"
+      ]
+    },
+    {
+      "id": "dccd3ee0467c9e17e1d715a9",
+      "doc_id": "f7b96918455100864288",
+      "start": 551,
+      "end": 7183,
+      "search_start": 551,
+      "search_end": 2187,
+      "locator": "п. 1",
+      "topics": [
+        "payment_term",
+        "payment_completion"
+      ]
+    },
+    {
+      "id": "2ff8ef6160ccc8b7710967b2",
+      "doc_id": "f7b96918455100864288",
+      "start": 551,
+      "end": 7183,
+      "search_start": 2187,
+      "search_end": 3945,
+      "locator": "п. 1",
+      "topics": [
+        "payment_term",
+        "payment_completion"
+      ]
+    },
+    {
+      "id": "ea8225eb3099001955e7a8ba",
+      "doc_id": "f7b96918455100864288",
+      "start": 551,
+      "end": 7183,
+      "search_start": 3945,
+      "search_end": 4555,
+      "locator": "п. 1",
+      "topics": []
+    },
+    {
+      "id": "684db0f973b9594b47d09085",
+      "doc_id": "f7b96918455100864288",
+      "start": 551,
+      "end": 7183,
+      "search_start": 4555,
+      "search_end": 6301,
+      "locator": "п. 1",
+      "topics": [
+        "payment_term",
+        "payment_completion"
+      ]
+    },
+    {
+      "id": "499044c55f8e03ff4a4d53c2",
+      "doc_id": "f7b96918455100864288",
+      "start": 551,
+      "end": 7183,
+      "search_start": 6301,
+      "search_end": 7183,
+      "locator": "п. 1",
+      "topics": [
+        "vat_exemption",
+        "delivery_cost"
+      ]
+    },
+    {
+      "id": "a550098415a4933aea0ddc8d",
+      "doc_id": "f7b96918455100864288",
+      "start": 7183,
+      "end": 8998,
+      "search_start": 7183,
+      "search_end": 8914,
+      "locator": "п. 2",
+      "topics": [
+        "vat_exemption"
+      ]
+    },
+    {
+      "id": "85f27275616ae7f6366bc8be",
+      "doc_id": "f7b96918455100864288",
+      "start": 7183,
+      "end": 8998,
+      "search_start": 8914,
+      "search_end": 8998,
+      "locator": "п. 2",
+      "topics": []
+    },
+    {
+      "id": "4ef10af407f150d0026d2197",
+      "doc_id": "f7b96918455100864288",
+      "start": 8998,
+      "end": 10105,
+      "search_start": 8998,
+      "search_end": 10105,
+      "locator": "п. 3",
+      "topics": []
+    },
+    {
+      "id": "0fe76d390b1fe78f76bf6095",
+      "doc_id": "f7b96918455100864288",
+      "start": 10105,
+      "end": 11704,
+      "search_start": 10105,
+      "search_end": 11704,
+      "locator": "п. 4",
+      "topics": [
+        "contract_term"
+      ]
+    },
+    {
+      "id": "5fe464ee2c9e21053bc46e0d",
+      "doc_id": "f7b96918455100864288",
+      "start": 11704,
+      "end": 15931,
+      "search_start": 11704,
+      "search_end": 13191,
+      "locator": "п. 5",
+      "topics": [
+        "payment_term"
+      ]
+    },
+    {
+      "id": "be92eeab5e07b1892b225834",
+      "doc_id": "f7b96918455100864288",
+      "start": 11704,
+      "end": 15931,
+      "search_start": 13191,
+      "search_end": 15123,
+      "locator": "п. 5",
+      "topics": [
+        "payment_term"
+      ]
+    },
+    {
+      "id": "5da79ee3bc0164c9eb99e6d6",
+      "doc_id": "f7b96918455100864288",
+      "start": 11704,
+      "end": 15931,
+      "search_start": 15123,
+      "search_end": 15931,
+      "locator": "п. 5",
+      "topics": [
+        "penalty",
+        "tax_sanctions"
+      ]
+    },
+    {
+      "id": "227a81f453a4bca131f452aa",
+      "doc_id": "f7b96918455100864288",
+      "start": 15931,
+      "end": 17283,
+      "search_start": 15931,
+      "search_end": 17283,
+      "locator": "п. 6",
+      "topics": [
+        "contract_term"
+      ]
+    },
+    {
+      "id": "0e8bb524ab15776197f8289a",
+      "doc_id": "f7b96918455100864288",
+      "start": 17283,
+      "end": 18028,
+      "search_start": 17283,
+      "search_end": 18028,
+      "locator": "п. 7",
+      "topics": [
+        "order_delivery",
+        "payment_term",
+        "payment_completion"
+      ]
+    },
+    {
+      "id": "4fd21040d83e5a0350e29274",
+      "doc_id": "f7b96918455100864288",
+      "start": 18028,
+      "end": 20979,
+      "search_start": 18028,
+      "search_end": 19409,
+      "locator": "п. 8",
+      "topics": [
+        "payment_term"
+      ]
+    },
+    {
+      "id": "263059a7eddfdf96f2658638",
+      "doc_id": "f7b96918455100864288",
+      "start": 18028,
+      "end": 20979,
+      "search_start": 19409,
+      "search_end": 20979,
+      "locator": "п. 8",
+      "topics": [
+        "vat_rate"
+      ]
+    },
+    {
+      "id": "2679f86cf36c76abcd6edf42",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 0,
+      "end": 864,
+      "search_start": 0,
+      "search_end": 864,
+      "locator": "преамбула",
+      "topics": [
+        "vat_rate"
+      ]
+    },
+    {
+      "id": "1f00d9ced2bb5a19262c962c",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 864,
+      "search_end": 2518,
+      "locator": "п. 1",
+      "topics": [
+        "overtime_limits"
+      ]
+    },
+    {
+      "id": "693d227ad63fd5b40212e0d3",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 2518,
+      "search_end": 3948,
+      "locator": "п. 1",
+      "topics": [
+        "delivery_address"
+      ]
+    },
+    {
+      "id": "7109399a2e83fb06ef954b3f",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 3948,
+      "search_end": 5617,
+      "locator": "п. 1",
+      "topics": [
+        "approval_route"
+      ]
+    },
+    {
+      "id": "a843b7da60f608727e73648f",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 5617,
+      "search_end": 7416,
+      "locator": "п. 1",
+      "topics": [
+        "vat_rate"
+      ]
+    },
+    {
+      "id": "ac7ee8b4a05b22514f47e40f",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 7416,
+      "search_end": 9116,
+      "locator": "п. 1",
+      "topics": []
+    },
+    {
+      "id": "a8c53f0e8fa04b47cab939b7",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 9116,
+      "search_end": 10729,
+      "locator": "п. 1",
+      "topics": [
+        "vat_rate"
+      ]
+    },
+    {
+      "id": "d399c0f1526badfa3bf60694",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 10729,
+      "search_end": 12411,
+      "locator": "п. 1",
+      "topics": [
+        "overtime_limits",
+        "vat_rate"
+      ]
+    },
+    {
+      "id": "c2aad9a0aacae73bbebd2be0",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 12411,
+      "search_end": 14171,
+      "locator": "п. 1",
+      "topics": [
+        "overtime_limits",
+        "delivery_cost"
+      ]
+    },
+    {
+      "id": "953e2926862e4e15c6fb688b",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 14171,
+      "search_end": 15733,
+      "locator": "п. 1",
+      "topics": []
+    },
+    {
+      "id": "4149593e2e0dabcefb3b3a6f",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 15733,
+      "search_end": 17094,
+      "locator": "п. 1",
+      "topics": [
+        "vat_rate"
+      ]
+    },
+    {
+      "id": "dd88457ba34ebc4205459904",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 17094,
+      "search_end": 18768,
+      "locator": "п. 1",
+      "topics": [
+        "payment_term"
+      ]
+    },
+    {
+      "id": "c1670198d6113994836f6d4d",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 18768,
+      "search_end": 20518,
+      "locator": "п. 1",
+      "topics": [
+        "vat_rate"
+      ]
+    },
+    {
+      "id": "854e11b6868ab732a68627fe",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 20518,
+      "search_end": 22066,
+      "locator": "п. 1",
+      "topics": []
+    },
+    {
+      "id": "845bf6e3a09c6ad99ae1b0b4",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 22066,
+      "search_end": 23669,
+      "locator": "п. 1",
+      "topics": [
+        "vat_rate"
+      ]
+    },
+    {
+      "id": "4464f955c09a73a0e4de6df6",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 23669,
+      "search_end": 24383,
+      "locator": "п. 1",
+      "topics": [
+        "vat_rate"
+      ]
+    },
+    {
+      "id": "9312b64f6a7b71cc73b2f62d",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 24383,
+      "search_end": 26121,
+      "locator": "п. 1",
+      "topics": [
+        "payment_term"
+      ]
+    },
+    {
+      "id": "e3fb7ecc3f1087a38174e2e7",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 26121,
+      "search_end": 27919,
+      "locator": "п. 1",
+      "topics": [
+        "payment_term"
+      ]
+    },
+    {
+      "id": "d5d0f68a714009e47abf1c66",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 27919,
+      "search_end": 29459,
+      "locator": "п. 1",
+      "topics": [
+        "vat_rate"
+      ]
+    },
+    {
+      "id": "fc246bd7388fa3f1d17c98e4",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 29459,
+      "search_end": 30971,
+      "locator": "п. 1",
+      "topics": []
+    },
+    {
+      "id": "dcc1c0cd7c8984b2224c88cf",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 30971,
+      "search_end": 32584,
+      "locator": "п. 1",
+      "topics": [
+        "vat_rate"
+      ]
+    },
+    {
+      "id": "39f7e5d0208e393f5760791e",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 32584,
+      "search_end": 34179,
+      "locator": "п. 1",
+      "topics": [
+        "vat_rate"
+      ]
+    },
+    {
+      "id": "e138f65cb041447db5cec02f",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 34179,
+      "search_end": 36124,
+      "locator": "п. 1",
+      "topics": [
+        "order_delivery",
+        "payment_term",
+        "payment_completion"
+      ]
+    },
+    {
+      "id": "87071f1a1193578a11ac1526",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 36124,
+      "search_end": 37616,
+      "locator": "п. 1",
+      "topics": [
+        "vat_rate",
+        "ownership"
+      ]
+    },
+    {
+      "id": "b725ebce40e1611a02190abe",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 37616,
+      "search_end": 38644,
+      "locator": "п. 1",
+      "topics": [
+        "vat_rate"
+      ]
+    },
+    {
+      "id": "7c89b0c8ef10dbae9c3ea8a9",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 38644,
+      "search_end": 40319,
+      "locator": "п. 1",
+      "topics": [
+        "vat_rate"
+      ]
+    },
+    {
+      "id": "a48762571458e3e5b8a18291",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 40319,
+      "search_end": 41663,
+      "locator": "п. 1",
+      "topics": [
+        "overtime_limits"
+      ]
+    },
+    {
+      "id": "54a8fdb31765d880de1cb0da",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 41663,
+      "search_end": 43268,
+      "locator": "п. 1",
+      "topics": [
+        "vat_rate"
+      ]
+    },
+    {
+      "id": "5c621f5ce67e5b2000d8ccd4",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 43268,
+      "search_end": 44698,
+      "locator": "п. 1",
+      "topics": [
+        "penalty"
+      ]
+    },
+    {
+      "id": "a9284fa4b460a3e125ef4071",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 44698,
+      "search_end": 46140,
+      "locator": "п. 1",
+      "topics": []
+    },
+    {
+      "id": "352f21b4e1589e30d931961a",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 46140,
+      "search_end": 47699,
+      "locator": "п. 1",
+      "topics": [
+        "rent_increase",
+        "delivery_cost"
+      ]
+    },
+    {
+      "id": "bf7a41249fa539db135b9c8d",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 47699,
+      "search_end": 48156,
+      "locator": "п. 1",
+      "topics": [
+        "contract_term"
+      ]
+    },
+    {
+      "id": "b5cf102dadb30692563c1281",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 48156,
+      "search_end": 49742,
+      "locator": "п. 1",
+      "topics": [
+        "order_delivery",
+        "payment_term"
+      ]
+    },
+    {
+      "id": "936b20e5a307f6dcf479df94",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 49742,
+      "search_end": 51505,
+      "locator": "п. 1",
+      "topics": [
+        "payment_term"
+      ]
+    },
+    {
+      "id": "97bd777d7175a98caf4c111c",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 51505,
+      "search_end": 52683,
+      "locator": "п. 1",
+      "topics": [
+        "payment_term"
+      ]
+    },
+    {
+      "id": "af0a79077a671258124a026c",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 52683,
+      "search_end": 54164,
+      "locator": "п. 1",
+      "topics": [
+        "delivery_cost"
+      ]
+    },
+    {
+      "id": "c37b0d2c1f73708eaa4497ab",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 864,
+      "end": 55684,
+      "search_start": 54164,
+      "search_end": 55684,
+      "locator": "п. 1",
+      "topics": [
+        "vat_rate",
+        "termination",
+        "approval_route"
+      ]
+    },
+    {
+      "id": "292f75baa7333b7f4c219182",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 55684,
+      "end": 64619,
+      "search_start": 55684,
+      "search_end": 57387,
+      "locator": "п. 2",
+      "topics": [
+        "overtime_limits"
+      ]
+    },
+    {
+      "id": "50fb0440fe1085aff1916519",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 55684,
+      "end": 64619,
+      "search_start": 57387,
+      "search_end": 59036,
+      "locator": "п. 2",
+      "topics": []
+    },
+    {
+      "id": "75417c9fd19b424fe57ca979",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 55684,
+      "end": 64619,
+      "search_start": 59036,
+      "search_end": 60627,
+      "locator": "п. 2",
+      "topics": [
+        "payment_term"
+      ]
+    },
+    {
+      "id": "969255e3dbebff82327cc6e2",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 55684,
+      "end": 64619,
+      "search_start": 60627,
+      "search_end": 62335,
+      "locator": "п. 2",
+      "topics": [
+        "vat_exemption",
+        "vat_rate"
+      ]
+    },
+    {
+      "id": "559722f9d7e7e484f0354fe1",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 55684,
+      "end": 64619,
+      "search_start": 62335,
+      "search_end": 63917,
+      "locator": "п. 2",
+      "topics": [
+        "vat_exemption"
+      ]
+    },
+    {
+      "id": "6a130629ed4e49267b86e3fc",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 55684,
+      "end": 64619,
+      "search_start": 63917,
+      "search_end": 64619,
+      "locator": "п. 2",
+      "topics": [
+        "vat_rate"
+      ]
+    },
+    {
+      "id": "b128ccf3c5323d471b731c2f",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 64619,
+      "end": 64829,
+      "search_start": 64619,
+      "search_end": 64829,
+      "locator": "п. 3",
+      "topics": []
+    },
+    {
+      "id": "583129e465aa20e9b5a32700",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 64829,
+      "end": 66834,
+      "search_start": 64829,
+      "search_end": 66491,
+      "locator": "п. 4",
+      "topics": [
+        "overtime_pay"
+      ]
+    },
+    {
+      "id": "b7801ae6d38141fa71bf54f8",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 64829,
+      "end": 66834,
+      "search_start": 66491,
+      "search_end": 66834,
+      "locator": "п. 4",
+      "topics": [
+        "vat_rate"
+      ]
+    },
+    {
+      "id": "c8f9f055f2de6da0490cafd9",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 66834,
+      "end": 67435,
+      "search_start": 66834,
+      "search_end": 67435,
+      "locator": "п. 5",
+      "topics": [
+        "vat_rate"
+      ]
+    },
+    {
+      "id": "ca8002e981df6c991fab826b",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 67435,
+      "end": 67557,
+      "search_start": 67435,
+      "search_end": 67557,
+      "locator": "п. 6",
+      "topics": []
+    },
+    {
+      "id": "32e99b672ac9dda82392bc9a",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 67557,
+      "end": 68667,
+      "search_start": 67557,
+      "search_end": 68667,
+      "locator": "п. 7",
+      "topics": [
+        "payment_term"
+      ]
+    },
+    {
+      "id": "5a3f440a9e0b7b48d8ad1460",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 68667,
+      "end": 75033,
+      "search_start": 68667,
+      "search_end": 70273,
+      "locator": "п. 8",
+      "topics": [
+        "payment_term",
+        "payment_completion"
+      ]
+    },
+    {
+      "id": "7ba52a1ad8cd296d4385a47f",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 68667,
+      "end": 75033,
+      "search_start": 70273,
+      "search_end": 71412,
+      "locator": "п. 8",
+      "topics": [
+        "payment_term"
+      ]
+    },
+    {
+      "id": "0135f4abc19d104cc708330f",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 68667,
+      "end": 75033,
+      "search_start": 71412,
+      "search_end": 73033,
+      "locator": "п. 8",
+      "topics": [
+        "payment_term",
+        "payment_completion"
+      ]
+    },
+    {
+      "id": "c31f9c8e7be84a3c5cea1160",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 68667,
+      "end": 75033,
+      "search_start": 73033,
+      "search_end": 74469,
+      "locator": "п. 8",
+      "topics": []
+    },
+    {
+      "id": "f80ea15262792726aea8326a",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 68667,
+      "end": 75033,
+      "search_start": 74469,
+      "search_end": 75033,
+      "locator": "п. 8",
+      "topics": []
+    },
+    {
+      "id": "622041fc6f43864eb91c9501",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 75033,
+      "end": 78204,
+      "search_start": 75033,
+      "search_end": 76706,
+      "locator": "п. 9",
+      "topics": []
+    },
+    {
+      "id": "b12c9d35f166dc943c6ea627",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 75033,
+      "end": 78204,
+      "search_start": 76706,
+      "search_end": 78204,
+      "locator": "п. 9",
+      "topics": [
+        "vat_rate",
+        "ownership"
+      ]
+    },
+    {
+      "id": "2985da2133af1391dfc77b94",
+      "doc_id": "ab451e8a8e4db9fffc98",
+      "start": 78204,
+      "end": 78839,
+      "search_start": 78204,
+      "search_end": 78839,
+      "locator": "п. 10",
+      "topics": [
+        "vat_rate"
+      ]
+    },
+    {
+      "id": "6ecae05ecb9d42265ff5a341",
+      "doc_id": "3c32e615822f15a45660",
+      "start": 0,
+      "end": 677,
+      "search_start": 0,
+      "search_end": 677,
+      "locator": "преамбула",
+      "topics": [
+        "income_tax"
+      ]
+    },
+    {
+      "id": "93303fb0a672ecd93772662b",
+      "doc_id": "3c32e615822f15a45660",
+      "start": 677,
+      "end": 2539,
+      "search_start": 677,
+      "search_end": 2451,
+      "locator": "п. 1",
+      "topics": []
+    },
+    {
+      "id": "b9221f0f4c3731af56323318",
+      "doc_id": "3c32e615822f15a45660",
+      "start": 677,
+      "end": 2539,
+      "search_start": 2451,
+      "search_end": 2539,
+      "locator": "п. 1",
+      "topics": []
+    },
+    {
+      "id": "224f86df0a64d29179893141",
+      "doc_id": "3c32e615822f15a45660",
+      "start": 2539,
+      "end": 3397,
+      "search_start": 2539,
+      "search_end": 3397,
+      "locator": "п. 1.1",
+      "topics": []
+    },
+    {
+      "id": "bb70700cef125b102dba408f",
+      "doc_id": "3c32e615822f15a45660",
+      "start": 3397,
+      "end": 4505,
+      "search_start": 3397,
+      "search_end": 4505,
+      "locator": "п. 1.2",
+      "topics": [
+        "income_tax"
+      ]
+    },
+    {
+      "id": "f2c958f2fb31c0de16f4f4ba",
+      "doc_id": "3c32e615822f15a45660",
+      "start": 4505,
+      "end": 5900,
+      "search_start": 4505,
+      "search_end": 5900,
+      "locator": "п. 2",
+      "topics": [
+        "income_tax"
+      ]
+    },
+    {
+      "id": "828ea00de5c42e6d3896aa83",
+      "doc_id": "3c32e615822f15a45660",
+      "start": 5900,
+      "end": 10101,
+      "search_start": 5900,
+      "search_end": 7417,
+      "locator": "п. 3",
+      "topics": [
+        "payment_term"
+      ]
+    },
+    {
+      "id": "db06abdf6f655dc811807243",
+      "doc_id": "3c32e615822f15a45660",
+      "start": 5900,
+      "end": 10101,
+      "search_start": 7417,
+      "search_end": 8401,
+      "locator": "п. 3",
+      "topics": []
+    },
+    {
+      "id": "3b3baef7d6b5a1469abe2642",
+      "doc_id": "3c32e615822f15a45660",
+      "start": 5900,
+      "end": 10101,
+      "search_start": 8401,
+      "search_end": 10101,
+      "locator": "п. 3",
+      "topics": [
+        "profit_tax_special"
+      ]
+    },
+    {
+      "id": "37f415b36fe44f6e3f719a2c",
+      "doc_id": "3c32e615822f15a45660",
+      "start": 10101,
+      "end": 11530,
+      "search_start": 10101,
+      "search_end": 11530,
+      "locator": "п. 3.1",
+      "topics": []
+    },
+    {
+      "id": "f5cb93f37dc368ce09bc44c7",
+      "doc_id": "3c32e615822f15a45660",
+      "start": 11530,
+      "end": 11652,
+      "search_start": 11530,
+      "search_end": 11652,
+      "locator": "п. 4",
+      "topics": []
+    },
+    {
+      "id": "4800c5be5cb0960e71254742",
+      "doc_id": "3c32e615822f15a45660",
+      "start": 11652,
+      "end": 12174,
+      "search_start": 11652,
+      "search_end": 12174,
+      "locator": "п. 5",
+      "topics": []
+    },
+    {
+      "id": "e20c85a5d5a090cd2a2f0373",
+      "doc_id": "3c32e615822f15a45660",
+      "start": 12174,
+      "end": 12834,
+      "search_start": 12174,
+      "search_end": 12834,
+      "locator": "п. 6",
+      "topics": []
+    },
+    {
+      "id": "9b0cc4e10e41704a270c56a4",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 0,
+      "end": 334,
+      "search_start": 0,
+      "search_end": 334,
+      "locator": "преамбула",
+      "topics": [
+        "profit_tax"
+      ]
+    },
+    {
+      "id": "35d6a95823108cb36c2b0382",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 334,
+      "end": 4943,
+      "search_start": 334,
+      "search_end": 2011,
+      "locator": "п. 1",
+      "topics": [
+        "profit_tax",
+        "payment_term"
+      ]
+    },
+    {
+      "id": "68a3f15dd0c78b11a408a241",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 334,
+      "end": 4943,
+      "search_start": 2011,
+      "search_end": 3434,
+      "locator": "п. 1",
+      "topics": [
+        "profit_tax",
+        "payment_term"
+      ]
+    },
+    {
+      "id": "553cdb7a2159c2c4ddb9d259",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 334,
+      "end": 4943,
+      "search_start": 3434,
+      "search_end": 4943,
+      "locator": "п. 1",
+      "topics": [
+        "profit_tax",
+        "payment_term"
+      ]
+    },
+    {
+      "id": "932362d0ec914de8b265ec5c",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 4943,
+      "end": 5611,
+      "search_start": 4943,
+      "search_end": 5611,
+      "locator": "п. 1.1",
+      "topics": [
+        "profit_tax_special"
+      ]
+    },
+    {
+      "id": "b2ad27475fb798a69400cefe",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 5611,
+      "end": 6458,
+      "search_start": 5611,
+      "search_end": 6458,
+      "locator": "п. 1.2",
+      "topics": [
+        "profit_tax"
+      ]
+    },
+    {
+      "id": "090230b518795d66037d97e6",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 6458,
+      "end": 7334,
+      "search_start": 6458,
+      "search_end": 7334,
+      "locator": "п. 1.3",
+      "topics": [
+        "overtime_pay",
+        "profit_tax"
+      ]
+    },
+    {
+      "id": "de34837057a86ca32fa9b511",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 7334,
+      "end": 8883,
+      "search_start": 7334,
+      "search_end": 8883,
+      "locator": "п. 1.4",
+      "topics": [
+        "profit_tax",
+        "payment_term"
+      ]
+    },
+    {
+      "id": "bc1dc238fb9f6e8013d98d71",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 8883,
+      "end": 9946,
+      "search_start": 8883,
+      "search_end": 9946,
+      "locator": "п. 1.5",
+      "topics": [
+        "profit_tax"
+      ]
+    },
+    {
+      "id": "5c935d0eb4b9d605dab4dc26",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 9946,
+      "end": 10488,
+      "search_start": 9946,
+      "search_end": 10488,
+      "locator": "п. 1.6",
+      "topics": [
+        "payment_term"
+      ]
+    },
+    {
+      "id": "e10012e30fdc68a25e7f729f",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 10488,
+      "end": 18258,
+      "search_start": 10488,
+      "search_end": 11434,
+      "locator": "п. 1.7",
+      "topics": []
+    },
+    {
+      "id": "a8cbaac5ce0397cdf0fcdf85",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 10488,
+      "end": 18258,
+      "search_start": 11434,
+      "search_end": 12675,
+      "locator": "п. 1.7",
+      "topics": [
+        "payment_term"
+      ]
+    },
+    {
+      "id": "315091ae54d585b3a7c0777a",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 10488,
+      "end": 18258,
+      "search_start": 12675,
+      "search_end": 13699,
+      "locator": "п. 1.7",
+      "topics": [
+        "termination"
+      ]
+    },
+    {
+      "id": "9d2829468ab58c105b707e7a",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 10488,
+      "end": 18258,
+      "search_start": 13699,
+      "search_end": 14795,
+      "locator": "п. 1.7",
+      "topics": []
+    },
+    {
+      "id": "b346f41b5ebf1b3b48cd9cf4",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 10488,
+      "end": 18258,
+      "search_start": 14795,
+      "search_end": 16279,
+      "locator": "п. 1.7",
+      "topics": []
+    },
+    {
+      "id": "e69a9abdd6f68d630e398f1c",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 10488,
+      "end": 18258,
+      "search_start": 16279,
+      "search_end": 16766,
+      "locator": "п. 1.7",
+      "topics": [
+        "payment_term"
+      ]
+    },
+    {
+      "id": "f2694e39ec5640e4939aac95",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 10488,
+      "end": 18258,
+      "search_start": 16766,
+      "search_end": 18258,
+      "locator": "п. 1.7",
+      "topics": [
+        "termination"
+      ]
+    },
+    {
+      "id": "4a13441c98bd3c763d55aebd",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 18258,
+      "end": 27026,
+      "search_start": 18258,
+      "search_end": 19575,
+      "locator": "п. 1.8",
+      "topics": [
+        "profit_tax_special"
+      ]
+    },
+    {
+      "id": "7960863c668de73880c589fb",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 18258,
+      "end": 27026,
+      "search_start": 19575,
+      "search_end": 20821,
+      "locator": "п. 1.8",
+      "topics": [
+        "profit_tax"
+      ]
+    },
+    {
+      "id": "0f86aba5042abd168b5a9609",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 18258,
+      "end": 27026,
+      "search_start": 20821,
+      "search_end": 22576,
+      "locator": "п. 1.8",
+      "topics": [
+        "overtime_pay"
+      ]
+    },
+    {
+      "id": "b17ce5b73f18afb95998d716",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 18258,
+      "end": 27026,
+      "search_start": 22576,
+      "search_end": 24337,
+      "locator": "п. 1.8",
+      "topics": [
+        "ownership"
+      ]
+    },
+    {
+      "id": "4711ebac6310633f3e41f9f8",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 18258,
+      "end": 27026,
+      "search_start": 24337,
+      "search_end": 26028,
+      "locator": "п. 1.8",
+      "topics": [
+        "profit_tax",
+        "payment_term"
+      ]
+    },
+    {
+      "id": "6c6171027372a37dd219d540",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 18258,
+      "end": 27026,
+      "search_start": 26028,
+      "search_end": 27026,
+      "locator": "п. 1.8",
+      "topics": [
+        "profit_tax",
+        "payment_term"
+      ]
+    },
+    {
+      "id": "d7df3c2e694cd5d63c5b9dba",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 27026,
+      "end": 27344,
+      "search_start": 27026,
+      "search_end": 27344,
+      "locator": "п. 1.9",
+      "topics": [
+        "profit_tax"
+      ]
+    },
+    {
+      "id": "1f6d5e3d98cca166580ec838",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 27344,
+      "end": 27430,
+      "search_start": 27344,
+      "search_end": 27430,
+      "locator": "п. 1.10",
+      "topics": []
+    },
+    {
+      "id": "588b652f8e50644dcd683e81",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 27430,
+      "end": 27837,
+      "search_start": 27430,
+      "search_end": 27837,
+      "locator": "п. 1.11",
+      "topics": [
+        "profit_tax"
+      ]
+    },
+    {
+      "id": "36ae81bda87c75caea334629",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 27837,
+      "end": 28860,
+      "search_start": 27837,
+      "search_end": 28860,
+      "locator": "п. 1.12",
+      "topics": [
+        "profit_tax"
+      ]
+    },
+    {
+      "id": "affd9b1157af0c079fc274f0",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 28860,
+      "end": 29675,
+      "search_start": 28860,
+      "search_end": 29675,
+      "locator": "п. 1.13",
+      "topics": [
+        "profit_tax"
+      ]
+    },
+    {
+      "id": "46ff7e29b126ebbefc19d163",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 29675,
+      "end": 30814,
+      "search_start": 29675,
+      "search_end": 30814,
+      "locator": "п. 1.14",
+      "topics": [
+        "profit_tax",
+        "payment_term"
+      ]
+    },
+    {
+      "id": "375850e3c37790d7a9070b55",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 30814,
+      "end": 45987,
+      "search_start": 30814,
+      "search_end": 32503,
+      "locator": "п. 1.15",
+      "topics": []
+    },
+    {
+      "id": "611d8e9446dfc3a5d5082aea",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 30814,
+      "end": 45987,
+      "search_start": 32503,
+      "search_end": 36054,
+      "locator": "п. 1.15",
+      "topics": [
+        "delivery_cost",
+        "payment_term",
+        "ownership"
+      ]
+    },
+    {
+      "id": "47f295051a6eff031c54e4d8",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 30814,
+      "end": 45987,
+      "search_start": 36054,
+      "search_end": 37844,
+      "locator": "п. 1.15",
+      "topics": [
+        "order_delivery"
+      ]
+    },
+    {
+      "id": "0d148d5e4cab1e46d2c0d409",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 30814,
+      "end": 45987,
+      "search_start": 37844,
+      "search_end": 38878,
+      "locator": "п. 1.15",
+      "topics": [
+        "delivery_cost"
+      ]
+    },
+    {
+      "id": "86a3f3895a5f692ba5ac725b",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 30814,
+      "end": 45987,
+      "search_start": 38878,
+      "search_end": 42751,
+      "locator": "п. 1.15",
+      "topics": [
+        "delivery_cost",
+        "payment_term",
+        "ownership"
+      ]
+    },
+    {
+      "id": "e8c1f9343c56b242171e8ee7",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 30814,
+      "end": 45987,
+      "search_start": 42751,
+      "search_end": 44308,
+      "locator": "п. 1.15",
+      "topics": [
+        "delivery_cost",
+        "payment_term"
+      ]
+    },
+    {
+      "id": "b6e3f0c4106860017f908688",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 30814,
+      "end": 45987,
+      "search_start": 44308,
+      "search_end": 45987,
+      "locator": "п. 1.15",
+      "topics": []
+    },
+    {
+      "id": "f335efbb4a58b15dea37c8fb",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 45987,
+      "end": 50897,
+      "search_start": 45987,
+      "search_end": 47565,
+      "locator": "п. 1.16",
+      "topics": []
+    },
+    {
+      "id": "258ef0a6db89f2f7057a0188",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 45987,
+      "end": 50897,
+      "search_start": 47565,
+      "search_end": 49266,
+      "locator": "п. 1.16",
+      "topics": [
+        "delivery_cost"
+      ]
+    },
+    {
+      "id": "1db3e17f7157ae5e2f55b9e8",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 45987,
+      "end": 50897,
+      "search_start": 49266,
+      "search_end": 50897,
+      "locator": "п. 1.16",
+      "topics": [
+        "payment_term"
+      ]
+    },
+    {
+      "id": "2c9f20515f41d8033ce58b91",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 50897,
+      "end": 54070,
+      "search_start": 50897,
+      "search_end": 51941,
+      "locator": "п. 1.17",
+      "topics": [
+        "profit_tax",
+        "payment_term"
+      ]
+    },
+    {
+      "id": "95195ac5476db421c1e2ebca",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 50897,
+      "end": 54070,
+      "search_start": 51941,
+      "search_end": 53506,
+      "locator": "п. 1.17",
+      "topics": [
+        "profit_tax",
+        "payment_term"
+      ]
+    },
+    {
+      "id": "550a733066f9b3e27f40e3bc",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 50897,
+      "end": 54070,
+      "search_start": 53506,
+      "search_end": 54070,
+      "locator": "п. 1.17",
+      "topics": []
+    },
+    {
+      "id": "d143c8c180f61a8b419424f7",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 54070,
+      "end": 55122,
+      "search_start": 54070,
+      "search_end": 55122,
+      "locator": "п. 1.18",
+      "topics": [
+        "profit_tax",
+        "payment_term"
+      ]
+    },
+    {
+      "id": "c10b09842d2fe9701169b16d",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 55122,
+      "end": 55980,
+      "search_start": 55122,
+      "search_end": 55980,
+      "locator": "п. 1.19",
+      "topics": [
+        "profit_tax",
+        "payment_term"
+      ]
+    },
+    {
+      "id": "fd911812deaf4859bf72cab5",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 55980,
+      "end": 56992,
+      "search_start": 55980,
+      "search_end": 56992,
+      "locator": "п. 1.20",
+      "topics": [
+        "payment_term"
+      ]
+    },
+    {
+      "id": "41f866f810594db8f9396e1e",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 56992,
+      "end": 59891,
+      "search_start": 56992,
+      "search_end": 58714,
+      "locator": "п. 2",
+      "topics": [
+        "dispute",
+        "ownership"
+      ]
+    },
+    {
+      "id": "3a2cc800820eec816d5aa071",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 56992,
+      "end": 59891,
+      "search_start": 58714,
+      "search_end": 59891,
+      "locator": "п. 2",
+      "topics": [
+        "dispute",
+        "profit_tax",
+        "ownership"
+      ]
+    },
+    {
+      "id": "c7d593461bd8033b3b078c44",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 59891,
+      "end": 73715,
+      "search_start": 59891,
+      "search_end": 61639,
+      "locator": "п. 3",
+      "topics": [
+        "rent_increase",
+        "delivery_cost"
+      ]
+    },
+    {
+      "id": "5a438ffdf23a7b830178d6cc",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 59891,
+      "end": 73715,
+      "search_start": 61639,
+      "search_end": 63118,
+      "locator": "п. 3",
+      "topics": [
+        "profit_tax_special"
+      ]
+    },
+    {
+      "id": "7f8c3526cd318d19182e178b",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 59891,
+      "end": 73715,
+      "search_start": 63118,
+      "search_end": 64515,
+      "locator": "п. 3",
+      "topics": [
+        "profit_tax_special",
+        "delivery_cost"
+      ]
+    },
+    {
+      "id": "ab742892910d2d7a9b781723",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 59891,
+      "end": 73715,
+      "search_start": 64515,
+      "search_end": 66107,
+      "locator": "п. 3",
+      "topics": [
+        "profit_tax_special"
+      ]
+    },
+    {
+      "id": "a4031f49b67952182a4d94e3",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 59891,
+      "end": 73715,
+      "search_start": 66107,
+      "search_end": 67383,
+      "locator": "п. 3",
+      "topics": [
+        "profit_tax_special",
+        "delivery_cost"
+      ]
+    },
+    {
+      "id": "01e7492d5914fb6184e68e96",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 59891,
+      "end": 73715,
+      "search_start": 67383,
+      "search_end": 68710,
+      "locator": "п. 3",
+      "topics": [
+        "delivery_cost"
+      ]
+    },
+    {
+      "id": "651db98540229e816c302102",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 59891,
+      "end": 73715,
+      "search_start": 68710,
+      "search_end": 70226,
+      "locator": "п. 3",
+      "topics": [
+        "rent_increase"
+      ]
+    },
+    {
+      "id": "2eb301f8d8e400975bfb290a",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 59891,
+      "end": 73715,
+      "search_start": 70226,
+      "search_end": 71932,
+      "locator": "п. 3",
+      "topics": [
+        "profit_tax_special"
+      ]
+    },
+    {
+      "id": "0ab112c0d7d56f15b7a9d63e",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 59891,
+      "end": 73715,
+      "search_start": 71932,
+      "search_end": 73715,
+      "locator": "п. 3",
+      "topics": [
+        "profit_tax_special",
+        "payment_term",
+        "ownership"
+      ]
+    },
+    {
+      "id": "2e0ec54fb6b7f55dd026841a",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 73715,
+      "end": 81121,
+      "search_start": 73715,
+      "search_end": 75504,
+      "locator": "п. 4",
+      "topics": []
+    },
+    {
+      "id": "04de188f188de12da00586e2",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 73715,
+      "end": 81121,
+      "search_start": 75504,
+      "search_end": 76923,
+      "locator": "п. 4",
+      "topics": [
+        "profit_tax"
+      ]
+    },
+    {
+      "id": "0c90e6c9e6fc5dd50d78b6e7",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 73715,
+      "end": 81121,
+      "search_start": 76923,
+      "search_end": 78279,
+      "locator": "п. 4",
+      "topics": [
+        "profit_tax",
+        "delivery_cost"
+      ]
+    },
+    {
+      "id": "67dd1a67ab793731ba723cdc",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 73715,
+      "end": 81121,
+      "search_start": 78279,
+      "search_end": 80061,
+      "locator": "п. 4",
+      "topics": [
+        "profit_tax",
+        "delivery_cost",
+        "payment_term"
+      ]
+    },
+    {
+      "id": "e55dc53731f5ab09189d05a1",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 73715,
+      "end": 81121,
+      "search_start": 80061,
+      "search_end": 81121,
+      "locator": "п. 4",
+      "topics": [
+        "profit_tax"
+      ]
+    },
+    {
+      "id": "27e8bacf456db9723b2263e7",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 81121,
+      "end": 84693,
+      "search_start": 81121,
+      "search_end": 82519,
+      "locator": "п. 4.1",
+      "topics": [
+        "profit_tax"
+      ]
+    },
+    {
+      "id": "8661a6ec884d5491078d4e93",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 81121,
+      "end": 84693,
+      "search_start": 82519,
+      "search_end": 83964,
+      "locator": "п. 4.1",
+      "topics": [
+        "payment_term"
+      ]
+    },
+    {
+      "id": "547de743751faba14653a475",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 81121,
+      "end": 84693,
+      "search_start": 83964,
+      "search_end": 84693,
+      "locator": "п. 4.1",
+      "topics": [
+        "profit_tax",
+        "payment_term"
+      ]
+    },
+    {
+      "id": "19fb28152704d7fd96f4bfa9",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 84693,
+      "end": 85293,
+      "search_start": 84693,
+      "search_end": 85293,
+      "locator": "п. 4.2",
+      "topics": [
+        "profit_tax_special"
+      ]
+    },
+    {
+      "id": "81ab5e99d1eea345fe5e71ed",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 85293,
+      "end": 88106,
+      "search_start": 85293,
+      "search_end": 87020,
+      "locator": "п. 4.3",
+      "topics": [
+        "profit_tax",
+        "delivery_cost"
+      ]
+    },
+    {
+      "id": "487ad348c452ebec0f136219",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 85293,
+      "end": 88106,
+      "search_start": 87020,
+      "search_end": 88106,
+      "locator": "п. 4.3",
+      "topics": [
+        "profit_tax",
+        "delivery_cost",
+        "payment_term"
+      ]
+    },
+    {
+      "id": "411af7681bcb2809c8e89a90",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 88106,
+      "end": 89035,
+      "search_start": 88106,
+      "search_end": 89035,
+      "locator": "п. 4.4",
+      "topics": [
+        "profit_tax",
+        "payment_term"
+      ]
+    },
+    {
+      "id": "359de013095ded41f1d7ed5f",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 89035,
+      "end": 90310,
+      "search_start": 89035,
+      "search_end": 90310,
+      "locator": "п. 4.5",
+      "topics": [
+        "payment_term"
+      ]
+    },
+    {
+      "id": "ca374f75054f8d281b4a3ac4",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 90310,
+      "end": 90987,
+      "search_start": 90310,
+      "search_end": 90987,
+      "locator": "п. 5",
+      "topics": []
+    },
+    {
+      "id": "061ce722ef9d536725d143c6",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 90987,
+      "end": 94014,
+      "search_start": 90987,
+      "search_end": 92542,
+      "locator": "п. 5.1",
+      "topics": [
+        "penalty"
+      ]
+    },
+    {
+      "id": "c94486e28c23b9748edfe226",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 90987,
+      "end": 94014,
+      "search_start": 92542,
+      "search_end": 94014,
+      "locator": "п. 5.1",
+      "topics": [
+        "penalty"
+      ]
+    },
+    {
+      "id": "acc4eeb77a727391fcc75b8e",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 94014,
+      "end": 94287,
+      "search_start": 94014,
+      "search_end": 94287,
+      "locator": "п. 6",
+      "topics": [
+        "profit_tax"
+      ]
+    },
+    {
+      "id": "b06afc8a220c4f1fd743abb5",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 94287,
+      "end": 94565,
+      "search_start": 94287,
+      "search_end": 94565,
+      "locator": "п. 7",
+      "topics": [
+        "profit_tax"
+      ]
+    },
+    {
+      "id": "b1ee805591ed8cebe08ea656",
+      "doc_id": "25185ccfa824a6837f39",
+      "start": 94565,
+      "end": 95116,
+      "search_start": 94565,
+      "search_end": 95116,
+      "locator": "п. 8",
+      "topics": [
+        "payment_term"
+      ]
+    },
+    {
+      "id": "4f6b4bc68c2d8270f3dcc4b1",
+      "doc_id": "f9d1690746ce85662c3a",
+      "start": 0,
+      "end": 2619,
+      "search_start": 0,
+      "search_end": 882,
+      "locator": "преамбула",
+      "topics": [
+        "overtime_pay"
+      ]
+    },
+    {
+      "id": "1ac0ca719ca3e9fa4b81c209",
+      "doc_id": "f9d1690746ce85662c3a",
+      "start": 0,
+      "end": 2619,
+      "search_start": 882,
+      "search_end": 2619,
+      "locator": "преамбула",
+      "topics": [
+        "overtime_pay",
+        "delivery_cost"
+      ]
+    },
+    {
+      "id": "0039ccc2107ed9a961265db2",
+      "doc_id": "4c40fbb120c76f3ee126",
+      "start": 0,
+      "end": 5110,
+      "search_start": 0,
+      "search_end": 1737,
+      "locator": "преамбула",
+      "topics": [
+        "fixed_term"
+      ]
+    },
+    {
+      "id": "bc4e1848885f406b06ff4f14",
+      "doc_id": "4c40fbb120c76f3ee126",
+      "start": 0,
+      "end": 5110,
+      "search_start": 1737,
+      "search_end": 3351,
+      "locator": "преамбула",
+      "topics": [
+        "fixed_term"
+      ]
+    },
+    {
+      "id": "282a100d3a4c905ad66c63d1",
+      "doc_id": "4c40fbb120c76f3ee126",
+      "start": 0,
+      "end": 5110,
+      "search_start": 3351,
+      "search_end": 5110,
+      "locator": "преамбула",
+      "topics": [
+        "ownership"
+      ]
+    },
+    {
+      "id": "e402693cb8037a5490cfd9b5",
+      "doc_id": "c44375dde054668e3c8f",
+      "start": 0,
+      "end": 2752,
+      "search_start": 0,
+      "search_end": 1557,
+      "locator": "преамбула",
+      "topics": [
+        "probation"
+      ]
+    },
+    {
+      "id": "0bc48060572574e5d975c8e1",
+      "doc_id": "c44375dde054668e3c8f",
+      "start": 0,
+      "end": 2752,
+      "search_start": 1557,
+      "search_end": 2752,
+      "locator": "преамбула",
+      "topics": [
+        "approval_route",
+        "probation"
+      ]
+    },
+    {
+      "id": "291ed3eff2b23d77c7489148",
+      "doc_id": "09de5d918bdc4fdb725f",
+      "start": 0,
+      "end": 6484,
+      "search_start": 0,
+      "search_end": 1754,
+      "locator": "преамбула",
+      "topics": [
+        "overtime_limits"
+      ]
+    },
+    {
+      "id": "57c4b4d54087393a37e298e2",
+      "doc_id": "09de5d918bdc4fdb725f",
+      "start": 0,
+      "end": 6484,
+      "search_start": 1754,
+      "search_end": 3041,
+      "locator": "преамбула",
+      "topics": [
+        "overtime_limits"
+      ]
+    },
+    {
+      "id": "0811ea187fa6532f1320ee9a",
+      "doc_id": "09de5d918bdc4fdb725f",
+      "start": 0,
+      "end": 6484,
+      "search_start": 3041,
+      "search_end": 4641,
+      "locator": "преамбула",
+      "topics": [
+        "overtime_limits"
+      ]
+    },
+    {
+      "id": "d73389715514b10bfa3b26e7",
+      "doc_id": "09de5d918bdc4fdb725f",
+      "start": 0,
+      "end": 6484,
+      "search_start": 4641,
+      "search_end": 6384,
+      "locator": "преамбула",
+      "topics": [
+        "overtime_limits"
+      ]
+    },
+    {
+      "id": "ebc04c5dcac3dce0d761a343",
+      "doc_id": "09de5d918bdc4fdb725f",
+      "start": 0,
+      "end": 6484,
+      "search_start": 6384,
+      "search_end": 6484,
+      "locator": "преамбула",
+      "topics": [
+        "overtime_limits"
+      ]
+    }
+  ],
+  "description": "Source offsets only. A unit is used only against an exact live source hash; full governing scopes are retained."
+}

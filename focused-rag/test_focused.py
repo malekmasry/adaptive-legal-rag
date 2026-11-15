@@ -59,6 +59,7 @@ class FocusedTests(unittest.TestCase):
             d=doc('test','2. Пеня 0,2% долга в день.')
             core.docs={'test':d}; core.relations=[]
             core.retriever=SimpleNamespace(search=lambda *a,**k:([SimpleNamespace(doc_id='test')],{}))
+            core.all_chunks=[];core.decision_index=SimpleNamespace(select=lambda *a,**k:([],{'selected':[],'tokens':0}))
             calls=[]
             def generate(instruction,payload,schema):
                 calls.append((instruction,payload))
@@ -76,6 +77,7 @@ class FocusedTests(unittest.TestCase):
             core=object.__new__(Pipeline);core.s=Settings(cache_dir=Path(tmp))
             core.docs={'x':doc('x','1. Условие.')};core.relations=[]
             core.retriever=SimpleNamespace(search=lambda *a,**k:([SimpleNamespace(doc_id='x')],{}))
+            core.all_chunks=[];core.decision_index=SimpleNamespace(select=lambda *a,**k:([],{'selected':[],'tokens':0}))
             count=[]
             def generate(*args):
                 count.append(1)

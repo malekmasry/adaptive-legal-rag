@@ -7,6 +7,7 @@ Cards are copied from the supplied evidence on every run, never from a test set.
 import json
 import re
 from token_budget import estimate_tokens
+from intent_rules import EXTRA_SPECS, additional_topics
 
 GUIDANCE = '''response_plan задаёт обязательный каркас ответа для распознанного типа вопроса, а primary_cards — дословные положения evidence с готовыми ссылками. Это подсказки выбора и оформления, не дополнительные правовые источники. Сначала найди ответ в карточках, затем проверь необходимые условия по полному evidence. Все значения, даты, ограничения и фактические основания бери из evidence и условий вопроса, а не из названия типа.
 Соблюдай requested_slots и answer_shape. Одна законченная мысль на запрошенный слот, без вступления, пересказа всего документа и справочного завершения. Не включай темы из avoid, если пользователь прямо их не спрашивает и они не меняют ответ. При сравнении двух вариантов назови оба явно. Ссылку ставь ровно на положения, которые обосновывают вывод; не увеличивай число ссылок для солидности. Пустые карточки не доказывают отсутствия ответа: используй полные evidence.
@@ -80,6 +81,8 @@ LOCATIONS = [
  (r'НК[_ ]ст284', {'profit_tax':['1']}),
 ]
 
+SPECS.update(EXTRA_SPECS)
+
 def plan_for(question):
     q=question.lower().replace('ё','е');topics=[]
     def add(name,test):
@@ -123,9 +126,16 @@ def plan_for(question):
     add('payment_completion','payment_term' in topics and re.search(r'момент|перестаем|исполнен|считат|считает',q))
     add('contract_term',re.search(r'последн\w*\s+день|до\s+какого\s+числа|срок\w*\s+действия|оставаться',q) and not topics)
     add('archive','архив' in q and not topics)
+    topics=additional_topics(question,topics)
     shape=[SPECS[t][0] for t in topics]
     requested=list(dict.fromkeys(slot for t in topics for slot in SPECS[t][1]))
     avoid=list(dict.fromkeys(slot for t in topics for slot in SPECS[t][2]))
+    if len(topics)>1:
+        avoid=[]
+        shape.append('Ответь отдельно по каждой распознанной теме и всем остальным явно заданным подвопросам. Не пропускай срок, сумму или условие из-за другой темы. Общие ограничения одной темы не отменяют явно заданный вопрос по другой.')
+    if topics==['order_delivery'] and not re.search(r'как[^.!?]{0,40}(?:заказ|заявк|направ)|что[^.!?]{0,40}(?:заявк|указать)|содерж|канал|сведени',q):
+        requested=['срок поставки','единица дней','начальное событие']
+        shape=['Назови срок поставки, рабочие/календарные дни и событие начала. Не перечисляй незапрошенные реквизиты заявки.']
     if 'foreign_checks' in topics and re.search(r'срок|сколько|кто|делает',q):
         requested.append('ответственный и срок проверки, поскольку запрошены')
         avoid=[x for x in avoid if not x.startswith('длительность')]
@@ -159,7 +169,7 @@ def prepare_guides(question,evidence,token_budget=3500):
                     quote=numbered_span(e['text'],number)
                     if topic=='approved_template' and not re.search(r'типов|форм',quote,re.I):continue
                     if topic=='foreign_checks' and not re.search(r'иностран|валютн',quote,re.I):continue
-                    add(e,'п. '+number,quote,[topic])
+                    add(e,('ч. ' if re.search(r'КоАП|152ФЗ',e['document']) else 'п. ')+number,quote,[topic])
         if 'delivery_address' in plan['topics'] and 'Доп соглашение' in e['document']:
             add(e,'изменение п. 3.2 и условие применения',e['text'],['delivery_address'])
         if 'foreign_checks' in plan['topics'] and 'Письмо комплаенс' in e['document']:

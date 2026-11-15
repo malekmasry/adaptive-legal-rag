@@ -24,12 +24,14 @@ WORDS={'один':1,'одна':1,'одну':1,'два':2,'две':2,'три':3,'
  'сто':100,'двести':200,'триста':300,'четыреста':400,'пятьсот':500,'шестьсот':600,
  'семьсот':700,'восемьсот':800,'девятьсот':900}
 SCALES={'тысяча':1000,'тысячи':1000,'тысяч':1000,'миллион':1000000,'миллиона':1000000,'миллионов':1000000}
-NUMBER=r'(?:\d[\d\s\u00a0]*(?:[.,]\d+)?|(?:'+ '|'.join(sorted(WORDS|SCALES,key=len,reverse=True))+r')(?:\s+(?:'+ '|'.join(sorted(WORDS|SCALES,key=len,reverse=True))+r'))*)'
+NUMBER=r'(?:\d[\d\s\u00a0]*(?:[.,]\d+)?(?:\s*(?:тысяч(?:а|и)?|тыс\.?|миллион(?:а|ов)?|млн\.?))?|(?:'+ '|'.join(sorted(WORDS|SCALES,key=len,reverse=True))+r')(?:\s+(?:'+ '|'.join(sorted(WORDS|SCALES,key=len,reverse=True))+r'))*)'
 MONTHS=['январ','феврал','март','апрел','ма','июн','июл','август','сентябр','октябр','ноябр','декабр']
 
 
 def number(text):
     text=text.strip().replace('\u00a0',' ')
+    scaled=re.fullmatch(r'(\d[\d ]*(?:[.,]\d+)?)\s*(тысяч(?:а|и)?|тыс\.?|миллион(?:а|ов)?|млн\.?)',text)
+    if scaled:return Decimal(scaled[1].replace(' ','').replace(',','.'))*(1000 if scaled[2].startswith('ты') else 1000000)
     if re.fullmatch(r'\d[\d ]*(?:[.,]\d+)?',text):return Decimal(text.replace(' ','').replace(',','.'))
     total=0;part=0
     for word in text.split():
