@@ -1,0 +1,237 @@
+{
+  "v239_development": {
+    "system": "v239_development",
+    "seconds": 192.375,
+    "exit_code": 0,
+    "complete": true,
+    "outer_timeout": false,
+    "rows": 18,
+    "answers_sha256": "57365caec8cf1e7244eb1c523b23d3dcb5a2c0b0000838f254febeb03dc7fe5a",
+    "package_sha256": "22ef21bfcb725e6a83feba8e094053d9113b642ff1bd7c228a8966d402beaeb7",
+    "mode": "resumed_original_runtime",
+    "runtime_report": {
+      "rows": 18,
+      "statuses": {
+        "D01": "answered",
+        "D02": "answered",
+        "D03": "answered",
+        "D04": "answered",
+        "D05": "answered",
+        "D06": "answered",
+        "D07": "answered",
+        "D08": "answered",
+        "D09": "answered",
+        "D10": "answered",
+        "D11": "answered",
+        "D12": "answered",
+        "D13": "answered",
+        "D14": "answered",
+        "D15": "answered",
+        "D16": "answered",
+        "D17": "not_in_base",
+        "D18": "answered"
+      },
+      "counts": {
+        "answered": 17,
+        "not_in_base": 1
+      },
+      "error_counts": {},
+      "seconds": 192.375,
+      "recovery": {
+        "strategy": "Nine completed answers unchanged; two exact missing reviews; seven unanswered cases only.",
+        "completed_reused": [
+          "D01",
+          "D02",
+          "D03",
+          "D04",
+          "D05",
+          "D06",
+          "D07",
+          "D08",
+          "D09"
+        ],
+        "review_only": [
+          "D10",
+          "D11"
+        ],
+        "remainder": [
+          "D12",
+          "D13",
+          "D14",
+          "D15",
+          "D16",
+          "D17",
+          "D18"
+        ],
+        "original_execution_sha256": "7991a53c226ba2a2d8a4e96924820da7688c4e18955feaf016da87af7fc425a7",
+        "remainder_execution_sha256": "8245ca2cf930cf71ccf61a5ce5ed38d67341c568b10f6a969c7264c912f18817",
+        "timing_note": "Sum of interrupted run, review continuations and remainder; not a fresh uninterrupted benchmark."
+      }
+    },
+    "recovery": {
+      "strategy": "Nine completed answers unchanged; two exact missing reviews; seven unanswered cases only.",
+      "completed_reused": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09"
+      ],
+      "review_only": [
+        "D10",
+        "D11"
+      ],
+      "remainder": [
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D17",
+        "D18"
+      ],
+      "original_execution_sha256": "7991a53c226ba2a2d8a4e96924820da7688c4e18955feaf016da87af7fc425a7",
+      "remainder_execution_sha256": "8245ca2cf930cf71ccf61a5ce5ed38d67341c568b10f6a969c7264c912f18817",
+      "timing_note": "Sum of interrupted run, review continuations and remainder; not a fresh uninterrupted benchmark."
+    }
+  },
+  "oracle_development": {
+    "system": "oracle_development",
+    "seconds": 143.313,
+    "exit_code": 0,
+    "complete": true,
+    "outer_timeout": false,
+    "rows": 18,
+    "answers_sha256": "cea73dab5f1858de86896f0a08b50e8f08fd47ca3492d11052130fe86afbbc2a",
+    "package_sha256": "22ef21bfcb725e6a83feba8e094053d9113b642ff1bd7c228a8966d402beaeb7",
+    "mode": "manual_source_oracle",
+    "runtime_report": {
+      "rows": 18,
+      "statuses": {
+        "D01": "answered",
+        "D02": "answered",
+        "D04": "answered",
+        "D06": "answered",
+        "D05": "answered",
+        "D07": "answered",
+        "D08": "answered",
+        "D03": "answered",
+        "D10": "answered",
+        "D09": "answered",
+        "D11": "answered",
+        "D12": "answered",
+        "D13": "answered",
+        "D14": "answered",
+        "D17": "not_in_base",
+        "D15": "answered",
+        "D16": "answered",
+        "D18": "answered"
+      },
+      "counts": {
+        "answered": 17,
+        "not_in_base": 1
+      },
+      "seconds": 130.25,
+      "errors": {},
+      "collected_during_drain": 0,
+      "unfinished_workers": 0,
+      "work_budget_seconds": 1100,
+      "finalize_grace_seconds": 30.0,
+      "error_counts": {}
+    }
+  },
+  "v240_development": {
+    "system": "v240_development",
+    "seconds": 72.656,
+    "exit_code": 0,
+    "complete": true,
+    "outer_timeout": false,
+    "rows": 18,
+    "answers_sha256": "110c1c5fc9f62d021e458f08c3f2ecba73d029868fe0bd60fa41af21cbc11d8c",
+    "package_sha256": "0c2bbf9b79c0b104f92ba34de176a356cd3b86f1b77c38cdc289e5c40e2e4b32",
+    "mode": "observed_unmodified_runtime",
+    "runtime_report": {
+      "rows": 18,
+      "statuses": {
+        "D01": "answered",
+        "D03": "answered",
+        "D02": "answered",
+        "D05": "answered",
+        "D06": "answered",
+        "D04": "answered",
+        "D07": "answered",
+        "D09": "answered",
+        "D11": "answered",
+        "D12": "answered",
+        "D08": "answered",
+        "D10": "answered",
+        "D15": "answered",
+        "D13": "answered",
+        "D17": "not_in_base",
+        "D14": "answered",
+        "D18": "answered",
+        "D16": "answered"
+      },
+      "counts": {
+        "answered": 17,
+        "not_in_base": 1
+      },
+      "seconds": 63.61,
+      "errors": {},
+      "collected_during_drain": 0,
+      "unfinished_workers": 0,
+      "work_budget_seconds": 1100,
+      "finalize_grace_seconds": 30.0,
+      "error_counts": {}
+    }
+  },
+  "v241_development": {
+    "system": "v241_development",
+    "seconds": 32.297,
+    "exit_code": 0,
+    "complete": true,
+    "outer_timeout": false,
+    "rows": 18,
+    "answers_sha256": "43a6ec5c1baba9ffbf37a7b489cadbbbdccf63a93a0dc6608762a39cb7efe45a",
+    "package_sha256": "64b349eaeb310758309ca61a8d23b5242e949221e3dc12e40f2d18863eb8a851",
+    "mode": "observed_unmodified_runtime",
+    "runtime_report": {
+      "rows": 18,
+      "statuses": {
+        "D03": "answered",
+        "D02": "answered",
+        "D05": "answered",
+        "D04": "answered",
+        "D07": "answered",
+        "D08": "answered",
+        "D09": "answered",
+        "D10": "answered",
+        "D11": "answered",
+        "D12": "answered",
+        "D13": "answered",
+        "D14": "answered",
+        "D15": "answered",
+        "D16": "answered",
+        "D17": "not_in_base",
+        "D18": "answered",
+        "D01": "answered",
+        "D06": "answered"
+      },
+      "counts": {
+        "answered": 17,
+        "not_in_base": 1
+      },
+      "seconds": 22.844,
+      "errors": {},
+      "collected_during_drain": 0,
+      "unfinished_workers": 0,
+      "work_budget_seconds": 1100,
+      "finalize_grace_seconds": 30.0,
+      "error_counts": {}
+    }
+  }
+}

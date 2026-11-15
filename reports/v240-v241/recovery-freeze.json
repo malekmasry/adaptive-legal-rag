@@ -1,0 +1,5 @@
+{
+  "script_sha256": "4898f7950642c322d9054b867f3a44e4b0815ee66621706d16f47c48d16952a7",
+  "runtime_freeze_sha256": "9dd65ad68b534d4a578d68f9cee613f285841253407e2e95655233c0ed475a8f",
+  "scope": "Transport recovery only; frozen packages, questions, judge, successful answers unchanged."
+}
