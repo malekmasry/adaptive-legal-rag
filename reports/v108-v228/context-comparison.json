@@ -1,0 +1,748 @@
+[
+  {
+    "id": "S01c",
+    "v108_tokens": 3773,
+    "v228_tokens": 3773,
+    "v108_sources": [
+      "Договор аренды А-08-2024 Северный Склад",
+      "ТК_ст152_действующая"
+    ],
+    "v228_sources": [
+      "Договор аренды А-08-2024 Северный Склад",
+      "ТК_ст152_действующая"
+    ],
+    "decisions": [
+      {
+        "source": "законы__НК_ст145_действующая.txt",
+        "target": "законы__НК_ст164_действующая.txt",
+        "kind": "cites",
+        "keep": false,
+        "reason": "unrelated_topic_skip",
+        "affected_provisions": [
+          "отсылка к другой статье"
+        ],
+        "applicability": {
+          "type": "supporting_legal_reference"
+        }
+      }
+    ]
+  },
+  {
+    "id": "S04c",
+    "v108_tokens": 7640,
+    "v228_tokens": 6831,
+    "v108_sources": [
+      "Договор аренды А-08-2024 Северный Склад",
+      "Договор поставки П-17-2024 Альфа-Трейд",
+      "Договор поставки ПТ-05-2023 Альфа-Трейдинг",
+      "Доп соглашение 1 к договору П-17-2024"
+    ],
+    "v228_sources": [
+      "Договор аренды А-08-2024 Северный Склад",
+      "Договор поставки П-17-2024 Альфа-Трейд",
+      "Договор поставки ПТ-05-2023 Альфа-Трейдинг"
+    ],
+    "decisions": [
+      {
+        "source": "документы компании__Доп соглашение 1 к договору П-17-2024.txt",
+        "target": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+        "kind": "amends",
+        "keep": false,
+        "reason": "unrelated_topic_skip",
+        "affected_provisions": [
+          "п. 3.2 договора П-17/2024"
+        ],
+        "applicability": {
+          "field": "specification_date",
+          "operator": ">",
+          "value": "2024-10-01",
+          "note": "Keep the condition for both earlier and later specifications; delivery date is not the trigger."
+        }
+      }
+    ]
+  },
+  {
+    "id": "S10c",
+    "v108_tokens": 10657,
+    "v228_tokens": 9848,
+    "v108_sources": [
+      "152ФЗ_ст9_действующая",
+      "Договор поставки П-17-2024 Альфа-Трейд",
+      "Договор поставки ПТ-05-2023 Альфа-Трейдинг",
+      "Доп соглашение 1 к договору П-17-2024",
+      "НК_ст145_действующая"
+    ],
+    "v228_sources": [
+      "152ФЗ_ст9_действующая",
+      "Договор поставки П-17-2024 Альфа-Трейд",
+      "Договор поставки ПТ-05-2023 Альфа-Трейдинг",
+      "НК_ст145_действующая"
+    ],
+    "decisions": [
+      {
+        "source": "документы компании__Доп соглашение 1 к договору П-17-2024.txt",
+        "target": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+        "kind": "amends",
+        "keep": false,
+        "reason": "unrelated_topic_skip",
+        "affected_provisions": [
+          "п. 3.2 договора П-17/2024"
+        ],
+        "applicability": {
+          "field": "specification_date",
+          "operator": ">",
+          "value": "2024-10-01",
+          "note": "Keep the condition for both earlier and later specifications; delivery date is not the trigger."
+        }
+      },
+      {
+        "source": "законы__НК_ст145_действующая.txt",
+        "target": "законы__НК_ст164_действующая.txt",
+        "kind": "cites",
+        "keep": false,
+        "reason": "unrelated_topic_skip",
+        "affected_provisions": [
+          "отсылка к другой статье"
+        ],
+        "applicability": {
+          "type": "supporting_legal_reference"
+        }
+      }
+    ]
+  },
+  {
+    "id": "S12c",
+    "v108_tokens": 5849,
+    "v228_tokens": 4893,
+    "v108_sources": [
+      "Договор аренды А-08-2024 Северный Склад",
+      "Письмо комплаенс-службы К-12 от 15.04.2025",
+      "Регламент согласования договоров ред 2023 (утратил силу)",
+      "Регламент согласования договоров ред 2025"
+    ],
+    "v228_sources": [
+      "Договор аренды А-08-2024 Северный Склад",
+      "Регламент согласования договоров ред 2023 (утратил силу)",
+      "Регламент согласования договоров ред 2025"
+    ],
+    "decisions": [
+      {
+        "source": "документы компании__Регламент согласования договоров ред 2025.txt",
+        "target": "документы компании__Регламент согласования договоров ред 2023 (утратил силу).txt",
+        "kind": "supersedes",
+        "keep": true,
+        "reason": "relevant",
+        "affected_provisions": [
+          "редакция регламента целиком"
+        ],
+        "applicability": {
+          "field": "event_date",
+          "operator": ">=",
+          "value": "2025-03-01",
+          "note": "Keep both editions when relevant; do not infer event date from a contract identifier."
+        }
+      },
+      {
+        "source": "документы компании__Письмо комплаенс-службы К-12 от 15.04.2025.txt",
+        "target": "документы компании__Регламент согласования договоров ред 2025.txt",
+        "kind": "supplements",
+        "keep": false,
+        "reason": "unrelated_topic_skip",
+        "affected_provisions": [
+          "п. 5.4 регламента"
+        ],
+        "applicability": {
+          "field": "event_date",
+          "operator": ">=",
+          "value": "2025-04-21",
+          "note": "The letter date is not the effective date; show the condition for before/after questions."
+        }
+      }
+    ]
+  },
+  {
+    "id": "S20c",
+    "v108_tokens": 6245,
+    "v228_tokens": 5436,
+    "v108_sources": [
+      "Договор поставки П-17-2024 Альфа-Трейд",
+      "Договор поставки ПТ-05-2023 Альфа-Трейдинг",
+      "Доп соглашение 1 к договору П-17-2024",
+      "Служебная записка об архиве договоров"
+    ],
+    "v228_sources": [
+      "Договор поставки П-17-2024 Альфа-Трейд",
+      "Договор поставки ПТ-05-2023 Альфа-Трейдинг",
+      "Служебная записка об архиве договоров"
+    ],
+    "decisions": [
+      {
+        "source": "документы компании__Доп соглашение 1 к договору П-17-2024.txt",
+        "target": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+        "kind": "amends",
+        "keep": false,
+        "reason": "unrelated_topic_skip",
+        "affected_provisions": [
+          "п. 3.2 договора П-17/2024"
+        ],
+        "applicability": {
+          "field": "specification_date",
+          "operator": ">",
+          "value": "2024-10-01",
+          "note": "Keep the condition for both earlier and later specifications; delivery date is not the trigger."
+        }
+      }
+    ]
+  },
+  {
+    "id": "S22c",
+    "v108_tokens": 7373,
+    "v228_tokens": 7373,
+    "v108_sources": [
+      "Договор поставки П-17-2024 Альфа-Трейд",
+      "Доп соглашение 1 к договору П-17-2024",
+      "Письмо комплаенс-службы К-12 от 15.04.2025",
+      "Регламент согласования договоров ред 2023 (утратил силу)",
+      "Регламент согласования договоров ред 2025"
+    ],
+    "v228_sources": [
+      "Договор поставки П-17-2024 Альфа-Трейд",
+      "Доп соглашение 1 к договору П-17-2024",
+      "Письмо комплаенс-службы К-12 от 15.04.2025",
+      "Регламент согласования договоров ред 2023 (утратил силу)",
+      "Регламент согласования договоров ред 2025"
+    ],
+    "decisions": [
+      {
+        "source": "документы компании__Доп соглашение 1 к договору П-17-2024.txt",
+        "target": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+        "kind": "amends",
+        "keep": true,
+        "reason": "uncertain_question_keep",
+        "affected_provisions": [],
+        "applicability": {}
+      },
+      {
+        "source": "документы компании__Регламент согласования договоров ред 2025.txt",
+        "target": "документы компании__Регламент согласования договоров ред 2023 (утратил силу).txt",
+        "kind": "supersedes",
+        "keep": true,
+        "reason": "uncertain_question_keep",
+        "affected_provisions": [],
+        "applicability": {}
+      },
+      {
+        "source": "документы компании__Письмо комплаенс-службы К-12 от 15.04.2025.txt",
+        "target": "документы компании__Регламент согласования договоров ред 2025.txt",
+        "kind": "supplements",
+        "keep": true,
+        "reason": "uncertain_question_keep",
+        "affected_provisions": [],
+        "applicability": {}
+      }
+    ]
+  },
+  {
+    "id": "S24c",
+    "v108_tokens": 3224,
+    "v228_tokens": 3224,
+    "v108_sources": [
+      "152ФЗ_ст9_действующая"
+    ],
+    "v228_sources": [
+      "152ФЗ_ст9_действующая"
+    ],
+    "decisions": []
+  },
+  {
+    "id": "S35c",
+    "v108_tokens": 11470,
+    "v228_tokens": 9001,
+    "v108_sources": [
+      "Договор поставки П-17-2024 Альфа-Трейд",
+      "Доп соглашение 1 к договору П-17-2024",
+      "Регламент согласования договоров ред 2023 (утратил силу)",
+      "Регламент согласования договоров ред 2025",
+      "ТК_ст59_действующая",
+      "ТК_ст70_действующая"
+    ],
+    "v228_sources": [
+      "Договор поставки П-17-2024 Альфа-Трейд",
+      "Регламент согласования договоров ред 2023 (утратил силу)",
+      "ТК_ст59_действующая",
+      "ТК_ст70_действующая"
+    ],
+    "decisions": [
+      {
+        "source": "документы компании__Доп соглашение 1 к договору П-17-2024.txt",
+        "target": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+        "kind": "amends",
+        "keep": false,
+        "reason": "unrelated_topic_skip",
+        "affected_provisions": [
+          "п. 3.2 договора П-17/2024"
+        ],
+        "applicability": {
+          "field": "specification_date",
+          "operator": ">",
+          "value": "2024-10-01",
+          "note": "Keep the condition for both earlier and later specifications; delivery date is not the trigger."
+        }
+      },
+      {
+        "source": "документы компании__Регламент согласования договоров ред 2025.txt",
+        "target": "документы компании__Регламент согласования договоров ред 2023 (утратил силу).txt",
+        "kind": "supersedes",
+        "keep": false,
+        "reason": "unrelated_topic_skip",
+        "affected_provisions": [
+          "редакция регламента целиком"
+        ],
+        "applicability": {
+          "field": "event_date",
+          "operator": ">=",
+          "value": "2025-03-01",
+          "note": "Keep both editions when relevant; do not infer event date from a contract identifier."
+        }
+      }
+    ]
+  },
+  {
+    "id": "S02c",
+    "v108_tokens": 2081,
+    "v228_tokens": 2081,
+    "v108_sources": [
+      "Договор аренды А-08-2024 Северный Склад"
+    ],
+    "v228_sources": [
+      "Договор аренды А-08-2024 Северный Склад"
+    ],
+    "decisions": []
+  },
+  {
+    "id": "S05c",
+    "v108_tokens": 3605,
+    "v228_tokens": 2796,
+    "v108_sources": [
+      "Договор поставки П-17-2024 Альфа-Трейд",
+      "Доп соглашение 1 к договору П-17-2024"
+    ],
+    "v228_sources": [
+      "Договор поставки П-17-2024 Альфа-Трейд"
+    ],
+    "decisions": [
+      {
+        "source": "документы компании__Доп соглашение 1 к договору П-17-2024.txt",
+        "target": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+        "kind": "amends",
+        "keep": false,
+        "reason": "unrelated_topic_skip",
+        "affected_provisions": [
+          "п. 3.2 договора П-17/2024"
+        ],
+        "applicability": {
+          "field": "specification_date",
+          "operator": ">",
+          "value": "2024-10-01",
+          "note": "Keep the condition for both earlier and later specifications; delivery date is not the trigger."
+        }
+      }
+    ]
+  },
+  {
+    "id": "S07a",
+    "v108_tokens": 3605,
+    "v228_tokens": 3605,
+    "v108_sources": [
+      "Договор поставки П-17-2024 Альфа-Трейд",
+      "Доп соглашение 1 к договору П-17-2024"
+    ],
+    "v228_sources": [
+      "Договор поставки П-17-2024 Альфа-Трейд",
+      "Доп соглашение 1 к договору П-17-2024"
+    ],
+    "decisions": [
+      {
+        "source": "документы компании__Доп соглашение 1 к договору П-17-2024.txt",
+        "target": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+        "kind": "amends",
+        "keep": true,
+        "reason": "relevant",
+        "affected_provisions": [
+          "п. 3.2 договора П-17/2024"
+        ],
+        "applicability": {
+          "field": "specification_date",
+          "operator": ">",
+          "value": "2024-10-01",
+          "note": "Keep the condition for both earlier and later specifications; delivery date is not the trigger."
+        }
+      }
+    ]
+  },
+  {
+    "id": "S07b",
+    "v108_tokens": 3605,
+    "v228_tokens": 3605,
+    "v108_sources": [
+      "Договор поставки П-17-2024 Альфа-Трейд",
+      "Доп соглашение 1 к договору П-17-2024"
+    ],
+    "v228_sources": [
+      "Договор поставки П-17-2024 Альфа-Трейд",
+      "Доп соглашение 1 к договору П-17-2024"
+    ],
+    "decisions": [
+      {
+        "source": "документы компании__Доп соглашение 1 к договору П-17-2024.txt",
+        "target": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+        "kind": "amends",
+        "keep": true,
+        "reason": "relevant",
+        "affected_provisions": [
+          "п. 3.2 договора П-17/2024"
+        ],
+        "applicability": {
+          "field": "specification_date",
+          "operator": ">",
+          "value": "2024-10-01",
+          "note": "Keep the condition for both earlier and later specifications; delivery date is not the trigger."
+        }
+      }
+    ]
+  },
+  {
+    "id": "S09c",
+    "v108_tokens": 5559,
+    "v228_tokens": 4750,
+    "v108_sources": [
+      "Договор поставки П-17-2024 Альфа-Трейд",
+      "Договор поставки ПТ-05-2023 Альфа-Трейдинг",
+      "Доп соглашение 1 к договору П-17-2024"
+    ],
+    "v228_sources": [
+      "Договор поставки П-17-2024 Альфа-Трейд",
+      "Договор поставки ПТ-05-2023 Альфа-Трейдинг"
+    ],
+    "decisions": [
+      {
+        "source": "документы компании__Доп соглашение 1 к договору П-17-2024.txt",
+        "target": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+        "kind": "amends",
+        "keep": false,
+        "reason": "unrelated_topic_skip",
+        "affected_provisions": [
+          "п. 3.2 договора П-17/2024"
+        ],
+        "applicability": {
+          "field": "specification_date",
+          "operator": ">",
+          "value": "2024-10-01",
+          "note": "Keep the condition for both earlier and later specifications; delivery date is not the trigger."
+        }
+      }
+    ]
+  },
+  {
+    "id": "S14a",
+    "v108_tokens": 3768,
+    "v228_tokens": 2812,
+    "v108_sources": [
+      "Письмо комплаенс-службы К-12 от 15.04.2025",
+      "Регламент согласования договоров ред 2023 (утратил силу)",
+      "Регламент согласования договоров ред 2025"
+    ],
+    "v228_sources": [
+      "Регламент согласования договоров ред 2023 (утратил силу)",
+      "Регламент согласования договоров ред 2025"
+    ],
+    "decisions": [
+      {
+        "source": "документы компании__Регламент согласования договоров ред 2025.txt",
+        "target": "документы компании__Регламент согласования договоров ред 2023 (утратил силу).txt",
+        "kind": "supersedes",
+        "keep": true,
+        "reason": "relevant",
+        "affected_provisions": [
+          "редакция регламента целиком"
+        ],
+        "applicability": {
+          "field": "event_date",
+          "operator": ">=",
+          "value": "2025-03-01",
+          "note": "Keep both editions when relevant; do not infer event date from a contract identifier."
+        }
+      },
+      {
+        "source": "документы компании__Письмо комплаенс-службы К-12 от 15.04.2025.txt",
+        "target": "документы компании__Регламент согласования договоров ред 2025.txt",
+        "kind": "supplements",
+        "keep": false,
+        "reason": "unrelated_topic_skip",
+        "affected_provisions": [
+          "п. 5.4 регламента"
+        ],
+        "applicability": {
+          "field": "event_date",
+          "operator": ">=",
+          "value": "2025-04-21",
+          "note": "The letter date is not the effective date; show the condition for before/after questions."
+        }
+      }
+    ]
+  },
+  {
+    "id": "S14b",
+    "v108_tokens": 3768,
+    "v228_tokens": 2812,
+    "v108_sources": [
+      "Письмо комплаенс-службы К-12 от 15.04.2025",
+      "Регламент согласования договоров ред 2023 (утратил силу)",
+      "Регламент согласования договоров ред 2025"
+    ],
+    "v228_sources": [
+      "Регламент согласования договоров ред 2023 (утратил силу)",
+      "Регламент согласования договоров ред 2025"
+    ],
+    "decisions": [
+      {
+        "source": "документы компании__Регламент согласования договоров ред 2025.txt",
+        "target": "документы компании__Регламент согласования договоров ред 2023 (утратил силу).txt",
+        "kind": "supersedes",
+        "keep": true,
+        "reason": "relevant",
+        "affected_provisions": [
+          "редакция регламента целиком"
+        ],
+        "applicability": {
+          "field": "event_date",
+          "operator": ">=",
+          "value": "2025-03-01",
+          "note": "Keep both editions when relevant; do not infer event date from a contract identifier."
+        }
+      },
+      {
+        "source": "документы компании__Письмо комплаенс-службы К-12 от 15.04.2025.txt",
+        "target": "документы компании__Регламент согласования договоров ред 2025.txt",
+        "kind": "supplements",
+        "keep": false,
+        "reason": "unrelated_topic_skip",
+        "affected_provisions": [
+          "п. 5.4 регламента"
+        ],
+        "applicability": {
+          "field": "event_date",
+          "operator": ">=",
+          "value": "2025-04-21",
+          "note": "The letter date is not the effective date; show the condition for before/after questions."
+        }
+      }
+    ]
+  },
+  {
+    "id": "S16c",
+    "v108_tokens": 3768,
+    "v228_tokens": 2812,
+    "v108_sources": [
+      "Письмо комплаенс-службы К-12 от 15.04.2025",
+      "Регламент согласования договоров ред 2023 (утратил силу)",
+      "Регламент согласования договоров ред 2025"
+    ],
+    "v228_sources": [
+      "Регламент согласования договоров ред 2023 (утратил силу)",
+      "Регламент согласования договоров ред 2025"
+    ],
+    "decisions": [
+      {
+        "source": "документы компании__Регламент согласования договоров ред 2025.txt",
+        "target": "документы компании__Регламент согласования договоров ред 2023 (утратил силу).txt",
+        "kind": "supersedes",
+        "keep": true,
+        "reason": "relevant",
+        "affected_provisions": [
+          "редакция регламента целиком"
+        ],
+        "applicability": {
+          "field": "event_date",
+          "operator": ">=",
+          "value": "2025-03-01",
+          "note": "Keep both editions when relevant; do not infer event date from a contract identifier."
+        }
+      },
+      {
+        "source": "документы компании__Письмо комплаенс-службы К-12 от 15.04.2025.txt",
+        "target": "документы компании__Регламент согласования договоров ред 2025.txt",
+        "kind": "supplements",
+        "keep": false,
+        "reason": "unrelated_topic_skip",
+        "affected_provisions": [
+          "п. 5.4 регламента"
+        ],
+        "applicability": {
+          "field": "event_date",
+          "operator": ">=",
+          "value": "2025-04-21",
+          "note": "The letter date is not the effective date; show the condition for before/after questions."
+        }
+      }
+    ]
+  },
+  {
+    "id": "S17a",
+    "v108_tokens": 3768,
+    "v228_tokens": 3768,
+    "v108_sources": [
+      "Письмо комплаенс-службы К-12 от 15.04.2025",
+      "Регламент согласования договоров ред 2023 (утратил силу)",
+      "Регламент согласования договоров ред 2025"
+    ],
+    "v228_sources": [
+      "Письмо комплаенс-службы К-12 от 15.04.2025",
+      "Регламент согласования договоров ред 2023 (утратил силу)",
+      "Регламент согласования договоров ред 2025"
+    ],
+    "decisions": [
+      {
+        "source": "документы компании__Регламент согласования договоров ред 2025.txt",
+        "target": "документы компании__Регламент согласования договоров ред 2023 (утратил силу).txt",
+        "kind": "supersedes",
+        "keep": true,
+        "reason": "relevant",
+        "affected_provisions": [
+          "редакция регламента целиком"
+        ],
+        "applicability": {
+          "field": "event_date",
+          "operator": ">=",
+          "value": "2025-03-01",
+          "note": "Keep both editions when relevant; do not infer event date from a contract identifier."
+        }
+      },
+      {
+        "source": "документы компании__Письмо комплаенс-службы К-12 от 15.04.2025.txt",
+        "target": "документы компании__Регламент согласования договоров ред 2025.txt",
+        "kind": "supplements",
+        "keep": true,
+        "reason": "relevant",
+        "affected_provisions": [
+          "п. 5.4 регламента"
+        ],
+        "applicability": {
+          "field": "event_date",
+          "operator": ">=",
+          "value": "2025-04-21",
+          "note": "The letter date is not the effective date; show the condition for before/after questions."
+        }
+      }
+    ]
+  },
+  {
+    "id": "S17b",
+    "v108_tokens": 3768,
+    "v228_tokens": 3768,
+    "v108_sources": [
+      "Письмо комплаенс-службы К-12 от 15.04.2025",
+      "Регламент согласования договоров ред 2023 (утратил силу)",
+      "Регламент согласования договоров ред 2025"
+    ],
+    "v228_sources": [
+      "Письмо комплаенс-службы К-12 от 15.04.2025",
+      "Регламент согласования договоров ред 2023 (утратил силу)",
+      "Регламент согласования договоров ред 2025"
+    ],
+    "decisions": [
+      {
+        "source": "документы компании__Регламент согласования договоров ред 2025.txt",
+        "target": "документы компании__Регламент согласования договоров ред 2023 (утратил силу).txt",
+        "kind": "supersedes",
+        "keep": true,
+        "reason": "relevant",
+        "affected_provisions": [
+          "редакция регламента целиком"
+        ],
+        "applicability": {
+          "field": "event_date",
+          "operator": ">=",
+          "value": "2025-03-01",
+          "note": "Keep both editions when relevant; do not infer event date from a contract identifier."
+        }
+      },
+      {
+        "source": "документы компании__Письмо комплаенс-службы К-12 от 15.04.2025.txt",
+        "target": "документы компании__Регламент согласования договоров ред 2025.txt",
+        "kind": "supplements",
+        "keep": true,
+        "reason": "relevant",
+        "affected_provisions": [
+          "п. 5.4 регламента"
+        ],
+        "applicability": {
+          "field": "event_date",
+          "operator": ">=",
+          "value": "2025-04-21",
+          "note": "The letter date is not the effective date; show the condition for before/after questions."
+        }
+      }
+    ]
+  },
+  {
+    "id": "S23c",
+    "v108_tokens": 5559,
+    "v228_tokens": 4750,
+    "v108_sources": [
+      "Договор поставки П-17-2024 Альфа-Трейд",
+      "Договор поставки ПТ-05-2023 Альфа-Трейдинг",
+      "Доп соглашение 1 к договору П-17-2024"
+    ],
+    "v228_sources": [
+      "Договор поставки П-17-2024 Альфа-Трейд",
+      "Договор поставки ПТ-05-2023 Альфа-Трейдинг"
+    ],
+    "decisions": [
+      {
+        "source": "документы компании__Доп соглашение 1 к договору П-17-2024.txt",
+        "target": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+        "kind": "amends",
+        "keep": false,
+        "reason": "unrelated_topic_skip",
+        "affected_provisions": [
+          "п. 3.2 договора П-17/2024"
+        ],
+        "applicability": {
+          "field": "specification_date",
+          "operator": ">",
+          "value": "2024-10-01",
+          "note": "Keep the condition for both earlier and later specifications; delivery date is not the trigger."
+        }
+      }
+    ]
+  },
+  {
+    "id": "S28c",
+    "v108_tokens": 2519,
+    "v228_tokens": 2519,
+    "v108_sources": [
+      "НК_ст112_действующая",
+      "НК_ст114_действующая"
+    ],
+    "v228_sources": [
+      "НК_ст112_действующая",
+      "НК_ст114_действующая"
+    ],
+    "decisions": [
+      {
+        "source": "законы__НК_ст114_действующая.txt",
+        "target": "законы__НК_ст112_действующая.txt",
+        "kind": "cites",
+        "keep": true,
+        "reason": "relevant",
+        "affected_provisions": [
+          "отсылка к другой статье"
+        ],
+        "applicability": {
+          "type": "supporting_legal_reference"
+        }
+      }
+    ]
+  }
+]

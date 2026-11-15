@@ -1,0 +1,209 @@
+{
+  "date": "2026-11-15",
+  "code_commit": "da2e0f65abf48a9372714fb2fead47967047c849",
+  "submission_sha256": "35487b76a0f10714622cbd011718035812bc934299083e7665aeab524a3cfe9f",
+  "stable_score": 68.66666666666667,
+  "scores": {
+    "guided_v1": 61.67857142857143,
+    "guided_v2": 61.87499999999999,
+    "guided_v3": 62.10526315789473,
+    "guided_v4": 60.36607142857142
+  },
+  "best_recorded_of_stable_and_final": "focused_v5_resumed",
+  "not_a_platform_prediction": true,
+  "previously_exposed_development_set": true,
+  "unchanged_judge_golden_baseline": true,
+  "unit_tests_passed": 28,
+  "rule_drafts_used_stress20": 16,
+  "regression_manual_review": {
+    "passed": 10,
+    "total": 10,
+    "method": "assistant comparison against actual source text, not an LLM score"
+  },
+  "usage": {
+    "guided-v1-stress20": {
+      "deepseek_calls": 79,
+      "deepseek_tokens": 361794,
+      "qwen_calls": 20,
+      "qwen_input_tokens": 652021,
+      "errors": 0,
+      "uncompleted": 0
+    },
+    "guided-v1-regression10": {
+      "deepseek_calls": 19,
+      "deepseek_tokens": 146141,
+      "qwen_calls": 10,
+      "qwen_input_tokens": 323375,
+      "errors": 0,
+      "uncompleted": 0
+    },
+    "guided-v2-stress20": {
+      "deepseek_calls": 79,
+      "deepseek_tokens": 368727,
+      "qwen_calls": 20,
+      "qwen_input_tokens": 652021,
+      "errors": 0,
+      "uncompleted": 0
+    },
+    "guided-v2-regression10": {
+      "deepseek_calls": 19,
+      "deepseek_tokens": 152888,
+      "qwen_calls": 10,
+      "qwen_input_tokens": 323375,
+      "errors": 0,
+      "uncompleted": 0
+    },
+    "guided-v3-stress20": {
+      "deepseek_calls": 63,
+      "deepseek_tokens": 263577,
+      "qwen_calls": 20,
+      "qwen_input_tokens": 652021,
+      "errors": 0,
+      "uncompleted": 0
+    },
+    "guided-v3-regression10": {
+      "deepseek_calls": 15,
+      "deepseek_tokens": 126716,
+      "qwen_calls": 10,
+      "qwen_input_tokens": 323375,
+      "errors": 0,
+      "uncompleted": 0
+    },
+    "guided-v4-stress20": {
+      "deepseek_calls": 63,
+      "deepseek_tokens": 266160,
+      "qwen_calls": 20,
+      "qwen_input_tokens": 652021,
+      "errors": 0,
+      "uncompleted": 0
+    },
+    "guided-v4-regression10": {
+      "deepseek_calls": 15,
+      "deepseek_tokens": 126855,
+      "qwen_calls": 10,
+      "qwen_input_tokens": 323375,
+      "errors": 0,
+      "uncompleted": 0
+    }
+  },
+  "total_usage": {
+    "deepseek_calls": 352,
+    "deepseek_tokens": 1812858,
+    "qwen_calls": 120,
+    "qwen_input_tokens": 3901584,
+    "errors": 0,
+    "uncompleted": 0
+  },
+  "team_score_protocol_audit": {
+    "systems": {
+      "focused_v5_resumed": {
+        "score": {
+          "score": 74.62499999999999,
+          "match_rate": 0.6375,
+          "win_rate": 1.0,
+          "wins": 10,
+          "losses": 0,
+          "ties": 10,
+          "evaluated": 20,
+          "attempted": 20,
+          "coverage": 1.0
+        },
+        "common_score": {
+          "score": 74.62499999999999,
+          "match_rate": 0.6375,
+          "win_rate": 1.0,
+          "wins": 10,
+          "losses": 0,
+          "ties": 10,
+          "evaluated": 20,
+          "attempted": 20,
+          "coverage": 1.0
+        },
+        "fabrication_zero_count": 0
+      },
+      "guided_v4": {
+        "score": {
+          "score": 68.22916666666666,
+          "match_rate": 0.59375,
+          "win_rate": 0.8888888888888888,
+          "wins": 8,
+          "losses": 1,
+          "ties": 11,
+          "evaluated": 20,
+          "attempted": 20,
+          "coverage": 1.0
+        },
+        "common_score": {
+          "score": 68.22916666666666,
+          "match_rate": 0.59375,
+          "win_rate": 0.8888888888888888,
+          "wins": 8,
+          "losses": 1,
+          "ties": 11,
+          "evaluated": 20,
+          "attempted": 20,
+          "coverage": 1.0
+        },
+        "fabrication_zero_count": 1
+      }
+    },
+    "common_ids": [
+      "S01c",
+      "S02c",
+      "S04c",
+      "S05c",
+      "S07a",
+      "S07b",
+      "S09c",
+      "S10c",
+      "S12c",
+      "S14a",
+      "S14b",
+      "S16c",
+      "S17a",
+      "S17b",
+      "S20c",
+      "S22c",
+      "S23c",
+      "S24c",
+      "S28c",
+      "S35c"
+    ],
+    "seconds": 199.047,
+    "controls_passed": true,
+    "protocol": {
+      "protocol": "team-relative score explicitly requested in both rounds",
+      "candidate": "guided_v4",
+      "input_hashes": {
+        "baseline": "d6e3815247b1678747f6599d86bd70bf674cd0ed07ec11f44fcd7a3d95be76d9",
+        "cases": "7f5dccd8b40f2806fa194400fcfab73554a0cf632c1f43a0298581c9229548e4",
+        "stable_answers": "a0e5dbb7cb64fd9c63e8d3679827a595038ea7a115cea45cfd919fa70354823d",
+        "candidate_answers": "445fc682769121dd83f0675440ff0e72db8f03aaaa3ce7a46081925d65f4a5b4"
+      },
+      "old_prompt_sha256": "3661de0f22f4b099b91688cca768557d97ac6310b4c3791fbe2e341bbcd369e6",
+      "new_prompt_sha256": "03d8d5cf42a3a00c85563cf684971f161c8924cea699fb4582e08359eac2505e",
+      "scope": "Different judge protocol; compare the two candidates here, not this number against legacy scores.",
+      "api_limits": {
+        "chat_calls": 90,
+        "rerank_calls": 0,
+        "conservative_chat_token_ceiling": 1500000
+      }
+    },
+    "usage": {
+      "deepseek_calls": 86,
+      "deepseek_tokens": 134991,
+      "api_errors": 0,
+      "qwen_calls": 0
+    }
+  },
+  "total_usage_including_protocol_audit": {
+    "deepseek_calls": 438,
+    "deepseek_tokens": 1947849,
+    "qwen_calls": 120,
+    "qwen_input_tokens": 3901584,
+    "errors": 0,
+    "uncompleted": 0
+  },
+  "runtime_seconds": 99.703,
+  "whole_experiment_seconds": 201.641
+}
