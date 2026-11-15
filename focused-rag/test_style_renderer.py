@@ -22,5 +22,7 @@ class StyleTests(unittest.TestCase):
     def test_compound_topics_keep_default_layout(self):
         self.assertEqual(topic_group(['warranty']),'warranty')
         self.assertIsNone(topic_group(['warranty','contract_term']))
+        self.assertEqual(topic_group(['payment_term','payment_completion']),'payment')
+        self.assertIsNone(topic_group(['payment_term','penalty']))
 
 if __name__=='__main__':unittest.main()

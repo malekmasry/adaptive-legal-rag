@@ -15,6 +15,9 @@ def topic_group(topics):
     if selected=={'probation'}:return 'probation'
     if selected=={'foreign_checks'}:return 'foreign_checks'
     if selected=={'consent_withdrawal'}:return 'consent_withdrawal'
+    for topic in ('contract_term','approval_threshold','approval_form','approved_template','delivery_address','tax_penalty'):
+        if selected=={topic}:return topic
+    if selected and selected<={'payment_term','payment_completion'}:return 'payment'
     return None
 
 def apply_policy(answer,topics,source_ids,evidence,documents):
