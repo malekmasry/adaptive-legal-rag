@@ -1,0 +1,42 @@
+test_both_editions_and_amendment_survive (test_focused.FocusedTests.test_both_editions_and_amendment_survive) ... ok
+test_budget_and_unknown_citations (test_focused.FocusedTests.test_budget_and_unknown_citations) ... ok
+test_csv_contract_and_independent_rows (test_focused.FocusedTests.test_csv_contract_and_independent_rows) ... {"event":"run_configuration","request_id":"","stage":"bootstrap","time":1794712267.412,"max_tokens":8192,"max_tokens_from_environment":false,"request_timeout":90,"run_budget_seconds":1100,"workers":1,"top_k":40,"rerank_top_n":6,"context_tokens":18000,"temperature":0,"finalize_grace_seconds":30.0,"generator":"","embedder":"BAAI/bge-m3","reranker":"Qwen/Qwen3-Reranker-8B"}
+{"event":"question_started","request_id":"1","stage":"answer","time":1794712267.497}
+{"event":"question_started","request_id":"2","stage":"answer","time":1794712267.518}
+{"event":"run_completed","request_id":"","stage":"bootstrap","time":1794712267.528,"rows":2,"counts":{"answered":2},"seconds":0.109,"error_counts":{}}
+ok
+test_date_note_distinguishes_contract_id_and_event (test_focused.FocusedTests.test_date_note_distinguishes_contract_id_and_event) ... ok
+test_full_scope_keeps_unretrieved_conditions_and_injection_as_data (test_focused.FocusedTests.test_full_scope_keeps_unretrieved_conditions_and_injection_as_data) ... ok
+test_history_does_not_retrieve_assistant_claim (test_focused.FocusedTests.test_history_does_not_retrieve_assistant_claim) ... ok
+test_hypothetical_calculation_not_removed_by_local_validator (test_focused.FocusedTests.test_hypothetical_calculation_not_removed_by_local_validator) ... {"event":"focused_answer","request_id":"","stage":"bootstrap","time":1794712267.626,"status":"answered","seconds":0.046,"context":{"estimated_tokens":72,"budget":14500,"omitted_documents":[],"full_documents":1,"primary_card_tokens":0,"verified_hint_tokens":0,"verified_hint_count":0,"total_evidence_tokens":72,"configured_context_budget":18000},"retrieval":{},"source_ids":["D1"],"review":"applied","draft_origin":"generator","draft_preserved":null}
+ok
+test_pool_does_not_apply_guessed_event_date (test_focused.FocusedTests.test_pool_does_not_apply_guessed_event_date) ... ok
+test_review_failure_keeps_valid_answer (test_focused.FocusedTests.test_review_failure_keeps_valid_answer) ... {"event":"review_degraded_kept_draft","request_id":"","stage":"bootstrap","time":1794712267.636,"error_type":"ModelError","error_code":"model_error","frames":[{"file":"pipeline.py","line":129,"function":"ask"},{"file":"test_focused.py","line":82,"function":"generate"}]}
+{"event":"focused_answer","request_id":"","stage":"bootstrap","time":1794712267.638,"status":"answered","seconds":0.016,"context":{"estimated_tokens":57,"budget":18000,"omitted_documents":[],"full_documents":1,"primary_card_tokens":0,"verified_hint_tokens":0,"verified_hint_count":0,"total_evidence_tokens":57,"configured_context_budget":18000},"retrieval":{},"source_ids":["D1"],"review":"failed_kept_draft","draft_origin":"generator","draft_preserved":null}
+ok
+test_typed_references_render_multiple_sources_without_inline_parser (test_focused.FocusedTests.test_typed_references_render_multiple_sources_without_inline_parser) ... ok
+test_changed_clause_topic_cannot_be_mislabeled (test_guides.GuideTests.test_changed_clause_topic_cannot_be_mislabeled) ... ok
+test_guaranteed_inheritance_and_administrative_penalty_do_not_use_wrong_topic (test_guides.GuideTests.test_guaranteed_inheritance_and_administrative_penalty_do_not_use_wrong_topic) ... ok
+test_instruction_line_not_a_normative_archive_card (test_guides.GuideTests.test_instruction_line_not_a_normative_archive_card) ... ok
+test_multiple_slots_preserved (test_guides.GuideTests.test_multiple_slots_preserved) ... ok
+test_numeric_facts_come_from_changed_source_not_rule_table (test_guides.GuideTests.test_numeric_facts_come_from_changed_source_not_rule_table) ... ok
+test_small_card_budget_does_not_truncate_or_invent (test_guides.GuideTests.test_small_card_budget_does_not_truncate_or_invent) ... ok
+test_changed_source_disables_stale_factual_hint (test_playbook.PlaybookTests.test_changed_source_disables_stale_factual_hint) ... ok
+test_source_and_query_commands_never_get_promoted_to_system (test_playbook.PlaybookTests.test_source_and_query_commands_never_get_promoted_to_system) ... ok
+test_unseen_provision_cannot_become_a_hint (test_playbook.PlaybookTests.test_unseen_provision_cannot_become_a_hint) ... ok
+test_verified_fact_is_available_but_not_for_other_topic (test_playbook.PlaybookTests.test_verified_fact_is_available_but_not_for_other_topic) ... ok
+test_whole_prompt_obeys_budget (test_playbook.PlaybookTests.test_whole_prompt_obeys_budget) ... ok
+test_all_paragraphs_have_known_provision_citations (test_rule_drafts.RuleDraftTests.test_all_paragraphs_have_known_provision_citations) ... ok
+test_amendment_boundary_includes_original_day (test_rule_drafts.RuleDraftTests.test_amendment_boundary_includes_original_day) ... ok
+test_changed_values_and_word_numbers_are_calculated (test_rule_drafts.RuleDraftTests.test_changed_values_and_word_numbers_are_calculated) ... ok
+test_effective_date_not_letter_date (test_rule_drafts.RuleDraftTests.test_effective_date_not_letter_date) ... ok
+test_review_acknowledgment_keeps_exact_draft_and_correction_is_used (test_rule_drafts.RuleDraftTests.test_review_acknowledgment_keeps_exact_draft_and_correction_is_used) ... {"event":"focused_answer","request_id":"","stage":"bootstrap","time":1794712267.764,"status":"answered","seconds":0.016,"context":{"estimated_tokens":63,"budget":18000,"omitted_documents":[],"full_documents":1,"primary_card_tokens":0,"verified_hint_tokens":0,"verified_hint_count":0,"total_evidence_tokens":63,"configured_context_budget":18000},"retrieval":{},"source_ids":["D1"],"review":"applied","draft_origin":"source_rules","draft_preserved":true}
+{"event":"focused_answer","request_id":"","stage":"bootstrap","time":1794712267.776,"status":"answered","seconds":0.0,"context":{"estimated_tokens":63,"budget":18000,"omitted_documents":[],"full_documents":1,"primary_card_tokens":0,"verified_hint_tokens":0,"verified_hint_count":0,"total_evidence_tokens":63,"configured_context_budget":18000},"retrieval":{},"source_ids":["D1"],"review":"applied","draft_origin":"source_rules","draft_preserved":false}
+ok
+test_two_entities_are_not_merged_and_unknown_sources_do_not_draft (test_rule_drafts.RuleDraftTests.test_two_entities_are_not_merged_and_unknown_sources_do_not_draft) ... ok
+test_uncertain_calculation_falls_back (test_rule_drafts.RuleDraftTests.test_uncertain_calculation_falls_back) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 1.686s
+
+OK
