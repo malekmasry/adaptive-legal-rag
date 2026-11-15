@@ -44,12 +44,12 @@ class Settings:
     request_timeout: float = field(default_factory=lambda: env_float('REQUEST_TIMEOUT',90,1,180))
     deadline_seconds: float = field(default_factory=lambda: env_float('RUN_BUDGET_SECONDS',1100,1,1100))
     session_ttl: int = field(default_factory=lambda: env_int('SESSION_TTL',3600,1,86400))
-    retrieval_mode: str = field(default_factory=lambda: env('RETRIEVAL_MODE',default='hybrid'))
+    retrieval_mode: str = field(default_factory=lambda: env('RETRIEVAL_MODE',default='conditional'))
     use_rerank: bool = field(default_factory=lambda: env('USE_RERANK',default='1')=='1')
     as_of: str = field(default_factory=lambda: env('AS_OF',default=date.today().isoformat()))
 
     def __post_init__(self):
-        if self.retrieval_mode not in {'hybrid','bm25'}:
+        if self.retrieval_mode not in {'hybrid','bm25','conditional'}:
             raise ValueError('Invalid RETRIEVAL_MODE')
         if not 1 <= self.rerank_n <= 30 or not 1 <= self.top_k <= 200:
             raise ValueError('Retrieval bounds invalid')

@@ -78,7 +78,7 @@ class Pipeline:
         self.retriever = ScopeRetriever(docs, chunks, self.relations, self.api, self.s)
 
     def initialize(self):
-        if self.s.retrieval_mode != 'bm25':
+        if self.s.retrieval_mode == 'hybrid':
             try:
                 self.retriever.prepare_dense()
             except ModelError as exc:

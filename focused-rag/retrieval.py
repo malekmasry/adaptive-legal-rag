@@ -166,6 +166,9 @@ class Retriever:
         start=time.monotonic(); mode=mode or self.s.retrieval_mode; pool=self.pool(plan)
         trace={'mode':mode,'pool':len(pool),'rankings':[],'degraded':[]}
         queries=controlled_queries(plan,original_query)
+        if mode=='conditional':
+            ids,scores,reranked=self.conditional_candidates(plan,queries,pool,trace)
+            return self.finish_search(plan,pool,ids,scores,trace,start,reranked,original_query)
         dense_rankings=[None]*len(queries)
         if mode=='hybrid':
             trace['query_embedding_batch_size']=len(queries)
@@ -205,6 +208,66 @@ class Retriever:
                 trace['rerank']=[(ids[i],s) for i,s in rr]; ids=[ids[i] for i,_ in rr];reranked=True
             except ModelError as e: trace['degraded'].append(str(e)); ids=ids[:self.s.rerank_n]
         else: ids=ids[:self.s.rerank_n]
+        return self.finish_search(plan,pool,ids,scores,trace,start,reranked,original_query)
+
+    def conditional_candidates(self,plan,queries,pool,trace):
+        """Keep confident lexical results; replace a weak route with dense results.
+
+        The 0.5 threshold reproduces the old routing rule, not a calibrated
+        probability of answer coverage. Chunking, pool limits and expansion stay
+        unchanged. A failed alternate route always retains the lexical result.
+        """
+        def candidates(rankings):
+            ids,scores=rrf(rankings);ids=ids[:min(80,self.s.top_k*2)]
+            entity,_=resolve_entity(plan.question)
+            if entity:
+                extra=[self.chunks[i].id for i in pool if self.docs[self.chunks[i].doc_id].metadata['entity']==entity]
+                ids=list(dict.fromkeys(ids[:40]+extra+ids[40:]))[:80]
+            return ids,scores
+        rankings=[]
+        for query in queries:
+            hits=self.lexical(query,pool);rankings.append([i for i,_ in hits])
+            trace['rankings'].append({'method':'bm25','hits':hits})
+        ids,scores=candidates(rankings);trace['candidates']=ids.copy()
+        trace.update(fusion='RRF within lexical queries; conditional dense replacement',
+                     route='lexical',conditional_threshold=0.5,query_embedding_mode='not_needed')
+        selected=ids[:self.s.rerank_n];reranked=False
+        if not self.s.use_rerank:
+            trace['route_reason']='reranker_disabled';return selected,scores,False
+        if ids:
+            try:
+                rr=self.api.rerank(plan.question,[self.all[i].search_text for i in ids],self.s.rerank_n)
+                if not rr:raise ModelError('Empty lexical rerank',code='rerank_contract_invalid')
+                trace['rerank']=trace['lexical_rerank']=[(ids[i],s) for i,s in rr]
+                selected=[ids[i] for i,_ in rr];reranked=True
+                values=[float(s) for _,s in rr]
+                if not all(0<=s<=1 for s in values):
+                    trace['route_reason']='score_scale_unavailable';return selected,scores,reranked
+                trace['lexical_max_score']=max(values)
+                if max(values)>=0.5:
+                    trace['route_reason']='lexical_confident';return selected,scores,reranked
+            except ModelError as exc:
+                trace['degraded'].append(str(exc));trace['route_reason']='lexical_rerank_failed'
+                return selected,scores,reranked
+        if getattr(self.api,'deadline',float('inf'))-time.monotonic()<=20:
+            trace['route_reason']='alternate_skipped_deadline';return selected,scores,reranked
+        try:
+            trace['query_embedding_mode']='conditional_batch';trace['query_embedding_batch_size']=len(queries)
+            dense=self.dense_many(queries,pool)
+            for hits in dense:trace['rankings'].append({'method':'dense','hits':hits})
+            alternate,alternate_scores=candidates([[i for i,_ in hits] for hits in dense])
+            trace['dense_candidates']=alternate.copy()
+            if not alternate:raise ModelError('Empty dense candidates',code='dense_empty')
+            rr=self.api.rerank(plan.question,[self.all[i].search_text for i in alternate],self.s.rerank_n)
+            if not rr:raise ModelError('Empty dense rerank',code='rerank_contract_invalid')
+            trace['rerank']=trace['dense_rerank']=[(alternate[i],s) for i,s in rr]
+            trace.update(route='dense',route_reason='low_lexical_score' if ids else 'empty_lexical')
+            return [alternate[i] for i,_ in rr],alternate_scores,True
+        except ModelError as exc:
+            trace['degraded'].append(str(exc));trace['route_reason']='alternate_failed_kept_lexical'
+            return selected,scores,reranked
+
+    def finish_search(self,plan,pool,ids,scores,trace,start,reranked,original_query):
         if not reranked and original_query:
             # In degraded mode, broad subqueries must not crowd out the exact question.
             ids=list(dict.fromkeys([i for i,_ in self.lexical(original_query,pool,2)]+ids))[:self.s.rerank_n]
