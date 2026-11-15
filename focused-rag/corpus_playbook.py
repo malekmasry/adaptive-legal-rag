@@ -18,6 +18,38 @@ def load_playbook():
     return json.loads(Path(__file__).with_name('corpus_playbook.json').read_text(encoding='utf8'))
 
 
+def recover_hint_sources(topics,evidence,documents,retrieved_filenames,budget=1800,question='',playbook=None):
+    """Recover complete, exact supporting paragraphs from already found docs.
+
+    These are evidence, not instructions. Every note's missing anchors must fit
+    together; never truncate a condition or inject a fact absent from live data.
+    """
+    book=load_playbook() if playbook is None else playbook
+    by_filename={d.filename:d for d in documents.values()}
+    query=question.lower().replace('ё','е');candidates=[];result=list(evidence);used=0
+    for entry in book['documents']:
+        d=by_filename.get(entry['filename'])
+        if d is None or d.filename not in retrieved_filenames:continue
+        if hashlib.sha256(d.raw.encode('utf8')).hexdigest()!=entry['sha256']:continue
+        for note in entry['notes']:
+            if not set(note['topics']).intersection(topics):continue
+            if note.get('when') and not re.search(note['when'],query):continue
+            candidates.append(((int(note.get('priority',0)),bool(note.get('when'))),d,note))
+    for _,d,note in sorted(candidates,key=lambda item:item[0],reverse=True):
+        visible=[e for e in result if e['document']==source_name(d)]
+        missing=list(dict.fromkeys(a for a in note['anchors'] if not any(a in e['text'] for e in visible)))
+        if not missing or any(a not in d.raw for a in missing):continue
+        additions=[]
+        for anchor in missing:
+            start=d.raw.index(anchor)
+            additions.append({'source_id':f'D{len(result)+len(additions)+1}','document':source_name(d),
+              'title':getattr(d,'title',source_name(d)),'scope':f'подтверждающее положение, символы {start}:{start+len(anchor)}','text':anchor})
+        cost=sum(estimate_tokens(json.dumps(e,ensure_ascii=False)) for e in additions)
+        if used+cost>budget:continue
+        result.extend(additions);used+=cost
+    return result,used
+
+
 def verified_hints(topics, evidence, documents, budget=2500, playbook=None, question=''):
     book=load_playbook() if playbook is None else playbook
     by_name={source_name(d):d for d in documents.values()}

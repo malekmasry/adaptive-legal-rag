@@ -21,7 +21,7 @@ CSV scheduler of v8; its context assembly and generation pipeline are new.
 5. Present related editions, amendment conditions, and effective dates together.
    No guessed entity/date router removes source candidates. The generator must
    determine applicability from the actual source text.
-   This branch deliberately adds corpus-specific assistance: 34 answer plans
+   This branch deliberately adds corpus-specific assistance: 35 answer plans
    select required answer slots and exact primary provision cards. A second
    layer contains 107 developer-reviewed factual notes for all 21 source documents,
    including the different payment periods of the two Alfa contracts, amendment
@@ -42,6 +42,13 @@ CSV scheduler of v8; its context assembly and generation pipeline are new.
    calculation bands, special profit-tax rates, overtime, MROT, fixed-term
    contracts, consent requirements and distinct personal-data offenses. It does
    not mean that every possible question about these documents is covered.
+   If a supporting paragraph fell out of a large retrieved article, up to 1,800
+   tokens of exact anchors can be recovered from that same hash-matching source.
+   All missing anchors for a note must fit together; partial condition snippets
+   are not inserted. Recovery shares the existing 3,500-token reserve with notes
+   and cards and never changes the total 18,000-token allowance. It does not
+   search unselected documents. Special profit-tax questions have a distinct
+   plan so the general-rate plan cannot override an explicitly requested regime.
 6. `rule_drafts.py` can prepare an actual answer draft for supported intents
    when complete, hash-matching sources are in evidence. Rules distinguish the
    two contracts, evaluate edition/amendment dates, preserve separate answer

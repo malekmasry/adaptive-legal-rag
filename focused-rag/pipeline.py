@@ -9,7 +9,7 @@ from schemas import Plan
 from focused_context import ScopeRetriever, context_bundle, render_paragraphs, search_queries, date_note
 from diagnostics import emit, error_info
 from answer_guides import prepare_guides, plan_for, GUIDANCE
-from corpus_playbook import verified_hints
+from corpus_playbook import verified_hints,recover_hint_sources
 from rule_drafts import build_rule_draft
 
 TECHNICAL = 'Не удалось получить ответ из-за технического сбоя. Это не означает отсутствия нужных сведений в базе.'
@@ -86,6 +86,13 @@ class Pipeline:
         chunks, retrieval = self.retriever.search(plan, original_query=subs[-1] if subs else query)
         reserve=min(3500,self.s.context_tokens//4) if plan_for(query)['topics'] else 0
         evidence, budget = context_bundle(chunks, self.docs, self.relations, self.s.context_tokens-reserve,query)
+        evidence,recovered_tokens=recover_hint_sources(plan_for(query)['topics'],evidence,self.docs,
+            {self.docs[c.doc_id].filename for c in chunks},min(1800,reserve),question=query)
+        if recovered_tokens:
+            reserve-=recovered_tokens
+            budget['estimated_tokens']+=recovered_tokens
+            budget['budget']+=recovered_tokens
+            budget['recovered_source_tokens']=recovered_tokens
         hints,hint_tokens,active_hints=verified_hints(plan_for(query)['topics'],evidence,self.docs,min(2500,reserve),question=query)
         response_plan,cards,card_tokens=prepare_guides(query,evidence,max(0,reserve-hint_tokens))
         budget.update(primary_card_tokens=card_tokens,verified_hint_tokens=hint_tokens,verified_hint_count=len(active_hints),

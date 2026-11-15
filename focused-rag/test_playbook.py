@@ -1,7 +1,7 @@
 import hashlib
 from types import SimpleNamespace
 import unittest
-from corpus_playbook import verified_hints
+from corpus_playbook import verified_hints,recover_hint_sources
 
 
 class PlaybookTests(unittest.TestCase):
@@ -67,6 +67,27 @@ class PlaybookTests(unittest.TestCase):
         notes[-1]['anchors']=['Отсутствующее основание']
         text,_,_=self.run_hint(budget=300)
         self.assertNotIn('Приоритетный факт',text)
+
+    def test_missing_anchor_recovered_verbatim_from_retrieved_source(self):
+        rows,cost=recover_hint_sources(['payment_term'],[],{'d':self.doc},{self.doc.filename},playbook=self.book)
+        self.assertGreater(cost,0)
+        self.assertEqual(rows[0]['text'],'1. Оплата в течение 45 дней.')
+        self.assertIn(rows[0]['text'],self.doc.raw)
+        self.assertIn('45 дней',verified_hints(['payment_term'],rows,{'d':self.doc},playbook=self.book)[0])
+
+    def test_source_recovery_never_searches_unretrieved_or_changed_documents(self):
+        args=(['payment_term'],[],{'d':self.doc})
+        self.assertEqual(recover_hint_sources(*args,set(),playbook=self.book),([],0))
+        self.doc.raw+='Changed'
+        self.assertEqual(recover_hint_sources(*args,{self.doc.filename},playbook=self.book),([],0))
+
+    def test_all_conditions_must_fit_and_existing_evidence_is_not_duplicated(self):
+        args=(['payment_term'],[],{'d':self.doc},{self.doc.filename})
+        self.assertEqual(recover_hint_sources(*args,budget=1,playbook=self.book),([],0))
+        rows,cost=recover_hint_sources(['payment_term'],self.evidence,{'d':self.doc},{self.doc.filename},playbook=self.book)
+        self.assertEqual(rows,self.evidence);self.assertEqual(cost,0)
+        self.book['documents'][0]['notes'][0]['anchors'].append('Несуществующее условие')
+        self.assertEqual(recover_hint_sources(*args,playbook=self.book),([],0))
 
 
 if __name__=='__main__':unittest.main()

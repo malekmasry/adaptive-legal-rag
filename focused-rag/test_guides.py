@@ -62,4 +62,13 @@ class GuideTests(unittest.TestCase):
         topics=plan_for('Можно ли привлечь к сверхурочной работе и как её оплачивать?')['topics']
         self.assertIn('overtime_limits',topics);self.assertIn('overtime_pay',topics)
 
+    def test_special_profit_tax_is_not_forced_into_general_rate(self):
+        p=plan_for('Какая ставка налога на прибыль аккредитованной IT-организации по п. 1.15 ст. 284?')
+        self.assertIn('profit_tax_special',p['topics']);self.assertNotIn('profit_tax',p['topics'])
+        self.assertIn('profit_tax',plan_for('Общая ставка налога на прибыль без специальных льгот')['topics'])
+
+    def test_excluded_losses_and_overtime_pay_do_not_add_contract_topics(self):
+        self.assertNotIn('liability_limit',plan_for('Долг 100000, просрочка 120 дней. Других нарушений и убытков нет. Сколько неустойка?')['topics'])
+        self.assertNotIn('payment_term',plan_for('Сколько заплатить за сверхурочную работу?')['topics'])
+
 if __name__=='__main__':unittest.main()
