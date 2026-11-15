@@ -125,6 +125,7 @@ def resolved_paragraphs(draft,catalog):
         text=p['text']
         if p.get('part_id'):
             text=re.sub(r'^\s*(?:\*\*)?'+re.escape(p['part_id'])+r'(?:\*\*)?\s*[:.)—-]\s*','',text,count=1)
+        text=re.sub(r'\b([Вв]) evidence\b',lambda m:m[1]+' предоставленных источниках',text)
         for ref in p['citations']:
             if 'citation_id' in ref:
                 row=known[ref['citation_id']]

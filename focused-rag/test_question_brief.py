@@ -67,6 +67,10 @@ class QuestionBriefTests(unittest.TestCase):
         for text,expected in values:
             draft=SimpleNamespace(paragraphs=[SimpleNamespace(model_dump=lambda text=text:{'part_id':'P1','text':text,'citations':[]})])
             self.assertEqual(resolved_paragraphs(draft,[])[0]['text'],expected)
+    def test_internal_evidence_field_becomes_plain_language(self):
+        text='В evidence нет статьи 333; договор с Evidence не меняется.'
+        draft=SimpleNamespace(paragraphs=[SimpleNamespace(model_dump=lambda:{'text':text,'citations':[]})])
+        self.assertEqual(resolved_paragraphs(draft,[])[0]['text'],'В предоставленных источниках нет статьи 333; договор с Evidence не меняется.')
     def run_pipeline(self,mode='normal'):
         temp=tempfile.TemporaryDirectory();self.addCleanup(temp.cleanup)
         core=object.__new__(Pipeline);core.s=Settings(cache_dir=Path(temp.name),as_of='2026-11-15')
