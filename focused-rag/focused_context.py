@@ -89,9 +89,15 @@ def context_bundle(chunks, documents, relations, budget, question=''):
             omitted.append(d.filename)
             continue
         evidence.append(item); used += cost; seen.add((d.id, text))
-    return evidence, {'estimated_tokens':used, 'budget':budget,
+    report={'estimated_tokens':used, 'budget':budget,
                       'relation_decisions':decisions,'primary_documents':[documents[i].filename for i in primary],
                       'omitted_documents':list(dict.fromkeys(omitted)), 'full_documents':sum(e['scope']=='полный документ' for e in evidence)}
+    if omitted:
+        from context_packing import pack_scopes
+        evidence,packed=pack_scopes(candidates,chunks,budget)
+        report.update(packed)
+        report['legacy_omitted_documents']=list(dict.fromkeys(omitted))
+    return evidence,report
 
 
 def render_paragraphs(paragraphs, evidence):
