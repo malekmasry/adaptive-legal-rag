@@ -96,7 +96,7 @@ class FocusedTests(unittest.TestCase):
             render_paragraphs([{'text':'Вывод.', 'citations':[{'source_id':'D9','locator':'п. 2'}]}],evidence)
 
     def test_date_note_distinguishes_contract_id_and_event(self):
-        self.assertTrue(date_note('Срок по П-17/2024?', 'Ответ', '2026-11-14', True).startswith('По состоянию на 14.11.2026.'))
+        self.assertTrue(date_note('Срок по П-17/2024?', 'Ответ', '2026-11-14', True).startswith('По состоянию на текущую дату.'))
         for q in ['В августе 2024-го?', 'В 2025 году?', 'На 21.04.2025?', 'Событие 2025-04-21', 'Вчера что требовалось?']:
             self.assertEqual(date_note(q,'Ответ','2026-11-14',True),'Ответ')
         self.assertEqual(date_note('Алименты?','Нет источника','2026-11-14',False),'Нет источника')

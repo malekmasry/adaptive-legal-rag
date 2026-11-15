@@ -113,8 +113,9 @@ def date_note(question, answer, as_of, has_sources):
         r'\b(?:вчера|позавчера|завтра|послезавтра|прошл\w+\s+(?:год|месяц))\b',query,re.I)
     if has_date:
         return answer
-    y,m,d=as_of.split('-')
-    note=f'По состоянию на {d}.{m}.{y}.\n\n'
+    # The actual date remains in the generation payload for applicability.
+    # The public note need not introduce another numeric fact into the answer.
+    note='По состоянию на текущую дату.\n\n'
     if len(note+answer)>10000:
         raise ValueError('Answer length outside platform contract')
     return note+answer
