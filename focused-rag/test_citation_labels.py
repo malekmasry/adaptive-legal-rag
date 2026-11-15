@@ -1,8 +1,35 @@
 import unittest
 from types import SimpleNamespace
-from citation_labels import repair_note_locators,finish_answer
+from citation_labels import repair_note_locators,finish_answer,display_citations
 
 class CitationLabelTests(unittest.TestCase):
+    def test_readable_labels_require_same_cited_source_hash(self):
+        import hashlib
+        from unittest.mock import patch
+        doc=SimpleNamespace(filename='документы компании__Регламент согласования договоров ред 2023 (утратил силу).txt',raw='Source')
+        original='Регламент согласования договоров ред 2023 (утратил силу)'
+        answer='Нужна бумага. ('+original+', п. 3.1)'
+        ev=[{'source_id':'D1','document':original}]
+        book={'documents':[{'filename':doc.filename,'sha256':hashlib.sha256(doc.raw.encode()).hexdigest()}]}
+        with patch('corpus_playbook.load_playbook',return_value=book):
+            self.assertIn('ред. от 10.01.2023, п. 3.1',display_citations(answer,['D1'],ev,{'d':doc}))
+            self.assertEqual(display_citations(answer,[],ev,{'d':doc}),answer)
+            doc.raw='Changed'
+            self.assertEqual(display_citations(answer,['D1'],ev,{'d':doc}),answer)
+
+    def test_amended_clause_label_does_not_change_number_or_answer(self):
+        import hashlib
+        from unittest.mock import patch
+        original='Доп соглашение 1 к договору П-17-2024'
+        doc=SimpleNamespace(filename='документы компании__'+original+'.txt',raw='Source')
+        answer='Адрес прежний. ('+original+', п. 3.2, абзац «Новый адрес»)'
+        book={'documents':[{'filename':doc.filename,'sha256':hashlib.sha256(doc.raw.encode()).hexdigest()}]}
+        with patch('corpus_playbook.load_playbook',return_value=book):
+            got=display_citations(answer,['D1'],[{'source_id':'D1','document':original}],{'d':doc})
+            self.assertTrue(got.startswith('Адрес прежний.'))
+            self.assertIn('новая редакция п. 3.2 договора',got)
+            self.assertIn('абзац «Новый адрес»',got)
+
     def setUp(self):
         self.raw='3. Основная часть.\n10. Штраф.\nПримечания:\n1. Первое примечание.\n3. Категория юридического лица.'
         self.docs={'d':SimpleNamespace(filename='КоАП_ст13.11.txt',raw=self.raw)}
