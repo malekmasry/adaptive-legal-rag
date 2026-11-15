@@ -58,23 +58,24 @@ class RuleDraftTests(unittest.TestCase):
         for p in draft['paragraphs']:
             self.assertTrue(p['citations']);self.assertTrue(all(r['locator'] for r in p['citations']))
 
-    def test_review_acknowledgment_keeps_exact_draft_and_correction_is_used(self):
-        prepared={'status':'answered','paragraphs':[{'text':'Срок 45 дней.','citations':[{'source_id':'D1','locator':'п. 1'}]}]}
-        for keep in (True,False):
-            with self.subTest(keep=keep),tempfile.TemporaryDirectory() as tmp:
-                core=object.__new__(Pipeline);core.s=Settings(cache_dir=Path(tmp))
-                core.docs={'d':SimpleNamespace(id='d',filename='test.txt',raw='1. Срок 45 дней.',title='test')};core.relations=[]
-                core.retriever=SimpleNamespace(search=lambda *a,**k:([SimpleNamespace(doc_id='d')],{}))
-                core.all_chunks=[];core.decision_index=SimpleNamespace(select=lambda *a,**k:([],{'selected':[],'tokens':0}))
-                calls=[]
-                def review(prompt,payload,schema):
-                    calls.append(schema)
-                    return DraftCheck(keep_prepared=keep,correction=None if keep else Answer(status='answered',paragraphs=[{'text':'Срок 45 дней от поставки.','citations':[{'source_id':'D1','locator':'п. 1'}]}]))
-                core.api=SimpleNamespace(structured=review)
-                with patch('pipeline.build_rule_draft',return_value=prepared):result=core.ask('Какой срок?')
-                self.assertEqual(calls,[DraftCheck])
-                self.assertEqual(result['trace']['draft_preserved'],keep)
-                self.assertEqual('от поставки' in result['answer'],not keep)
+    def test_no_ready_variant_generates_then_reviews_the_generated_answer(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            core=object.__new__(Pipeline);core.s=Settings(cache_dir=Path(tmp))
+            core.docs={'d':SimpleNamespace(id='d',filename='test.txt',raw='1. Срок 45 дней от поставки.',title='test')};core.relations=[]
+            core.retriever=SimpleNamespace(search=lambda *a,**k:([SimpleNamespace(doc_id='d')],{}))
+            core.all_chunks=[];core.decision_index=SimpleNamespace(select=lambda *a,**k:([],{'selected':[],'tokens':0}))
+            calls=[]
+            def model(prompt,payload,schema):
+                calls.append((schema,payload))
+                text='Срок 45 дней.' if len(calls)==1 else 'Срок 45 дней от поставки.'
+                return Answer(status='answered',paragraphs=[{'text':text,'citations':[{'source_id':'D1','locator':'п. 1'}]}])
+            core.api=SimpleNamespace(structured=model)
+            with patch('pipeline.build_rule_draft',side_effect=AssertionError('Ready draft must not run')):
+                result=core.ask('Какой срок?')
+            self.assertEqual([s for s,p in calls],[Answer,Answer])
+            self.assertEqual(calls[1][1]['previous_draft']['paragraphs'][0]['text'],'Срок 45 дней.')
+            self.assertEqual(result['trace']['draft_origin'],'generator')
+            self.assertIn('от поставки',result['answer'])
 
 
 if __name__=='__main__':unittest.main()

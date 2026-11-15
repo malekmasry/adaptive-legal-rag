@@ -126,7 +126,9 @@ class Pipeline:
         payload = {'question':question, 'current_date':self.s.as_of, 'evidence':evidence,
                    'inventory':[d.filename for d in self.docs.values()], 'context_limits':budget,
                    'response_plan':response_plan,'primary_cards':cards,'decision_checks':calculations}
-        prepared=build_rule_draft(query,evidence,self.docs,self.s.as_of)
+        # Independent ablation: keep source hints and calculations, but let the
+        # generator formulate every answer before the existing review stage.
+        prepared=None
         trace = {'retrieval':retrieval, 'budget':budget, 'failures':[],
                  'draft_origin':'source_rules' if prepared else 'generator'}
         # Tiny JSON schema; no factual verdict indices or quote matching gates.
