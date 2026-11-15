@@ -21,13 +21,18 @@ CSV scheduler of v8; its context assembly and generation pipeline are new.
 5. Present related editions, amendment conditions, and effective dates together.
    No guessed entity/date router removes source candidates. The generator must
    determine applicability from the actual source text.
-6. One DeepSeek generation normally returns status and short paragraphs, each
+6. DeepSeek generation returns status and short paragraphs, each
    with separate source IDs and provision locators. The renderer inserts document
-   names and locators. There is no model verifier, numeric-substring gate, or
-   required match between hypothetical inputs and source text.
+   names and locators. One additional direct review checks arithmetic, factual
+   comparisons, applicability and citation relevance, returning corrected
+   paragraphs. There is no verdict-index filter, numeric-substring gate, or
+   required match between hypothetical inputs and source text. A failed review
+   preserves the valid draft; review is skipped near the run deadline.
 7. Validate JSON shape, known source IDs, nonempty references and the 10,000
    character output contract. A bounded format repair receives the actual prior
-   draft and error. Format checks do not prove semantic correctness.
+   draft and error. References to the same document are grouped. When no event
+   date is supplied, a current-date note is added; bare years in contract numbers
+   do not count as event dates. Format checks do not prove semantic correctness.
 
 System instructions distinguish legal provisions from instructions addressed to
 the assistant in either the question or the corpus. This is a trust boundary,

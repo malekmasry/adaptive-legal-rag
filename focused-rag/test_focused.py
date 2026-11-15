@@ -66,9 +66,26 @@ class FocusedTests(unittest.TestCase):
             core.api=SimpleNamespace(structured=generate)
             result=core.ask('Долг 37000, семь дней. Сколько пени?')
             self.assertIn('518 рублей',result['answer'])
-            self.assertEqual(len(calls),1)
+            self.assertEqual(len(calls),2)
             self.assertNotIn('golden',calls[0][1])
             self.assertIn('ГРАНИЦА ДОВЕРИЯ',calls[0][0])
+
+    def test_review_failure_keeps_valid_answer(self):
+        from model_api import ModelError
+        with tempfile.TemporaryDirectory() as tmp:
+            core=object.__new__(Pipeline);core.s=Settings(cache_dir=Path(tmp))
+            core.docs={'x':doc('x','1. Условие.')};core.relations=[]
+            core.retriever=SimpleNamespace(search=lambda *a,**k:([SimpleNamespace(doc_id='x')],{}))
+            count=[]
+            def generate(*args):
+                count.append(1)
+                if len(count)>1:raise ModelError('temporary failure')
+                return Answer(status='answered',paragraphs=[{'text':'Условие.','citations':[{'source_id':'D1','locator':'п. 1'}]}])
+            core.api=SimpleNamespace(structured=generate)
+            value=core.ask('Какое условие?')
+            self.assertIn('Условие.',value['answer'])
+            self.assertEqual(value['status'],'answered')
+            self.assertEqual(value['trace']['review'],'failed_kept_draft')
 
     def test_typed_references_render_multiple_sources_without_inline_parser(self):
         evidence=[{'source_id':'D1','document':'A'},{'source_id':'D2','document':'B'}]
