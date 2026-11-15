@@ -58,7 +58,8 @@ class RuleDraftTests(unittest.TestCase):
         for p in draft['paragraphs']:
             self.assertTrue(p['citations']);self.assertTrue(all(r['locator'] for r in p['citations']))
 
-    def test_review_acknowledgment_keeps_exact_draft_and_correction_is_used(self):
+    @patch('pipeline.prepare_question_brief',return_value=None)
+    def test_review_acknowledgment_keeps_exact_draft_and_correction_is_used(self,_brief):
         prepared={'status':'answered','paragraphs':[{'text':'Срок 45 дней.','citations':[{'source_id':'D1','locator':'п. 1'}]}]}
         for keep in (True,False):
             with self.subTest(keep=keep),tempfile.TemporaryDirectory() as tmp:

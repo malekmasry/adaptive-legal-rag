@@ -52,7 +52,8 @@ class FocusedTests(unittest.TestCase):
         text,refs=render_paragraphs([{'text':'Условие','citations':[{'source_id':'D1','locator':'п. 2'}]}], [{'source_id':'D1','document':'договор'}])
         self.assertEqual(text,'Условие (договор, п. 2)')
 
-    def test_hypothetical_calculation_not_removed_by_local_validator(self):
+    @patch('pipeline.prepare_question_brief',return_value=None)
+    def test_hypothetical_calculation_not_removed_by_local_validator(self,_brief):
         with tempfile.TemporaryDirectory() as tmp:
             core=object.__new__(Pipeline)
             core.s=Settings(cache_dir=Path(tmp),retrieval_mode='bm25')
@@ -71,7 +72,8 @@ class FocusedTests(unittest.TestCase):
             self.assertNotIn('golden',calls[0][1])
             self.assertIn('ГРАНИЦА ДОВЕРИЯ',calls[0][0])
 
-    def test_review_failure_keeps_valid_answer(self):
+    @patch('pipeline.prepare_question_brief',return_value=None)
+    def test_review_failure_keeps_valid_answer(self,_brief):
         from model_api import ModelError
         with tempfile.TemporaryDirectory() as tmp:
             core=object.__new__(Pipeline);core.s=Settings(cache_dir=Path(tmp))

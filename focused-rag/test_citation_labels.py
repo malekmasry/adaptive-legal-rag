@@ -67,7 +67,7 @@ class CitationLabelTests(unittest.TestCase):
             core.retriever=SimpleNamespace(search=lambda *a,**k:([],{}))
             core.api=SimpleNamespace(structured=lambda *a:Answer(status='answered',paragraphs=[{
                 'text':'Штраф 100–300 тысяч.','citations':[{'source_id':'D1','locator':'ч. 10'},{'source_id':'D2','locator':'ч. 3'}]}]))
-            with patch('pipeline.context_bundle',return_value=(self.evidence,{'estimated_tokens':100,'budget':18000})):
+            with patch('pipeline.context_bundle',return_value=(self.evidence,{'estimated_tokens':100,'budget':18000})),patch('pipeline.prepare_question_brief',return_value=None):
                 got=core.ask('Что установлено?')
             self.assertIn('п. 3 примечаний',got['answer'])
 
