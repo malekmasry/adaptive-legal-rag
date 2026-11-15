@@ -21,6 +21,21 @@ CSV scheduler of v8; its context assembly and generation pipeline are new.
 5. Present related editions, amendment conditions, and effective dates together.
    No guessed entity/date router removes source candidates. The generator must
    determine applicability from the actual source text.
+   This branch deliberately adds corpus-specific assistance: 18 answer plans
+   select required answer slots and exact primary provision cards. A second
+   layer contains 31 developer-reviewed factual notes for 12 source documents,
+   including the different payment periods of the two Alfa contracts, amendment
+   applicability, regulation thresholds, and exceptions. The notes are inserted
+   into both generator and reviewer system prompts only when the live source
+   SHA256 matches and all supporting quotes are visible in evidence. Changed or
+   unseen documents disable the corresponding static note; ordinary RAG and
+   dynamically copied source cards remain available. Source text and question
+   instructions are never promoted into this system-note layer.
+   Notes use at most 1,500 tokens, sharing a 3,500-token reserve with primary
+   cards inside the same 18,000-token evidence allowance. There are no extra
+   model calls and no question-ID/golden-answer lookup. Unknown topics use the
+   original full context budget. Topic recognition and curated notes are
+   deliberate development-set/corpus tailoring, not generalization evidence.
 6. DeepSeek generation returns status and short paragraphs, each
    with separate source IDs and provision locators. The renderer inserts document
    names and locators. One additional direct review checks arithmetic, factual
@@ -60,8 +75,15 @@ Build from repository root:
 
 ```text
 python build_focused_submission.py /path/to/submission.zip
-python -m unittest discover -s focused-rag -p test_focused.py -v
+python -m unittest discover -s focused-rag -p "test_*.py" -v
 ```
+
+`build_corpus_playbook.py /path/to/knowledge-base.zip` regenerates the reviewed
+notes with exact source anchors and hashes. It reads source documents only,
+never benchmark questions, gold answers, or judgments. The generated JSON is
+an auxiliary source-derived configuration in the submission, not the corpus
+itself. Do not automatically regenerate it for changed source contents without
+reviewing the handwritten factual notes against those contents.
 
 The build contains only explicit runtime files. Test files and this README are
 excluded. No Docker or web changes are part of this candidate.
