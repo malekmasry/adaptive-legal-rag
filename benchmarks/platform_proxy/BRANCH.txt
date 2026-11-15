@@ -1,0 +1,6 @@
+v230 versus v229 benchmark continuation of Moonvolk V8.1 (f19a327).
+Runtime: DeepSeek generator and judge on the user endpoint; Qwen3-Reranker-8B on the separate endpoint; pinned BGE-M3 locally.
+Entry point: run_v230.py; frozen old20/common baseline, old12/v229 direct baseline, new20/v229 direct baseline;10 regression cases reviewed separately.
+New20 authored from sources and frozen before paid generation; implementation was tested on these development cases. Not an independent holdout and not a platform-score forecast.
+All previous v229 answers and exact cache inputs preserved. No paid reranking for identical requests; no rerolling judgments.
+See reports/v230-v229 and artifacts/v230-v229-AUDIT.zip. Keys are excluded.

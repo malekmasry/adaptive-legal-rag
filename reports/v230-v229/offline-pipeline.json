@@ -1,0 +1,312 @@
+[
+  {
+    "id": "S01c",
+    "context_tokens": 15080,
+    "calculations": 0
+  },
+  {
+    "id": "S04c",
+    "context_tokens": 10192,
+    "calculations": 0
+  },
+  {
+    "id": "S10c",
+    "context_tokens": 14980,
+    "calculations": 0
+  },
+  {
+    "id": "S12c",
+    "context_tokens": 11296,
+    "calculations": 2
+  },
+  {
+    "id": "S20c",
+    "context_tokens": 8660,
+    "calculations": 0
+  },
+  {
+    "id": "S22c",
+    "context_tokens": 17965,
+    "calculations": 0
+  },
+  {
+    "id": "S24c",
+    "context_tokens": 10539,
+    "calculations": 0
+  },
+  {
+    "id": "S35c",
+    "context_tokens": 15265,
+    "calculations": 0
+  },
+  {
+    "id": "S02c",
+    "context_tokens": 12259,
+    "calculations": 0
+  },
+  {
+    "id": "S05c",
+    "context_tokens": 10678,
+    "calculations": 0
+  },
+  {
+    "id": "S07a",
+    "context_tokens": 7785,
+    "calculations": 0
+  },
+  {
+    "id": "S07b",
+    "context_tokens": 7785,
+    "calculations": 0
+  },
+  {
+    "id": "S09c",
+    "context_tokens": 12199,
+    "calculations": 0
+  },
+  {
+    "id": "S14a",
+    "context_tokens": 10831,
+    "calculations": 0
+  },
+  {
+    "id": "S14b",
+    "context_tokens": 10831,
+    "calculations": 0
+  },
+  {
+    "id": "S16c",
+    "context_tokens": 14707,
+    "calculations": 0
+  },
+  {
+    "id": "S17a",
+    "context_tokens": 10360,
+    "calculations": 0
+  },
+  {
+    "id": "S17b",
+    "context_tokens": 10360,
+    "calculations": 0
+  },
+  {
+    "id": "S23c",
+    "context_tokens": 12488,
+    "calculations": 0
+  },
+  {
+    "id": "S28c",
+    "context_tokens": 7412,
+    "calculations": 0
+  },
+  {
+    "id": "R01",
+    "context_tokens": 11093,
+    "calculations": 1
+  },
+  {
+    "id": "R02",
+    "context_tokens": 8834,
+    "calculations": 1
+  },
+  {
+    "id": "R03",
+    "context_tokens": 8384,
+    "calculations": 0
+  },
+  {
+    "id": "R04",
+    "context_tokens": 10016,
+    "calculations": 0
+  },
+  {
+    "id": "R05",
+    "context_tokens": 13896,
+    "calculations": 0
+  },
+  {
+    "id": "R06",
+    "context_tokens": 11809,
+    "calculations": 0
+  },
+  {
+    "id": "R07",
+    "context_tokens": 10071,
+    "calculations": 2
+  },
+  {
+    "id": "R08",
+    "context_tokens": 14619,
+    "calculations": 0
+  },
+  {
+    "id": "R09",
+    "context_tokens": 15330,
+    "calculations": 0
+  },
+  {
+    "id": "R10",
+    "context_tokens": 13628,
+    "calculations": 0
+  },
+  {
+    "id": "E01",
+    "context_tokens": 16155,
+    "calculations": 0
+  },
+  {
+    "id": "E02",
+    "context_tokens": 16982,
+    "calculations": 0
+  },
+  {
+    "id": "E03",
+    "context_tokens": 16482,
+    "calculations": 0
+  },
+  {
+    "id": "E04",
+    "context_tokens": 14360,
+    "calculations": 1
+  },
+  {
+    "id": "E05",
+    "context_tokens": 7962,
+    "calculations": 0
+  },
+  {
+    "id": "E06",
+    "context_tokens": 14665,
+    "calculations": 0
+  },
+  {
+    "id": "E07",
+    "context_tokens": 12927,
+    "calculations": 0
+  },
+  {
+    "id": "E08",
+    "context_tokens": 10148,
+    "calculations": 0
+  },
+  {
+    "id": "E09",
+    "context_tokens": 13046,
+    "calculations": 0
+  },
+  {
+    "id": "E10",
+    "context_tokens": 13525,
+    "calculations": 0
+  },
+  {
+    "id": "E11",
+    "context_tokens": 12520,
+    "calculations": 0
+  },
+  {
+    "id": "E12",
+    "context_tokens": 12117,
+    "calculations": 0
+  },
+  {
+    "id": "N01",
+    "context_tokens": 5659,
+    "calculations": 0
+  },
+  {
+    "id": "N02",
+    "context_tokens": 8731,
+    "calculations": 0
+  },
+  {
+    "id": "N03",
+    "context_tokens": 13050,
+    "calculations": 1
+  },
+  {
+    "id": "N04",
+    "context_tokens": 7833,
+    "calculations": 0
+  },
+  {
+    "id": "N05",
+    "context_tokens": 10865,
+    "calculations": 2
+  },
+  {
+    "id": "N06",
+    "context_tokens": 12419,
+    "calculations": 2
+  },
+  {
+    "id": "N07",
+    "context_tokens": 9639,
+    "calculations": 1
+  },
+  {
+    "id": "N08",
+    "context_tokens": 8638,
+    "calculations": 0
+  },
+  {
+    "id": "N09",
+    "context_tokens": 7731,
+    "calculations": 0
+  },
+  {
+    "id": "N10",
+    "context_tokens": 11588,
+    "calculations": 0
+  },
+  {
+    "id": "N11",
+    "context_tokens": 8019,
+    "calculations": 0
+  },
+  {
+    "id": "N12",
+    "context_tokens": 4534,
+    "calculations": 0
+  },
+  {
+    "id": "N13",
+    "context_tokens": 8570,
+    "calculations": 1
+  },
+  {
+    "id": "N14",
+    "context_tokens": 14839,
+    "calculations": 2
+  },
+  {
+    "id": "N15",
+    "context_tokens": 10217,
+    "calculations": 1
+  },
+  {
+    "id": "N16",
+    "context_tokens": 8197,
+    "calculations": 0
+  },
+  {
+    "id": "N17",
+    "context_tokens": 8625,
+    "calculations": 0
+  },
+  {
+    "id": "N18",
+    "context_tokens": 11065,
+    "calculations": 0
+  },
+  {
+    "id": "N19",
+    "context_tokens": 8085,
+    "calculations": 0
+  },
+  {
+    "id": "N20",
+    "context_tokens": 10046,
+    "calculations": 0
+  }
+]

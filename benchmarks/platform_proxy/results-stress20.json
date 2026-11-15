@@ -1,0 +1,179 @@
+{
+  "code_commit": "9bbcfa1",
+  "date": "2026-11-15",
+  "cases": 20,
+  "systems": {
+    "conditional35": {
+      "psb_rule_proxy": {
+        "score": 55.99107142857142,
+        "match_rate": 0.49375,
+        "win_rate": 0.7142857142857143,
+        "wins": 5,
+        "losses": 2,
+        "ties": 13,
+        "evaluated": 20,
+        "attempted": 20,
+        "coverage": 1.0
+      },
+      "literal_gold_stress": {
+        "score": 9.282894736842104,
+        "match_rate": 0.0875,
+        "win_rate": 0.10526315789473684,
+        "wins": 2,
+        "losses": 17,
+        "ties": 1,
+        "evaluated": 20,
+        "attempted": 20,
+        "coverage": 1.0
+      },
+      "fabrication_zero_count": 1,
+      "unsupported_extra_count": 17,
+      "mean_order_gap": 0.1625,
+      "common_psb_rule_proxy": {
+        "score": 55.99107142857142,
+        "match_rate": 0.49375,
+        "win_rate": 0.7142857142857143,
+        "wins": 5,
+        "losses": 2,
+        "ties": 13,
+        "evaluated": 20,
+        "attempted": 20,
+        "coverage": 1.0
+      },
+      "common_literal_gold_stress": {
+        "score": 9.282894736842104,
+        "match_rate": 0.0875,
+        "win_rate": 0.10526315789473684,
+        "wins": 2,
+        "losses": 17,
+        "ties": 1,
+        "evaluated": 20,
+        "attempted": 20,
+        "coverage": 1.0
+      }
+    },
+    "batch_deadline_v8": {
+      "psb_rule_proxy": {
+        "score": 55.840909090909086,
+        "match_rate": 0.525,
+        "win_rate": 0.6363636363636364,
+        "wins": 7,
+        "losses": 4,
+        "ties": 9,
+        "evaluated": 20,
+        "attempted": 20,
+        "coverage": 1.0
+      },
+      "literal_gold_stress": {
+        "score": 20.229166666666664,
+        "match_rate": 0.19375,
+        "win_rate": 0.2222222222222222,
+        "wins": 4,
+        "losses": 14,
+        "ties": 2,
+        "evaluated": 20,
+        "attempted": 20,
+        "coverage": 1.0
+      },
+      "fabrication_zero_count": 0,
+      "unsupported_extra_count": 13,
+      "mean_order_gap": 0.125,
+      "common_psb_rule_proxy": {
+        "score": 55.840909090909086,
+        "match_rate": 0.525,
+        "win_rate": 0.6363636363636364,
+        "wins": 7,
+        "losses": 4,
+        "ties": 9,
+        "evaluated": 20,
+        "attempted": 20,
+        "coverage": 1.0
+      },
+      "common_literal_gold_stress": {
+        "score": 20.229166666666664,
+        "match_rate": 0.19375,
+        "win_rate": 0.2222222222222222,
+        "wins": 4,
+        "losses": 14,
+        "ties": 2,
+        "evaluated": 20,
+        "attempted": 20,
+        "coverage": 1.0
+      }
+    },
+    "hybrid35v8": {
+      "psb_rule_proxy": {
+        "score": 44.833333333333336,
+        "match_rate": 0.45,
+        "win_rate": 0.4444444444444444,
+        "wins": 4,
+        "losses": 5,
+        "ties": 11,
+        "evaluated": 20,
+        "attempted": 20,
+        "coverage": 1.0
+      },
+      "literal_gold_stress": {
+        "score": 20.229166666666664,
+        "match_rate": 0.19375,
+        "win_rate": 0.2222222222222222,
+        "wins": 4,
+        "losses": 14,
+        "ties": 2,
+        "evaluated": 20,
+        "attempted": 20,
+        "coverage": 1.0
+      },
+      "fabrication_zero_count": 0,
+      "unsupported_extra_count": 12,
+      "mean_order_gap": 0.15,
+      "common_psb_rule_proxy": {
+        "score": 44.833333333333336,
+        "match_rate": 0.45,
+        "win_rate": 0.4444444444444444,
+        "wins": 4,
+        "losses": 5,
+        "ties": 11,
+        "evaluated": 20,
+        "attempted": 20,
+        "coverage": 1.0
+      },
+      "common_literal_gold_stress": {
+        "score": 20.229166666666664,
+        "match_rate": 0.19375,
+        "win_rate": 0.2222222222222222,
+        "wins": 4,
+        "losses": 14,
+        "ties": 2,
+        "evaluated": 20,
+        "attempted": 20,
+        "coverage": 1.0
+      }
+    }
+  },
+  "seconds": 884.343,
+  "calibrated_to_psb": false,
+  "coverage": {
+    "answers": 60,
+    "judge_rounds": 120,
+    "judge_errors": 0
+  },
+  "historical_platform_scores": {
+    "conditional35": 35,
+    "batch_deadline_v8": 12.5
+  },
+  "reported_usage": {
+    "deepseek_tokens": 1037292,
+    "qwen_input_tokens": 1930503,
+    "includes_parent_pilot": true,
+    "incomplete_usage_records": true
+  },
+  "limitations": [
+    "Hidden baseline, questions, golden and judge prompt unknown.",
+    "Local historical outputs are not organizer outputs; runtime configurations differ.",
+    "Golden-only judge cannot fully verify novel facts against the entire corpus.",
+    "Either-round fabrication zero rule is an explicit local interpretation.",
+    "Literal-gold stress zeroes unsupported extras and intentionally violates FAQ; sensitivity analysis only."
+  ],
+  "scope": "20 deliberately adversarial historically exposed development questions; no representative leaderboard claim"
+}

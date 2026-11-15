@@ -1,0 +1,446 @@
+{
+  "summary": {
+    "systems": {
+      "v229": {
+        "aggregate": {
+          "score": 75.0625,
+          "match_rate": 0.64375,
+          "win_rate": 1.0,
+          "wins": 11,
+          "losses": 0,
+          "ties": 9,
+          "evaluated": 20,
+          "attempted": 20,
+          "coverage": 1.0
+        },
+        "fabrication_zeros": 0
+      },
+      "v230": {
+        "aggregate": {
+          "score": 75.49999999999999,
+          "match_rate": 0.65,
+          "win_rate": 1.0,
+          "wins": 11,
+          "losses": 0,
+          "ties": 9,
+          "evaluated": 20,
+          "attempted": 20,
+          "coverage": 1.0
+        },
+        "fabrication_zeros": 0
+      }
+    },
+    "direct_comparisons": {
+      "extension": {
+        "score": 50.0,
+        "match_rate": 0.5,
+        "win_rate": 0.5,
+        "wins": 0,
+        "losses": 0,
+        "ties": 11,
+        "evaluated": 11,
+        "attempted": 12,
+        "coverage": 0.9166666666666666
+      },
+      "extra": {
+        "score": 50.43749999999999,
+        "match_rate": 0.50625,
+        "win_rate": 0.5,
+        "wins": 1,
+        "losses": 1,
+        "ties": 18,
+        "evaluated": 20,
+        "attempted": 20,
+        "coverage": 1.0
+      }
+    },
+    "runtime": {
+      "v230": {
+        "system": "v230",
+        "seconds": 95.078,
+        "exit_code": 0,
+        "outer_timeout": false,
+        "complete": true,
+        "answers_sha256": "32b4596e2be736b74527412d45ffc448aacb42851fe20e740b43b5f031f49cfc",
+        "package_sha256": "bc09ede75f1d9752c451ec6741ef62a8631961d05a8a4a54ae109bb0ec984f44",
+        "rows": 20,
+        "max_workers": 3,
+        "top_k": "40",
+        "credentials_exposed_to_runtime": false,
+        "runtime_changed": false,
+        "runtime_report": {
+          "rows": 20,
+          "statuses": {
+            "S01c": "answered",
+            "S04c": "answered",
+            "S10c": "answered",
+            "S22c": "not_in_base",
+            "S20c": "answered",
+            "S24c": "answered",
+            "S12c": "answered",
+            "S05c": "answered",
+            "S35c": "answered",
+            "S02c": "answered",
+            "S07a": "answered",
+            "S09c": "answered",
+            "S14a": "answered",
+            "S07b": "answered",
+            "S14b": "answered",
+            "S16c": "answered",
+            "S17a": "answered",
+            "S23c": "clarification",
+            "S28c": "answered",
+            "S17b": "answered"
+          },
+          "counts": {
+            "answered": 18,
+            "not_in_base": 1,
+            "clarification": 1
+          },
+          "seconds": 88.031,
+          "errors": {},
+          "collected_during_drain": 0,
+          "unfinished_workers": 0,
+          "work_budget_seconds": 1100,
+          "finalize_grace_seconds": 30.0,
+          "error_counts": {}
+        }
+      },
+      "v230_regression": {
+        "system": "v230_regression",
+        "seconds": 85.453,
+        "exit_code": 0,
+        "outer_timeout": false,
+        "complete": true,
+        "answers_sha256": "b38863f166f2f6e2a7584e8eb53128406e55ab04e194a4b98cb548c0dc7b0e81",
+        "package_sha256": "bc09ede75f1d9752c451ec6741ef62a8631961d05a8a4a54ae109bb0ec984f44",
+        "rows": 10,
+        "max_workers": 3,
+        "top_k": "40",
+        "credentials_exposed_to_runtime": false,
+        "runtime_changed": false,
+        "runtime_report": {
+          "rows": 10,
+          "statuses": {
+            "R01": "answered",
+            "R03": "answered",
+            "R02": "answered",
+            "R06": "answered",
+            "R04": "answered",
+            "R05": "answered",
+            "R08": "answered",
+            "R09": "not_in_base",
+            "R07": "answered",
+            "R10": "answered"
+          },
+          "counts": {
+            "answered": 9,
+            "not_in_base": 1
+          },
+          "seconds": 78.671,
+          "errors": {},
+          "collected_during_drain": 0,
+          "unfinished_workers": 0,
+          "work_budget_seconds": 1100,
+          "finalize_grace_seconds": 30.0,
+          "error_counts": {}
+        }
+      },
+      "v230_extension": {
+        "system": "v230_extension",
+        "seconds": 119.984,
+        "exit_code": 0,
+        "outer_timeout": false,
+        "complete": true,
+        "answers_sha256": "76df64505d2a1f46c033f55fe418b11972e3d9fbe4ba2c8d80eb6e5288e88b9c",
+        "package_sha256": "bc09ede75f1d9752c451ec6741ef62a8631961d05a8a4a54ae109bb0ec984f44",
+        "rows": 12,
+        "max_workers": 3,
+        "top_k": "40",
+        "credentials_exposed_to_runtime": false,
+        "runtime_changed": false,
+        "runtime_report": {
+          "rows": 12,
+          "statuses": {
+            "E03": "answered",
+            "E01": "answered",
+            "E02": "answered",
+            "E04": "answered",
+            "E06": "answered",
+            "E05": "answered",
+            "E07": "answered",
+            "E09": "answered",
+            "E08": "answered",
+            "E10": "answered",
+            "E11": "answered",
+            "E12": "answered"
+          },
+          "counts": {
+            "answered": 12
+          },
+          "seconds": 115.062,
+          "errors": {},
+          "collected_during_drain": 0,
+          "unfinished_workers": 0,
+          "work_budget_seconds": 1100,
+          "finalize_grace_seconds": 30.0,
+          "error_counts": {}
+        }
+      },
+      "v229_extra": {
+        "system": "v229_extra",
+        "seconds": 174.703,
+        "exit_code": 0,
+        "outer_timeout": false,
+        "complete": true,
+        "answers_sha256": "ecf0588f187ac43622fa6a0c46f3f6672501c382f64f8142221a590f44e13c5c",
+        "package_sha256": "ac689b3bdad57ebdcc77c81ad3628ffce9503edb898ffe0d171686a41cc17182",
+        "rows": 20,
+        "max_workers": 3,
+        "top_k": "40",
+        "credentials_exposed_to_runtime": false,
+        "runtime_changed": false,
+        "runtime_report": {
+          "rows": 20,
+          "statuses": {
+            "N03": "answered",
+            "N01": "answered",
+            "N02": "answered",
+            "N04": "answered",
+            "N05": "answered",
+            "N08": "answered",
+            "N06": "answered",
+            "N07": "answered",
+            "N11": "answered",
+            "N09": "answered",
+            "N10": "answered",
+            "N12": "answered",
+            "N15": "answered",
+            "N13": "answered",
+            "N14": "answered",
+            "N17": "answered",
+            "N19": "not_in_base",
+            "N16": "answered",
+            "N18": "answered",
+            "N20": "answered"
+          },
+          "counts": {
+            "answered": 19,
+            "not_in_base": 1
+          },
+          "seconds": 169.953,
+          "errors": {},
+          "collected_during_drain": 0,
+          "unfinished_workers": 0,
+          "work_budget_seconds": 1100,
+          "finalize_grace_seconds": 30.0,
+          "error_counts": {}
+        }
+      },
+      "v230_extra": {
+        "system": "v230_extra",
+        "seconds": 151.438,
+        "exit_code": 0,
+        "outer_timeout": false,
+        "complete": true,
+        "answers_sha256": "7b9e0eb4404cfd571f8c24f7ba64c46c47660e4c47da151c824ca0f22ce142a8",
+        "package_sha256": "bc09ede75f1d9752c451ec6741ef62a8631961d05a8a4a54ae109bb0ec984f44",
+        "rows": 20,
+        "max_workers": 3,
+        "top_k": "40",
+        "credentials_exposed_to_runtime": false,
+        "runtime_changed": false,
+        "runtime_report": {
+          "rows": 20,
+          "statuses": {
+            "N02": "answered",
+            "N01": "answered",
+            "N03": "answered",
+            "N04": "answered",
+            "N05": "answered",
+            "N07": "answered",
+            "N06": "answered",
+            "N08": "answered",
+            "N09": "answered",
+            "N10": "answered",
+            "N11": "answered",
+            "N12": "answered",
+            "N13": "answered",
+            "N15": "answered",
+            "N17": "answered",
+            "N14": "answered",
+            "N19": "not_in_base",
+            "N16": "answered",
+            "N18": "answered",
+            "N20": "answered"
+          },
+          "counts": {
+            "answered": 19,
+            "not_in_base": 1
+          },
+          "seconds": 146.516,
+          "errors": {},
+          "collected_during_drain": 0,
+          "unfinished_workers": 0,
+          "work_budget_seconds": 1100,
+          "finalize_grace_seconds": 30.0,
+          "error_counts": {}
+        }
+      }
+    },
+    "seconds": 1046.391,
+    "usage": {
+      "deepseek_calls": 205,
+      "deepseek_tokens": 1376598,
+      "qwen_calls": 20,
+      "qwen_input_tokens": 591563,
+      "qwen_cache_hits": 62,
+      "api_errors": 0
+    },
+    "not_platform_prediction": true,
+    "timing_note": "All runtime workers3. Known v230 Qwen requests cached. New20 v229 incurs fresh Qwen, v230 reuses identical results. v229 historical timing and new20 timing are not a controlled speed benchmark.",
+    "initial_comparison": {
+      "systems": {
+        "v229": {
+          "aggregate": {
+            "score": 75.0625,
+            "match_rate": 0.64375,
+            "win_rate": 1.0,
+            "wins": 11,
+            "losses": 0,
+            "ties": 9,
+            "evaluated": 20,
+            "attempted": 20,
+            "coverage": 1.0
+          },
+          "fabrication_zeros": 0
+        },
+        "v230": {
+          "aggregate": {
+            "score": 75.49999999999999,
+            "match_rate": 0.65,
+            "win_rate": 1.0,
+            "wins": 11,
+            "losses": 0,
+            "ties": 9,
+            "evaluated": 20,
+            "attempted": 20,
+            "coverage": 1.0
+          },
+          "fabrication_zeros": 0
+        }
+      },
+      "direct_comparisons": {
+        "extension": {
+          "score": 50.0,
+          "match_rate": 0.5,
+          "win_rate": 0.5,
+          "wins": 0,
+          "losses": 0,
+          "ties": 11,
+          "evaluated": 11,
+          "attempted": 12,
+          "coverage": 0.9166666666666666
+        },
+        "extra": {
+          "score": 50.43749999999999,
+          "match_rate": 0.50625,
+          "win_rate": 0.5,
+          "wins": 1,
+          "losses": 1,
+          "ties": 18,
+          "evaluated": 20,
+          "attempted": 20,
+          "coverage": 1.0
+        }
+      }
+    },
+    "finalization": {
+      "seconds": 48.953,
+      "replayed_rows": 62,
+      "changed_rows": 2,
+      "usage": {
+        "deepseek_calls": 4,
+        "deepseek_tokens": 5829,
+        "qwen_calls": 0,
+        "qwen_input_tokens": 0,
+        "api_errors": 0
+      },
+      "scope": "No regeneration: pure citation/unused-template-section formatting replay after final review, on all62 saved v230 answers. Changed text judged in both orders; all unchanged judge inputs reused. Original full live run and its scores retained."
+    },
+    "total_usage": {
+      "deepseek_calls": 209,
+      "deepseek_tokens": 1382427,
+      "qwen_calls": 20,
+      "qwen_input_tokens": 591563,
+      "qwen_cache_hits": 62,
+      "api_errors": 0
+    }
+  },
+  "manual_review": {
+    "scope": "Manual development-set review of answers against the supplied source corpus; not an independent judge or hidden-set measurement.",
+    "overall": "No robust quality improvement established. The new architecture broadens source-bound coverage, but v229 already answers the tested new questions correctly in substance. Most pairwise judgments are ties.",
+    "old20": {
+      "unchanged_answer_strings": 14,
+      "unchanged_question_scores": 19,
+      "only_score_change": "S12c:0.625 to0.75. Both versions have correct core conclusions; the difference is presentation/order-sensitive judge preference, not a newly solved legal question.",
+      "fabrication_zeros": 0
+    },
+    "regression10": {
+      "core_conclusions_correct": 10,
+      "scope": "Boundaries, amendment dates, query/source instructions, missing legal material and profit-tax split. Manual assessment, not LLM-as-Judge score."
+    },
+    "extension12": {
+      "core_conclusions_correct": 12,
+      "pairwise": "11 ties; E12 judge response fails validation and is excluded, without retry. This is not a product technical_error.",
+      "fixed": "E10: source note point3 was labelled as part3. Final source-bound formatter corrects only the citation to point3 of notes.",
+      "remaining": "E07,E08,E11 include some unrequested context. Core requested conclusions are retained."
+    },
+    "new20": {
+      "core_conclusions_correct_v229": 20,
+      "core_conclusions_correct_v230": 20,
+      "pairwise": "N06 wins at0.75; N02 loses at0.375;18 ties. Scores remain unchanged after the final formatting patch.",
+      "checks": [
+        "N03 penalty capped at17500 rubles",
+        "N07 rent increase to477000 rubles",
+        "N13 separate tax sanctions total13000 rubles",
+        "N14 different NDFL scales produce882000 and800000 rubles",
+        "N15 fractional-ruble penalty2098.75",
+        "N16 source contract VAT and supplied-law VAT distinguished",
+        "N17 query injection ignored; N18 source injection ignored",
+        "N19 absent TK115 not filled from model memory",
+        "N20 both similarly named contracts handled"
+      ],
+      "fixed": "N02: exact unrelated first order-entry paragraph removed from the ready draft for deadline-only questions. The revised text was rejudged in both orders; it still receives0.375. No repeated judge rerolls.",
+      "remaining": "N05/N06 can add route/order/time details. The judge is not consistent about rewarding versus penalizing extra context."
+    },
+    "validation": {
+      "product_tests": 65,
+      "benchmark_tests": 16,
+      "v230_live_rows": 62,
+      "v229_fresh_rows": 20,
+      "product_technical_errors": 0,
+      "api_errors": 0,
+      "judge_validation_errors": 1,
+      "final_format_replay_rows": 62,
+      "final_changed_rows": 2,
+      "final_unchanged_rows": 60,
+      "changed_text_judge_calls": 4
+    },
+    "limits": [
+      "All cohorts are development data; no hidden independent evaluation was available.",
+      "Old20 score uses a common original baseline; extension12 and new20 use v229 as baseline. These score scales must not be merged.",
+      "Final ZIP differs from the fully live-tested ZIP only by a proven pure post-review formatting call. It was replayed on all62 saved outputs, not regenerated through paid LLM calls.",
+      "Exact Qwen request reuse and separate runtime batches prevent a controlled latency claim.",
+      "The official v229 result35.5/100 in258 seconds is a user report without per-question logs. v230 has not been submitted to the platform."
+    ]
+  },
+  "source_commit": "e982d357a4ceab21105aa62cda577bb7aa7d918c",
+  "submission_sha256": "92fcd1460ccf4d92ded8150df05d0026182af40b6b575c8b6e787f6d805f5982",
+  "platform_reference": {
+    "version": "v229",
+    "score": 35.5,
+    "seconds": 258,
+    "provenance": "User report; per-question platform logs unavailable"
+  }
+}
