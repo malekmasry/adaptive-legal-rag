@@ -122,10 +122,13 @@ def resolved_paragraphs(draft,catalog):
     known={c['citation_id']:c for c in catalog};out=[]
     for paragraph in draft.paragraphs:
         p=paragraph.model_dump();refs=[]
+        text=p['text']
+        if p.get('part_id'):
+            text=re.sub(r'^\s*(?:\*\*)?'+re.escape(p['part_id'])+r'(?:\*\*)?\s*[:.)—-]\s*','',text,count=1)
         for ref in p['citations']:
             if 'citation_id' in ref:
                 row=known[ref['citation_id']]
                 refs.append({k:row[k] for k in ('source_id','locator')})
             else:refs.append(ref)
-        out.append({'text':p['text'],'citations':refs})
+        out.append({'text':text,'citations':refs})
     return out

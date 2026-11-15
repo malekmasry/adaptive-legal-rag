@@ -61,6 +61,12 @@ class QuestionBriefTests(unittest.TestCase):
         self.assertEqual(got[0]['citations'],[{k:catalog[0][k] for k in ('source_id','locator')}])
         first['citations']=[{'citation_id':'C999'}]
         with self.assertRaises(ValidationError):schema.model_validate({'status':'answered','paragraphs':[first]})
+    def test_only_own_internal_part_prefix_is_removed_without_changing_facts(self):
+        values=[('P1: Сумма 123 руб.','Сумма 123 руб.'),('**P1**: Сумма 123 руб.','Сумма 123 руб.'),
+            ('Договор P1: сумма 123 руб.','Договор P1: сумма 123 руб.'),('P2: сумма 123 руб.','P2: сумма 123 руб.')]
+        for text,expected in values:
+            draft=SimpleNamespace(paragraphs=[SimpleNamespace(model_dump=lambda text=text:{'part_id':'P1','text':text,'citations':[]})])
+            self.assertEqual(resolved_paragraphs(draft,[])[0]['text'],expected)
     def run_pipeline(self,mode='normal'):
         temp=tempfile.TemporaryDirectory();self.addCleanup(temp.cleanup)
         core=object.__new__(Pipeline);core.s=Settings(cache_dir=Path(temp.name),as_of='2026-11-15')
