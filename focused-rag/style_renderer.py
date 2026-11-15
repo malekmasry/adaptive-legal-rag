@@ -5,7 +5,7 @@ All modes retain every answer paragraph, source locator and temporal scope.
 """
 from citation_labels import display_citations
 
-STYLE_POLICY={}
+STYLE_POLICY={'contract_term': 'table_today', 'approval_threshold': 'plain_scope', 'payment': 'compact_today', 'consent_withdrawal': 'compact_scope', 'probation': 'plain_scope', 'delivery_address': 'plain_scope', 'warranty': 'table_scope', 'approval_form': 'plain_scope', 'approved_template': 'compact_scope', 'foreign_checks': 'inline_scope', 'tax_penalty': 'plain_scope'}
 STYLES=('plain_scope','compact_scope','compact_today','compact_meta','inline_scope','inline_today',
         'bullets_scope','numbered_scope','grounds_scope','emphasis_scope','table_scope','table_today')
 
