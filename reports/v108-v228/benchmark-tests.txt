@@ -1,0 +1,21 @@
+test_accusation_requires_exact_quote (test_proxy.ProxyTests.test_accusation_requires_exact_quote) ... ok
+test_arithmetic_ties_win_rate_and_mixed_scores (test_proxy.ProxyTests.test_arithmetic_ties_win_rate_and_mixed_scores) ... ok
+test_budget_survives_resume_and_errors (test_proxy.ProxyTests.test_budget_survives_resume_and_errors) ... ok
+test_cached_failure_does_not_spend_again (test_proxy.ProxyTests.test_cached_failure_does_not_spend_again) ... ok
+test_endpoints_credentials_models_and_paths_are_bound (test_proxy.ProxyTests.test_endpoints_credentials_models_and_paths_are_bound) ... ok
+test_extra_fact_stress_is_separate_from_faq_score (test_proxy.ProxyTests.test_extra_fact_stress_is_separate_from_faq_score) ... ok
+test_judge_cannot_use_reranker_account (test_proxy.ProxyTests.test_judge_cannot_use_reranker_account) ... ok
+test_judge_error_is_missing_not_zero_or_tie (test_proxy.ProxyTests.test_judge_error_is_missing_not_zero_or_tie) ... ok
+test_judge_payload_is_anonymous_and_ordered (test_proxy.ProxyTests.test_judge_payload_is_anonymous_and_ordered) ... ok
+test_model_identity_response_is_checked (test_proxy.ProxyTests.test_model_identity_response_is_checked) ... ok
+test_redirect_does_not_forward_credential (test_proxy.ProxyTests.test_redirect_does_not_forward_credential) ... ok
+test_score_order_normalization_and_zero (test_proxy.ProxyTests.test_score_order_normalization_and_zero) ... ok
+test_token_limit_prevents_request (test_proxy.ProxyTests.test_token_limit_prevents_request) ... ok
+test_unavailable_chat_stops_later_judge_and_reranker_http (test_recovery.RecoveryTests.test_unavailable_chat_stops_later_judge_and_reranker_http) ... ok
+test_runtime_firewall_and_local_embeddings (test_stress.StressTests.test_runtime_firewall_and_local_embeddings) ... ok
+test_twenty_explicit_adversarial_cases (test_stress.StressTests.test_twenty_explicit_adversarial_cases) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 5.116s
+
+OK
