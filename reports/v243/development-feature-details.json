@@ -1,0 +1,325 @@
+[
+  {
+    "id": "D01",
+    "question_brief": {
+      "status": "applied",
+      "parts": 3,
+      "catalog_entries": 11,
+      "dropped_invalid_annotations": 0
+    },
+    "final_context_tokens": 5820,
+    "schemas": [
+      "QuestionBrief",
+      "Answer",
+      "Answer"
+    ],
+    "status": "answered",
+    "review": "applied",
+    "retrieval_degraded": []
+  },
+  {
+    "id": "D02",
+    "question_brief": {
+      "status": "applied",
+      "parts": 2,
+      "catalog_entries": 9,
+      "dropped_invalid_annotations": 0
+    },
+    "final_context_tokens": 5781,
+    "schemas": [
+      "QuestionBrief",
+      "Answer",
+      "Answer"
+    ],
+    "status": "answered",
+    "review": "applied",
+    "retrieval_degraded": []
+  },
+  {
+    "id": "D03",
+    "question_brief": {
+      "status": "applied",
+      "parts": 2,
+      "catalog_entries": 10,
+      "dropped_invalid_annotations": 0
+    },
+    "final_context_tokens": 5227,
+    "schemas": [
+      "QuestionBrief",
+      "Answer",
+      "Answer"
+    ],
+    "status": "answered",
+    "review": "applied",
+    "retrieval_degraded": []
+  },
+  {
+    "id": "D04",
+    "question_brief": {
+      "status": "applied",
+      "parts": 1,
+      "catalog_entries": 10,
+      "dropped_invalid_annotations": 0
+    },
+    "final_context_tokens": 8779,
+    "schemas": [
+      "QuestionBrief",
+      "Answer",
+      "Answer"
+    ],
+    "status": "answered",
+    "review": "applied",
+    "retrieval_degraded": []
+  },
+  {
+    "id": "D05",
+    "question_brief": {
+      "status": "applied",
+      "parts": 3,
+      "catalog_entries": 10,
+      "dropped_invalid_annotations": 0
+    },
+    "final_context_tokens": 8265,
+    "schemas": [
+      "QuestionBrief",
+      "Answer",
+      "Answer"
+    ],
+    "status": "answered",
+    "review": "applied",
+    "retrieval_degraded": []
+  },
+  {
+    "id": "D06",
+    "question_brief": {
+      "status": "applied",
+      "parts": 2,
+      "catalog_entries": 10,
+      "dropped_invalid_annotations": 0
+    },
+    "final_context_tokens": 8022,
+    "schemas": [
+      "QuestionBrief",
+      "Answer",
+      "Answer"
+    ],
+    "status": "answered",
+    "review": "applied",
+    "retrieval_degraded": []
+  },
+  {
+    "id": "D07",
+    "question_brief": {
+      "status": "applied",
+      "parts": 1,
+      "catalog_entries": 9,
+      "dropped_invalid_annotations": 0
+    },
+    "final_context_tokens": 11050,
+    "schemas": [
+      "QuestionBrief",
+      "Answer",
+      "Answer"
+    ],
+    "status": "answered",
+    "review": "applied",
+    "retrieval_degraded": []
+  },
+  {
+    "id": "D08",
+    "question_brief": {
+      "status": "applied",
+      "parts": 2,
+      "catalog_entries": 10,
+      "dropped_invalid_annotations": 0
+    },
+    "final_context_tokens": 9246,
+    "schemas": [
+      "QuestionBrief",
+      "Answer",
+      "Answer"
+    ],
+    "status": "answered",
+    "review": "applied",
+    "retrieval_degraded": []
+  },
+  {
+    "id": "D09",
+    "question_brief": {
+      "status": "applied",
+      "parts": 4,
+      "catalog_entries": 9,
+      "dropped_invalid_annotations": 0
+    },
+    "final_context_tokens": 14093,
+    "schemas": [
+      "QuestionBrief",
+      "Answer",
+      "Answer"
+    ],
+    "status": "answered",
+    "review": "applied",
+    "retrieval_degraded": []
+  },
+  {
+    "id": "D10",
+    "question_brief": {
+      "status": "applied",
+      "parts": 2,
+      "catalog_entries": 10,
+      "dropped_invalid_annotations": 0
+    },
+    "final_context_tokens": 16304,
+    "schemas": [
+      "QuestionBrief",
+      "Answer",
+      "Answer"
+    ],
+    "status": "answered",
+    "review": "applied",
+    "retrieval_degraded": []
+  },
+  {
+    "id": "D11",
+    "question_brief": {
+      "status": "applied",
+      "parts": 1,
+      "catalog_entries": 8,
+      "dropped_invalid_annotations": 0
+    },
+    "final_context_tokens": 14536,
+    "schemas": [
+      "QuestionBrief",
+      "Answer",
+      "Answer"
+    ],
+    "status": "answered",
+    "review": "applied",
+    "retrieval_degraded": []
+  },
+  {
+    "id": "D12",
+    "question_brief": {
+      "status": "applied",
+      "parts": 1,
+      "catalog_entries": 8,
+      "dropped_invalid_annotations": 0
+    },
+    "final_context_tokens": 13887,
+    "schemas": [
+      "QuestionBrief",
+      "Answer",
+      "Answer"
+    ],
+    "status": "answered",
+    "review": "applied",
+    "retrieval_degraded": []
+  },
+  {
+    "id": "D13",
+    "question_brief": {
+      "status": "applied",
+      "parts": 2,
+      "catalog_entries": 8,
+      "dropped_invalid_annotations": 0
+    },
+    "final_context_tokens": 16445,
+    "schemas": [
+      "QuestionBrief",
+      "Answer",
+      "Answer"
+    ],
+    "status": "answered",
+    "review": "applied",
+    "retrieval_degraded": []
+  },
+  {
+    "id": "D14",
+    "question_brief": {
+      "status": "applied",
+      "parts": 2,
+      "catalog_entries": 8,
+      "dropped_invalid_annotations": 0
+    },
+    "final_context_tokens": 15427,
+    "schemas": [
+      "QuestionBrief",
+      "Answer",
+      "Answer"
+    ],
+    "status": "answered",
+    "review": "applied",
+    "retrieval_degraded": []
+  },
+  {
+    "id": "D15",
+    "question_brief": {
+      "status": "applied",
+      "parts": 1,
+      "catalog_entries": 8,
+      "dropped_invalid_annotations": 0
+    },
+    "final_context_tokens": 9706,
+    "schemas": [
+      "QuestionBrief",
+      "Answer",
+      "Answer"
+    ],
+    "status": "answered",
+    "review": "applied",
+    "retrieval_degraded": []
+  },
+  {
+    "id": "D16",
+    "question_brief": {
+      "status": "applied",
+      "parts": 2,
+      "catalog_entries": 7,
+      "dropped_invalid_annotations": 0
+    },
+    "final_context_tokens": 16740,
+    "schemas": [
+      "QuestionBrief",
+      "Answer",
+      "Answer"
+    ],
+    "status": "answered",
+    "review": "applied",
+    "retrieval_degraded": []
+  },
+  {
+    "id": "D17",
+    "question_brief": {
+      "status": "applied",
+      "parts": 1,
+      "catalog_entries": 8,
+      "dropped_invalid_annotations": 0
+    },
+    "final_context_tokens": 13278,
+    "schemas": [
+      "QuestionBrief",
+      "Answer"
+    ],
+    "status": "not_in_base",
+    "review": "not_needed_or_deadline",
+    "retrieval_degraded": []
+  },
+  {
+    "id": "D18",
+    "question_brief": {
+      "status": "applied",
+      "parts": 2,
+      "catalog_entries": 10,
+      "dropped_invalid_annotations": 0
+    },
+    "final_context_tokens": 12972,
+    "schemas": [
+      "QuestionBrief",
+      "Answer",
+      "Answer"
+    ],
+    "status": "answered",
+    "review": "applied",
+    "retrieval_degraded": []
+  }
+]

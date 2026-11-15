@@ -1,0 +1,45 @@
+{
+  "system": "v242_development",
+  "seconds": 286.406,
+  "exit_code": 0,
+  "complete": true,
+  "outer_timeout": false,
+  "rows": 18,
+  "answers_sha256": "099458394639c2540c7bb844522fd21c301264891eff9ccb5dda63f68f176f99",
+  "package_sha256": "7b27be0925abd76724e8a39291a30ef8e620f6edf6fdbb2b7ee5ad826c3b1deb",
+  "mode": "observed_unmodified_runtime",
+  "runtime_report": {
+    "rows": 18,
+    "statuses": {
+      "D02": "answered",
+      "D03": "answered",
+      "D01": "answered",
+      "D06": "answered",
+      "D04": "answered",
+      "D05": "answered",
+      "D07": "answered",
+      "D08": "answered",
+      "D09": "answered",
+      "D10": "answered",
+      "D11": "answered",
+      "D12": "answered",
+      "D15": "answered",
+      "D13": "answered",
+      "D14": "answered",
+      "D17": "not_in_base",
+      "D16": "answered",
+      "D18": "answered"
+    },
+    "counts": {
+      "answered": 17,
+      "not_in_base": 1
+    },
+    "seconds": 270.172,
+    "errors": {},
+    "collected_during_drain": 0,
+    "unfinished_workers": 0,
+    "work_budget_seconds": 1100,
+    "finalize_grace_seconds": 30.0,
+    "error_counts": {}
+  }
+}

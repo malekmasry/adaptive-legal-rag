@@ -1,0 +1,119 @@
+{
+  "v239_holdout": {
+    "system": "v239_holdout",
+    "seconds": 135.375,
+    "exit_code": 0,
+    "complete": true,
+    "outer_timeout": false,
+    "rows": 12,
+    "answers_sha256": "900fd9b859cc5042faf0b8336bf7396e164eaf8f682c1ddf30bbb4d3154a9267",
+    "package_sha256": "22ef21bfcb725e6a83feba8e094053d9113b642ff1bd7c228a8966d402beaeb7",
+    "mode": "observed_unmodified_runtime",
+    "runtime_report": {
+      "rows": 12,
+      "statuses": {
+        "H01": "answered",
+        "H02": "answered",
+        "H03": "answered",
+        "H05": "answered",
+        "H04": "answered",
+        "H06": "answered",
+        "H07": "answered",
+        "H08": "answered",
+        "H09": "answered",
+        "H11": "answered",
+        "H10": "answered",
+        "H12": "partial"
+      },
+      "counts": {
+        "answered": 11,
+        "partial": 1
+      },
+      "seconds": 122.203,
+      "errors": {},
+      "collected_during_drain": 0,
+      "unfinished_workers": 0,
+      "work_budget_seconds": 1100,
+      "finalize_grace_seconds": 30.0,
+      "error_counts": {}
+    }
+  },
+  "v240_holdout": {
+    "system": "v240_holdout",
+    "seconds": 66.328,
+    "exit_code": 0,
+    "complete": true,
+    "outer_timeout": false,
+    "rows": 12,
+    "answers_sha256": "5d2e3ab4798685701a063ad905eb4190437942da9e00f00233bf6bdc0777b89e",
+    "package_sha256": "0c2bbf9b79c0b104f92ba34de176a356cd3b86f1b77c38cdc289e5c40e2e4b32",
+    "mode": "observed_unmodified_runtime",
+    "runtime_report": {
+      "rows": 12,
+      "statuses": {
+        "H02": "answered",
+        "H03": "answered",
+        "H01": "answered",
+        "H04": "answered",
+        "H06": "answered",
+        "H05": "answered",
+        "H07": "answered",
+        "H09": "answered",
+        "H10": "answered",
+        "H12": "partial",
+        "H08": "answered",
+        "H11": "answered"
+      },
+      "counts": {
+        "answered": 11,
+        "partial": 1
+      },
+      "seconds": 45.984,
+      "errors": {},
+      "collected_during_drain": 0,
+      "unfinished_workers": 0,
+      "work_budget_seconds": 1100,
+      "finalize_grace_seconds": 30.0,
+      "error_counts": {}
+    }
+  },
+  "v241_holdout": {
+    "system": "v241_holdout",
+    "seconds": 52.109,
+    "exit_code": 0,
+    "complete": true,
+    "outer_timeout": false,
+    "rows": 12,
+    "answers_sha256": "d2d4b1701292ce5456a7fb6351816afba3fd5bb2af28e9c1f6f62bfe15e5ec1e",
+    "package_sha256": "64b349eaeb310758309ca61a8d23b5242e949221e3dc12e40f2d18863eb8a851",
+    "mode": "observed_unmodified_runtime",
+    "runtime_report": {
+      "rows": 12,
+      "statuses": {
+        "H01": "answered",
+        "H03": "answered",
+        "H02": "answered",
+        "H04": "answered",
+        "H06": "answered",
+        "H07": "answered",
+        "H08": "answered",
+        "H09": "answered",
+        "H10": "answered",
+        "H12": "partial",
+        "H11": "answered",
+        "H05": "answered"
+      },
+      "counts": {
+        "answered": 11,
+        "partial": 1
+      },
+      "seconds": 38.625,
+      "errors": {},
+      "collected_during_drain": 0,
+      "unfinished_workers": 0,
+      "work_budget_seconds": 1100,
+      "finalize_grace_seconds": 30.0,
+      "error_counts": {}
+    }
+  }
+}
