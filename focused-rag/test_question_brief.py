@@ -124,4 +124,38 @@ class QuestionBriefTests(unittest.TestCase):
         self.assertEqual(len(calls),1);self.assertEqual(result['trace']['question_brief']['status'],'skipped_deadline')
         self.assertEqual(result['status'],'answered')
 
+    def test_topic_obligations_do_not_leak_to_generator_or_full_reviewer(self):
+        broad={'topics':['acceptance'],'requested_slots':['не запрошенный порядок претензии'],
+               'answer_shape':['Перечисли все документы при недостатках.'],'avoid':[]}
+        with patch('pipeline.prepare_guides',return_value=(broad,[],0)):
+            result,calls=self.run_pipeline()
+        self.assertEqual(calls[0][1]['response_plan'],broad)
+        for schema,payload in calls[1:]:
+            self.assertEqual(payload['response_plan'],{'topics':['acceptance'],
+                'scope_source':'question_brief.parts','required_part_ids':['P1','P2']})
+            self.assertEqual(payload['evidence'],calls[0][1]['evidence'])
+            self.assertEqual(len(payload['question_brief']['parts']),2)
+        self.assertEqual(result['trace']['review'],'applied')
+        self.assertIn('17 марта',result['answer']);self.assertIn('отдельным актом',result['answer'])
+        self.assertIn('requested_slots',broad)  # Original outline input was not mutated.
+
+    def test_outline_failure_still_uses_the_full_question_not_topic_slots(self):
+        with patch('pipeline.prepare_guides',return_value=({'topics':['acceptance'],
+                'requested_slots':['порядок претензии'],'answer_shape':['Посторонний пункт'],'avoid':[]},[],0)):
+            result,calls=self.run_pipeline('brief_error')
+        for schema,payload in calls[1:]:
+            self.assertEqual(payload['question'],self.question)
+            self.assertEqual(payload['response_plan']['scope_source'],'question')
+            self.assertEqual(payload['response_plan']['required_part_ids'],[])
+            self.assertNotIn('answer_shape',payload['response_plan'])
+        self.assertEqual(result['status'],'answered')
+        self.assertIn('отдельным актом',result['answer'])
+
+    def test_deadline_does_not_restore_generic_topic_obligations(self):
+        result,calls=self.run_pipeline('deadline')
+        self.assertEqual(len(calls),1)
+        self.assertEqual(calls[0][1]['response_plan']['scope_source'],'question')
+        self.assertNotIn('requested_slots',calls[0][1]['response_plan'])
+        self.assertEqual(result['status'],'answered')
+
 if __name__=='__main__':unittest.main()

@@ -8,7 +8,7 @@ from model_api import API, ModelError
 from schemas import Plan
 from focused_context import ScopeRetriever, context_bundle, render_paragraphs, search_queries, date_note
 from diagnostics import emit, error_info
-from answer_guides import prepare_guides, plan_for, GUIDANCE
+from answer_guides import prepare_guides, plan_for, scoped_response_plan, GUIDANCE
 from corpus_playbook import verified_hints,recover_hint_sources
 from rule_drafts import build_rule_draft
 from decision_index import DecisionIndex,combine_evidence
@@ -151,6 +151,10 @@ class Pipeline:
                 trace['question_brief']={'status':'failed_kept_original_path','error_code':getattr(exc,'code',type(exc).__name__)}
                 emit(self.s.cache_dir,'question_brief_degraded',**error_info(exc))
         else:trace['question_brief']={'status':'skipped_deadline'}
+        # Preserve retrieval, cards and outline inputs. Only the answer writers
+        # receive question-bound obligations instead of broad topic templates.
+        payload={**payload,'response_plan':scoped_response_plan(response_plan,payload.get('question_brief'))}
+        trace['answer_scope']=payload['response_plan']['scope_source']
         fallback_format='\nИспользуй обычную схему Answer: status и paragraphs; citations оформляй только как source_id и locator, без citation_id. Ответь на все части question_brief, но part_id в этой резервной схеме не требуется.'
         for attempt in range(2):
             try:
