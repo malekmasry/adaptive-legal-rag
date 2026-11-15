@@ -1,0 +1,1347 @@
+[
+  {
+    "id": "N01",
+    "topics": [
+      "rent_price"
+    ],
+    "catalog": {
+      "selected": [
+        {
+          "id": "988aebf20721857f7b5c:note:8",
+          "document": "документы компании__Договор аренды А-08-2024 Северный Склад.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "rent_price"
+          ],
+          "source_ids": [
+            "D1",
+            "D2"
+          ]
+        },
+        {
+          "id": "e1ea85549d64e26985362fde",
+          "document": "документы компании__Договор аренды А-08-2024 Северный Склад.txt",
+          "kind": "source_scope",
+          "topics": [
+            "rent_price"
+          ],
+          "source_ids": [
+            "D3"
+          ]
+        },
+        {
+          "id": "ce8e3d393ce1fdadedcca0f5",
+          "document": "документы компании__Договор аренды А-08-2024 Северный Склад.txt",
+          "kind": "source_scope",
+          "topics": [
+            "rent_price"
+          ],
+          "source_ids": [
+            "D4"
+          ]
+        },
+        {
+          "id": "286d7bebdc4e73b890baf0a6",
+          "document": "документы компании__Договор аренды А-08-2024 Северный Склад.txt",
+          "kind": "source_scope",
+          "topics": [],
+          "source_ids": [
+            "D5"
+          ]
+        }
+      ],
+      "tokens": 1144,
+      "available_units": 337,
+      "valid_documents": 21
+    },
+    "checks": []
+  },
+  {
+    "id": "N02",
+    "topics": [
+      "order_delivery"
+    ],
+    "catalog": {
+      "selected": [
+        {
+          "id": "325b77b4ea7724fc0597:note:1",
+          "document": "документы компании__Договор поставки ПТ-05-2023 Альфа-Трейдинг.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "order_delivery"
+          ],
+          "source_ids": [
+            "D1",
+            "D2"
+          ]
+        },
+        {
+          "id": "c108d725b30bb01ae8687c03",
+          "document": "документы компании__Договор поставки ПТ-05-2023 Альфа-Трейдинг.txt",
+          "kind": "source_scope",
+          "topics": [
+            "order_delivery"
+          ],
+          "source_ids": [
+            "D3"
+          ]
+        },
+        {
+          "id": "989ba925f01241f629190188",
+          "document": "документы компании__Договор поставки ПТ-05-2023 Альфа-Трейдинг.txt",
+          "kind": "source_scope",
+          "topics": [
+            "order_delivery"
+          ],
+          "source_ids": [
+            "D4"
+          ]
+        },
+        {
+          "id": "c265b0934b45233fe8064f78",
+          "document": "документы компании__Договор поставки ПТ-05-2023 Альфа-Трейдинг.txt",
+          "kind": "source_scope",
+          "topics": [
+            "order_delivery"
+          ],
+          "source_ids": [
+            "D5"
+          ]
+        }
+      ],
+      "tokens": 990,
+      "available_units": 337,
+      "valid_documents": 21
+    },
+    "checks": []
+  },
+  {
+    "id": "N03",
+    "topics": [
+      "penalty",
+      "payment_term"
+    ],
+    "catalog": {
+      "selected": [
+        {
+          "id": "b93f18c66ca5bd5cd729:note:6",
+          "document": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "penalty"
+          ],
+          "source_ids": [
+            "D1",
+            "D2",
+            "D3",
+            "D4"
+          ]
+        },
+        {
+          "id": "deac9548c1d85d857ab7f074",
+          "document": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+          "kind": "source_scope",
+          "topics": [
+            "penalty"
+          ],
+          "source_ids": [
+            "D5"
+          ]
+        },
+        {
+          "id": "b93f18c66ca5bd5cd729:note:0",
+          "document": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "payment_term"
+          ],
+          "source_ids": [
+            "D6"
+          ]
+        },
+        {
+          "id": "a531fd4ef6198b87b450d4ec",
+          "document": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+          "kind": "source_scope",
+          "topics": [
+            "payment_term"
+          ],
+          "source_ids": [
+            "D7"
+          ]
+        },
+        {
+          "id": "d54f980f1d64cbb53997333e",
+          "document": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+          "kind": "source_scope",
+          "topics": [
+            "penalty"
+          ],
+          "source_ids": [
+            "D8"
+          ]
+        }
+      ],
+      "tokens": 1881,
+      "available_units": 337,
+      "valid_documents": 21
+    },
+    "checks": [
+      {
+        "operation": "penalty",
+        "assumptions": "Одна неизменная задолженность; дни просрочки заданы в вопросе.",
+        "base_rub": "175000.00",
+        "days": "150",
+        "daily_rate": "0.001",
+        "uncapped_rub": "26250.00",
+        "cap_rub": "17500.00",
+        "result_rub": "17500.00",
+        "citations": [
+          {
+            "source_id": "D2",
+            "locator": "п. 7.2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "N04",
+    "topics": [
+      "warranty",
+      "contract_term"
+    ],
+    "catalog": {
+      "selected": [
+        {
+          "id": "325b77b4ea7724fc0597:note:2",
+          "document": "документы компании__Договор поставки ПТ-05-2023 Альфа-Трейдинг.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "warranty"
+          ],
+          "source_ids": [
+            "D1"
+          ]
+        },
+        {
+          "id": "af3d6d3c593359ca1f056fe9",
+          "document": "документы компании__Договор поставки ПТ-05-2023 Альфа-Трейдинг.txt",
+          "kind": "source_scope",
+          "topics": [
+            "warranty"
+          ],
+          "source_ids": [
+            "D2"
+          ]
+        },
+        {
+          "id": "325b77b4ea7724fc0597:note:4",
+          "document": "документы компании__Договор поставки ПТ-05-2023 Альфа-Трейдинг.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "contract_term"
+          ],
+          "source_ids": [
+            "D3"
+          ]
+        },
+        {
+          "id": "60d88421bc607055a6c90408",
+          "document": "документы компании__Договор поставки ПТ-05-2023 Альфа-Трейдинг.txt",
+          "kind": "source_scope",
+          "topics": [
+            "contract_term"
+          ],
+          "source_ids": [
+            "D4"
+          ]
+        }
+      ],
+      "tokens": 898,
+      "available_units": 337,
+      "valid_documents": 21
+    },
+    "checks": []
+  },
+  {
+    "id": "N05",
+    "topics": [
+      "approval_route",
+      "approval_threshold"
+    ],
+    "catalog": {
+      "selected": [
+        {
+          "id": "57bab93daedebeeb021250cd",
+          "document": "документы компании__Регламент согласования договоров ред 2025.txt",
+          "kind": "source_scope",
+          "topics": [
+            "approval_route"
+          ],
+          "source_ids": [
+            "D1"
+          ]
+        },
+        {
+          "id": "2f266ec93bce6f106a0bb9e5",
+          "document": "документы компании__Регламент согласования договоров ред 2023 (утратил силу).txt",
+          "kind": "source_scope",
+          "topics": [
+            "approval_route"
+          ],
+          "source_ids": [
+            "D2"
+          ]
+        },
+        {
+          "id": "b216d66b804c8b01989a7080",
+          "document": "документы компании__Регламент согласования договоров ред 2025.txt",
+          "kind": "source_scope",
+          "topics": [
+            "approval_threshold"
+          ],
+          "source_ids": [
+            "D3"
+          ]
+        },
+        {
+          "id": "0f081dfd330aa8e3664a41d4",
+          "document": "документы компании__Регламент согласования договоров ред 2023 (утратил силу).txt",
+          "kind": "source_scope",
+          "topics": [
+            "approval_threshold"
+          ],
+          "source_ids": [
+            "D4"
+          ]
+        }
+      ],
+      "tokens": 1013,
+      "available_units": 337,
+      "valid_documents": 21
+    },
+    "checks": [
+      {
+        "operation": "strict_threshold",
+        "assumptions": "Обычный договор; специальные основания согласования проверяются отдельно.",
+        "event_date": "2025-03-10",
+        "role": "финансовый директор",
+        "amount_rub": "15000000.00",
+        "threshold_rub": 3000000,
+        "required_by_amount": true,
+        "citations": [
+          {
+            "source_id": "D1",
+            "locator": "п. 2.3"
+          }
+        ]
+      },
+      {
+        "operation": "strict_threshold",
+        "assumptions": "Обычный договор; специальные основания согласования проверяются отдельно.",
+        "event_date": "2025-03-10",
+        "role": "генеральный директор",
+        "amount_rub": "15000000.00",
+        "threshold_rub": 15000000,
+        "required_by_amount": false,
+        "citations": [
+          {
+            "source_id": "D3",
+            "locator": "п. 2.4"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "N06",
+    "topics": [
+      "approval_threshold",
+      "approval_route",
+      "approval_form"
+    ],
+    "catalog": {
+      "selected": [
+        {
+          "id": "02b38e67428c4c4aacb5:note:0",
+          "document": "документы компании__Регламент согласования договоров ред 2023 (утратил силу).txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "approval_threshold"
+          ],
+          "source_ids": [
+            "D1",
+            "D2",
+            "D3"
+          ]
+        },
+        {
+          "id": "b216d66b804c8b01989a7080",
+          "document": "документы компании__Регламент согласования договоров ред 2025.txt",
+          "kind": "source_scope",
+          "topics": [
+            "approval_threshold"
+          ],
+          "source_ids": [
+            "D4"
+          ]
+        },
+        {
+          "id": "df3a7d8fd67f2dc6235a:note:8",
+          "document": "документы компании__Регламент согласования договоров ред 2025.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "approval_route"
+          ],
+          "source_ids": [
+            "D5",
+            "D6",
+            "D7",
+            "D8"
+          ]
+        },
+        {
+          "id": "02b38e67428c4c4aacb5:note:3",
+          "document": "документы компании__Регламент согласования договоров ред 2023 (утратил силу).txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "approval_route"
+          ],
+          "source_ids": [
+            "D9",
+            "D10"
+          ]
+        },
+        {
+          "id": "df3a7d8fd67f2dc6235a:note:1",
+          "document": "документы компании__Регламент согласования договоров ред 2025.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "approval_form"
+          ],
+          "source_ids": [
+            "D11"
+          ]
+        },
+        {
+          "id": "02b38e67428c4c4aacb5:note:1",
+          "document": "документы компании__Регламент согласования договоров ред 2023 (утратил силу).txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "approval_form"
+          ],
+          "source_ids": [
+            "D12"
+          ]
+        }
+      ],
+      "tokens": 2990,
+      "available_units": 337,
+      "valid_documents": 21
+    },
+    "checks": [
+      {
+        "operation": "strict_threshold",
+        "assumptions": "Обычный договор; специальные основания согласования проверяются отдельно.",
+        "event_date": "2025-02-20",
+        "role": "финансовый директор",
+        "amount_rub": "12000000.00",
+        "threshold_rub": 1000000,
+        "required_by_amount": true,
+        "citations": [
+          {
+            "source_id": "D2",
+            "locator": "п. 2.3"
+          }
+        ]
+      },
+      {
+        "operation": "strict_threshold",
+        "assumptions": "Обычный договор; специальные основания согласования проверяются отдельно.",
+        "event_date": "2025-02-20",
+        "role": "генеральный директор",
+        "amount_rub": "12000000.00",
+        "threshold_rub": 10000000,
+        "required_by_amount": true,
+        "citations": [
+          {
+            "source_id": "D3",
+            "locator": "п. 2.4"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "N07",
+    "topics": [
+      "rent_increase",
+      "rent_price"
+    ],
+    "catalog": {
+      "selected": [
+        {
+          "id": "ce8e3d393ce1fdadedcca0f5",
+          "document": "документы компании__Договор аренды А-08-2024 Северный Склад.txt",
+          "kind": "source_scope",
+          "topics": [
+            "rent_increase",
+            "rent_price"
+          ],
+          "source_ids": [
+            "D1"
+          ]
+        },
+        {
+          "id": "988aebf20721857f7b5c:note:8",
+          "document": "документы компании__Договор аренды А-08-2024 Северный Склад.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "rent_price"
+          ],
+          "source_ids": [
+            "D2",
+            "D3"
+          ]
+        },
+        {
+          "id": "e1ea85549d64e26985362fde",
+          "document": "документы компании__Договор аренды А-08-2024 Северный Склад.txt",
+          "kind": "source_scope",
+          "topics": [
+            "rent_price"
+          ],
+          "source_ids": [
+            "D4"
+          ]
+        }
+      ],
+      "tokens": 942,
+      "available_units": 337,
+      "valid_documents": 21
+    },
+    "checks": [
+      {
+        "operation": "rent_increase",
+        "assumptions": "Исходная плата по п.3.1; проверить годовую частоту и письменное уведомление.",
+        "percent": "6",
+        "result_rub": "477000.00",
+        "citations": [
+          {
+            "source_id": "D2",
+            "locator": "п. 3.1"
+          },
+          {
+            "source_id": "D1",
+            "locator": "п. 3.4"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "N08",
+    "topics": [
+      "payment_term",
+      "ownership"
+    ],
+    "catalog": {
+      "selected": [
+        {
+          "id": "325b77b4ea7724fc0597:note:0",
+          "document": "документы компании__Договор поставки ПТ-05-2023 Альфа-Трейдинг.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "payment_term"
+          ],
+          "source_ids": [
+            "D1"
+          ]
+        },
+        {
+          "id": "325b77b4ea7724fc0597:note:9",
+          "document": "документы компании__Договор поставки ПТ-05-2023 Альфа-Трейдинг.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "ownership"
+          ],
+          "source_ids": [
+            "D2"
+          ]
+        },
+        {
+          "id": "a52f4e29504c7ba1cf33e076",
+          "document": "документы компании__Договор поставки ПТ-05-2023 Альфа-Трейдинг.txt",
+          "kind": "source_scope",
+          "topics": [
+            "ownership"
+          ],
+          "source_ids": [
+            "D3"
+          ]
+        },
+        {
+          "id": "c108d725b30bb01ae8687c03",
+          "document": "документы компании__Договор поставки ПТ-05-2023 Альфа-Трейдинг.txt",
+          "kind": "source_scope",
+          "topics": [],
+          "source_ids": [
+            "D4"
+          ]
+        }
+      ],
+      "tokens": 751,
+      "available_units": 337,
+      "valid_documents": 21
+    },
+    "checks": []
+  },
+  {
+    "id": "N09",
+    "topics": [
+      "acceptance"
+    ],
+    "catalog": {
+      "selected": [
+        {
+          "id": "3c9b2add7533a40edefedc24",
+          "document": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+          "kind": "source_scope",
+          "topics": [
+            "acceptance"
+          ],
+          "source_ids": [
+            "D1"
+          ]
+        },
+        {
+          "id": "b93f18c66ca5bd5cd729:note:8",
+          "document": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "acceptance"
+          ],
+          "source_ids": [
+            "D2"
+          ]
+        },
+        {
+          "id": "8e585aa8292fa715b72f7cd8",
+          "document": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+          "kind": "source_scope",
+          "topics": [
+            "acceptance"
+          ],
+          "source_ids": [
+            "D3"
+          ]
+        },
+        {
+          "id": "1ef984e8ebd7b8f0561c0733",
+          "document": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+          "kind": "source_scope",
+          "topics": [],
+          "source_ids": [
+            "D4"
+          ]
+        }
+      ],
+      "tokens": 822,
+      "available_units": 337,
+      "valid_documents": 21
+    },
+    "checks": []
+  },
+  {
+    "id": "N10",
+    "topics": [
+      "force_majeure",
+      "dispute"
+    ],
+    "catalog": {
+      "selected": [
+        {
+          "id": "b93f18c66ca5bd5cd729:note:11",
+          "document": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "force_majeure"
+          ],
+          "source_ids": [
+            "D1"
+          ]
+        },
+        {
+          "id": "845ec9c44a02d66607e57dd2",
+          "document": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+          "kind": "source_scope",
+          "topics": [
+            "force_majeure"
+          ],
+          "source_ids": [
+            "D2"
+          ]
+        },
+        {
+          "id": "b93f18c66ca5bd5cd729:note:12",
+          "document": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "dispute"
+          ],
+          "source_ids": [
+            "D3",
+            "D4"
+          ]
+        },
+        {
+          "id": "1ef984e8ebd7b8f0561c0733",
+          "document": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+          "kind": "source_scope",
+          "topics": [
+            "dispute"
+          ],
+          "source_ids": [
+            "D5"
+          ]
+        },
+        {
+          "id": "99d821430f6ea03512998c18",
+          "document": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+          "kind": "source_scope",
+          "topics": [
+            "dispute"
+          ],
+          "source_ids": [
+            "D6"
+          ]
+        }
+      ],
+      "tokens": 1347,
+      "available_units": 337,
+      "valid_documents": 21
+    },
+    "checks": []
+  },
+  {
+    "id": "N11",
+    "topics": [
+      "price_change",
+      "prepayment"
+    ],
+    "catalog": {
+      "selected": [
+        {
+          "id": "325b77b4ea7724fc0597:note:10",
+          "document": "документы компании__Договор поставки ПТ-05-2023 Альфа-Трейдинг.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "price_change"
+          ],
+          "source_ids": [
+            "D1"
+          ]
+        },
+        {
+          "id": "de06f18f256bce9c90de44d9",
+          "document": "документы компании__Договор поставки ПТ-05-2023 Альфа-Трейдинг.txt",
+          "kind": "source_scope",
+          "topics": [
+            "price_change"
+          ],
+          "source_ids": [
+            "D2"
+          ]
+        },
+        {
+          "id": "325b77b4ea7724fc0597:note:11",
+          "document": "документы компании__Договор поставки ПТ-05-2023 Альфа-Трейдинг.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "prepayment"
+          ],
+          "source_ids": [
+            "D3"
+          ]
+        },
+        {
+          "id": "359da38c2f2a5fd78cfee12f",
+          "document": "документы компании__Договор поставки ПТ-05-2023 Альфа-Трейдинг.txt",
+          "kind": "source_scope",
+          "topics": [
+            "prepayment"
+          ],
+          "source_ids": [
+            "D4"
+          ]
+        }
+      ],
+      "tokens": 774,
+      "available_units": 337,
+      "valid_documents": 21
+    },
+    "checks": []
+  },
+  {
+    "id": "N12",
+    "topics": [
+      "rental_use",
+      "contract_change"
+    ],
+    "catalog": {
+      "selected": [
+        {
+          "id": "8e5149f7d142e3b884b8be03",
+          "document": "документы компании__Договор аренды А-08-2024 Северный Склад.txt",
+          "kind": "source_scope",
+          "topics": [
+            "rental_use"
+          ],
+          "source_ids": [
+            "D1"
+          ]
+        },
+        {
+          "id": "988aebf20721857f7b5c:note:4",
+          "document": "документы компании__Договор аренды А-08-2024 Северный Склад.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "rental_use"
+          ],
+          "source_ids": [
+            "D2"
+          ]
+        },
+        {
+          "id": "988aebf20721857f7b5c:note:10",
+          "document": "документы компании__Договор аренды А-08-2024 Северный Склад.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "contract_change"
+          ],
+          "source_ids": [
+            "D3",
+            "D4"
+          ]
+        },
+        {
+          "id": "07834c29e26ea450eab15fb5",
+          "document": "документы компании__Договор аренды А-08-2024 Северный Склад.txt",
+          "kind": "source_scope",
+          "topics": [
+            "contract_change"
+          ],
+          "source_ids": [
+            "D5"
+          ]
+        }
+      ],
+      "tokens": 1093,
+      "available_units": 337,
+      "valid_documents": 21
+    },
+    "checks": []
+  },
+  {
+    "id": "N13",
+    "topics": [
+      "tax_sanctions"
+    ],
+    "catalog": {
+      "selected": [
+        {
+          "id": "fc1844e134bc2dc5082c:note:2",
+          "document": "законы__НК_ст114_действующая.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "tax_sanctions"
+          ],
+          "source_ids": [
+            "D1"
+          ]
+        },
+        {
+          "id": "e0f7ff74bd994405eba53bcc",
+          "document": "законы__НК_ст114_действующая.txt",
+          "kind": "source_scope",
+          "topics": [
+            "tax_sanctions"
+          ],
+          "source_ids": [
+            "D2"
+          ]
+        },
+        {
+          "id": "9ec46ba1c591d1929b89f9ea",
+          "document": "законы__НК_ст114_действующая.txt",
+          "kind": "source_scope",
+          "topics": [
+            "tax_sanctions"
+          ],
+          "source_ids": [
+            "D3"
+          ]
+        },
+        {
+          "id": "218da0b34e6b9b441017d535",
+          "document": "законы__НК_ст114_действующая.txt",
+          "kind": "source_scope",
+          "topics": [
+            "tax_sanctions"
+          ],
+          "source_ids": [
+            "D4"
+          ]
+        }
+      ],
+      "tokens": 1172,
+      "available_units": 337,
+      "valid_documents": 21
+    },
+    "checks": [
+      {
+        "operation": "separate_tax_sanctions",
+        "assumptions": "Все перечисленные суммы относятся к отдельным санкциям.",
+        "amounts_rub": [
+          "5000.00",
+          "8000.00"
+        ],
+        "total_rub": "13000.00",
+        "citations": [
+          {
+            "source_id": "D1",
+            "locator": "п. 5"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "N14",
+    "topics": [
+      "income_tax"
+    ],
+    "catalog": {
+      "selected": [
+        {
+          "id": "3c32e615822f15a45660:note:1",
+          "document": "законы__НК_ст224_действующая.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "income_tax"
+          ],
+          "source_ids": [
+            "D1",
+            "D2"
+          ]
+        },
+        {
+          "id": "3c32e615822f15a45660:note:0",
+          "document": "законы__НК_ст224_действующая.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "income_tax"
+          ],
+          "source_ids": [
+            "D3"
+          ]
+        },
+        {
+          "id": "bb70700cef125b102dba408f",
+          "document": "законы__НК_ст224_действующая.txt",
+          "kind": "source_scope",
+          "topics": [
+            "income_tax"
+          ],
+          "source_ids": [
+            "D4"
+          ]
+        },
+        {
+          "id": "6ecae05ecb9d42265ff5a341",
+          "document": "законы__НК_ст224_действующая.txt",
+          "kind": "source_scope",
+          "topics": [
+            "income_tax"
+          ],
+          "source_ids": [
+            "D5"
+          ]
+        }
+      ],
+      "tokens": 4500,
+      "available_units": 337,
+      "valid_documents": 21
+    },
+    "checks": [
+      {
+        "operation": "income_tax",
+        "assumptions": "Применимость пункта задана вопросом; база после вычетов, за налоговый период.",
+        "clause": "1",
+        "base_rub": "6000000.00",
+        "fixed_rub": "702000.00",
+        "excess_rub": "1000000.00",
+        "rate": "0.18",
+        "result_rub": "882000.00",
+        "citations": [
+          {
+            "source_id": "D3",
+            "locator": "п. 1"
+          }
+        ]
+      },
+      {
+        "operation": "income_tax",
+        "assumptions": "Применимость пункта задана вопросом; база после вычетов, за налоговый период.",
+        "clause": "1.2",
+        "base_rub": "6000000.00",
+        "fixed_rub": "650000.00",
+        "excess_rub": "1000000.00",
+        "rate": "0.15",
+        "result_rub": "800000.00",
+        "citations": [
+          {
+            "source_id": "D2",
+            "locator": "п. 1.2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "N15",
+    "topics": [
+      "penalty"
+    ],
+    "catalog": {
+      "selected": [
+        {
+          "id": "988aebf20721857f7b5c:note:3",
+          "document": "документы компании__Договор аренды А-08-2024 Северный Склад.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "penalty"
+          ],
+          "source_ids": [
+            "D1"
+          ]
+        },
+        {
+          "id": "69c07dff52476cf7ff388b2e",
+          "document": "документы компании__Договор аренды А-08-2024 Северный Склад.txt",
+          "kind": "source_scope",
+          "topics": [
+            "penalty"
+          ],
+          "source_ids": [
+            "D2"
+          ]
+        },
+        {
+          "id": "4fe830480c2841743df5fde2",
+          "document": "документы компании__Договор аренды А-08-2024 Северный Склад.txt",
+          "kind": "source_scope",
+          "topics": [],
+          "source_ids": [
+            "D3"
+          ]
+        },
+        {
+          "id": "7fdc2b716d668fea1e962602",
+          "document": "документы компании__Договор аренды А-08-2024 Северный Склад.txt",
+          "kind": "source_scope",
+          "topics": [],
+          "source_ids": [
+            "D4"
+          ]
+        }
+      ],
+      "tokens": 1204,
+      "available_units": 337,
+      "valid_documents": 21
+    },
+    "checks": [
+      {
+        "operation": "penalty",
+        "assumptions": "Одна неизменная задолженность; дни просрочки заданы в вопросе.",
+        "base_rub": "123456.00",
+        "days": "17",
+        "daily_rate": "0.001",
+        "uncapped_rub": "2098.75",
+        "cap_rub": null,
+        "result_rub": "2098.75",
+        "citations": [
+          {
+            "source_id": "D1",
+            "locator": "п. 5.1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "N16",
+    "topics": [
+      "vat_rate"
+    ],
+    "catalog": {
+      "selected": [
+        {
+          "id": "b93f18c66ca5bd5cd729:note:14",
+          "document": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "vat_rate"
+          ],
+          "source_ids": [
+            "D1"
+          ]
+        },
+        {
+          "id": "ab451e8a8e4db9fffc98:note:0",
+          "document": "законы__НК_ст164_действующая.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "vat_rate"
+          ],
+          "source_ids": [
+            "D2",
+            "D3"
+          ]
+        },
+        {
+          "id": "34960c7bcdcca493438fb811",
+          "document": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+          "kind": "source_scope",
+          "topics": [
+            "vat_rate"
+          ],
+          "source_ids": [
+            "D4"
+          ]
+        },
+        {
+          "id": "b6d7027ec0074271a1427267",
+          "document": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+          "kind": "source_scope",
+          "topics": [
+            "vat_rate"
+          ],
+          "source_ids": [
+            "D5"
+          ]
+        }
+      ],
+      "tokens": 1127,
+      "available_units": 337,
+      "valid_documents": 21
+    },
+    "checks": []
+  },
+  {
+    "id": "N17",
+    "topics": [
+      "payment_term"
+    ],
+    "catalog": {
+      "selected": [
+        {
+          "id": "325b77b4ea7724fc0597:note:0",
+          "document": "документы компании__Договор поставки ПТ-05-2023 Альфа-Трейдинг.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "payment_term"
+          ],
+          "source_ids": [
+            "D1"
+          ]
+        },
+        {
+          "id": "4fa6667a1bc66d0d169ac9e5",
+          "document": "документы компании__Договор поставки ПТ-05-2023 Альфа-Трейдинг.txt",
+          "kind": "source_scope",
+          "topics": [],
+          "source_ids": [
+            "D2"
+          ]
+        },
+        {
+          "id": "989ba925f01241f629190188",
+          "document": "документы компании__Договор поставки ПТ-05-2023 Альфа-Трейдинг.txt",
+          "kind": "source_scope",
+          "topics": [],
+          "source_ids": [
+            "D3"
+          ]
+        },
+        {
+          "id": "c265b0934b45233fe8064f78",
+          "document": "документы компании__Договор поставки ПТ-05-2023 Альфа-Трейдинг.txt",
+          "kind": "source_scope",
+          "topics": [],
+          "source_ids": [
+            "D4"
+          ]
+        }
+      ],
+      "tokens": 789,
+      "available_units": 337,
+      "valid_documents": 21
+    },
+    "checks": []
+  },
+  {
+    "id": "N18",
+    "topics": [
+      "archive"
+    ],
+    "catalog": {
+      "selected": [
+        {
+          "id": "c536cb8fbe9b923e7256:note:0",
+          "document": "документы компании__Служебная записка об архиве договоров.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "archive"
+          ],
+          "source_ids": [
+            "D1",
+            "D2",
+            "D3",
+            "D4"
+          ]
+        },
+        {
+          "id": "9969dc90564ff24a02697d68",
+          "document": "документы компании__Служебная записка об архиве договоров.txt",
+          "kind": "source_scope",
+          "topics": [
+            "archive"
+          ],
+          "source_ids": [
+            "D5"
+          ]
+        },
+        {
+          "id": "df3a7d8fd67f2dc6235a:note:7",
+          "document": "документы компании__Регламент согласования договоров ред 2025.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "archive"
+          ],
+          "source_ids": [
+            "D6"
+          ]
+        },
+        {
+          "id": "f66def7def41d3a18a3ab891",
+          "document": "документы компании__Регламент согласования договоров ред 2025.txt",
+          "kind": "source_scope",
+          "topics": [
+            "archive"
+          ],
+          "source_ids": [
+            "D7"
+          ]
+        }
+      ],
+      "tokens": 1909,
+      "available_units": 337,
+      "valid_documents": 21
+    },
+    "checks": []
+  },
+  {
+    "id": "N19",
+    "topics": [],
+    "catalog": {
+      "selected": [],
+      "tokens": 0,
+      "reason": "explicit_article_absent_from_catalog"
+    },
+    "checks": []
+  },
+  {
+    "id": "N20",
+    "topics": [
+      "warranty",
+      "payment_term"
+    ],
+    "catalog": {
+      "selected": [
+        {
+          "id": "b93f18c66ca5bd5cd729:note:5",
+          "document": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "warranty"
+          ],
+          "source_ids": [
+            "D1",
+            "D2"
+          ]
+        },
+        {
+          "id": "325b77b4ea7724fc0597:note:2",
+          "document": "документы компании__Договор поставки ПТ-05-2023 Альфа-Трейдинг.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "warranty"
+          ],
+          "source_ids": [
+            "D3"
+          ]
+        },
+        {
+          "id": "b93f18c66ca5bd5cd729:note:0",
+          "document": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "payment_term"
+          ],
+          "source_ids": [
+            "D4"
+          ]
+        },
+        {
+          "id": "325b77b4ea7724fc0597:note:0",
+          "document": "документы компании__Договор поставки ПТ-05-2023 Альфа-Трейдинг.txt",
+          "kind": "reviewed_note",
+          "topics": [
+            "payment_term"
+          ],
+          "source_ids": [
+            "D5"
+          ]
+        },
+        {
+          "id": "af3d6d3c593359ca1f056fe9",
+          "document": "документы компании__Договор поставки ПТ-05-2023 Альфа-Трейдинг.txt",
+          "kind": "source_scope",
+          "topics": [
+            "warranty"
+          ],
+          "source_ids": [
+            "D6"
+          ]
+        },
+        {
+          "id": "609166d4a770d3cb40670ff6",
+          "document": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+          "kind": "source_scope",
+          "topics": [
+            "warranty"
+          ],
+          "source_ids": [
+            "D7"
+          ]
+        }
+      ],
+      "tokens": 1339,
+      "available_units": 337,
+      "valid_documents": 21
+    },
+    "checks": []
+  }
+]

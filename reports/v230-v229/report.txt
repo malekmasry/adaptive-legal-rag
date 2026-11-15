@@ -1,0 +1,95 @@
+﻿v230 против v229 — 15.11.2026
+
+Рабочая база: v229. Пользователь сообщил результат платформы35,5/100 и258 секунд. У v230 официального результата ещё нет.
+Изменения:43 типа ответа;128 проверенных памяток; независимый поиск по316 структурным фрагментам всех21 документов и заранее написанным вариантам вопросов. Индекс хранит смещения и SHA256, тексты берёт из подключённой базы. Чужой/изменённый документ не получает статическую подсказку.
+Точные основания справочника получают до6000 токенов внутри прежнего18000-токенного бюджета. Расчёты до1100 токенов делят прежний резерв3500 с памятками/карточками. Сохраняются исходные документы и команды-инъекции в них как недоверенные данные.
+Независимое распознавание подвопросов и снятие противоречащих запретов между темами. Decimal-расчёты пеней с пределом, аренды, двух шкал НДФЛ, отдельных налоговых санкций и строгих порогов согласования. Исправлен множитель в суммах вроде12 миллионов рублей. Новых модельных стадий и зависимостей нет.
+65 тестов продукта и 16 тестов бенчмарка пройдены. 62 строки офлайн-проверки исполнения: уникальные источники/ссылки, отсутствие golden во входах продукта, сохранение бюджета 18000. Офлайн-проверка не измеряет качество модели.
+Основной живой прогон: 62 ответа v230 и 20 новых ответов v229, без технических ошибок продукта. Финальный ZIP отличается только чистым форматированием после завершённой проверки: доказуемая ссылка на примечание и точный незапрошенный раздел готового шаблона. Все 62 ответа воспроизведены с теми же источниками/бюджетами; изменились 2 текста, заново оценены в обоих порядках. Остальные 60 ответов идентичны; повторной полной платной генерации не было.
+Существенный выигрыш качества не доказан: прежние20 дают +0,4375 балла, новые20 — 1 победу, 1 поражение и 18 ничьих. Это не прогноз скрытой оценки ПСБ.
+
+ПРЕЖНИЕ20: ОБЩИЙ СОХРАНЁННЫЙ BASELINE
+v229: 75.0625/100; MR=0.643750; WR=1.000000; побед/поражений/ничьих 11/0/9; оценено20; fabrication zeros=0.
+v230: 75.5000/100; MR=0.650000; WR=1.000000; побед/поражений/ничьих 11/0/9; оценено20; fabrication zeros=0.
+
+ПРЯМОЕ СРАВНЕНИЕ С v229: ДРУГОЙ BASELINE
+extension: 50.0000/100; побед/поражений/ничьих 0/0/11; оценено11.
+extra: 50.4375/100; побед/поражений/ничьих 1/1/18; оценено20.
+extension — прежние 12 предметных вопросов; E12 исключён из-за ошибки валидации ответа судьи (не ошибка продукта), повторно без изменения ответа не оценивался. extra — 20 новых составных и перефразированных, зафиксированных до живой генерации. Все являются development-наборами. Баллы с разными baseline не смешиваются.
+
+ВРЕМЯ И РАСХОД
+v230: 95.078с; 20 строк; статусы{'answered': 18, 'not_in_base': 1, 'clarification': 1}; ошибок{}.
+v230_regression: 85.453с; 10 строк; статусы{'answered': 9, 'not_in_base': 1}; ошибок{}.
+v230_extension: 119.984с; 12 строк; статусы{'answered': 12}; ошибок{}.
+v229_extra: 174.703с; 20 строк; статусы{'answered': 19, 'not_in_base': 1}; ошибок{}.
+v230_extra: 151.438с; 20 строк; статусы{'answered': 19, 'not_in_base': 1}; ошибок{}.
+Основной эксперимент с локальным прогревом BGE, v229 и судейством: 1046.391 с. Финальная проверка: 48.953 с. Суммарно: 1095.344 с.
+Исполнение четырёх партий v230 (62 вопроса): 451,953 с; это сумма отдельных партий, не один непрерывный прогон. Прогрев BGE: 225,469 с. Qwen для v230 использовал точный кеш; вывод об ускорении на платформе не делается.
+{"deepseek_calls": 209, "deepseek_tokens": 1382427, "qwen_calls": 20, "qwen_input_tokens": 591563, "qwen_cache_hits": 62, "api_errors": 0}
+All runtime workers3. Known v230 Qwen requests cached. New20 v229 incurs fresh Qwen, v230 reuses identical results. v229 historical timing and new20 timing are not a controlled speed benchmark.
+Генератор и судья — DeepSeek через пользовательский API; Qwen3-Reranker-8B — через отдельный API. Модельные роли проверяются кодом. BGE-M3 с зафиксированной ревизией локально; runtime сабмита работает с API платформы.
+Неизменённый судья, два порядка A/B;100*(0.7MR+0.3WR), выдумка обнуляет вопрос, ошибки судьи исключаются. Полные совпадающие запросы судейства и Qwen могут использовать сохранённый результат. Повторный выбор удачной оценки не выполнялся.
+AS_OF локального сравнения2026-11-14 сохранён для сопоставимости с v229; продукт получает дату из окружения/даты запуска.
+
+РУЧНОЙ РАЗБОР
+{
+  "scope": "Manual development-set review of answers against the supplied source corpus; not an independent judge or hidden-set measurement.",
+  "overall": "No robust quality improvement established. The new architecture broadens source-bound coverage, but v229 already answers the tested new questions correctly in substance. Most pairwise judgments are ties.",
+  "old20": {
+    "unchanged_answer_strings": 14,
+    "unchanged_question_scores": 19,
+    "only_score_change": "S12c:0.625 to0.75. Both versions have correct core conclusions; the difference is presentation/order-sensitive judge preference, not a newly solved legal question.",
+    "fabrication_zeros": 0
+  },
+  "regression10": {
+    "core_conclusions_correct": 10,
+    "scope": "Boundaries, amendment dates, query/source instructions, missing legal material and profit-tax split. Manual assessment, not LLM-as-Judge score."
+  },
+  "extension12": {
+    "core_conclusions_correct": 12,
+    "pairwise": "11 ties; E12 judge response fails validation and is excluded, without retry. This is not a product technical_error.",
+    "fixed": "E10: source note point3 was labelled as part3. Final source-bound formatter corrects only the citation to point3 of notes.",
+    "remaining": "E07,E08,E11 include some unrequested context. Core requested conclusions are retained."
+  },
+  "new20": {
+    "core_conclusions_correct_v229": 20,
+    "core_conclusions_correct_v230": 20,
+    "pairwise": "N06 wins at0.75; N02 loses at0.375;18 ties. Scores remain unchanged after the final formatting patch.",
+    "checks": [
+      "N03 penalty capped at17500 rubles",
+      "N07 rent increase to477000 rubles",
+      "N13 separate tax sanctions total13000 rubles",
+      "N14 different NDFL scales produce882000 and800000 rubles",
+      "N15 fractional-ruble penalty2098.75",
+      "N16 source contract VAT and supplied-law VAT distinguished",
+      "N17 query injection ignored; N18 source injection ignored",
+      "N19 absent TK115 not filled from model memory",
+      "N20 both similarly named contracts handled"
+    ],
+    "fixed": "N02: exact unrelated first order-entry paragraph removed from the ready draft for deadline-only questions. The revised text was rejudged in both orders; it still receives0.375. No repeated judge rerolls.",
+    "remaining": "N05/N06 can add route/order/time details. The judge is not consistent about rewarding versus penalizing extra context."
+  },
+  "validation": {
+    "product_tests": 65,
+    "benchmark_tests": 16,
+    "v230_live_rows": 62,
+    "v229_fresh_rows": 20,
+    "product_technical_errors": 0,
+    "api_errors": 0,
+    "judge_validation_errors": 1,
+    "final_format_replay_rows": 62,
+    "final_changed_rows": 2,
+    "final_unchanged_rows": 60,
+    "changed_text_judge_calls": 4
+  },
+  "limits": [
+    "All cohorts are development data; no hidden independent evaluation was available.",
+    "Old20 score uses a common original baseline; extension12 and new20 use v229 as baseline. These score scales must not be merged.",
+    "Final ZIP differs from the fully live-tested ZIP only by a proven pure post-review formatting call. It was replayed on all62 saved outputs, not regenerated through paid LLM calls.",
+    "Exact Qwen request reuse and separate runtime batches prevent a controlled latency claim.",
+    "The official v229 result35.5/100 in258 seconds is a user report without per-question logs. v230 has not been submitted to the platform."
+  ]
+}
+
+v230.zip SHA256 92fcd1460ccf4d92ded8150df05d0026182af40b6b575c8b6e787f6d805f5982. Исходный коммит e982d357a4ceab21105aa62cda577bb7aa7d918c.
+v230-v229-AUDIT.zip — исследовательский архив, не сабмит. Для платформы: v230.zip.
