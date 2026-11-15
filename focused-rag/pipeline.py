@@ -8,6 +8,7 @@ from model_api import API, ModelError
 from schemas import Plan
 from focused_context import ScopeRetriever, context_bundle, render_paragraphs, search_queries, date_note
 from diagnostics import emit, error_info
+from answer_guides import prepare_guides, plan_for, GUIDANCE
 
 TECHNICAL = 'Не удалось получить ответ из-за технического сбоя. Это не означает отсутствия нужных сведений в базе.'
 
@@ -76,12 +77,17 @@ class Pipeline:
         query, subs = search_queries(question)
         plan = Plan(question=query, subquestions=subs, as_of=self.s.as_of)
         chunks, retrieval = self.retriever.search(plan, original_query=subs[-1] if subs else query)
-        evidence, budget = context_bundle(chunks, self.docs, self.relations, self.s.context_tokens)
+        reserve=min(3500,self.s.context_tokens//4) if plan_for(query)['topics'] else 0
+        evidence, budget = context_bundle(chunks, self.docs, self.relations, self.s.context_tokens-reserve)
+        response_plan,cards,card_tokens=prepare_guides(query,evidence,reserve)
+        budget.update(primary_card_tokens=card_tokens,total_evidence_tokens=budget['estimated_tokens']+card_tokens,
+                      configured_context_budget=self.s.context_tokens)
         payload = {'question':question, 'current_date':self.s.as_of, 'evidence':evidence,
-                   'inventory':[d.filename for d in self.docs.values()], 'context_limits':budget}
+                   'inventory':[d.filename for d in self.docs.values()], 'context_limits':budget,
+                   'response_plan':response_plan,'primary_cards':cards}
         trace = {'retrieval':retrieval, 'budget':budget, 'failures':[]}
         # Tiny JSON schema; no factual verdict indices or quote matching gates.
-        instruction = INSTRUCTION
+        instruction = INSTRUCTION+'\n\n'+GUIDANCE
         for attempt in range(2):
             draft = self.api.structured(instruction, payload, Answer)
             try:
@@ -101,7 +107,7 @@ class Pipeline:
         remaining=getattr(self.api,'deadline',float('inf'))-time.monotonic()
         if refs and remaining>20:
             try:
-                revised=self.api.structured(INSTRUCTION+'\n\n'+REVIEW,{**payload,'previous_draft':draft.model_dump()},Answer)
+                revised=self.api.structured(INSTRUCTION+'\n\n'+REVIEW+'\n\n'+GUIDANCE,{**payload,'previous_draft':draft.model_dump()},Answer)
                 revised_answer,revised_refs=render_paragraphs([p.model_dump() for p in revised.paragraphs],evidence)
                 if revised.status in ('answered','partial') and not revised_refs:
                     raise ValueError('Reviewed answer lacks citations')
