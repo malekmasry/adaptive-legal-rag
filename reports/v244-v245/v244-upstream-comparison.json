@@ -1,0 +1,182 @@
+[
+  {
+    "id": "D01",
+    "first_evidence_same": true,
+    "draft_same": true,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "D02",
+    "first_evidence_same": true,
+    "draft_same": true,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "D03",
+    "first_evidence_same": true,
+    "draft_same": true,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "D04",
+    "first_evidence_same": true,
+    "draft_same": true,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "D05",
+    "first_evidence_same": true,
+    "draft_same": true,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "D06",
+    "first_evidence_same": true,
+    "draft_same": true,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "D07",
+    "first_evidence_same": true,
+    "draft_same": true,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "D08",
+    "first_evidence_same": true,
+    "draft_same": false,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "D09",
+    "first_evidence_same": true,
+    "draft_same": true,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "D10",
+    "first_evidence_same": true,
+    "draft_same": true,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "D11",
+    "first_evidence_same": true,
+    "draft_same": true,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "D12",
+    "first_evidence_same": false,
+    "draft_same": false,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "D13",
+    "first_evidence_same": true,
+    "draft_same": true,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "D14",
+    "first_evidence_same": true,
+    "draft_same": true,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "D15",
+    "first_evidence_same": false,
+    "draft_same": false,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "D16",
+    "first_evidence_same": true,
+    "draft_same": true,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "D17",
+    "first_evidence_same": true,
+    "draft_same": false,
+    "route": "low_lexical_score"
+  },
+  {
+    "id": "D18",
+    "first_evidence_same": true,
+    "draft_same": false,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "H01",
+    "first_evidence_same": true,
+    "draft_same": true,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "H02",
+    "first_evidence_same": true,
+    "draft_same": true,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "H03",
+    "first_evidence_same": true,
+    "draft_same": true,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "H04",
+    "first_evidence_same": true,
+    "draft_same": true,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "H05",
+    "first_evidence_same": true,
+    "draft_same": false,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "H06",
+    "first_evidence_same": true,
+    "draft_same": true,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "H07",
+    "first_evidence_same": true,
+    "draft_same": true,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "H08",
+    "first_evidence_same": true,
+    "draft_same": true,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "H09",
+    "first_evidence_same": true,
+    "draft_same": true,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "H10",
+    "first_evidence_same": true,
+    "draft_same": true,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "H11",
+    "first_evidence_same": true,
+    "draft_same": true,
+    "route": "lexical_confident"
+  },
+  {
+    "id": "H12",
+    "first_evidence_same": true,
+    "draft_same": true,
+    "route": "lexical_confident"
+  }
+]
