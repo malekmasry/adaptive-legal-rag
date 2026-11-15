@@ -1,0 +1,446 @@
+{
+  "status": "completed",
+  "scope": "All changed v244 answers and all 30 v245 final answers reviewed against saved goldens, v243 answers and captured evidence; no model rerolls.",
+  "frozen_packages_and_inputs": "sha256 verified; executed package files identical; dependency lists identical to v243",
+  "offline_patch_replay": {
+    "status": "passed",
+    "model_calls": 0,
+    "package_files_unchanged": true,
+    "cases": 30,
+    "rows": [
+      {
+        "id": "D01",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 0,
+          "applied": 0,
+          "draft_preserved": true
+        },
+        "answer_sha256": "c01bec3184ab17895c1753a968d0ca98d6058fb9155796528d08a379c04e8c6b"
+      },
+      {
+        "id": "D02",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 0,
+          "applied": 0,
+          "draft_preserved": true
+        },
+        "answer_sha256": "448d079bda1805a01b5380b9434d22db58af5430cefb387f593186340e5ccc01"
+      },
+      {
+        "id": "D03",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 0,
+          "applied": 0,
+          "draft_preserved": true
+        },
+        "answer_sha256": "06a4191796501820dd2394e71daa4136edc5c9f4739c94763b83b7050db7fe86"
+      },
+      {
+        "id": "D04",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 0,
+          "applied": 0,
+          "draft_preserved": true
+        },
+        "answer_sha256": "cd475e9ef8c3e199b6f3a6f435dc6315e30a4f69bfcf95e8929bec9eced507bc"
+      },
+      {
+        "id": "D05",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 0,
+          "applied": 0,
+          "draft_preserved": true
+        },
+        "answer_sha256": "f2ee5c83f07e7bc79b45d9dd621885fc6fcdb2b294d756f1842081de7f709ba1"
+      },
+      {
+        "id": "D06",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 0,
+          "applied": 0,
+          "draft_preserved": true
+        },
+        "answer_sha256": "bd42433874f143c4f71a902c5a90ca480c7e15d7e5683a572c298117f4dd16b4"
+      },
+      {
+        "id": "D07",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 0,
+          "applied": 0,
+          "draft_preserved": true
+        },
+        "answer_sha256": "51767dda833432f8386d173d52f4fdb39ccbd155b4e182a2c190791dd9e69754"
+      },
+      {
+        "id": "D08",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 0,
+          "applied": 0,
+          "draft_preserved": true
+        },
+        "answer_sha256": "eab439905fa90202a7a1d1bc3646ee7e8324ca33ec8b77a7ff04076ccc0a3c5a"
+      },
+      {
+        "id": "D09",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 1,
+          "applied": 1,
+          "draft_preserved": false
+        },
+        "answer_sha256": "6069c207605c20d4bacd3d129d1e585559e1d4097b6b6e9c491f4796de8e9919"
+      },
+      {
+        "id": "D10",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 0,
+          "applied": 0,
+          "draft_preserved": true
+        },
+        "answer_sha256": "aa950ac385180b636292ebd82351af62b28f4021f958946e19e553c4bb33d844"
+      },
+      {
+        "id": "D11",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 0,
+          "applied": 0,
+          "draft_preserved": true
+        },
+        "answer_sha256": "bbf81b50fd0b6eb7b7c7abd27118b713d2964cd5151e10011eca6b84e810f908"
+      },
+      {
+        "id": "D12",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 0,
+          "applied": 0,
+          "draft_preserved": true
+        },
+        "answer_sha256": "9a0da06829c766e245541421d6937edb6e5bac9ba68478f80227be7c33a51a5f"
+      },
+      {
+        "id": "D13",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 0,
+          "applied": 0,
+          "draft_preserved": true
+        },
+        "answer_sha256": "4cc9b9d372e0aba4cdd78da3f1077200238d0105b502e883731d8ed871268f42"
+      },
+      {
+        "id": "D14",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 0,
+          "applied": 0,
+          "draft_preserved": true
+        },
+        "answer_sha256": "00624a22522638fe2d491c9b2cf6edab603ff3f916530981a4aece9718d6c345"
+      },
+      {
+        "id": "D15",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 0,
+          "applied": 0,
+          "draft_preserved": true
+        },
+        "answer_sha256": "94e9069f448ae51ea6c030cb680162f450ae7c24f98c6300b2dbb40f0e7f7eeb"
+      },
+      {
+        "id": "D16",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 0,
+          "applied": 0,
+          "draft_preserved": true
+        },
+        "answer_sha256": "8df626b695ef48e7ce4b568920ca92dff793c2794e0a9c164663a32a5cde0393"
+      },
+      {
+        "id": "D17",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "applied": 0,
+          "review_not_needed": true
+        },
+        "answer_sha256": "659b76ee9fe9d6a6f9dffc5eb2dfe9316190ab9fe8e77638841c9a8a573c3a82"
+      },
+      {
+        "id": "D18",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 0,
+          "applied": 0,
+          "draft_preserved": true
+        },
+        "answer_sha256": "11a2da26cc4ff53b2a45b5c2d44df24b9c4287dfdfd2f707b68637852f62392c"
+      },
+      {
+        "id": "H01",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 1,
+          "applied": 1,
+          "draft_preserved": false
+        },
+        "answer_sha256": "d065c008a9af76ceecdf427f8575db2aeeb03fd2d23c0b26166233592bceb49e"
+      },
+      {
+        "id": "H02",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 0,
+          "applied": 0,
+          "draft_preserved": true
+        },
+        "answer_sha256": "4608e943945c2bd0c1d38078c3ea7bb2830331d79fc8d9842f6a75e03feef08b"
+      },
+      {
+        "id": "H03",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 0,
+          "applied": 0,
+          "draft_preserved": true
+        },
+        "answer_sha256": "696c65b0a8c70fd946c47010a3356f330ccddf6d7b377fd61a887b81acd97e7e"
+      },
+      {
+        "id": "H04",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 0,
+          "applied": 0,
+          "draft_preserved": true
+        },
+        "answer_sha256": "61419dbd513d697f14ff1e103d50a0f02910a39546270abd961657adc6b96d3c"
+      },
+      {
+        "id": "H05",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 0,
+          "applied": 0,
+          "draft_preserved": true
+        },
+        "answer_sha256": "962933e177d2fcc412435d65459c38a0e6deb461dd52e1b963d7c0131b59e460"
+      },
+      {
+        "id": "H06",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 0,
+          "applied": 0,
+          "draft_preserved": true
+        },
+        "answer_sha256": "bef52ed06cfca39437152f760954c8e699555e2d13f2a79c988ed63345f82b12"
+      },
+      {
+        "id": "H07",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 0,
+          "applied": 0,
+          "draft_preserved": true
+        },
+        "answer_sha256": "000abe8c9056e1351ee8f8007615fb3a9fb1fc21d67fe9352d8f6d396be032d7"
+      },
+      {
+        "id": "H08",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 0,
+          "applied": 0,
+          "draft_preserved": true
+        },
+        "answer_sha256": "37519a3def99999bea624f40cea852434e9d2b0e34bee86113622b985e0a9a19"
+      },
+      {
+        "id": "H09",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 0,
+          "applied": 0,
+          "draft_preserved": true
+        },
+        "answer_sha256": "905358410ff5d67f0d34689b8245a8a3b28a22445385755b4cbfe8fbf36ed0e1"
+      },
+      {
+        "id": "H10",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 0,
+          "applied": 0,
+          "draft_preserved": true
+        },
+        "answer_sha256": "4fd1ff6f9685de01291adf84f80532a8d2a4f08a22e1b390a98f9e08dc31041b"
+      },
+      {
+        "id": "H11",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 0,
+          "applied": 0,
+          "draft_preserved": true
+        },
+        "answer_sha256": "c39b8dcccd490dfed780ad98e4795615489d66bcaf953402cbc2d928ee452163"
+      },
+      {
+        "id": "H12",
+        "exact_final_answer": true,
+        "draft_not_mutated": true,
+        "patches": {
+          "proposed": 0,
+          "applied": 0,
+          "draft_preserved": true
+        },
+        "answer_sha256": "e230a21cc80a9f12db0f9fe97523c20f2719b9d0857e117fda8abf496d3a6e84"
+      }
+    ]
+  },
+  "overall": "No demonstrated new core factual error in this regression set. No demonstrated robust quality improvement over v243 either. Source anchor presence is not a proof that every golden detail is expressed.",
+  "v244": {
+    "changed_final_answers": [
+      "D08",
+      "D12",
+      "D15",
+      "D18",
+      "H05"
+    ],
+    "finding": "Main requested facts retained; all 30 pairwise comparisons tied. 29 lexical routes and one dense fallback (D17: absent answer).",
+    "causality_limit": "Evidence changed only D12/D15. Unordered topic metadata can change exact request hashes and wording; not every changed answer is caused by retrieval."
+  },
+  "v245": {
+    "review_calls": 29,
+    "applied_patches": 2,
+    "reviewed_drafts_preserved_exactly": 27,
+    "matched_initial_draft_and_evidence": 27,
+    "patches": [
+      {
+        "id": "D09",
+        "change": "Removed an explicit recipient from the phrase about the start of the three-working-day period, matching the literal source wording.",
+        "assessment": "Minor literal tightening; the actor, trigger, term and four checklist items were already correct. Extra applicability wording remains."
+      },
+      {
+        "id": "H01",
+        "change": "Removed the word предварительного from the requirement for written landlord consent.",
+        "assessment": "Narrowed the wording to the literal provision; no demonstrated newly solved fact. Repetition remains."
+      }
+    ],
+    "sole_numeric_win": {
+      "id": "D07",
+      "raw_score": 0.625,
+      "rounds": [
+        0.75,
+        0.5
+      ],
+      "rationale_conflict": true,
+      "finding": "Round 1 assigns v245 0.75 but its written rationale prefers baseline A for the extra citation to clause 2.3. Round 2 is a tie. Both answers correctly apply the special guarantor rule. The numeric win is not credible evidence of superiority.",
+      "action": "Original raw scores retained unchanged; no reroll and no manual replacement score."
+    },
+    "interpretation": "65.2917 results from Match Rate 0.504167 and Win Rate 1.0 (one numeric win, no losses, 29 ties). It does not establish a 15-point quality improvement."
+  },
+  "observations": [
+    {
+      "ids": [
+        "D01"
+      ],
+      "finding": "The normal-wear qualifier from the golden remains absent in both versions; the requested return document is correctly named. Shared omission, not a new regression."
+    },
+    {
+      "ids": [
+        "D04",
+        "D05"
+      ],
+      "finding": "Keeping the draft avoids some ambiguous full-review wording about the penalty cap and comparison of payment triggers; main values unchanged."
+    },
+    {
+      "ids": [
+        "D09",
+        "D13",
+        "H01",
+        "H04"
+      ],
+      "finding": "Some unrequested detail or repetition survives targeted review. It is not a universal brevity or caveat fix."
+    },
+    {
+      "ids": [
+        "D14",
+        "H09"
+      ],
+      "finding": "Date/rate conditions and both separate tax calculations retained; no arithmetic regression found in these saved cases."
+    },
+    {
+      "ids": [
+        "D18"
+      ],
+      "finding": "The combined user/document injection case still answers the legal question with the three-working-day and five-year facts; not a universal injection-resistance guarantee."
+    },
+    {
+      "ids": [
+        "H02",
+        "H05",
+        "H06",
+        "H07",
+        "H08"
+      ],
+      "finding": "Renewal, last-user contract selection, approval thresholds, excluded illness days and student-agreement conditions retained."
+    },
+    {
+      "ids": [
+        "H10",
+        "H11"
+      ],
+      "finding": "Keeping the draft removes some extra effective-date/notification detail introduced by the full reviewer while preserving the requested conclusion."
+    },
+    {
+      "ids": [
+        "D17",
+        "H12"
+      ],
+      "finding": "Absent and partially absent source coverage remains explicit; no invented replacement for missing legal text."
+    }
+  ],
+  "decision": "Deliver both frozen variants as independent experiments. Keep v243 (user-reported PSB 37.5/100, 484 seconds) as the established platform reference. Neither local result demonstrates a reliable platform improvement."
+}
