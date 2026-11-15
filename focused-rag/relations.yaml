@@ -1,0 +1,26 @@
+relations:
+- source: документы компании__Доп соглашение 1 к договору П-17-2024.txt
+  target: документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt
+  kind: amends
+  condition: specification_date > 2024-10-01
+  evidence_locator: преамбула
+- source: документы компании__Регламент согласования договоров ред 2025.txt
+  target: документы компании__Регламент согласования договоров ред 2023 (утратил силу).txt
+  kind: supersedes
+  condition: event_date >= 2025-03-01
+  evidence_locator: преамбула
+- source: документы компании__Письмо комплаенс-службы К-12 от 15.04.2025.txt
+  target: документы компании__Регламент согласования договоров ред 2025.txt
+  kind: supplements
+  condition: event_date >= 2025-04-21
+  evidence_locator: преамбула
+- source: законы__НК_ст114_действующая.txt
+  target: законы__НК_ст112_действующая.txt
+  kind: cites
+  condition: reference only
+  evidence_locator: преамбула
+- source: законы__НК_ст145_действующая.txt
+  target: законы__НК_ст164_действующая.txt
+  kind: cites
+  condition: reference only
+  evidence_locator: преамбула
