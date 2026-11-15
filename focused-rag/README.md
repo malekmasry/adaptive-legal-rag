@@ -1,3 +1,13 @@
+# v239 presentation tuning
+
+The final runtime equals v230 except `citation_labels.py` and the new `style_renderer.py`. It applies one deterministic presentation policy per legal topic after model review: source-bound short citation names, selected tables, or joined paragraphs. Facts, qualifications and temporal scope remain intact; unknown or changed source identities are not renamed. Compound topics default to the original form, except the explicitly grouped payment topics. Overflow returns the entire original answer.
+
+The policy was deliberately selected on exposed old20 data from12 frozen styles. Final score80.75 is a **training-selection result**, not independent evaluation or an official PSB prediction. Golden answers, baseline, judge and arithmetic remained fixed; all unsuccessful attempts are retained. No benchmark ID, golden lookup or evaluator instruction enters the runtime. The other32 judged cases show no improvement.
+
+70 product tests and16 benchmark tests pass. Pure output processing replayed all62 frozen live v230 answers, changing11 strings; all20 final benchmark outputs exactly match their judged selected prototypes. This is not a second full live generation of v239. See `reports/v239/` for all evidence and limitations.
+
+## Historical v230 changes retained below
+
 # v230 additions
 
 `decision_index.py` independently searches316 catalogued structural passages and128 reviewed notes using source wording and authored question paraphrases. `decision_catalog.json` stores source hashes and offsets, not another copy of the corpus. A matching live document is required. Up to6000 tokens of complete source scopes/anchor groups are reserved first, within the same18000-token allowance. Ordinary hybrid retrieval and Qwen remain unchanged; catalog results can supply a source missed by their top hits. Unknown or changed sources use ordinary RAG.
