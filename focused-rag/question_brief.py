@@ -34,13 +34,25 @@ class QuestionBrief(BaseModel):
 def citation_catalog(question,evidence,budget):
     """Rank source paragraphs, then round-robin documents to avoid one monopoly."""
     query=set(tokens(question));groups={};seen=set()
+    identifiers=set(re.findall(r'(?<![\w.])\d+(?:\.\d+)+(?!\w|\.\d)',question))
     for e in evidence:
         notes='примечан' in e.get('scope','').lower()
+        preamble=''
         for line in e['text'].splitlines():
             line=line.strip()
+            if not line:continue
+            item=re.match(r'^(\d+(?:\.\d+)*)\)\s+',line)
+            parent=preamble if item else ''
+            if not item:preamble=line if line.endswith(':') else ''
+            # Exact dotted identifiers in a list item distinguish neighboring
+            # legal categories. Carry the governing introduction separately:
+            # both are literal source spans, never a fabricated joined quote.
+            relevant_item=bool(parent and len(parent)<=400 and len(line)<=900 and
+                identifiers.intersection(re.findall(r'(?<![\w.])\d+(?:\.\d+)+(?!\w|\.\d)',line)))
+            key=(e['document'],line,parent if relevant_item else '')
             if re.match(r'^Примечания?\b',line,re.I):notes=True
-            if len(line)<20 or (e['document'],line) in seen:continue
-            seen.add((e['document'],line))
+            if len(line)<20 or key in seen:continue
+            seen.add(key)
             # Copies of source text are always data, including any embedded attack.
             m=re.match(r'^(\d+(?:\.\d+)*)\.\s+',line)
             locator='абзац «'+line[:80].rstrip()+'»'
@@ -49,17 +61,23 @@ def citation_catalog(question,evidence,budget):
                 elif 'КоАП' not in e['document'] or e.get('scope')=='полный документ':
                     locator=('ч. ' if re.search(r'КоАП|152ФЗ',e['document']) else 'п. ')+m[1]
             quote=line if len(line)<=220 else line[:220].rsplit(' ',1)[0]
+            if relevant_item:
+                locator='абзац «'+parent[:80].rstrip()+'», пункт '+item[1]+' перечня'
+                quote=line
             assert quote in e['text']
             row={'source_id':e['source_id'],'document':e['document'],'locator':locator,'quote':quote,
                  'excerpt_only':len(quote)<len(line)}
+            if relevant_item:
+                assert parent in e['text']
+                row['list_preamble_quote']=parent
             score=len(query.intersection(tokens(line)))+0.2*len(query.intersection(tokens(e['document'])))
-            groups.setdefault(e['document'],[]).append((score,row))
-    for rows in groups.values():rows.sort(key=lambda x:-x[0])
-    order=sorted(groups,key=lambda key:-groups[key][0][0]);result=[];used=0
+            groups.setdefault(e['document'],[]).append((int(relevant_item),score,row))
+    for rows in groups.values():rows.sort(key=lambda x:(-x[0],-x[1]))
+    order=sorted(groups,key=lambda key:(-groups[key][0][0],-groups[key][0][1]));result=[];used=0
     for depth in range(max((len(rows) for rows in groups.values()),default=0)):
         for document in order:
             if depth>=len(groups[document]):continue
-            row={'citation_id':'C'+str(len(result)+1),**groups[document][depth][1]}
+            row={'citation_id':'C'+str(len(result)+1),**groups[document][depth][2]}
             cost=estimate_tokens(json.dumps(row,ensure_ascii=False))
             if used+cost>budget:continue
             result.append(row);used+=cost

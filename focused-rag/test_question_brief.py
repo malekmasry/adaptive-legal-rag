@@ -26,6 +26,39 @@ class QuestionBriefTests(unittest.TestCase):
         self.assertEqual(ev[0]['text'],self.raw)
     def test_catalog_respects_tiny_budget(self):
         self.assertEqual(citation_catalog(self.question,self.evidence(),1),([],0))
+
+    def test_specific_list_category_keeps_its_governing_preamble(self):
+        parent='Предел составляет 75 часов для следующих категорий:'
+        item='2) работники с условиями подклассов 4.7 и 4.8.'
+        text=parent+'\n\n1) другая категория работников.\n\n'+item+'\n\nДля подклассов 4.1 и 4.2 допускается увеличение по соглашению.'
+        ev=[{'source_id':'D1','document':'Тестовый источник','text':text}]
+        rows,cost=citation_catalog('Работник с подклассом 4.7: какой предел?',ev,900)
+        self.assertLessEqual(cost,900)
+        self.assertEqual(rows[0]['quote'],item)
+        self.assertEqual(rows[0]['list_preamble_quote'],parent)
+        self.assertIn('пункт 2 перечня',rows[0]['locator'])
+        self.assertTrue(all(r['quote'] in text and r.get('list_preamble_quote','') in text for r in rows))
+        self.assertEqual(ev[0]['text'],text)
+        changed=text.replace('75 часов','82 часа').replace('4.7','6.9')
+        rows,_=citation_catalog('Подкласс 6.9: какой предел?',[{**ev[0],'text':changed}],900)
+        self.assertIn('82 часа',rows[0]['list_preamble_quote'])
+        self.assertIn('6.9',rows[0]['quote'])
+
+    def test_list_preamble_is_not_borrowed_from_a_previous_section(self):
+        text='Предел для следующих категорий:\n1) работники подкласса 4.7.\nОтдельный раздел без списка.\n2) иные работники подкласса 4.8.'
+        rows,_=citation_catalog('Подкласс 4.8',[{'source_id':'D1','document':'Тест','text':text}],900)
+        target=next(r for r in rows if r['quote'].startswith('2)'))
+        self.assertNotIn('list_preamble_quote',target)
+
+    def test_later_complete_source_can_restore_list_context(self):
+        item='2) работники с условиями подкласса 4.7.'
+        parent='Продолжительность ограничена для следующих категорий:'
+        ev=[{'source_id':'D1','document':'Тест','text':item},
+            {'source_id':'D2','document':'Тест','text':parent+'\n'+item}]
+        rows,_=citation_catalog('Подкласс 4.7',ev,900)
+        self.assertEqual(rows[0]['source_id'],'D2')
+        self.assertEqual(rows[0]['list_preamble_quote'],parent)
+        self.assertEqual(citation_catalog('Подкласс 4.7',ev,1),([],0))
     def test_numbered_notes_are_not_mislabeled_as_article_parts(self):
         ev=[{'source_id':'D1','document':'КоАП_ст13.11','scope':'полный документ',
             'text':'3. Основное правило для определенной категории.\nПримечания:\n3. Специальное правило для иной категории.'}]
