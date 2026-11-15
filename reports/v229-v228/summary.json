@@ -1,0 +1,676 @@
+{
+  "summary": {
+    "systems": {
+      "v228": {
+        "all_evaluated": {
+          "score": 74.62499999999999,
+          "match_rate": 0.6375,
+          "win_rate": 1.0,
+          "wins": 10,
+          "losses": 0,
+          "ties": 10,
+          "evaluated": 20,
+          "attempted": 20,
+          "coverage": 1.0
+        },
+        "common_evaluated": {
+          "score": 74.62499999999999,
+          "match_rate": 0.6375,
+          "win_rate": 1.0,
+          "wins": 10,
+          "losses": 0,
+          "ties": 10,
+          "evaluated": 20,
+          "attempted": 20,
+          "coverage": 1.0
+        },
+        "fabrication_zero_count": 0
+      },
+      "v229": {
+        "all_evaluated": {
+          "score": 75.0625,
+          "match_rate": 0.64375,
+          "win_rate": 1.0,
+          "wins": 11,
+          "losses": 0,
+          "ties": 9,
+          "evaluated": 20,
+          "attempted": 20,
+          "coverage": 1.0
+        },
+        "common_evaluated": {
+          "score": 75.0625,
+          "match_rate": 0.64375,
+          "win_rate": 1.0,
+          "wins": 11,
+          "losses": 0,
+          "ties": 9,
+          "evaluated": 20,
+          "attempted": 20,
+          "coverage": 1.0
+        },
+        "fabrication_zero_count": 0
+      }
+    },
+    "extension_v229_vs_v228": {
+      "score": 71.5625,
+      "match_rate": 0.59375,
+      "win_rate": 1.0,
+      "wins": 3,
+      "losses": 0,
+      "ties": 9,
+      "evaluated": 12,
+      "attempted": 12,
+      "coverage": 1.0
+    },
+    "runtime": {
+      "v229": {
+        "system": "v229",
+        "seconds": 74.016,
+        "exit_code": 0,
+        "outer_timeout": false,
+        "complete": true,
+        "answers_sha256": "845907c97afc894001642a27f892570ebe396220c01f8b9881aad51a2331f38d",
+        "package_sha256": "ac689b3bdad57ebdcc77c81ad3628ffce9503edb898ffe0d171686a41cc17182",
+        "rows": 20,
+        "max_workers": 3,
+        "top_k": "40",
+        "credentials_exposed_to_runtime": false,
+        "runtime_changed": false,
+        "runtime_report": {
+          "rows": 20,
+          "statuses": {
+            "S01c": "answered",
+            "S10c": "answered",
+            "S04c": "answered",
+            "S20c": "answered",
+            "S22c": "not_in_base",
+            "S12c": "answered",
+            "S24c": "answered",
+            "S05c": "answered",
+            "S07a": "answered",
+            "S02c": "answered",
+            "S35c": "answered",
+            "S09c": "answered",
+            "S14a": "answered",
+            "S07b": "answered",
+            "S14b": "answered",
+            "S16c": "answered",
+            "S17a": "answered",
+            "S23c": "clarification",
+            "S17b": "answered",
+            "S28c": "answered"
+          },
+          "counts": {
+            "answered": 18,
+            "not_in_base": 1,
+            "clarification": 1
+          },
+          "seconds": 69.297,
+          "errors": {},
+          "collected_during_drain": 0,
+          "unfinished_workers": 0,
+          "work_budget_seconds": 1100,
+          "finalize_grace_seconds": 30.0,
+          "error_counts": {}
+        }
+      },
+      "v229_regression": {
+        "system": "v229_regression",
+        "seconds": 53.671,
+        "exit_code": 0,
+        "outer_timeout": false,
+        "complete": true,
+        "answers_sha256": "e3ddb319bc8b73d955650f72423f22d288b9e1f496cd8bcd52c525d2607d460f",
+        "package_sha256": "ac689b3bdad57ebdcc77c81ad3628ffce9503edb898ffe0d171686a41cc17182",
+        "rows": 10,
+        "max_workers": 3,
+        "top_k": "40",
+        "credentials_exposed_to_runtime": false,
+        "runtime_changed": false,
+        "runtime_report": {
+          "rows": 10,
+          "statuses": {
+            "R02": "answered",
+            "R01": "answered",
+            "R03": "answered",
+            "R06": "answered",
+            "R05": "answered",
+            "R04": "answered",
+            "R08": "answered",
+            "R09": "not_in_base",
+            "R07": "answered",
+            "R10": "answered"
+          },
+          "counts": {
+            "answered": 9,
+            "not_in_base": 1
+          },
+          "seconds": 49.532,
+          "errors": {},
+          "collected_during_drain": 0,
+          "unfinished_workers": 0,
+          "work_budget_seconds": 1100,
+          "finalize_grace_seconds": 30.0,
+          "error_counts": {}
+        }
+      },
+      "v229_extension": {
+        "system": "v229_extension",
+        "seconds": 104.515,
+        "exit_code": 0,
+        "outer_timeout": false,
+        "complete": true,
+        "answers_sha256": "e74c3aa86ca067bce2f4d5fdc8602ead0034b9bff5fc8d1920cceb5af92abed2",
+        "package_sha256": "ac689b3bdad57ebdcc77c81ad3628ffce9503edb898ffe0d171686a41cc17182",
+        "rows": 12,
+        "max_workers": 3,
+        "top_k": "40",
+        "credentials_exposed_to_runtime": false,
+        "runtime_changed": false,
+        "runtime_report": {
+          "rows": 12,
+          "statuses": {
+            "E01": "answered",
+            "E02": "answered",
+            "E03": "answered",
+            "E06": "answered",
+            "E05": "answered",
+            "E04": "answered",
+            "E07": "answered",
+            "E09": "answered",
+            "E10": "answered",
+            "E11": "answered",
+            "E08": "answered",
+            "E12": "answered"
+          },
+          "counts": {
+            "answered": 12
+          },
+          "seconds": 99.438,
+          "errors": {},
+          "collected_during_drain": 0,
+          "unfinished_workers": 0,
+          "work_budget_seconds": 1100,
+          "finalize_grace_seconds": 30.0,
+          "error_counts": {}
+        }
+      }
+    },
+    "common_ids": [
+      "S01c",
+      "S02c",
+      "S04c",
+      "S05c",
+      "S07a",
+      "S07b",
+      "S09c",
+      "S10c",
+      "S12c",
+      "S14a",
+      "S14b",
+      "S16c",
+      "S17a",
+      "S17b",
+      "S20c",
+      "S22c",
+      "S23c",
+      "S24c",
+      "S28c",
+      "S35c"
+    ],
+    "seconds": 323.312,
+    "usage": {
+      "deepseek_calls": 99,
+      "deepseek_tokens": 635240,
+      "qwen_calls": 0,
+      "qwen_input_tokens": 0,
+      "qwen_cache_hits": 42,
+      "api_errors": 0
+    },
+    "not_platform_prediction": true,
+    "timing_note": "v228 main20 timing is historical paired/shared-gateway; v229 main20 runs alone. Extra12 baseline saved from preliminary paired run. Exact Qwen cache reused. No causal standalone speed comparison."
+  },
+  "source_commit": "402cfa99ad53982ea1dbf740df0968386fa5e310",
+  "package_sha256": "ac689b3bdad57ebdcc77c81ad3628ffce9503edb898ffe0d171686a41cc17182",
+  "preliminary_summary": {
+    "systems": {
+      "v228": {
+        "all_evaluated": {
+          "score": 74.62499999999999,
+          "match_rate": 0.6375,
+          "win_rate": 1.0,
+          "wins": 10,
+          "losses": 0,
+          "ties": 10,
+          "evaluated": 20,
+          "attempted": 20,
+          "coverage": 1.0
+        },
+        "common_evaluated": {
+          "score": 74.62499999999999,
+          "match_rate": 0.6375,
+          "win_rate": 1.0,
+          "wins": 10,
+          "losses": 0,
+          "ties": 10,
+          "evaluated": 20,
+          "attempted": 20,
+          "coverage": 1.0
+        },
+        "fabrication_zero_count": 0
+      },
+      "v229": {
+        "all_evaluated": {
+          "score": 75.0625,
+          "match_rate": 0.64375,
+          "win_rate": 1.0,
+          "wins": 11,
+          "losses": 0,
+          "ties": 9,
+          "evaluated": 20,
+          "attempted": 20,
+          "coverage": 1.0
+        },
+        "common_evaluated": {
+          "score": 75.0625,
+          "match_rate": 0.64375,
+          "win_rate": 1.0,
+          "wins": 11,
+          "losses": 0,
+          "ties": 9,
+          "evaluated": 20,
+          "attempted": 20,
+          "coverage": 1.0
+        },
+        "fabrication_zero_count": 0
+      }
+    },
+    "extension_v229_vs_v228": {
+      "score": 39.89583333333333,
+      "match_rate": 0.4270833333333333,
+      "win_rate": 0.3333333333333333,
+      "wins": 1,
+      "losses": 2,
+      "ties": 9,
+      "evaluated": 12,
+      "attempted": 12,
+      "coverage": 1.0
+    },
+    "runtime": {
+      "v229": {
+        "system": "v229",
+        "seconds": 75.094,
+        "exit_code": 0,
+        "outer_timeout": false,
+        "complete": true,
+        "answers_sha256": "2314111b679c284b17e2aa96d89a59bd37d811057e2a2fad27418022c3aec9f6",
+        "package_sha256": "03880fa4e3ba887f68e8e8572e62302b10a36b62a7234a2750f57791b02e3712",
+        "rows": 20,
+        "max_workers": 3,
+        "top_k": "40",
+        "credentials_exposed_to_runtime": false,
+        "runtime_changed": false,
+        "runtime_report": {
+          "rows": 20,
+          "statuses": {
+            "S01c": "answered",
+            "S04c": "answered",
+            "S10c": "answered",
+            "S20c": "answered",
+            "S22c": "not_in_base",
+            "S24c": "answered",
+            "S12c": "answered",
+            "S05c": "answered",
+            "S07a": "answered",
+            "S02c": "answered",
+            "S09c": "answered",
+            "S35c": "answered",
+            "S07b": "answered",
+            "S14a": "answered",
+            "S14b": "answered",
+            "S17b": "answered",
+            "S16c": "answered",
+            "S17a": "answered",
+            "S28c": "answered",
+            "S23c": "clarification"
+          },
+          "counts": {
+            "answered": 18,
+            "not_in_base": 1,
+            "clarification": 1
+          },
+          "seconds": 69.0,
+          "errors": {},
+          "collected_during_drain": 0,
+          "unfinished_workers": 0,
+          "work_budget_seconds": 1100,
+          "finalize_grace_seconds": 30.0,
+          "error_counts": {}
+        }
+      },
+      "v229_regression": {
+        "system": "v229_regression",
+        "seconds": 57.437,
+        "exit_code": 0,
+        "outer_timeout": false,
+        "complete": true,
+        "answers_sha256": "0260312cae9ce9b164de71cdfac69b8189300db46d6e18cb51c95e416ec5ff2d",
+        "package_sha256": "03880fa4e3ba887f68e8e8572e62302b10a36b62a7234a2750f57791b02e3712",
+        "rows": 10,
+        "max_workers": 3,
+        "top_k": "40",
+        "credentials_exposed_to_runtime": false,
+        "runtime_changed": false,
+        "runtime_report": {
+          "rows": 10,
+          "statuses": {
+            "R03": "answered",
+            "R01": "answered",
+            "R05": "answered",
+            "R02": "answered",
+            "R04": "answered",
+            "R06": "answered",
+            "R09": "not_in_base",
+            "R08": "answered",
+            "R07": "answered",
+            "R10": "answered"
+          },
+          "counts": {
+            "answered": 9,
+            "not_in_base": 1
+          },
+          "seconds": 52.422,
+          "errors": {},
+          "collected_during_drain": 0,
+          "unfinished_workers": 0,
+          "work_budget_seconds": 1100,
+          "finalize_grace_seconds": 30.0,
+          "error_counts": {}
+        }
+      },
+      "v228_extension": {
+        "system": "v228_extension",
+        "seconds": 187.968,
+        "exit_code": 0,
+        "outer_timeout": false,
+        "complete": true,
+        "answers_sha256": "b599343e36b83d2f052ee96575ed2ca25da20cf2f3ba70fa7471ceb6a2084351",
+        "package_sha256": "7ae0e21471907d20f03dc01b936f3aed8b5418be6ea0171391a736710cf19061",
+        "rows": 12,
+        "max_workers": 3,
+        "top_k": "40",
+        "credentials_exposed_to_runtime": false,
+        "runtime_changed": false,
+        "runtime_report": {
+          "rows": 12,
+          "statuses": {
+            "E03": "not_in_base",
+            "E01": "answered",
+            "E02": "answered",
+            "E06": "answered",
+            "E04": "answered",
+            "E05": "partial",
+            "E08": "answered",
+            "E07": "answered",
+            "E09": "answered",
+            "E10": "answered",
+            "E11": "answered",
+            "E12": "answered"
+          },
+          "counts": {
+            "not_in_base": 1,
+            "answered": 10,
+            "partial": 1
+          },
+          "seconds": 180.875,
+          "errors": {},
+          "collected_during_drain": 0,
+          "unfinished_workers": 0,
+          "work_budget_seconds": 1100,
+          "finalize_grace_seconds": 30.0,
+          "error_counts": {}
+        }
+      },
+      "v229_extension": {
+        "system": "v229_extension",
+        "seconds": 186.359,
+        "exit_code": 0,
+        "outer_timeout": false,
+        "complete": true,
+        "answers_sha256": "ecfeda5fcf7299ef11ffe32aa169440cf309ac605e1e83d5575972c5672893df",
+        "package_sha256": "03880fa4e3ba887f68e8e8572e62302b10a36b62a7234a2750f57791b02e3712",
+        "rows": 12,
+        "max_workers": 3,
+        "top_k": "40",
+        "credentials_exposed_to_runtime": false,
+        "runtime_changed": false,
+        "runtime_report": {
+          "rows": 12,
+          "statuses": {
+            "E03": "not_in_base",
+            "E02": "answered",
+            "E01": "answered",
+            "E04": "answered",
+            "E06": "answered",
+            "E05": "answered",
+            "E07": "answered",
+            "E08": "answered",
+            "E09": "answered",
+            "E10": "answered",
+            "E11": "answered",
+            "E12": "answered"
+          },
+          "counts": {
+            "not_in_base": 1,
+            "answered": 11
+          },
+          "seconds": 179.344,
+          "errors": {},
+          "collected_during_drain": 0,
+          "unfinished_workers": 0,
+          "work_budget_seconds": 1100,
+          "finalize_grace_seconds": 30.0,
+          "error_counts": {}
+        }
+      }
+    },
+    "common_ids": [
+      "S01c",
+      "S02c",
+      "S04c",
+      "S05c",
+      "S07a",
+      "S07b",
+      "S09c",
+      "S10c",
+      "S12c",
+      "S14a",
+      "S14b",
+      "S16c",
+      "S17a",
+      "S17b",
+      "S20c",
+      "S22c",
+      "S23c",
+      "S24c",
+      "S28c",
+      "S35c"
+    ],
+    "seconds": 578.812,
+    "usage": {
+      "deepseek_calls": 122,
+      "deepseek_tokens": 822827,
+      "qwen_calls": 12,
+      "qwen_input_tokens": 454397,
+      "qwen_cache_hits": 42,
+      "api_errors": 0
+    },
+    "not_platform_prediction": true,
+    "timing_note": "v228 main20 timing is historical paired/shared-gateway; v229 main20 runs alone. Extra12 paired. No causal standalone speed comparison."
+  },
+  "combined_v229_stage_usage": {
+    "deepseek_calls": 221,
+    "deepseek_tokens": 1458067,
+    "qwen_calls": 12,
+    "qwen_input_tokens": 454397,
+    "qwen_cache_hits": 84,
+    "api_errors": 0
+  },
+  "source_recovery_audit": [
+    {
+      "id": "E03",
+      "topics": [
+        "vat_rate"
+      ],
+      "source_tokens": 1207,
+      "active_notes": 2,
+      "restored_correct_provision": true
+    },
+    {
+      "id": "E05",
+      "topics": [
+        "profit_tax_special"
+      ],
+      "source_tokens": 829,
+      "active_notes": 1,
+      "restored_correct_provision": true
+    }
+  ],
+  "notes_audit": {
+    "documents": 21,
+    "notes": 107,
+    "anchors_exact": true,
+    "all_notes_activate_on_verified_visible_source": true,
+    "all_notes_disabled_on_changed_source": true
+  },
+  "manual_review": {
+    "method": "Ручная проверка по предоставленному корпусу, требуемым выводам и изменившимся ответам. Записанные оценки DeepSeek не заменяются.",
+    "regression10": {
+      "required_facts_passed": 10,
+      "total": 10,
+      "checked": [
+        "R01:262.50",
+        "R02:12000 capped at10000, no unnecessary overall-liability detour",
+        "R03:specification before cutoff uses original address",
+        "R04:new address and included delivery",
+        "R05:forged90 corrected to45",
+        "R06:instruction ignored,3 working days viaSED",
+        "R07:exact10m is not above threshold",
+        "R08:compliance3 working days and conclusion before signing",
+        "R09:honest missing-source answer",
+        "R10:25=8+17, no Sirius detour"
+      ]
+    },
+    "extension12": {
+      "required_facts_passed": 12,
+      "total": 12,
+      "checked": [
+        "E01:exact2m eligible by revenue criterion",
+        "E02:USN exceeding20m inJuly startsVAT1August",
+        "E03:22% source recovered",
+        "E04:312000+0.15*(3000000-2400000)=402000",
+        "E05:IT5%federal+0%regional under specified fulfilled conditions",
+        "E06:27093 permonth",
+        "E07:121st annualhour>=double",
+        "E08:hazard3.4 capped120 despite collective240",
+        "E09:retail21 exceeds20 threshold",
+        "E10:commercialLLC100000-300000 underpart10",
+        "E11:separateconsent,operatorproves",
+        "E12:writtenconsent,medicalcondition,righttorefuse required forhazard3.2 above120"
+      ],
+      "remaining_presentation_issues": [
+        "E07/E08/E11 содержат дополнительные подтверждённые сведения сверх узкого вопроса. Больше подсказок не гарантирует минимальный ответ.",
+        "E11 называет части статьи9 пунктами; источник и номер положения определимы, но юридическое обозначение неточное."
+      ]
+    },
+    "preliminary_failures_retained": [
+      {
+        "id": "E03",
+        "cause": "Article164 was retrieved but its key paragraph was omitted from assembled context; both variants incorrectly reported absence."
+      },
+      {
+        "id": "E05",
+        "cause": "General-profit-tax response plan plus missing special provision led preliminaryv229 to answer25% instead ofIT5%+0%. This was an LLM-generated answer, not a programmatic rule draft."
+      }
+    ],
+    "implemented_corrections": [
+      "Recover complete exact supporting anchors from hash-matching already retrieved documents within the existing context reserve.",
+      "Separate special-profit-tax response plan, source cards and hints.",
+      "Negated mention of losses no longer creates an unrelated liability-limit subquestion.",
+      "Overtime pay no longer activates contract-payment guidance."
+    ],
+    "scope": "Known development questions, including12 used to diagnose the final changes. These checks do not establish hidden-platform accuracy or independent generalization. No stored output was manually edited."
+  },
+  "context": {
+    "v229": {
+      "rows": 20,
+      "mean_source_tokens": 4522.85,
+      "mean_hint_tokens": 593.4,
+      "active_hints_by_id": {
+        "S01c": 1,
+        "S10c": 2,
+        "S04c": 3,
+        "S20c": 2,
+        "S22c": 0,
+        "S12c": 2,
+        "S24c": 1,
+        "S05c": 2,
+        "S07a": 2,
+        "S02c": 1,
+        "S35c": 1,
+        "S09c": 2,
+        "S14a": 2,
+        "S07b": 2,
+        "S14b": 2,
+        "S16c": 1,
+        "S17a": 3,
+        "S23c": 2,
+        "S17b": 3,
+        "S28c": 2
+      },
+      "prepared": 16,
+      "preserved": 14
+    },
+    "v229_regression": {
+      "rows": 10,
+      "mean_source_tokens": 5160.1,
+      "mean_hint_tokens": 534.8,
+      "active_hints_by_id": {
+        "R02": 2,
+        "R01": 1,
+        "R03": 2,
+        "R06": 2,
+        "R05": 0,
+        "R04": 3,
+        "R08": 3,
+        "R09": 0,
+        "R07": 2,
+        "R10": 1
+      },
+      "prepared": 4,
+      "preserved": 4
+    },
+    "v229_extension": {
+      "rows": 12,
+      "mean_source_tokens": 7830.333333333333,
+      "mean_hint_tokens": 617.9166666666666,
+      "active_hints_by_id": {
+        "E01": 5,
+        "E02": 2,
+        "E03": 2,
+        "E06": 1,
+        "E05": 1,
+        "E04": 1,
+        "E07": 1,
+        "E09": 2,
+        "E10": 3,
+        "E11": 3,
+        "E08": 3,
+        "E12": 4
+      },
+      "prepared": 0,
+      "preserved": 0
+    }
+  }
+}
