@@ -1,0 +1,6 @@
+{
+  "package_sha256": "01ae284797aaf437371309d4a7e213cfad554c6145dfb39f080e4a6b6f80733f",
+  "runner_sha256": "f15411ce9900168048cdd8cea6feb9f7ba0838c4e73a808dccad27643634eaf1",
+  "source_commit": "c7928d0a1bed00e9a5c3b1a883180bda577bca79",
+  "scope": "26 exposed regression cases; targeted source-scenario fixes, not an independent holdout"
+}

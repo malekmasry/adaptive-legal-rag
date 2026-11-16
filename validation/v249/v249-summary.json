@@ -1,0 +1,86 @@
+{
+  "variant": "v249",
+  "runtime": {
+    "system": "v249",
+    "seconds": 81.453,
+    "exit_code": 0,
+    "complete": true,
+    "outer_timeout": false,
+    "rows": 26,
+    "answers_sha256": "62e4e2ee860c16b6cc25b52d9a6db704cda30c3b6e2f208d3472c7dd4f21d97c",
+    "package_sha256": "01ae284797aaf437371309d4a7e213cfad554c6145dfb39f080e4a6b6f80733f",
+    "runtime_changed": false,
+    "as_of": "2026-11-16",
+    "workers": 3,
+    "python_hash_seed": 0,
+    "runtime_report": {
+      "rows": 26,
+      "statuses": {
+        "B02": "answered",
+        "B01": "answered",
+        "B05": "answered",
+        "B06": "answered",
+        "B07": "answered",
+        "B08": "answered",
+        "B03": "answered",
+        "B10": "partial",
+        "B11": "answered",
+        "B04": "answered",
+        "B12": "answered",
+        "B13": "answered",
+        "B14": "answered",
+        "B09": "answered",
+        "T01": "answered",
+        "T04": "answered",
+        "T05": "answered",
+        "T06": "partial",
+        "N01": "answered",
+        "N02": "answered",
+        "N03": "answered",
+        "N04": "answered",
+        "T02": "answered",
+        "N05": "answered",
+        "N06": "answered",
+        "T03": "answered"
+      },
+      "counts": {
+        "answered": 24,
+        "partial": 2
+      },
+      "seconds": 70.328,
+      "errors": {},
+      "collected_during_drain": 0,
+      "unfinished_workers": 0,
+      "work_budget_seconds": 1100,
+      "finalize_grace_seconds": 30.0,
+      "error_counts": {}
+    }
+  },
+  "usage_before": {
+    "deepseek_calls": 67,
+    "deepseek_tokens": 904216,
+    "qwen_calls": 6,
+    "qwen_input_tokens": 266096,
+    "api_errors": 0
+  },
+  "cumulative_usage": {
+    "deepseek_calls": 81,
+    "deepseek_tokens": 1081104,
+    "qwen_calls": 6,
+    "qwen_input_tokens": 266096,
+    "api_errors": 0
+  },
+  "generation_cache_hits": 64,
+  "qwen_cache_hits": 26,
+  "paid_judge_calls": 0,
+  "changed_answer_ids": [
+    "B01",
+    "B03",
+    "B04",
+    "B09",
+    "T01",
+    "T02",
+    "T03"
+  ],
+  "scope": "All 26 cases are now exposed regressions. No independent holdout or PSB score claim."
+}

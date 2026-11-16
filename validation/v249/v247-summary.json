@@ -1,0 +1,76 @@
+{
+  "variant": "v247",
+  "runtime": {
+    "system": "v247",
+    "seconds": 123.125,
+    "exit_code": 0,
+    "complete": true,
+    "outer_timeout": false,
+    "rows": 26,
+    "answers_sha256": "d08ee3c8127ffe6725f035cc2bdedf448faba71211659a82acab304feb2d389f",
+    "package_sha256": "8369ef2a7b4d3bd11bdd6c74b403fabf1b5e692fc63a94aec75248845893dc26",
+    "runtime_changed": false,
+    "as_of": "2026-11-16",
+    "workers": 3,
+    "python_hash_seed": 0,
+    "runtime_report": {
+      "rows": 26,
+      "statuses": {
+        "B01": "answered",
+        "B03": "answered",
+        "B02": "answered",
+        "B04": "answered",
+        "B06": "answered",
+        "B05": "answered",
+        "B07": "answered",
+        "B08": "answered",
+        "B09": "answered",
+        "B10": "partial",
+        "B11": "answered",
+        "B12": "answered",
+        "B13": "answered",
+        "T01": "answered",
+        "B14": "answered",
+        "T02": "answered",
+        "T03": "answered",
+        "T04": "answered",
+        "T05": "answered",
+        "T06": "partial",
+        "N03": "answered",
+        "N02": "answered",
+        "N01": "answered",
+        "N04": "answered",
+        "N06": "answered",
+        "N05": "answered"
+      },
+      "counts": {
+        "answered": 24,
+        "partial": 2
+      },
+      "seconds": 107.547,
+      "errors": {},
+      "collected_during_drain": 0,
+      "unfinished_workers": 0,
+      "work_budget_seconds": 1100,
+      "finalize_grace_seconds": 30.0,
+      "error_counts": {}
+    }
+  },
+  "cumulative_usage": {
+    "deepseek_calls": 18,
+    "deepseek_tokens": 245910,
+    "qwen_calls": 6,
+    "qwen_input_tokens": 266096,
+    "api_errors": 0
+  },
+  "usage_before": {
+    "deepseek_calls": 0,
+    "deepseek_tokens": 0,
+    "qwen_calls": 0,
+    "qwen_input_tokens": 0,
+    "api_errors": 0
+  },
+  "generation_cache_hits": 60,
+  "qwen_cache_hits": 20,
+  "paid_judge_calls": 0
+}

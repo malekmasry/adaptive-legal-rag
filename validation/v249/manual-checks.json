@@ -1,0 +1,19 @@
+{
+  "method": "Assistant read and compared every final answer with literal source anchors; no paid judge or PSB score.",
+  "requested_facts": "No incorrect requested conclusion or calculation found in final 26. This is a local manual assessment, not a perfect-answer or hidden-test score.",
+  "initial_v248_defects": {
+    "B01": "Asserted combined increase <=7 for sequential 5% then2%; fixed by removing false premise and teaching composition.",
+    "B03": "Unrequested quantity-acceptance added; removed.",
+    "T01": "Invented missing trigger for advance price-change notice; corrected to before price change.",
+    "T03": "Enumerated checklist without appendix locator; appendix citation restored."
+  },
+  "final_remaining_minor": [
+    "B12 extra discussion of stipulated overtime legality",
+    "T02 unrequested prepayment sentence and long source identities",
+    "T03 extra duration/checklist detail",
+    "T05 repeated annual cap",
+    "T06 repeated missing-article statement"
+  ],
+  "controls": "Six new questions were frozen before outputs for v248; all26 became known regressions before v249 targeted follow-up.",
+  "scope": "No platform result yet. ZIP v249 is the verified final artifact."
+}
