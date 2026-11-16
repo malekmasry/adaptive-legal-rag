@@ -1,0 +1,136 @@
+{
+  "version": 1,
+  "relations": [
+    {
+      "source": "документы компании__Доп соглашение 1 к договору П-17-2024.txt",
+      "target": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
+      "kind": "amends",
+      "condition": "specification_date > 2024-10-01",
+      "evidence_locator": "преамбула",
+      "topics": [
+        "delivery_address",
+        "amendment_question"
+      ],
+      "affected_provisions": [
+        "п. 3.2 договора П-17/2024"
+      ],
+      "applicability": {
+        "field": "specification_date",
+        "operator": ">",
+        "value": "2024-10-01",
+        "note": "Keep the condition for both earlier and later specifications; delivery date is not the trigger."
+      },
+      "source_selectors": [
+        "line:Изложить пункт 3.2",
+        "line:«3.2.",
+        "line:Новый адрес доставки",
+        "line:Остальные условия",
+        "line:Настоящее дополнительное соглашение"
+      ],
+      "target_selectors": [
+        "3.2"
+      ],
+      "source_sha256": "f37f50f7bcb0900854230903be263bebdea60b3cae4be93ee9ed7ec02e4a380a",
+      "target_sha256": "b5df5ca3e2b746cbbaa1757e77697f28ad87d015c66d44fade45a10aae754e25"
+    },
+    {
+      "source": "документы компании__Регламент согласования договоров ред 2025.txt",
+      "target": "документы компании__Регламент согласования договоров ред 2023 (утратил силу).txt",
+      "kind": "supersedes",
+      "condition": "event_date >= 2025-03-01",
+      "evidence_locator": "преамбула",
+      "topics": [
+        "approval",
+        "approval_threshold",
+        "approval_form",
+        "approved_template",
+        "foreign_checks"
+      ],
+      "affected_provisions": [
+        "редакция регламента целиком"
+      ],
+      "applicability": {
+        "field": "event_date",
+        "operator": ">=",
+        "value": "2025-03-01",
+        "note": "Keep both editions when relevant; do not infer event date from a contract identifier."
+      },
+      "source_selectors": null,
+      "target_selectors": null,
+      "source_sha256": "6b899e69657be2b5357d37619cbe31e151bf8ab02f838603a4d55b4257f00e44",
+      "target_sha256": "27dcb53da4f654f50bdf233aa00b3e006075a85086f10dac57800473e499575d"
+    },
+    {
+      "source": "документы компании__Письмо комплаенс-службы К-12 от 15.04.2025.txt",
+      "target": "документы компании__Регламент согласования договоров ред 2025.txt",
+      "kind": "supplements",
+      "condition": "event_date >= 2025-04-21",
+      "evidence_locator": "преамбула",
+      "topics": [
+        "foreign_checks"
+      ],
+      "affected_provisions": [
+        "п. 5.4 регламента"
+      ],
+      "applicability": {
+        "field": "event_date",
+        "operator": ">=",
+        "value": "2025-04-21",
+        "note": "The letter date is not the effective date; show the condition for before/after questions."
+      },
+      "source_selectors": [
+        "line:С 21 апреля",
+        "line:Санкционную проверку",
+        "line:Требование применяется",
+        "line:Договоры с иностранными",
+        "line:Приложение 1."
+      ],
+      "target_selectors": [
+        "line:Редакция от",
+        "5.4"
+      ],
+      "source_sha256": "9d256e900a22e14c01f341d4172dc2923aa8696b0639f5ab8eed5a6ff5884449",
+      "target_sha256": "6b899e69657be2b5357d37619cbe31e151bf8ab02f838603a4d55b4257f00e44"
+    },
+    {
+      "source": "законы__НК_ст114_действующая.txt",
+      "target": "законы__НК_ст112_действующая.txt",
+      "kind": "cites",
+      "condition": "reference only",
+      "evidence_locator": "преамбула",
+      "topics": [
+        "tax_penalty"
+      ],
+      "affected_provisions": [
+        "отсылка к другой статье"
+      ],
+      "applicability": {
+        "type": "supporting_legal_reference"
+      },
+      "source_selectors": null,
+      "target_selectors": null,
+      "source_sha256": "ef0c299cf34b6a7e2ab91c08f46e6bfb0d157557d7bd9161d7a40f5e13b42941",
+      "target_sha256": "9f6e55f1968576d70d195cabffbdd1bca1f9747a29f9af665fa29025e43b3d9a"
+    },
+    {
+      "source": "законы__НК_ст145_действующая.txt",
+      "target": "законы__НК_ст164_действующая.txt",
+      "kind": "cites",
+      "condition": "reference only",
+      "evidence_locator": "преамбула",
+      "topics": [
+        "vat"
+      ],
+      "affected_provisions": [
+        "отсылка к другой статье"
+      ],
+      "applicability": {
+        "type": "supporting_legal_reference"
+      },
+      "source_selectors": null,
+      "target_selectors": null,
+      "source_sha256": "59c61690bda78bf26dab36ece2cc3374dc5fed94dd408c0d24b7991776c336b8",
+      "target_sha256": "90f7d1f6c472be5e5a89fc1fe9bcdc3a1b57171c475c772150bb463333bb7066"
+    }
+  ]
+}

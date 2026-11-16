@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2b2c84">
+  <title>Правовой навигатор</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="masthead"><div class="wrap"><span class="mark" aria-hidden="true"></span>Правовой навигатор <span class="mode" id="mode"></span></div></header>
+  <main class="wrap workspace">
+    <aside class="intro">
+      <p class="eyebrow">ПРОЕКТ ДЛЯ КЕЙСА ПСБ</p>
+      <h1>Договоры<br>и регламенты</h1>
+      <p>Узнайте, какой пункт применяется, с какой даты и как получается сумма. Ответ содержит ссылки на документы.</p>
+      <div class="sample">
+        <h2>Попробуйте на примере</h2>
+        <div id="examples"></div>
+      </div>
+    </aside>
+    <section class="desk" aria-label="Рабочая область">
+      <form id="ask">
+        <label for="question">Ваш вопрос</label>
+        <textarea id="question" maxlength="4000" required placeholder="Например, какой срок оплаты по договору поставки?"></textarea>
+        <div class="actions"><span id="counter">0 / 4000</span><button type="submit" id="submit">Получить ответ <span aria-hidden="true">→</span></button></div>
+      </form>
+      <div id="answer-area" aria-live="polite" aria-atomic="false">
+        <div class="idle" id="idle">Здесь появится ответ со ссылками на документы.</div>
+        <article id="result" hidden>
+          <div class="result-head"><h2 id="status">Ответ</h2><button type="button" class="copy" id="copy" hidden>Скопировать</button></div>
+          <div id="answer"></div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap">Прототип для работы с предоставленной базой знаний.</footer>
+</body>
+</html>

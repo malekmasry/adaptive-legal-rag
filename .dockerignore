@@ -1,0 +1,7 @@
+*
+!focused-rag
+!focused-rag/**
+!web
+!web/**
+**/__pycache__
+**/test_*.py

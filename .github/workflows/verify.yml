@@ -1,0 +1,53 @@
+name: Verify release
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  assistant:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify submission contents
+        run: |
+          python build_focused_submission.py dist/submission.zip
+          python - <<'PY'
+          from zipfile import ZipFile
+          with ZipFile("submission/psb-v243.zip") as official, ZipFile("dist/submission.zip") as built:
+              assert built.testzip() is None
+              assert official.namelist() == built.namelist()
+              assert all(official.read(name) == built.read(name) for name in official.namelist())
+          PY
+      - name: Run core tests
+        run: |
+          pip install -r focused-rag/requirements.txt
+          python -m unittest discover -s focused-rag -p 'test_*.py'
+      - name: Build and start Compose
+        run: docker compose up --build --wait --wait-timeout 60
+      - name: Check the demo API in Docker
+        run: |
+          python - <<'PY'
+          import json
+          from urllib.request import urlopen, Request
+          root = "http://127.0.0.1:8080"
+          assert b"app.js" in urlopen(root, timeout=5).read()
+          examples = json.load(urlopen(root + "/api/examples", timeout=5))
+          assert examples["demo"] and len(examples["examples"]) == 3
+          statuses = []
+          for example in examples["examples"]:
+              request = Request(root + "/api/ask",
+                  data=json.dumps({"question": example["question"]}).encode(),
+                  headers={"Content-Type": "application/json"})
+              data = json.load(urlopen(request, timeout=5))
+              assert data["answer"].strip()
+              statuses.append(data["status"])
+          assert statuses == ["answered", "answered", "partial"]
+          PY
+      - name: Stop containers
+        if: always()
+        run: docker compose down -v

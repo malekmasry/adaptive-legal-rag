@@ -1,0 +1,31 @@
+services:
+  assistant:
+    build: .
+    ports:
+      - "127.0.0.1:${WEB_PORT:-8080}:8080"
+    environment:
+      APP_MODE: ${APP_MODE:-demo}
+      LLM_BASE_URL: ${LLM_BASE_URL:-}
+      LLM_API_KEY: ${LLM_API_KEY:-}
+      LLM_MODEL: ${LLM_MODEL:-}
+      EMBEDDER_BASE_URL: ${EMBEDDER_BASE_URL:-}
+      EMBEDDER_API_KEY: ${EMBEDDER_API_KEY:-}
+      EMB_MODEL: ${EMB_MODEL:-BAAI/bge-m3}
+      RERANKER_BASE_URL: ${RERANKER_BASE_URL:-}
+      RERANKER_API_KEY: ${RERANKER_API_KEY:-}
+      RERANKER_MODEL: ${RERANKER_MODEL:-Qwen/Qwen3-Reranker-8B}
+      RETRIEVAL_MODE: ${RETRIEVAL_MODE:-hybrid}
+      USE_RERANK: ${USE_RERANK:-1}
+      TOP_K: ${TOP_K:-40}
+      RERANKER_TOP_N: ${RERANKER_TOP_N:-6}
+      AS_OF: ${AS_OF:-}
+    volumes:
+      - ./data:/app/data:ro
+      - rag-cache:/app/cache
+    healthcheck:
+      test: ["CMD", "python", "-c", "from urllib.request import urlopen; urlopen('http://127.0.0.1:8080/healthz', timeout=2).close()"]
+      interval: 5s
+      timeout: 3s
+      retries: 8
+volumes:
+  rag-cache:
