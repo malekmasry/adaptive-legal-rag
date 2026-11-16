@@ -1,0 +1,82 @@
+{
+  "variant": "v251",
+  "runtime": {
+    "system": "v251",
+    "seconds": 345.578,
+    "exit_code": 0,
+    "complete": true,
+    "outer_timeout": false,
+    "rows": 26,
+    "answers_sha256": "aee4e7ec315a761cfca69d274a011599050095f3009bf98b18a95f419658c2d8",
+    "package_sha256": "59ff09ccc82dd9aaf1c6970ff8a1346a8074676810ab2360c4f5aeb05bad43a4",
+    "runtime_changed": false,
+    "as_of": "2026-11-16",
+    "workers": 3,
+    "python_hash_seed": 0,
+    "runtime_report": {
+      "rows": 26,
+      "statuses": {
+        "B03": "answered",
+        "B01": "answered",
+        "B02": "answered",
+        "B05": "answered",
+        "B06": "answered",
+        "B04": "answered",
+        "B07": "answered",
+        "B08": "answered",
+        "B09": "answered",
+        "B11": "answered",
+        "B12": "answered",
+        "B10": "answered",
+        "T01": "answered",
+        "B14": "answered",
+        "B13": "answered",
+        "T02": "answered",
+        "T05": "answered",
+        "T03": "answered",
+        "T04": "answered",
+        "N01": "answered",
+        "T06": "partial",
+        "N02": "answered",
+        "N04": "answered",
+        "N03": "answered",
+        "N05": "answered",
+        "N06": "answered"
+      },
+      "counts": {
+        "answered": 25,
+        "partial": 1
+      },
+      "seconds": 329.344,
+      "errors": {},
+      "collected_during_drain": 0,
+      "unfinished_workers": 0,
+      "work_budget_seconds": 1100,
+      "finalize_grace_seconds": 30.0,
+      "error_counts": {}
+    }
+  },
+  "usage_before": {
+    "deepseek_calls": 0,
+    "deepseek_tokens": 0,
+    "qwen_calls": 0,
+    "qwen_input_tokens": 0,
+    "api_errors": 0
+  },
+  "cumulative_usage": {
+    "deepseek_calls": 55,
+    "deepseek_tokens": 850054,
+    "qwen_calls": 0,
+    "qwen_input_tokens": 0,
+    "api_errors": 0
+  },
+  "generation_cache_hits": 26,
+  "qwen_cache_hits": 26,
+  "paid_judge_calls": 0,
+  "chars": {
+    "min": 931,
+    "mean": 1587,
+    "median": 1560.0,
+    "max": 2502
+  }
+}

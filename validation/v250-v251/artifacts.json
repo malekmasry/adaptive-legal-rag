@@ -1,0 +1,20 @@
+{
+  "v250": {
+    "zip": "v250-concise.zip",
+    "sha256": "fe70cbf62758e71db95a7abdba149b8a878c8f766b74d4441bd4479f5c0ca53a",
+    "bytes": 2149802,
+    "source_commit": "5d46b81c13501cad4174f468490dac12a241157c",
+    "branch": "codex/v250-concise-output",
+    "mode": "concise",
+    "entries": 36
+  },
+  "v251": {
+    "zip": "v251-detailed.zip",
+    "sha256": "25519aa66390b21f0202198c3982aeb0292667d58a7fd1a011d462bf45e56175",
+    "bytes": 2149803,
+    "source_commit": "75f5a36279a96c41212012f8e5efab7fa75198df",
+    "branch": "codex/v251-detailed-output",
+    "mode": "detailed",
+    "entries": 36
+  }
+}
