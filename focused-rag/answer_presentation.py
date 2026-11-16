@@ -5,6 +5,7 @@ identical. Optional explanatory prose is never a substitute for the complete
 core answer. No answer is sliced and no core paragraph/citation is discarded.
 """
 import json
+import re
 from pathlib import Path
 from functools import lru_cache
 from focused_context import render_paragraphs,date_note
@@ -43,6 +44,12 @@ def chars(text):
     return len(text.encode('utf-16-le'))//2
 
 
+def public_wording(text):
+    # Replace an internal container name in prose, never inside source quotes.
+    return re.sub(r'\b([Вв])\s+`?evidence\b`?',
+                  lambda m:m.group(1)+' предоставленных материалах',text)
+
+
 def render_answer(draft,catalog,evidence,documents,question,as_of,mode=None,max_chars=MAX_CHARS):
     mode=output_mode() if mode is None else mode
     if mode not in ('concise','detailed'):raise ValueError('Unknown answer rendering mode')
@@ -58,7 +65,7 @@ def render_answer(draft,catalog,evidence,documents,question,as_of,mode=None,max_
         citation=line[len(p['text'].strip()):]
         citation=repair_note_locators(citation,refs,evidence,documents)
         citation=display_citations(citation,refs,evidence,documents)
-        core.append(p['text'].strip());suffix.append(citation)
+        core.append(public_wording(p['text'].strip()));suffix.append(citation)
     details=['']*len(core);quotes=['']*len(core);invalid_quotes=0
     footer=date_note(question,'',as_of,bool(refs))
     def assemble():
@@ -77,7 +84,7 @@ def render_answer(draft,catalog,evidence,documents,question,as_of,mode=None,max_
         # Optional units are admitted whole. All core paragraphs and their
         # references have already been reserved, including the temporal footer.
         for i,value in enumerate(values):
-            detail=value.get('explanation','').strip()
+            detail=public_wording(value.get('explanation','').strip())
             if not detail or detail==core[i]:continue
             details[i]=detail
             if chars(assemble())>max_chars:details[i]='';skipped_details+=1
