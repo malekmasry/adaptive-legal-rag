@@ -78,6 +78,18 @@ class PresentationTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'Complete core'):self.render(draft,max_chars=50)
         self.assertEqual(draft.model_dump(),saved)
 
+    def test_internal_container_name_is_replaced_before_length_budgeting(self):
+        draft=self.draft(text='В evidence нет нужного срока.',
+                         explanation='Срок в evidence не представлен.',source_quote='')
+        core,_,_=self.render(draft,'concise')
+        self.assertIn('В предоставленных источниках нет нужного срока.',core)
+        full,_,_=self.render(draft)
+        self.assertIn('Срок в предоставленных материалах не представлен.',full)
+        text,_,meta=self.render(draft,max_chars=chars(core))
+        self.assertEqual(text,core)
+        self.assertEqual(meta['chars'],chars(text))
+        self.assertEqual(meta['explanations_omitted_for_length'],1)
+
     def test_historical_scope_is_not_replaced_by_current_date(self):
         text,_,_=render_answer(self.draft(),[],self.evidence(),{},'Когда платить на 15.03.2025?','2026-11-16','detailed')
         self.assertNotIn('текущую дату',text)
