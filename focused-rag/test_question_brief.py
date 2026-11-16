@@ -206,4 +206,18 @@ class QuestionBriefTests(unittest.TestCase):
         self.assertLessEqual(result['trace']['budget']['total_evidence_tokens'],18000)
         self.assertEqual(mocked.call_args.kwargs['focuses'],['Когда передают помещение','Как оформляют возврат'])
 
+    def test_presentation_mode_changes_no_model_payload_or_schema(self):
+        with patch('answer_presentation.output_mode',return_value='concise'):
+            a,calls_a=self.run_pipeline()
+        with patch('answer_presentation.output_mode',return_value='detailed'):
+            b,calls_b=self.run_pipeline()
+        self.assertEqual(len(calls_a),3);self.assertEqual(len(calls_b),3)
+        for (schema_a,payload_a),(schema_b,payload_b) in zip(calls_a,calls_b):
+            self.assertEqual(schema_a.model_json_schema(),schema_b.model_json_schema())
+            self.assertEqual(payload_a,payload_b)
+        self.assertEqual(a['trace']['presentation']['mode'],'concise')
+        self.assertEqual(b['trace']['presentation']['mode'],'detailed')
+        for result in [a,b]:
+            self.assertIn('17 марта',result['answer']);self.assertIn('отдельным актом',result['answer'])
+
 if __name__=='__main__':unittest.main()

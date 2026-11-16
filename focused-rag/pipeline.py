@@ -17,6 +17,7 @@ from decision_checks import checks,INSTRUCTIONS as DECISION_INSTRUCTIONS
 from token_budget import estimate_tokens
 from question_brief import prepare_question_brief,answer_schema,resolved_paragraphs,ANSWER_GUIDANCE
 from scenario_bank import support as scenario_support,GUIDANCE as SCENARIO_GUIDANCE
+from answer_presentation import instruction_for_answer,render_answer
 import json
 
 TECHNICAL = 'Не удалось получить ответ из-за технического сбоя. Это не означает отсутствия нужных сведений в базе.'
@@ -54,8 +55,10 @@ class Reference(BaseModel):
 
 
 class Paragraph(BaseModel):
-    text: str = Field(min_length=1,max_length=2500)
+    text: str = Field(min_length=1,max_length=1200)
     citations: list[Reference] = Field(max_length=8)
+    explanation: str = Field(default='',max_length=2200)
+    source_quote: str = Field(default='',max_length=220)
 
 
 class Answer(BaseModel):
@@ -168,6 +171,7 @@ class Pipeline:
             payload={**payload,'scenario_support':scenarios,'context_limits':dict(budget)}
             instruction+='\n\n'+SCENARIO_GUIDANCE
         fallback_format='\nИспользуй обычную схему Answer: status и paragraphs; citations оформляй только как source_id и locator, без citation_id. Ответь на все части question_brief, но part_id в этой резервной схеме не требуется.'
+        instruction=instruction_for_answer(instruction)
         for attempt in range(2):
             try:
                 draft = Answer.model_validate(prepared) if prepared and attempt==0 else self.api.structured(instruction, payload, schema)
@@ -177,8 +181,7 @@ class Pipeline:
                 schema=Answer;instruction+=fallback_format
                 draft=self.api.structured(instruction,payload,Answer)
             try:
-                answer, refs = render_paragraphs(resolved_paragraphs(draft,catalog), evidence)
-                answer = date_note(question, answer, self.s.as_of, bool(refs))
+                answer,refs,presentation=render_answer(draft,catalog,evidence,self.docs,question,self.s.as_of)
                 if draft.status in ('answered','partial') and not refs:
                     raise ValueError('Substantive answer needs source references')
                 break
@@ -197,6 +200,7 @@ class Pipeline:
                 if catalog:review_instruction+='\n\n'+ANSWER_GUIDANCE
                 if scenarios:review_instruction+='\n\n'+SCENARIO_GUIDANCE
                 if catalog and schema is Answer:review_instruction+=fallback_format
+                review_instruction=instruction_for_answer(review_instruction)
                 if prepared:
                     review_instruction+='\nДля программного черновика используй специальную схему DraftCheck вместо обычного формата: {"keep_prepared":true,"correction":null}, если черновик правильный и покрывает все запрошенные подвопросы. Не переписывай его ради стиля, дополнительных справок или раскрытия уже достаточной ссылки. Если есть конкретная фактическая ошибка, неверная применимость, пропущенный подвопрос или черновик не отвечает на вопрос, верни keep_prepared=false и correction с полным исправленным Answer. Проверяй по вопросу и evidence, не по памяти. Правильный программный черновик будет выдан дословно, без добавления рассуждений проверяющего. В частности, не заменяй keep_prepared=true добавлением дат вступления редакций, названий органов или альтернативных сценариев, если без этих деталей вывод уже верен для условий вопроса. Достаточная точная ссылка на пункт не требует пересказа всех его соседей. Если исправление нужно, исправь только ошибку и сохрани остальные верные краткие формулировки и ссылки.'
                     checked=self.api.structured(review_instruction,{**payload,'previous_draft':draft.model_dump()},DraftCheck)
@@ -205,18 +209,18 @@ class Pipeline:
                     else:raise ValueError('Draft correction is missing')
                 else:
                     revised=self.api.structured(review_instruction,{**payload,'previous_draft':draft.model_dump()},schema)
-                revised_answer,revised_refs=render_paragraphs(resolved_paragraphs(revised,catalog),evidence)
+                revised_answer,revised_refs,revised_presentation=render_answer(revised,catalog,evidence,self.docs,question,self.s.as_of)
                 if revised.status in ('answered','partial') and not revised_refs:
                     raise ValueError('Reviewed answer lacks citations')
-                revised_answer=date_note(question,revised_answer,self.s.as_of,bool(revised_refs))
                 answer,refs,draft=revised_answer,revised_refs,revised
+                presentation=revised_presentation
                 trace['review']='applied'
             except (ModelError,ValueError) as exc:
                 trace['review']='failed_kept_draft'
                 emit(self.s.cache_dir,'review_degraded_kept_draft',**error_info(exc))
         else:
             trace['review']='not_needed_or_deadline'
-        answer=finish_answer(answer,query,refs,evidence,self.docs)
+        trace['presentation']=presentation
         emit(self.s.cache_dir, 'focused_answer', status=draft.status, seconds=round(time.monotonic()-start,3),
              context=budget, retrieval=retrieval, source_ids=refs, review=trace['review'],draft_origin=trace['draft_origin'],
              draft_preserved=trace.get('draft_preserved'))
