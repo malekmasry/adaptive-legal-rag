@@ -4,107 +4,128 @@
     {
       "id": "988aebf20721857f7b5c",
       "filename": "документы компании__Договор аренды А-08-2024 Северный Склад.txt",
-      "sha256": "ea312cfd0c2727eb321a8a764512ec977725e93e08131048fb77af6bd9700b29"
+      "sha256": "ea312cfd0c2727eb321a8a764512ec977725e93e08131048fb77af6bd9700b29",
+      "canonical_sha256": "a63548ab4d06df060cfe94881ed3332168a7808509034dfa12cc45a66299f8d4"
     },
     {
       "id": "b93f18c66ca5bd5cd729",
       "filename": "документы компании__Договор поставки П-17-2024 Альфа-Трейд.txt",
-      "sha256": "b5df5ca3e2b746cbbaa1757e77697f28ad87d015c66d44fade45a10aae754e25"
+      "sha256": "b5df5ca3e2b746cbbaa1757e77697f28ad87d015c66d44fade45a10aae754e25",
+      "canonical_sha256": "b73f72c92b0a23d65f00215221185d6316e70e6d5a884f7e49bedbd539744f4d"
     },
     {
       "id": "325b77b4ea7724fc0597",
       "filename": "документы компании__Договор поставки ПТ-05-2023 Альфа-Трейдинг.txt",
-      "sha256": "8c2171e4c1bfe5a915a5d3cd7fdfb64ead0866858bf7914f8b84c67be618530d"
+      "sha256": "8c2171e4c1bfe5a915a5d3cd7fdfb64ead0866858bf7914f8b84c67be618530d",
+      "canonical_sha256": "7a36b2afc6866de1c206f16751fd52d0554cd3eef17809c4ea99e6624d2bc471"
     },
     {
       "id": "b8d10bac552077f92511",
       "filename": "документы компании__Доп соглашение 1 к договору П-17-2024.txt",
-      "sha256": "f37f50f7bcb0900854230903be263bebdea60b3cae4be93ee9ed7ec02e4a380a"
+      "sha256": "f37f50f7bcb0900854230903be263bebdea60b3cae4be93ee9ed7ec02e4a380a",
+      "canonical_sha256": "579f94c0c90d58ab163eb70b085211a17c6c9a4f3e6f0f3541bb7a5f872fb5be"
     },
     {
       "id": "0c170b71bd0dad40b08a",
       "filename": "документы компании__Письмо комплаенс-службы К-12 от 15.04.2025.txt",
-      "sha256": "9d256e900a22e14c01f341d4172dc2923aa8696b0639f5ab8eed5a6ff5884449"
+      "sha256": "9d256e900a22e14c01f341d4172dc2923aa8696b0639f5ab8eed5a6ff5884449",
+      "canonical_sha256": "fae2be5a4cb25fd2837a58b00e7feafac6c0223e2e500c9777be9748eaeb9771"
     },
     {
       "id": "02b38e67428c4c4aacb5",
       "filename": "документы компании__Регламент согласования договоров ред 2023 (утратил силу).txt",
-      "sha256": "27dcb53da4f654f50bdf233aa00b3e006075a85086f10dac57800473e499575d"
+      "sha256": "27dcb53da4f654f50bdf233aa00b3e006075a85086f10dac57800473e499575d",
+      "canonical_sha256": "26171775588b3d828d868d79931a03b334f6f03b0b53f931b8315487d009e85c"
     },
     {
       "id": "df3a7d8fd67f2dc6235a",
       "filename": "документы компании__Регламент согласования договоров ред 2025.txt",
-      "sha256": "6b899e69657be2b5357d37619cbe31e151bf8ab02f838603a4d55b4257f00e44"
+      "sha256": "6b899e69657be2b5357d37619cbe31e151bf8ab02f838603a4d55b4257f00e44",
+      "canonical_sha256": "7cc63096b955e30e3ddf18b691b0fcd5cb0288b66ce92233d65b049f384697f4"
     },
     {
       "id": "c536cb8fbe9b923e7256",
       "filename": "документы компании__Служебная записка об архиве договоров.txt",
-      "sha256": "a90d426b390e892ba490fde5c5bb85367ed71232a48442728a8e1363232a27ee"
+      "sha256": "a90d426b390e892ba490fde5c5bb85367ed71232a48442728a8e1363232a27ee",
+      "canonical_sha256": "2909c149349aff5a6aee70dacd7f2c5f43ed068ef12a9565642c19cbdf504499"
     },
     {
       "id": "9995101881e9d4bd4d23",
       "filename": "законы__152ФЗ_ст9_действующая.txt",
-      "sha256": "26fc061b84c6f730cfbcc2c2a6a143ba391c5e0988befa694ec8afa2c36d71ec"
+      "sha256": "26fc061b84c6f730cfbcc2c2a6a143ba391c5e0988befa694ec8afa2c36d71ec",
+      "canonical_sha256": "6ea0178ff1ad8c61a23850f274d5a4c28e7938ad41be999a9ebb59c79cc85b04"
     },
     {
       "id": "80268aeb09d0f7ab7987",
       "filename": "законы__КоАП_ст13.11_действующая.txt",
-      "sha256": "d982e1ebdc409e93fe4434ada02e7a0801971eacb9dfaad511186004628e097f"
+      "sha256": "d982e1ebdc409e93fe4434ada02e7a0801971eacb9dfaad511186004628e097f",
+      "canonical_sha256": "c2c5d9d1bd139d18df41d3353c7d9c5608d3c6480f32601875743ca48df35b7c"
     },
     {
       "id": "ec7a0868d92ef4f1ff32",
       "filename": "законы__МРОТ_ст1_действующая.txt",
-      "sha256": "a487d40fa1afb4ff37be1fc4a773a93d16e275c1314a06ed316073ee72936d83"
+      "sha256": "a487d40fa1afb4ff37be1fc4a773a93d16e275c1314a06ed316073ee72936d83",
+      "canonical_sha256": "fb6c1cbc4dd94eb7b1072bb5564886bdfca659bcb2e14029176983db0ab41653"
     },
     {
       "id": "1ce8895593a1db4231bd",
       "filename": "законы__НК_ст112_действующая.txt",
-      "sha256": "9f6e55f1968576d70d195cabffbdd1bca1f9747a29f9af665fa29025e43b3d9a"
+      "sha256": "9f6e55f1968576d70d195cabffbdd1bca1f9747a29f9af665fa29025e43b3d9a",
+      "canonical_sha256": "891feef5bcf568e7b002e3d6d46f25387804f1955de634938c1be97660237b89"
     },
     {
       "id": "fc1844e134bc2dc5082c",
       "filename": "законы__НК_ст114_действующая.txt",
-      "sha256": "ef0c299cf34b6a7e2ab91c08f46e6bfb0d157557d7bd9161d7a40f5e13b42941"
+      "sha256": "ef0c299cf34b6a7e2ab91c08f46e6bfb0d157557d7bd9161d7a40f5e13b42941",
+      "canonical_sha256": "3f1280d3207a45871e44fed8cd6cca2e43393a051e3ed26e2f1cf63a11a7ebe6"
     },
     {
       "id": "f7b96918455100864288",
       "filename": "законы__НК_ст145_действующая.txt",
-      "sha256": "59c61690bda78bf26dab36ece2cc3374dc5fed94dd408c0d24b7991776c336b8"
+      "sha256": "59c61690bda78bf26dab36ece2cc3374dc5fed94dd408c0d24b7991776c336b8",
+      "canonical_sha256": "fe7e668a795aef4ddbff75f350a28c866ea611add4c82b91027c6ae8e9bf9590"
     },
     {
       "id": "ab451e8a8e4db9fffc98",
       "filename": "законы__НК_ст164_действующая.txt",
-      "sha256": "90f7d1f6c472be5e5a89fc1fe9bcdc3a1b57171c475c772150bb463333bb7066"
+      "sha256": "90f7d1f6c472be5e5a89fc1fe9bcdc3a1b57171c475c772150bb463333bb7066",
+      "canonical_sha256": "ecca085c6398849eeb13a186a3676f0f7fc604819fa6e2bd3d8cdd3b1b1f8938"
     },
     {
       "id": "3c32e615822f15a45660",
       "filename": "законы__НК_ст224_действующая.txt",
-      "sha256": "b4a2313836aadf260106ae02607b14ec6bf803ffc5e029dec2a92b1ba10e0067"
+      "sha256": "b4a2313836aadf260106ae02607b14ec6bf803ffc5e029dec2a92b1ba10e0067",
+      "canonical_sha256": "fce12d37aca46feae67115401c7443c8e25c5a69636c372df7fd611b8cb067d6"
     },
     {
       "id": "25185ccfa824a6837f39",
       "filename": "законы__НК_ст284_действующая.txt",
-      "sha256": "f4805aaa721b5256be3ba2d5a19a4a650623f11598863ff98ee98d313e6558e3"
+      "sha256": "f4805aaa721b5256be3ba2d5a19a4a650623f11598863ff98ee98d313e6558e3",
+      "canonical_sha256": "8e0cff8bcf08d4f63c816f1e936be73aab0b271b63b8ca8d7ae7f2224b1af37f"
     },
     {
       "id": "f9d1690746ce85662c3a",
       "filename": "законы__ТК_ст152_действующая.txt",
-      "sha256": "7b08540d0e22b14b3413ddd77dbd2e404073938de90e580b896e3ee5f6f448c3"
+      "sha256": "7b08540d0e22b14b3413ddd77dbd2e404073938de90e580b896e3ee5f6f448c3",
+      "canonical_sha256": "49cb5d2ac913ec15f2b1498dca4534b4f3cd40b1854002e590bf90d42c985945"
     },
     {
       "id": "4c40fbb120c76f3ee126",
       "filename": "законы__ТК_ст59_действующая.txt",
-      "sha256": "8956e946db720da15cf3d359cb70cbbc51d5dc1c3aab5a77df43fb78a592643e"
+      "sha256": "8956e946db720da15cf3d359cb70cbbc51d5dc1c3aab5a77df43fb78a592643e",
+      "canonical_sha256": "1413dd4025bc3e9c776432d31655f544ebae4c989960f3b4df8bf822b02e953e"
     },
     {
       "id": "c44375dde054668e3c8f",
       "filename": "законы__ТК_ст70_действующая.txt",
-      "sha256": "faa132894aee5508be9c53bd6af10c28fd6c110c3734a46f32d0c70324c358fb"
+      "sha256": "faa132894aee5508be9c53bd6af10c28fd6c110c3734a46f32d0c70324c358fb",
+      "canonical_sha256": "54ecd9d19d7404c25f19e95a79882c9cfc26ba63f82ef9d5043cd225ebda0794"
     },
     {
       "id": "09de5d918bdc4fdb725f",
       "filename": "законы__ТК_ст99_действующая.txt",
-      "sha256": "428df66e32e77301db52f526ae76b47b11ad239b0562b787cf2235c984e07d8b"
+      "sha256": "428df66e32e77301db52f526ae76b47b11ad239b0562b787cf2235c984e07d8b",
+      "canonical_sha256": "9171ba80011e23f821d63005a9fa28640f3ddbb72e28c4f915ab5c2da01403ae"
     }
   ],
   "units": [
@@ -119,7 +140,9 @@
       "topics": [
         "approval_threshold",
         "requisites"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 503
     },
     {
       "id": "a33c776853585c3bb7be7b60",
@@ -131,7 +154,9 @@
       "locator": "п. 1.1",
       "topics": [
         "requisites"
-      ]
+      ],
+      "canonical_start": 524,
+      "canonical_end": 751
     },
     {
       "id": "9385f3166abe437859bc5ccf",
@@ -141,7 +166,9 @@
       "search_start": 752,
       "search_end": 837,
       "locator": "п. 1.2",
-      "topics": []
+      "topics": [],
+      "canonical_start": 752,
+      "canonical_end": 836
     },
     {
       "id": "e1930fa82854de4c0466efe3",
@@ -153,7 +180,9 @@
       "locator": "п. 1.3",
       "topics": [
         "ownership"
-      ]
+      ],
+      "canonical_start": 837,
+      "canonical_end": 900
     },
     {
       "id": "5a5dd50a80723405c5b9f291",
@@ -163,7 +192,9 @@
       "search_start": 916,
       "search_end": 1007,
       "locator": "п. 2.1",
-      "topics": []
+      "topics": [],
+      "canonical_start": 916,
+      "canonical_end": 1006
     },
     {
       "id": "1ae023cdb3d8aed14aabb6ab",
@@ -175,7 +206,9 @@
       "locator": "п. 2.2",
       "topics": [
         "contract_term"
-      ]
+      ],
+      "canonical_start": 1007,
+      "canonical_end": 1052
     },
     {
       "id": "7fdc2b716d668fea1e962602",
@@ -187,7 +220,9 @@
       "locator": "п. 3.1",
       "topics": [
         "vat_rate"
-      ]
+      ],
+      "canonical_start": 1071,
+      "canonical_end": 1166
     },
     {
       "id": "286d7bebdc4e73b890baf0a6",
@@ -197,7 +232,9 @@
       "search_start": 1167,
       "search_end": 1247,
       "locator": "п. 3.2",
-      "topics": []
+      "topics": [],
+      "canonical_start": 1167,
+      "canonical_end": 1246
     },
     {
       "id": "e1ea85549d64e26985362fde",
@@ -209,7 +246,9 @@
       "locator": "п. 3.3",
       "topics": [
         "rent_price"
-      ]
+      ],
+      "canonical_start": 1247,
+      "canonical_end": 1385
     },
     {
       "id": "ce8e3d393ce1fdadedcca0f5",
@@ -222,7 +261,9 @@
       "topics": [
         "rent_increase",
         "rent_price"
-      ]
+      ],
+      "canonical_start": 1386,
+      "canonical_end": 1519
     },
     {
       "id": "8e5149f7d142e3b884b8be03",
@@ -234,7 +275,9 @@
       "locator": "п. 3.5",
       "topics": [
         "rental_use"
-      ]
+      ],
+      "canonical_start": 1520,
+      "canonical_end": 1623
     },
     {
       "id": "8e4ee83661e282aabc6a8f0f",
@@ -244,7 +287,9 @@
       "search_start": 1654,
       "search_end": 1793,
       "locator": "п. 4.1",
-      "topics": []
+      "topics": [],
+      "canonical_start": 1654,
+      "canonical_end": 1792
     },
     {
       "id": "412d6c0d7373d7f3cf219274",
@@ -256,7 +301,9 @@
       "locator": "п. 4.2",
       "topics": [
         "rental_use"
-      ]
+      ],
+      "canonical_start": 1793,
+      "canonical_end": 1886
     },
     {
       "id": "95f78661d8d830d995ead135",
@@ -268,7 +315,9 @@
       "locator": "п. 4.3",
       "topics": [
         "rental_use"
-      ]
+      ],
+      "canonical_start": 1887,
+      "canonical_end": 2002
     },
     {
       "id": "69c07dff52476cf7ff388b2e",
@@ -280,7 +329,9 @@
       "locator": "п. 5.1",
       "topics": [
         "penalty"
-      ]
+      ],
+      "canonical_start": 2029,
+      "canonical_end": 2160
     },
     {
       "id": "e6b7a3d76fdde541da490184",
@@ -292,7 +343,9 @@
       "locator": "п. 6.1",
       "topics": [
         "contract_change"
-      ]
+      ],
+      "canonical_start": 2197,
+      "canonical_end": 2296
     },
     {
       "id": "3996c6337c09c5f0f846ecd8",
@@ -304,7 +357,9 @@
       "locator": "п. 6.2",
       "topics": [
         "termination"
-      ]
+      ],
+      "canonical_start": 2297,
+      "canonical_end": 2433
     },
     {
       "id": "07834c29e26ea450eab15fb5",
@@ -316,7 +371,9 @@
       "locator": "п. 6.3",
       "topics": [
         "contract_change"
-      ]
+      ],
+      "canonical_start": 2434,
+      "canonical_end": 2570
     },
     {
       "id": "21fdf6a3f66230c4fd1b1727",
@@ -329,7 +386,9 @@
       "topics": [
         "approval_threshold",
         "requisites"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 464
     },
     {
       "id": "c5b7ddfa08a449c13983df5b",
@@ -342,7 +401,9 @@
       "topics": [
         "payment_term",
         "ownership"
-      ]
+      ],
+      "canonical_start": 485,
+      "canonical_end": 673
     },
     {
       "id": "789ba10a47775167d2f2600a",
@@ -352,7 +413,9 @@
       "search_start": 674,
       "search_end": 811,
       "locator": "п. 1.2",
-      "topics": []
+      "topics": [],
+      "canonical_start": 674,
+      "canonical_end": 810
     },
     {
       "id": "b6d7027ec0074271a1427267",
@@ -365,7 +428,9 @@
       "topics": [
         "vat_rate",
         "delivery_cost"
-      ]
+      ],
+      "canonical_start": 828,
+      "canonical_end": 954
     },
     {
       "id": "34960c7bcdcca493438fb811",
@@ -378,7 +443,9 @@
       "topics": [
         "vat_rate",
         "contract_price"
-      ]
+      ],
+      "canonical_start": 955,
+      "canonical_end": 1072
     },
     {
       "id": "2e031c484119336baa4cc9bf",
@@ -388,7 +455,9 @@
       "search_start": 1093,
       "search_end": 1241,
       "locator": "п. 3.1",
-      "topics": []
+      "topics": [],
+      "canonical_start": 1093,
+      "canonical_end": 1240
     },
     {
       "id": "dec1480267533bdeddf3b94b",
@@ -400,7 +469,9 @@
       "locator": "п. 3.2",
       "topics": [
         "delivery_address"
-      ]
+      ],
+      "canonical_start": 1241,
+      "canonical_end": 1327
     },
     {
       "id": "6582d4d3d738e4597d327e58",
@@ -413,7 +484,9 @@
       "topics": [
         "payment_term",
         "payment_completion"
-      ]
+      ],
+      "canonical_start": 1328,
+      "canonical_end": 1431
     },
     {
       "id": "a150719769277024a9793126",
@@ -423,7 +496,9 @@
       "search_start": 1452,
       "search_end": 1576,
       "locator": "п. 4.1",
-      "topics": []
+      "topics": [],
+      "canonical_start": 1452,
+      "canonical_end": 1575
     },
     {
       "id": "a531fd4ef6198b87b450d4ec",
@@ -435,7 +510,9 @@
       "locator": "п. 4.2",
       "topics": [
         "payment_term"
-      ]
+      ],
+      "canonical_start": 1576,
+      "canonical_end": 1739
     },
     {
       "id": "02717698aecb709a8d2289fa",
@@ -448,7 +525,9 @@
       "topics": [
         "payment_term",
         "payment_completion"
-      ]
+      ],
+      "canonical_start": 1740,
+      "canonical_end": 1882
     },
     {
       "id": "827bc5b6d92521eebcef25a2",
@@ -458,7 +537,9 @@
       "search_start": 1906,
       "search_end": 1986,
       "locator": "п. 5.1",
-      "topics": []
+      "topics": [],
+      "canonical_start": 1906,
+      "canonical_end": 1985
     },
     {
       "id": "609166d4a770d3cb40670ff6",
@@ -470,7 +551,9 @@
       "locator": "п. 5.2",
       "topics": [
         "warranty"
-      ]
+      ],
+      "canonical_start": 1986,
+      "canonical_end": 2072
     },
     {
       "id": "8e585aa8292fa715b72f7cd8",
@@ -482,7 +565,9 @@
       "locator": "п. 6.1",
       "topics": [
         "acceptance"
-      ]
+      ],
+      "canonical_start": 2091,
+      "canonical_end": 2219
     },
     {
       "id": "3c9b2add7533a40edefedc24",
@@ -494,7 +579,9 @@
       "locator": "п. 6.2",
       "topics": [
         "acceptance"
-      ]
+      ],
+      "canonical_start": 2220,
+      "canonical_end": 2340
     },
     {
       "id": "c99fe484a41199ec78227717",
@@ -506,7 +593,9 @@
       "locator": "п. 7.1",
       "topics": [
         "penalty"
-      ]
+      ],
+      "canonical_start": 2367,
+      "canonical_end": 2579
     },
     {
       "id": "d54f980f1d64cbb53997333e",
@@ -518,7 +607,9 @@
       "locator": "п. 7.2",
       "topics": [
         "penalty"
-      ]
+      ],
+      "canonical_start": 2580,
+      "canonical_end": 2756
     },
     {
       "id": "63444f0c15d87ae6cfb4a7e8",
@@ -530,7 +621,9 @@
       "locator": "п. 7.3",
       "topics": [
         "penalty"
-      ]
+      ],
+      "canonical_start": 2757,
+      "canonical_end": 2841
     },
     {
       "id": "845ec9c44a02d66607e57dd2",
@@ -542,7 +635,9 @@
       "locator": "п. 7.4",
       "topics": [
         "force_majeure"
-      ]
+      ],
+      "canonical_start": 2842,
+      "canonical_end": 3061
     },
     {
       "id": "deac9548c1d85d857ab7f074",
@@ -556,7 +651,9 @@
         "liability_limit",
         "contract_price",
         "penalty"
-      ]
+      ],
+      "canonical_start": 3062,
+      "canonical_end": 3249
     },
     {
       "id": "1ef984e8ebd7b8f0561c0733",
@@ -568,7 +665,9 @@
       "locator": "п. 8.1",
       "topics": [
         "dispute"
-      ]
+      ],
+      "canonical_start": 3271,
+      "canonical_end": 3412
     },
     {
       "id": "99d821430f6ea03512998c18",
@@ -580,7 +679,9 @@
       "locator": "п. 8.2",
       "topics": [
         "dispute"
-      ]
+      ],
+      "canonical_start": 3413,
+      "canonical_end": 3528
     },
     {
       "id": "4ef79483cd74c300842d8bf4",
@@ -590,7 +691,9 @@
       "search_start": 3555,
       "search_end": 3636,
       "locator": "п. 9.1",
-      "topics": []
+      "topics": [],
+      "canonical_start": 3555,
+      "canonical_end": 3635
     },
     {
       "id": "be8ef5cff365fd5b5d20d54c",
@@ -602,7 +705,9 @@
       "locator": "п. 9.2",
       "topics": [
         "termination"
-      ]
+      ],
+      "canonical_start": 3636,
+      "canonical_end": 3783
     },
     {
       "id": "720d7d98b42236d067d7d2bc",
@@ -615,7 +720,9 @@
       "topics": [
         "approval_threshold",
         "requisites"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 463
     },
     {
       "id": "d85127600f88da79a7a5ca0e",
@@ -625,7 +732,9 @@
       "search_start": 484,
       "search_end": 669,
       "locator": "п. 1.1",
-      "topics": []
+      "topics": [],
+      "canonical_start": 484,
+      "canonical_end": 668
     },
     {
       "id": "989ba925f01241f629190188",
@@ -637,7 +746,9 @@
       "locator": "п. 1.2",
       "topics": [
         "order_delivery"
-      ]
+      ],
+      "canonical_start": 669,
+      "canonical_end": 803
     },
     {
       "id": "c265b0934b45233fe8064f78",
@@ -650,7 +761,9 @@
       "topics": [
         "vat_rate",
         "order_delivery"
-      ]
+      ],
+      "canonical_start": 819,
+      "canonical_end": 930
     },
     {
       "id": "de06f18f256bce9c90de44d9",
@@ -662,7 +775,9 @@
       "locator": "п. 2.2",
       "topics": [
         "price_change"
-      ]
+      ],
+      "canonical_start": 931,
+      "canonical_end": 1039
     },
     {
       "id": "c108d725b30bb01ae8687c03",
@@ -674,7 +789,9 @@
       "locator": "п. 3.1",
       "topics": [
         "order_delivery"
-      ]
+      ],
+      "canonical_start": 1060,
+      "canonical_end": 1168
     },
     {
       "id": "b6cd8d7f6bd37181bf8d1c5c",
@@ -686,7 +803,9 @@
       "locator": "п. 3.2",
       "topics": [
         "delivery_address"
-      ]
+      ],
+      "canonical_start": 1169,
+      "canonical_end": 1269
     },
     {
       "id": "a52f4e29504c7ba1cf33e076",
@@ -698,7 +817,9 @@
       "locator": "п. 3.3",
       "topics": [
         "ownership"
-      ]
+      ],
+      "canonical_start": 1270,
+      "canonical_end": 1367
     },
     {
       "id": "f44603b8b754de39493b2d87",
@@ -708,7 +829,9 @@
       "search_start": 1388,
       "search_end": 1482,
       "locator": "п. 4.1",
-      "topics": []
+      "topics": [],
+      "canonical_start": 1388,
+      "canonical_end": 1481
     },
     {
       "id": "359da38c2f2a5fd78cfee12f",
@@ -720,7 +843,9 @@
       "locator": "п. 4.2",
       "topics": [
         "prepayment"
-      ]
+      ],
+      "canonical_start": 1482,
+      "canonical_end": 1581
     },
     {
       "id": "4fa6667a1bc66d0d169ac9e5",
@@ -732,7 +857,9 @@
       "locator": "п. 5.1",
       "topics": [
         "penalty"
-      ]
+      ],
+      "canonical_start": 1608,
+      "canonical_end": 1743
     },
     {
       "id": "63e83b58768ba4f32ade1565",
@@ -744,7 +871,9 @@
       "locator": "п. 5.2",
       "topics": [
         "penalty"
-      ]
+      ],
+      "canonical_start": 1744,
+      "canonical_end": 1864
     },
     {
       "id": "97b388996d3f66baa969fcde",
@@ -754,7 +883,9 @@
       "search_start": 1865,
       "search_end": 2026,
       "locator": "п. 5.3",
-      "topics": []
+      "topics": [],
+      "canonical_start": 1865,
+      "canonical_end": 2025
     },
     {
       "id": "af3d6d3c593359ca1f056fe9",
@@ -766,7 +897,9 @@
       "locator": "п. 6.1",
       "topics": [
         "warranty"
-      ]
+      ],
+      "canonical_start": 2038,
+      "canonical_end": 2135
     },
     {
       "id": "e2be28e062e7e2f9f550b1a2",
@@ -778,7 +911,9 @@
       "locator": "п. 7.1",
       "topics": [
         "dispute"
-      ]
+      ],
+      "canonical_start": 2157,
+      "canonical_end": 2262
     },
     {
       "id": "60d88421bc607055a6c90408",
@@ -790,7 +925,9 @@
       "locator": "п. 8.1",
       "topics": [
         "contract_term"
-      ]
+      ],
+      "canonical_start": 2289,
+      "canonical_end": 2516
     },
     {
       "id": "8397700b9d1184f97665c859",
@@ -803,7 +940,9 @@
       "topics": [
         "approval_threshold",
         "delivery_address"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 965
     },
     {
       "id": "36e7572cb90683a4b392389c",
@@ -816,7 +955,9 @@
       "topics": [
         "approval_route",
         "foreign_checks"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 1348
     },
     {
       "id": "b66a0109cd01b630c05996b1",
@@ -829,7 +970,9 @@
       "topics": [
         "approval_threshold",
         "approval_route"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 248
     },
     {
       "id": "c4604a27e864abc4a6a9ff80",
@@ -841,7 +984,9 @@
       "locator": "п. 1.1",
       "topics": [
         "approval_route"
-      ]
+      ],
+      "canonical_start": 268,
+      "canonical_end": 384
     },
     {
       "id": "2eaa0922b761b006c16e3dc7",
@@ -851,7 +996,9 @@
       "search_start": 385,
       "search_end": 456,
       "locator": "п. 1.2",
-      "topics": []
+      "topics": [],
+      "canonical_start": 385,
+      "canonical_end": 455
     },
     {
       "id": "3dad536cc4dcdb0bb7feaa4b",
@@ -863,7 +1010,9 @@
       "locator": "п. 1.3",
       "topics": [
         "approval_route"
-      ]
+      ],
+      "canonical_start": 456,
+      "canonical_end": 564
     },
     {
       "id": "4ade8dbb910f3235cb1d5193",
@@ -875,7 +1024,9 @@
       "locator": "п. 2.1",
       "topics": [
         "approval_route"
-      ]
+      ],
+      "canonical_start": 589,
+      "canonical_end": 666
     },
     {
       "id": "d194a84d5b72bccafaef91bf",
@@ -887,7 +1038,9 @@
       "locator": "п. 2.2",
       "topics": [
         "approval_route"
-      ]
+      ],
+      "canonical_start": 667,
+      "canonical_end": 775
     },
     {
       "id": "2f266ec93bce6f106a0bb9e5",
@@ -899,7 +1052,9 @@
       "locator": "п. 2.3",
       "topics": [
         "approval_route"
-      ]
+      ],
+      "canonical_start": 776,
+      "canonical_end": 890
     },
     {
       "id": "0f081dfd330aa8e3664a41d4",
@@ -911,7 +1066,9 @@
       "locator": "п. 2.4",
       "topics": [
         "approval_threshold"
-      ]
+      ],
+      "canonical_start": 891,
+      "canonical_end": 1013
     },
     {
       "id": "665008912122e1b8fc2f1e61",
@@ -921,7 +1078,9 @@
       "search_start": 1041,
       "search_end": 1114,
       "locator": "п. 3.1",
-      "topics": []
+      "topics": [],
+      "canonical_start": 1041,
+      "canonical_end": 1113
     },
     {
       "id": "d81071e620bfacdef4b2fff6",
@@ -933,7 +1092,9 @@
       "locator": "п. 3.2",
       "topics": [
         "archive"
-      ]
+      ],
+      "canonical_start": 1114,
+      "canonical_end": 1243
     },
     {
       "id": "47f625eb8be65cc3a85f7ed4",
@@ -946,7 +1107,9 @@
       "topics": [
         "approval_route",
         "foreign_checks"
-      ]
+      ],
+      "canonical_start": 1261,
+      "canonical_end": 1378
     },
     {
       "id": "279a38463aa7c51494b00345",
@@ -959,7 +1122,9 @@
       "topics": [
         "approval_threshold",
         "approval_route"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 198
     },
     {
       "id": "3db4d97901aaa5ec22ecbe24",
@@ -971,7 +1136,9 @@
       "locator": "п. 1.1",
       "topics": [
         "approval_route"
-      ]
+      ],
+      "canonical_start": 218,
+      "canonical_end": 334
     },
     {
       "id": "787ad1b292320b7fcc740023",
@@ -981,7 +1148,9 @@
       "search_start": 335,
       "search_end": 406,
       "locator": "п. 1.2",
-      "topics": []
+      "topics": [],
+      "canonical_start": 335,
+      "canonical_end": 405
     },
     {
       "id": "ecc89c7e82b3caf7270a0af1",
@@ -993,7 +1162,9 @@
       "locator": "п. 1.3",
       "topics": [
         "approval_route"
-      ]
+      ],
+      "canonical_start": 406,
+      "canonical_end": 514
     },
     {
       "id": "1cd6a364beed510b0ccdf187",
@@ -1003,7 +1174,9 @@
       "search_start": 515,
       "search_end": 600,
       "locator": "п. 1.4",
-      "topics": []
+      "topics": [],
+      "canonical_start": 515,
+      "canonical_end": 599
     },
     {
       "id": "4ec5b410142b0c11d6dadbd8",
@@ -1015,7 +1188,9 @@
       "locator": "п. 2.1",
       "topics": [
         "approval_route"
-      ]
+      ],
+      "canonical_start": 624,
+      "canonical_end": 701
     },
     {
       "id": "99109fdf7851234f8de69139",
@@ -1027,7 +1202,9 @@
       "locator": "п. 2.2",
       "topics": [
         "approval_route"
-      ]
+      ],
+      "canonical_start": 702,
+      "canonical_end": 905
     },
     {
       "id": "57bab93daedebeeb021250cd",
@@ -1039,7 +1216,9 @@
       "locator": "п. 2.3",
       "topics": [
         "approval_route"
-      ]
+      ],
+      "canonical_start": 906,
+      "canonical_end": 1019
     },
     {
       "id": "b216d66b804c8b01989a7080",
@@ -1051,7 +1230,9 @@
       "locator": "п. 2.4",
       "topics": [
         "approval_threshold"
-      ]
+      ],
+      "canonical_start": 1020,
+      "canonical_end": 1146
     },
     {
       "id": "de80016a852eeede5f354f75",
@@ -1063,7 +1244,9 @@
       "locator": "п. 2.5",
       "topics": [
         "approval_route"
-      ]
+      ],
+      "canonical_start": 1147,
+      "canonical_end": 1279
     },
     {
       "id": "09ceec4adecca6cc263a2f1b",
@@ -1075,7 +1258,9 @@
       "locator": "п. 3.1",
       "topics": [
         "approval_form"
-      ]
+      ],
+      "canonical_start": 1307,
+      "canonical_end": 1396
     },
     {
       "id": "f66def7def41d3a18a3ab891",
@@ -1087,7 +1272,9 @@
       "locator": "п. 3.2",
       "topics": [
         "archive"
-      ]
+      ],
+      "canonical_start": 1397,
+      "canonical_end": 1526
     },
     {
       "id": "99773cb6e50fa0de5d0e6f79",
@@ -1099,7 +1286,9 @@
       "locator": "п. 4.1",
       "topics": [
         "approved_template"
-      ]
+      ],
+      "canonical_start": 1544,
+      "canonical_end": 1688
     },
     {
       "id": "271bf441de75ed7e9ddef27d",
@@ -1109,7 +1298,9 @@
       "search_start": 1706,
       "search_end": 1802,
       "locator": "п. 5.1",
-      "topics": []
+      "topics": [],
+      "canonical_start": 1706,
+      "canonical_end": 1801
     },
     {
       "id": "a2757a55a7ff2b5514b85706",
@@ -1119,7 +1310,9 @@
       "search_start": 1802,
       "search_end": 1935,
       "locator": "п. 5.2",
-      "topics": []
+      "topics": [],
+      "canonical_start": 1802,
+      "canonical_end": 1934
     },
     {
       "id": "f09f294245c4e356686c05c3",
@@ -1131,7 +1324,9 @@
       "locator": "п. 5.3",
       "topics": [
         "approval_route"
-      ]
+      ],
+      "canonical_start": 1935,
+      "canonical_end": 2030
     },
     {
       "id": "fff56f08b19a01919e7f023e",
@@ -1143,7 +1338,9 @@
       "locator": "п. 5.4",
       "topics": [
         "foreign_checks"
-      ]
+      ],
+      "canonical_start": 2031,
+      "canonical_end": 2233
     },
     {
       "id": "9969dc90564ff24a02697d68",
@@ -1158,7 +1355,9 @@
         "payment_term",
         "payment_completion",
         "archive"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 851
     },
     {
       "id": "bf769ff75b182037bd7cf04c",
@@ -1170,7 +1369,9 @@
       "locator": "преамбула",
       "topics": [
         "consent_requirements"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 639
     },
     {
       "id": "70b15f190b958362fad28adc",
@@ -1182,7 +1383,9 @@
       "locator": "п. 1",
       "topics": [
         "consent_requirements"
-      ]
+      ],
+      "canonical_start": 640,
+      "canonical_end": 1542
     },
     {
       "id": "062d5a1651a05f90965651d6",
@@ -1194,7 +1397,9 @@
       "locator": "п. 2",
       "topics": [
         "consent_requirements"
-      ]
+      ],
+      "canonical_start": 1543,
+      "canonical_end": 1963
     },
     {
       "id": "d8bbe7f3b4fc5dcbe4647771",
@@ -1206,7 +1411,9 @@
       "locator": "п. 3",
       "topics": [
         "consent_requirements"
-      ]
+      ],
+      "canonical_start": 1964,
+      "canonical_end": 2270
     },
     {
       "id": "57f7974883d7524ef3434aa7",
@@ -1219,7 +1426,9 @@
       "topics": [
         "consent_requirements",
         "requisites"
-      ]
+      ],
+      "canonical_start": 2271,
+      "canonical_end": 4144
     },
     {
       "id": "057eaa0a947ba99bdfbc53f5",
@@ -1231,7 +1440,9 @@
       "locator": "п. 4",
       "topics": [
         "consent_requirements"
-      ]
+      ],
+      "canonical_start": 2271,
+      "canonical_end": 4144
     },
     {
       "id": "d706ca8b806e135530a5623a",
@@ -1243,7 +1454,9 @@
       "locator": "п. 5",
       "topics": [
         "consent_requirements"
-      ]
+      ],
+      "canonical_start": 4145,
+      "canonical_end": 4505
     },
     {
       "id": "efd18234b79ddfca9e5cff22",
@@ -1255,7 +1468,9 @@
       "locator": "п. 6",
       "topics": [
         "consent_requirements"
-      ]
+      ],
+      "canonical_start": 4506,
+      "canonical_end": 4667
     },
     {
       "id": "4bbde2de5d9867874f533931",
@@ -1267,7 +1482,9 @@
       "locator": "п. 7",
       "topics": [
         "consent_requirements"
-      ]
+      ],
+      "canonical_start": 4668,
+      "canonical_end": 4885
     },
     {
       "id": "5594e7104ae06dfadb935aca",
@@ -1277,7 +1494,9 @@
       "search_start": 4906,
       "search_end": 5299,
       "locator": "п. 8",
-      "topics": []
+      "topics": [],
+      "canonical_start": 4886,
+      "canonical_end": 5276
     },
     {
       "id": "f70c39915e7a891468745512",
@@ -1289,7 +1508,9 @@
       "locator": "п. 9",
       "topics": [
         "consent_requirements"
-      ]
+      ],
+      "canonical_start": 5277,
+      "canonical_end": 5494
     },
     {
       "id": "8e4943caab69a5520d93b4d7",
@@ -1301,7 +1522,9 @@
       "locator": "преамбула",
       "topics": [
         "data_penalty"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 711
     },
     {
       "id": "02804c252a9cc45010f8cb8a",
@@ -1311,7 +1534,9 @@
       "search_start": 717,
       "search_end": 1437,
       "locator": "п. 1",
-      "topics": []
+      "topics": [],
+      "canonical_start": 712,
+      "canonical_end": 1428
     },
     {
       "id": "209a6bfcb3ecc54824ca6f0c",
@@ -1321,7 +1546,9 @@
       "search_start": 1437,
       "search_end": 1866,
       "locator": "п. 1.1",
-      "topics": []
+      "topics": [],
+      "canonical_start": 1429,
+      "canonical_end": 1854
     },
     {
       "id": "409ae4d85587984d386ab969",
@@ -1334,7 +1561,9 @@
       "topics": [
         "data_penalty",
         "consent_requirements"
-      ]
+      ],
+      "canonical_start": 1855,
+      "canonical_end": 2850
     },
     {
       "id": "a19c13fb1439cf7b7d20ad7d",
@@ -1344,7 +1573,9 @@
       "search_start": 2865,
       "search_end": 3383,
       "locator": "п. 2.1",
-      "topics": []
+      "topics": [],
+      "canonical_start": 2851,
+      "canonical_end": 3365
     },
     {
       "id": "71a28ea456fbbb47ba54e431",
@@ -1356,7 +1587,9 @@
       "locator": "п. 3",
       "topics": [
         "data_penalty"
-      ]
+      ],
+      "canonical_start": 3366,
+      "canonical_end": 4125
     },
     {
       "id": "2cbb1f9004d9ccd54468891b",
@@ -1368,7 +1601,9 @@
       "locator": "п. 4",
       "topics": [
         "data_penalty"
-      ]
+      ],
+      "canonical_start": 4126,
+      "canonical_end": 4757
     },
     {
       "id": "d34ca090d132fdc096d8066b",
@@ -1380,7 +1615,9 @@
       "locator": "п. 5",
       "topics": [
         "data_penalty"
-      ]
+      ],
+      "canonical_start": 4758,
+      "canonical_end": 5656
     },
     {
       "id": "af939445f5cb987d8d41247b",
@@ -1390,7 +1627,9 @@
       "search_start": 5683,
       "search_end": 6193,
       "locator": "п. 5.1",
-      "topics": []
+      "topics": [],
+      "canonical_start": 5657,
+      "canonical_end": 6163
     },
     {
       "id": "5e7e7ff9275ce858ed3dd1f7",
@@ -1400,7 +1639,9 @@
       "search_start": 6193,
       "search_end": 7254,
       "locator": "п. 6",
-      "topics": []
+      "topics": [],
+      "canonical_start": 6164,
+      "canonical_end": 7221
     },
     {
       "id": "53e383e7f129367d33a6a9d2",
@@ -1412,7 +1653,9 @@
       "locator": "п. 7",
       "topics": [
         "data_penalty"
-      ]
+      ],
+      "canonical_start": 7222,
+      "canonical_end": 7747
     },
     {
       "id": "d0e99efc46d304963541c3f5",
@@ -1424,7 +1667,9 @@
       "locator": "п. 8",
       "topics": [
         "data_penalty"
-      ]
+      ],
+      "canonical_start": 7748,
+      "canonical_end": 8553
     },
     {
       "id": "f5f39d1213800a8d00de2f5f",
@@ -1436,7 +1681,9 @@
       "locator": "п. 9",
       "topics": [
         "data_penalty"
-      ]
+      ],
+      "canonical_start": 8554,
+      "canonical_end": 9307
     },
     {
       "id": "253bef198b394a63487d5bda",
@@ -1448,7 +1695,9 @@
       "locator": "п. 10",
       "topics": [
         "data_penalty"
-      ]
+      ],
+      "canonical_start": 9308,
+      "canonical_end": 9930
     },
     {
       "id": "d9f94579c79e9177dea2439a",
@@ -1460,7 +1709,9 @@
       "locator": "п. 11",
       "topics": [
         "data_penalty"
-      ]
+      ],
+      "canonical_start": 9931,
+      "canonical_end": 10694
     },
     {
       "id": "a5cc8719133164331a2aee1b",
@@ -1473,7 +1724,9 @@
       "topics": [
         "data_penalty",
         "delivery_cost"
-      ]
+      ],
+      "canonical_start": 10695,
+      "canonical_end": 11383
     },
     {
       "id": "f1a74190803aeb6a9e0d1664",
@@ -1486,7 +1739,9 @@
       "topics": [
         "data_penalty",
         "delivery_cost"
-      ]
+      ],
+      "canonical_start": 11384,
+      "canonical_end": 12075
     },
     {
       "id": "81a5de8eff143fc14ee89e70",
@@ -1499,7 +1754,9 @@
       "topics": [
         "data_penalty",
         "delivery_cost"
-      ]
+      ],
+      "canonical_start": 12076,
+      "canonical_end": 12757
     },
     {
       "id": "d90d3d0a4fdad274f7cd3f0e",
@@ -1511,7 +1768,9 @@
       "locator": "п. 15",
       "topics": [
         "data_penalty"
-      ]
+      ],
+      "canonical_start": 12758,
+      "canonical_end": 14007
     },
     {
       "id": "5d6afb7781b169a59dbf8c71",
@@ -1524,7 +1783,9 @@
       "topics": [
         "data_penalty",
         "delivery_cost"
-      ]
+      ],
+      "canonical_start": 14008,
+      "canonical_end": 14550
     },
     {
       "id": "b950ef09b9056cb3e16ea060",
@@ -1537,7 +1798,9 @@
       "topics": [
         "data_penalty",
         "delivery_cost"
-      ]
+      ],
+      "canonical_start": 14551,
+      "canonical_end": 15178
     },
     {
       "id": "c003dbbddcf50020b03b5272",
@@ -1547,7 +1810,9 @@
       "search_start": 15245,
       "search_end": 16492,
       "locator": "п. 18",
-      "topics": []
+      "topics": [],
+      "canonical_start": 15179,
+      "canonical_end": 16421
     },
     {
       "id": "1da98909ac2f4153f2089ba5",
@@ -1557,7 +1822,9 @@
       "search_start": 16492,
       "search_end": 16750,
       "locator": "п. 1",
-      "topics": []
+      "topics": [],
+      "canonical_start": 16422,
+      "canonical_end": 16678
     },
     {
       "id": "8062d1960d4a1a5e23ba10cf",
@@ -1567,7 +1834,9 @@
       "search_start": 16750,
       "search_end": 16914,
       "locator": "п. 2",
-      "topics": []
+      "topics": [],
+      "canonical_start": 16679,
+      "canonical_end": 16841
     },
     {
       "id": "3c8555a301a2b4d6502b42aa",
@@ -1577,7 +1846,9 @@
       "search_start": 16914,
       "search_end": 17104,
       "locator": "п. 3",
-      "topics": []
+      "topics": [],
+      "canonical_start": 16842,
+      "canonical_end": 17030
     },
     {
       "id": "21a7283e61ad53fb94c72469",
@@ -1587,7 +1858,9 @@
       "search_start": 17104,
       "search_end": 17312,
       "locator": "п. 4",
-      "topics": []
+      "topics": [],
+      "canonical_start": 17031,
+      "canonical_end": 17237
     },
     {
       "id": "9a8e7a87e0bcd29d2ede4d97",
@@ -1597,7 +1870,9 @@
       "search_start": 17312,
       "search_end": 18034,
       "locator": "п. 5",
-      "topics": []
+      "topics": [],
+      "canonical_start": 17238,
+      "canonical_end": 17959
     },
     {
       "id": "e9d2d9618387954f134e8965",
@@ -1610,7 +1885,9 @@
       "topics": [
         "minimum_wage",
         "payment_term"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 2049
     },
     {
       "id": "fdcd1befbbd35057295a5c83",
@@ -1620,7 +1897,9 @@
       "search_start": 1733,
       "search_end": 2058,
       "locator": "преамбула",
-      "topics": []
+      "topics": [],
+      "canonical_start": 0,
+      "canonical_end": 2049
     },
     {
       "id": "4472a0548dfd6e076aeeb09d",
@@ -1632,7 +1911,9 @@
       "locator": "преамбула",
       "topics": [
         "tax_penalty"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 542
     },
     {
       "id": "6561a84b05da2b388598b925",
@@ -1644,7 +1925,9 @@
       "locator": "п. 1",
       "topics": [
         "tax_penalty"
-      ]
+      ],
+      "canonical_start": 543,
+      "canonical_end": 1118
     },
     {
       "id": "a1a96f63ed7805ecdd089f98",
@@ -1656,7 +1939,9 @@
       "locator": "п. 2",
       "topics": [
         "tax_penalty"
-      ]
+      ],
+      "canonical_start": 1119,
+      "canonical_end": 1289
     },
     {
       "id": "590f7fa36bc864010a94b422",
@@ -1668,7 +1953,9 @@
       "locator": "п. 3",
       "topics": [
         "tax_sanctions"
-      ]
+      ],
+      "canonical_start": 1290,
+      "canonical_end": 1467
     },
     {
       "id": "6bf04bf345d3e144c393c97c",
@@ -1681,7 +1968,9 @@
       "topics": [
         "tax_penalty",
         "tax_sanctions"
-      ]
+      ],
+      "canonical_start": 1468,
+      "canonical_end": 1684
     },
     {
       "id": "9ec46ba1c591d1929b89f9ea",
@@ -1693,7 +1982,9 @@
       "locator": "преамбула",
       "topics": [
         "tax_sanctions"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 386
     },
     {
       "id": "218da0b34e6b9b441017d535",
@@ -1705,7 +1996,9 @@
       "locator": "п. 1",
       "topics": [
         "tax_sanctions"
-      ]
+      ],
+      "canonical_start": 387,
+      "canonical_end": 479
     },
     {
       "id": "2408c745b76d509ae91dc24c",
@@ -1717,7 +2010,9 @@
       "locator": "п. 2",
       "topics": [
         "tax_sanctions"
-      ]
+      ],
+      "canonical_start": 480,
+      "canonical_end": 717
     },
     {
       "id": "8b0325b46d954d850aee35e3",
@@ -1729,7 +2024,9 @@
       "locator": "п. 3",
       "topics": [
         "tax_penalty"
-      ]
+      ],
+      "canonical_start": 718,
+      "canonical_end": 1267
     },
     {
       "id": "ede51a7a24fffc4c139bd2ce",
@@ -1739,7 +2036,9 @@
       "search_start": 1279,
       "search_end": 1396,
       "locator": "п. 4",
-      "topics": []
+      "topics": [],
+      "canonical_start": 1268,
+      "canonical_end": 1383
     },
     {
       "id": "e0f7ff74bd994405eba53bcc",
@@ -1751,7 +2050,9 @@
       "locator": "п. 5",
       "topics": [
         "tax_sanctions"
-      ]
+      ],
+      "canonical_start": 1384,
+      "canonical_end": 1573
     },
     {
       "id": "0eee3e8863d535865b0356d7",
@@ -1761,7 +2062,9 @@
       "search_start": 1587,
       "search_end": 1671,
       "locator": "п. 6",
-      "topics": []
+      "topics": [],
+      "canonical_start": 1574,
+      "canonical_end": 1656
     },
     {
       "id": "4b3830c28d8453869d818599",
@@ -1771,7 +2074,9 @@
       "search_start": 1671,
       "search_end": 1706,
       "locator": "п. 7",
-      "topics": []
+      "topics": [],
+      "canonical_start": 1657,
+      "canonical_end": 1691
     },
     {
       "id": "05169a3122021d078cb6894e",
@@ -1783,7 +2088,9 @@
       "locator": "преамбула",
       "topics": [
         "vat_exemption"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 546
     },
     {
       "id": "dccd3ee0467c9e17e1d715a9",
@@ -1796,7 +2103,9 @@
       "topics": [
         "payment_term",
         "payment_completion"
-      ]
+      ],
+      "canonical_start": 547,
+      "canonical_end": 7165
     },
     {
       "id": "2ff8ef6160ccc8b7710967b2",
@@ -1809,7 +2118,9 @@
       "topics": [
         "payment_term",
         "payment_completion"
-      ]
+      ],
+      "canonical_start": 547,
+      "canonical_end": 7165
     },
     {
       "id": "ea8225eb3099001955e7a8ba",
@@ -1819,7 +2130,9 @@
       "search_start": 3945,
       "search_end": 4555,
       "locator": "п. 1",
-      "topics": []
+      "topics": [],
+      "canonical_start": 547,
+      "canonical_end": 7165
     },
     {
       "id": "684db0f973b9594b47d09085",
@@ -1832,7 +2145,9 @@
       "topics": [
         "payment_term",
         "payment_completion"
-      ]
+      ],
+      "canonical_start": 547,
+      "canonical_end": 7165
     },
     {
       "id": "499044c55f8e03ff4a4d53c2",
@@ -1845,7 +2160,9 @@
       "topics": [
         "vat_exemption",
         "delivery_cost"
-      ]
+      ],
+      "canonical_start": 547,
+      "canonical_end": 7165
     },
     {
       "id": "a550098415a4933aea0ddc8d",
@@ -1857,7 +2174,9 @@
       "locator": "п. 2",
       "topics": [
         "vat_exemption"
-      ]
+      ],
+      "canonical_start": 7166,
+      "canonical_end": 8975
     },
     {
       "id": "85f27275616ae7f6366bc8be",
@@ -1867,7 +2186,9 @@
       "search_start": 8914,
       "search_end": 8998,
       "locator": "п. 2",
-      "topics": []
+      "topics": [],
+      "canonical_start": 7166,
+      "canonical_end": 8975
     },
     {
       "id": "4ef10af407f150d0026d2197",
@@ -1877,7 +2198,9 @@
       "search_start": 8998,
       "search_end": 10105,
       "locator": "п. 3",
-      "topics": []
+      "topics": [],
+      "canonical_start": 8976,
+      "canonical_end": 10076
     },
     {
       "id": "0fe76d390b1fe78f76bf6095",
@@ -1889,7 +2212,9 @@
       "locator": "п. 4",
       "topics": [
         "contract_term"
-      ]
+      ],
+      "canonical_start": 10077,
+      "canonical_end": 11669
     },
     {
       "id": "5fe464ee2c9e21053bc46e0d",
@@ -1901,7 +2226,9 @@
       "locator": "п. 5",
       "topics": [
         "payment_term"
-      ]
+      ],
+      "canonical_start": 11670,
+      "canonical_end": 15890
     },
     {
       "id": "be92eeab5e07b1892b225834",
@@ -1913,7 +2240,9 @@
       "locator": "п. 5",
       "topics": [
         "payment_term"
-      ]
+      ],
+      "canonical_start": 11670,
+      "canonical_end": 15890
     },
     {
       "id": "5da79ee3bc0164c9eb99e6d6",
@@ -1926,7 +2255,9 @@
       "topics": [
         "penalty",
         "tax_sanctions"
-      ]
+      ],
+      "canonical_start": 11670,
+      "canonical_end": 15890
     },
     {
       "id": "227a81f453a4bca131f452aa",
@@ -1938,7 +2269,9 @@
       "locator": "п. 6",
       "topics": [
         "contract_term"
-      ]
+      ],
+      "canonical_start": 15891,
+      "canonical_end": 17234
     },
     {
       "id": "0e8bb524ab15776197f8289a",
@@ -1952,7 +2285,9 @@
         "order_delivery",
         "payment_term",
         "payment_completion"
-      ]
+      ],
+      "canonical_start": 17235,
+      "canonical_end": 17976
     },
     {
       "id": "4fd21040d83e5a0350e29274",
@@ -1964,7 +2299,9 @@
       "locator": "п. 8",
       "topics": [
         "payment_term"
-      ]
+      ],
+      "canonical_start": 17977,
+      "canonical_end": 20923
     },
     {
       "id": "263059a7eddfdf96f2658638",
@@ -1976,7 +2313,9 @@
       "locator": "п. 8",
       "topics": [
         "vat_rate"
-      ]
+      ],
+      "canonical_start": 17977,
+      "canonical_end": 20923
     },
     {
       "id": "2679f86cf36c76abcd6edf42",
@@ -1988,7 +2327,9 @@
       "locator": "преамбула",
       "topics": [
         "vat_rate"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 859
     },
     {
       "id": "1f00d9ced2bb5a19262c962c",
@@ -2000,7 +2341,9 @@
       "locator": "п. 1",
       "topics": [
         "overtime_limits"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "693d227ad63fd5b40212e0d3",
@@ -2012,7 +2355,9 @@
       "locator": "п. 1",
       "topics": [
         "delivery_address"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "7109399a2e83fb06ef954b3f",
@@ -2024,7 +2369,9 @@
       "locator": "п. 1",
       "topics": [
         "approval_route"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "a843b7da60f608727e73648f",
@@ -2036,7 +2383,9 @@
       "locator": "п. 1",
       "topics": [
         "vat_rate"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "ac7ee8b4a05b22514f47e40f",
@@ -2046,7 +2395,9 @@
       "search_start": 7416,
       "search_end": 9116,
       "locator": "п. 1",
-      "topics": []
+      "topics": [],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "a8c53f0e8fa04b47cab939b7",
@@ -2058,7 +2409,9 @@
       "locator": "п. 1",
       "topics": [
         "vat_rate"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "d399c0f1526badfa3bf60694",
@@ -2071,7 +2424,9 @@
       "topics": [
         "overtime_limits",
         "vat_rate"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "c2aad9a0aacae73bbebd2be0",
@@ -2084,7 +2439,9 @@
       "topics": [
         "overtime_limits",
         "delivery_cost"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "953e2926862e4e15c6fb688b",
@@ -2094,7 +2451,9 @@
       "search_start": 14171,
       "search_end": 15733,
       "locator": "п. 1",
-      "topics": []
+      "topics": [],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "4149593e2e0dabcefb3b3a6f",
@@ -2106,7 +2465,9 @@
       "locator": "п. 1",
       "topics": [
         "vat_rate"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "dd88457ba34ebc4205459904",
@@ -2118,7 +2479,9 @@
       "locator": "п. 1",
       "topics": [
         "payment_term"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "c1670198d6113994836f6d4d",
@@ -2130,7 +2493,9 @@
       "locator": "п. 1",
       "topics": [
         "vat_rate"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "854e11b6868ab732a68627fe",
@@ -2140,7 +2505,9 @@
       "search_start": 20518,
       "search_end": 22066,
       "locator": "п. 1",
-      "topics": []
+      "topics": [],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "845bf6e3a09c6ad99ae1b0b4",
@@ -2152,7 +2519,9 @@
       "locator": "п. 1",
       "topics": [
         "vat_rate"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "4464f955c09a73a0e4de6df6",
@@ -2164,7 +2533,9 @@
       "locator": "п. 1",
       "topics": [
         "vat_rate"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "9312b64f6a7b71cc73b2f62d",
@@ -2176,7 +2547,9 @@
       "locator": "п. 1",
       "topics": [
         "payment_term"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "e3fb7ecc3f1087a38174e2e7",
@@ -2188,7 +2561,9 @@
       "locator": "п. 1",
       "topics": [
         "payment_term"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "d5d0f68a714009e47abf1c66",
@@ -2200,7 +2575,9 @@
       "locator": "п. 1",
       "topics": [
         "vat_rate"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "fc246bd7388fa3f1d17c98e4",
@@ -2210,7 +2587,9 @@
       "search_start": 29459,
       "search_end": 30971,
       "locator": "п. 1",
-      "topics": []
+      "topics": [],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "dcc1c0cd7c8984b2224c88cf",
@@ -2222,7 +2601,9 @@
       "locator": "п. 1",
       "topics": [
         "vat_rate"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "39f7e5d0208e393f5760791e",
@@ -2234,7 +2615,9 @@
       "locator": "п. 1",
       "topics": [
         "vat_rate"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "e138f65cb041447db5cec02f",
@@ -2248,7 +2631,9 @@
         "order_delivery",
         "payment_term",
         "payment_completion"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "87071f1a1193578a11ac1526",
@@ -2261,7 +2646,9 @@
       "topics": [
         "vat_rate",
         "ownership"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "b725ebce40e1611a02190abe",
@@ -2273,7 +2660,9 @@
       "locator": "п. 1",
       "topics": [
         "vat_rate"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "7c89b0c8ef10dbae9c3ea8a9",
@@ -2285,7 +2674,9 @@
       "locator": "п. 1",
       "topics": [
         "vat_rate"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "a48762571458e3e5b8a18291",
@@ -2297,7 +2688,9 @@
       "locator": "п. 1",
       "topics": [
         "overtime_limits"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "54a8fdb31765d880de1cb0da",
@@ -2309,7 +2702,9 @@
       "locator": "п. 1",
       "topics": [
         "vat_rate"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "5c621f5ce67e5b2000d8ccd4",
@@ -2321,7 +2716,9 @@
       "locator": "п. 1",
       "topics": [
         "penalty"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "a9284fa4b460a3e125ef4071",
@@ -2331,7 +2728,9 @@
       "search_start": 44698,
       "search_end": 46140,
       "locator": "п. 1",
-      "topics": []
+      "topics": [],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "352f21b4e1589e30d931961a",
@@ -2344,7 +2743,9 @@
       "topics": [
         "rent_increase",
         "delivery_cost"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "bf7a41249fa539db135b9c8d",
@@ -2356,7 +2757,9 @@
       "locator": "п. 1",
       "topics": [
         "contract_term"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "b5cf102dadb30692563c1281",
@@ -2369,7 +2772,9 @@
       "topics": [
         "order_delivery",
         "payment_term"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "936b20e5a307f6dcf479df94",
@@ -2381,7 +2786,9 @@
       "locator": "п. 1",
       "topics": [
         "payment_term"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "97bd777d7175a98caf4c111c",
@@ -2393,7 +2800,9 @@
       "locator": "п. 1",
       "topics": [
         "payment_term"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "af0a79077a671258124a026c",
@@ -2405,7 +2814,9 @@
       "locator": "п. 1",
       "topics": [
         "delivery_cost"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "c37b0d2c1f73708eaa4497ab",
@@ -2419,7 +2830,9 @@
         "vat_rate",
         "termination",
         "approval_route"
-      ]
+      ],
+      "canonical_start": 860,
+      "canonical_end": 55498
     },
     {
       "id": "292f75baa7333b7f4c219182",
@@ -2431,7 +2844,9 @@
       "locator": "п. 2",
       "topics": [
         "overtime_limits"
-      ]
+      ],
+      "canonical_start": 55499,
+      "canonical_end": 64360
     },
     {
       "id": "50fb0440fe1085aff1916519",
@@ -2441,7 +2856,9 @@
       "search_start": 57387,
       "search_end": 59036,
       "locator": "п. 2",
-      "topics": []
+      "topics": [],
+      "canonical_start": 55499,
+      "canonical_end": 64360
     },
     {
       "id": "75417c9fd19b424fe57ca979",
@@ -2453,7 +2870,9 @@
       "locator": "п. 2",
       "topics": [
         "payment_term"
-      ]
+      ],
+      "canonical_start": 55499,
+      "canonical_end": 64360
     },
     {
       "id": "969255e3dbebff82327cc6e2",
@@ -2466,7 +2885,9 @@
       "topics": [
         "vat_exemption",
         "vat_rate"
-      ]
+      ],
+      "canonical_start": 55499,
+      "canonical_end": 64360
     },
     {
       "id": "559722f9d7e7e484f0354fe1",
@@ -2478,7 +2899,9 @@
       "locator": "п. 2",
       "topics": [
         "vat_exemption"
-      ]
+      ],
+      "canonical_start": 55499,
+      "canonical_end": 64360
     },
     {
       "id": "6a130629ed4e49267b86e3fc",
@@ -2490,7 +2913,9 @@
       "locator": "п. 2",
       "topics": [
         "vat_rate"
-      ]
+      ],
+      "canonical_start": 55499,
+      "canonical_end": 64360
     },
     {
       "id": "b128ccf3c5323d471b731c2f",
@@ -2500,7 +2925,9 @@
       "search_start": 64619,
       "search_end": 64829,
       "locator": "п. 3",
-      "topics": []
+      "topics": [],
+      "canonical_start": 64361,
+      "canonical_end": 64568
     },
     {
       "id": "583129e465aa20e9b5a32700",
@@ -2512,7 +2939,9 @@
       "locator": "п. 4",
       "topics": [
         "overtime_pay"
-      ]
+      ],
+      "canonical_start": 64569,
+      "canonical_end": 66570
     },
     {
       "id": "b7801ae6d38141fa71bf54f8",
@@ -2524,7 +2953,9 @@
       "locator": "п. 4",
       "topics": [
         "vat_rate"
-      ]
+      ],
+      "canonical_start": 64569,
+      "canonical_end": 66570
     },
     {
       "id": "c8f9f055f2de6da0490cafd9",
@@ -2536,7 +2967,9 @@
       "locator": "п. 5",
       "topics": [
         "vat_rate"
-      ]
+      ],
+      "canonical_start": 66571,
+      "canonical_end": 67169
     },
     {
       "id": "ca8002e981df6c991fab826b",
@@ -2546,7 +2979,9 @@
       "search_start": 67435,
       "search_end": 67557,
       "locator": "п. 6",
-      "topics": []
+      "topics": [],
+      "canonical_start": 67170,
+      "canonical_end": 67289
     },
     {
       "id": "32e99b672ac9dda82392bc9a",
@@ -2558,7 +2993,9 @@
       "locator": "п. 7",
       "topics": [
         "payment_term"
-      ]
+      ],
+      "canonical_start": 67290,
+      "canonical_end": 68395
     },
     {
       "id": "5a3f440a9e0b7b48d8ad1460",
@@ -2571,7 +3008,9 @@
       "topics": [
         "payment_term",
         "payment_completion"
-      ]
+      ],
+      "canonical_start": 68396,
+      "canonical_end": 74747
     },
     {
       "id": "7ba52a1ad8cd296d4385a47f",
@@ -2583,7 +3022,9 @@
       "locator": "п. 8",
       "topics": [
         "payment_term"
-      ]
+      ],
+      "canonical_start": 68396,
+      "canonical_end": 74747
     },
     {
       "id": "0135f4abc19d104cc708330f",
@@ -2596,7 +3037,9 @@
       "topics": [
         "payment_term",
         "payment_completion"
-      ]
+      ],
+      "canonical_start": 68396,
+      "canonical_end": 74747
     },
     {
       "id": "c31f9c8e7be84a3c5cea1160",
@@ -2606,7 +3049,9 @@
       "search_start": 73033,
       "search_end": 74469,
       "locator": "п. 8",
-      "topics": []
+      "topics": [],
+      "canonical_start": 68396,
+      "canonical_end": 74747
     },
     {
       "id": "f80ea15262792726aea8326a",
@@ -2616,7 +3061,9 @@
       "search_start": 74469,
       "search_end": 75033,
       "locator": "п. 8",
-      "topics": []
+      "topics": [],
+      "canonical_start": 68396,
+      "canonical_end": 74747
     },
     {
       "id": "622041fc6f43864eb91c9501",
@@ -2626,7 +3073,9 @@
       "search_start": 75033,
       "search_end": 76706,
       "locator": "п. 9",
-      "topics": []
+      "topics": [],
+      "canonical_start": 74748,
+      "canonical_end": 77909
     },
     {
       "id": "b12c9d35f166dc943c6ea627",
@@ -2639,7 +3088,9 @@
       "topics": [
         "vat_rate",
         "ownership"
-      ]
+      ],
+      "canonical_start": 74748,
+      "canonical_end": 77909
     },
     {
       "id": "2985da2133af1391dfc77b94",
@@ -2651,7 +3102,9 @@
       "locator": "п. 10",
       "topics": [
         "vat_rate"
-      ]
+      ],
+      "canonical_start": 77910,
+      "canonical_end": 78543
     },
     {
       "id": "6ecae05ecb9d42265ff5a341",
@@ -2663,7 +3116,9 @@
       "locator": "преамбула",
       "topics": [
         "income_tax"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 671
     },
     {
       "id": "93303fb0a672ecd93772662b",
@@ -2673,7 +3128,9 @@
       "search_start": 677,
       "search_end": 2451,
       "locator": "п. 1",
-      "topics": []
+      "topics": [],
+      "canonical_start": 672,
+      "canonical_end": 2525
     },
     {
       "id": "b9221f0f4c3731af56323318",
@@ -2683,7 +3140,9 @@
       "search_start": 2451,
       "search_end": 2539,
       "locator": "п. 1",
-      "topics": []
+      "topics": [],
+      "canonical_start": 672,
+      "canonical_end": 2525
     },
     {
       "id": "224f86df0a64d29179893141",
@@ -2693,7 +3152,9 @@
       "search_start": 2539,
       "search_end": 3397,
       "locator": "п. 1.1",
-      "topics": []
+      "topics": [],
+      "canonical_start": 2526,
+      "canonical_end": 3378
     },
     {
       "id": "bb70700cef125b102dba408f",
@@ -2705,7 +3166,9 @@
       "locator": "п. 1.2",
       "topics": [
         "income_tax"
-      ]
+      ],
+      "canonical_start": 3379,
+      "canonical_end": 4481
     },
     {
       "id": "f2c958f2fb31c0de16f4f4ba",
@@ -2717,7 +3180,9 @@
       "locator": "п. 2",
       "topics": [
         "income_tax"
-      ]
+      ],
+      "canonical_start": 4482,
+      "canonical_end": 5867
     },
     {
       "id": "828ea00de5c42e6d3896aa83",
@@ -2729,7 +3194,9 @@
       "locator": "п. 3",
       "topics": [
         "payment_term"
-      ]
+      ],
+      "canonical_start": 5868,
+      "canonical_end": 10055
     },
     {
       "id": "db06abdf6f655dc811807243",
@@ -2739,7 +3206,9 @@
       "search_start": 7417,
       "search_end": 8401,
       "locator": "п. 3",
-      "topics": []
+      "topics": [],
+      "canonical_start": 5868,
+      "canonical_end": 10055
     },
     {
       "id": "3b3baef7d6b5a1469abe2642",
@@ -2751,7 +3220,9 @@
       "locator": "п. 3",
       "topics": [
         "profit_tax_special"
-      ]
+      ],
+      "canonical_start": 5868,
+      "canonical_end": 10055
     },
     {
       "id": "37f415b36fe44f6e3f719a2c",
@@ -2761,7 +3232,9 @@
       "search_start": 10101,
       "search_end": 11530,
       "locator": "п. 3.1",
-      "topics": []
+      "topics": [],
+      "canonical_start": 10056,
+      "canonical_end": 11477
     },
     {
       "id": "f5cb93f37dc368ce09bc44c7",
@@ -2771,7 +3244,9 @@
       "search_start": 11530,
       "search_end": 11652,
       "locator": "п. 4",
-      "topics": []
+      "topics": [],
+      "canonical_start": 11478,
+      "canonical_end": 11597
     },
     {
       "id": "4800c5be5cb0960e71254742",
@@ -2781,7 +3256,9 @@
       "search_start": 11652,
       "search_end": 12174,
       "locator": "п. 5",
-      "topics": []
+      "topics": [],
+      "canonical_start": 11598,
+      "canonical_end": 12117
     },
     {
       "id": "e20c85a5d5a090cd2a2f0373",
@@ -2791,7 +3268,9 @@
       "search_start": 12174,
       "search_end": 12834,
       "locator": "п. 6",
-      "topics": []
+      "topics": [],
+      "canonical_start": 12118,
+      "canonical_end": 12775
     },
     {
       "id": "9b0cc4e10e41704a270c56a4",
@@ -2803,7 +3282,9 @@
       "locator": "преамбула",
       "topics": [
         "profit_tax"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 330
     },
     {
       "id": "35d6a95823108cb36c2b0382",
@@ -2816,7 +3297,9 @@
       "topics": [
         "profit_tax",
         "payment_term"
-      ]
+      ],
+      "canonical_start": 331,
+      "canonical_end": 4923
     },
     {
       "id": "68a3f15dd0c78b11a408a241",
@@ -2829,7 +3312,9 @@
       "topics": [
         "profit_tax",
         "payment_term"
-      ]
+      ],
+      "canonical_start": 331,
+      "canonical_end": 4923
     },
     {
       "id": "553cdb7a2159c2c4ddb9d259",
@@ -2842,7 +3327,9 @@
       "topics": [
         "profit_tax",
         "payment_term"
-      ]
+      ],
+      "canonical_start": 331,
+      "canonical_end": 4923
     },
     {
       "id": "932362d0ec914de8b265ec5c",
@@ -2854,7 +3341,9 @@
       "locator": "п. 1.1",
       "topics": [
         "profit_tax_special"
-      ]
+      ],
+      "canonical_start": 4924,
+      "canonical_end": 5587
     },
     {
       "id": "b2ad27475fb798a69400cefe",
@@ -2866,7 +3355,9 @@
       "locator": "п. 1.2",
       "topics": [
         "profit_tax"
-      ]
+      ],
+      "canonical_start": 5588,
+      "canonical_end": 6430
     },
     {
       "id": "090230b518795d66037d97e6",
@@ -2879,7 +3370,9 @@
       "topics": [
         "overtime_pay",
         "profit_tax"
-      ]
+      ],
+      "canonical_start": 6431,
+      "canonical_end": 7300
     },
     {
       "id": "de34837057a86ca32fa9b511",
@@ -2892,7 +3385,9 @@
       "topics": [
         "profit_tax",
         "payment_term"
-      ]
+      ],
+      "canonical_start": 7301,
+      "canonical_end": 8844
     },
     {
       "id": "bc1dc238fb9f6e8013d98d71",
@@ -2904,7 +3399,9 @@
       "locator": "п. 1.5",
       "topics": [
         "profit_tax"
-      ]
+      ],
+      "canonical_start": 8845,
+      "canonical_end": 9903
     },
     {
       "id": "5c935d0eb4b9d605dab4dc26",
@@ -2916,7 +3413,9 @@
       "locator": "п. 1.6",
       "topics": [
         "payment_term"
-      ]
+      ],
+      "canonical_start": 9904,
+      "canonical_end": 10441
     },
     {
       "id": "e10012e30fdc68a25e7f729f",
@@ -2926,7 +3425,9 @@
       "search_start": 10488,
       "search_end": 11434,
       "locator": "п. 1.7",
-      "topics": []
+      "topics": [],
+      "canonical_start": 10442,
+      "canonical_end": 18198
     },
     {
       "id": "a8cbaac5ce0397cdf0fcdf85",
@@ -2938,7 +3439,9 @@
       "locator": "п. 1.7",
       "topics": [
         "payment_term"
-      ]
+      ],
+      "canonical_start": 10442,
+      "canonical_end": 18198
     },
     {
       "id": "315091ae54d585b3a7c0777a",
@@ -2950,7 +3453,9 @@
       "locator": "п. 1.7",
       "topics": [
         "termination"
-      ]
+      ],
+      "canonical_start": 10442,
+      "canonical_end": 18198
     },
     {
       "id": "9d2829468ab58c105b707e7a",
@@ -2960,7 +3465,9 @@
       "search_start": 13699,
       "search_end": 14795,
       "locator": "п. 1.7",
-      "topics": []
+      "topics": [],
+      "canonical_start": 10442,
+      "canonical_end": 18198
     },
     {
       "id": "b346f41b5ebf1b3b48cd9cf4",
@@ -2970,7 +3477,9 @@
       "search_start": 14795,
       "search_end": 16279,
       "locator": "п. 1.7",
-      "topics": []
+      "topics": [],
+      "canonical_start": 10442,
+      "canonical_end": 18198
     },
     {
       "id": "e69a9abdd6f68d630e398f1c",
@@ -2982,7 +3491,9 @@
       "locator": "п. 1.7",
       "topics": [
         "payment_term"
-      ]
+      ],
+      "canonical_start": 10442,
+      "canonical_end": 18198
     },
     {
       "id": "f2694e39ec5640e4939aac95",
@@ -2994,7 +3505,9 @@
       "locator": "п. 1.7",
       "topics": [
         "termination"
-      ]
+      ],
+      "canonical_start": 10442,
+      "canonical_end": 18198
     },
     {
       "id": "4a13441c98bd3c763d55aebd",
@@ -3006,7 +3519,9 @@
       "locator": "п. 1.8",
       "topics": [
         "profit_tax_special"
-      ]
+      ],
+      "canonical_start": 18199,
+      "canonical_end": 26936
     },
     {
       "id": "7960863c668de73880c589fb",
@@ -3018,7 +3533,9 @@
       "locator": "п. 1.8",
       "topics": [
         "profit_tax"
-      ]
+      ],
+      "canonical_start": 18199,
+      "canonical_end": 26936
     },
     {
       "id": "0f86aba5042abd168b5a9609",
@@ -3030,7 +3547,9 @@
       "locator": "п. 1.8",
       "topics": [
         "overtime_pay"
-      ]
+      ],
+      "canonical_start": 18199,
+      "canonical_end": 26936
     },
     {
       "id": "b17ce5b73f18afb95998d716",
@@ -3042,7 +3561,9 @@
       "locator": "п. 1.8",
       "topics": [
         "ownership"
-      ]
+      ],
+      "canonical_start": 18199,
+      "canonical_end": 26936
     },
     {
       "id": "4711ebac6310633f3e41f9f8",
@@ -3055,7 +3576,9 @@
       "topics": [
         "profit_tax",
         "payment_term"
-      ]
+      ],
+      "canonical_start": 18199,
+      "canonical_end": 26936
     },
     {
       "id": "6c6171027372a37dd219d540",
@@ -3068,7 +3591,9 @@
       "topics": [
         "profit_tax",
         "payment_term"
-      ]
+      ],
+      "canonical_start": 18199,
+      "canonical_end": 26936
     },
     {
       "id": "d7df3c2e694cd5d63c5b9dba",
@@ -3080,7 +3605,9 @@
       "locator": "п. 1.9",
       "topics": [
         "profit_tax"
-      ]
+      ],
+      "canonical_start": 26937,
+      "canonical_end": 27253
     },
     {
       "id": "1f6d5e3d98cca166580ec838",
@@ -3090,7 +3617,9 @@
       "search_start": 27344,
       "search_end": 27430,
       "locator": "п. 1.10",
-      "topics": []
+      "topics": [],
+      "canonical_start": 27254,
+      "canonical_end": 27338
     },
     {
       "id": "588b652f8e50644dcd683e81",
@@ -3102,7 +3631,9 @@
       "locator": "п. 1.11",
       "topics": [
         "profit_tax"
-      ]
+      ],
+      "canonical_start": 27339,
+      "canonical_end": 27742
     },
     {
       "id": "36ae81bda87c75caea334629",
@@ -3114,7 +3645,9 @@
       "locator": "п. 1.12",
       "topics": [
         "profit_tax"
-      ]
+      ],
+      "canonical_start": 27743,
+      "canonical_end": 28761
     },
     {
       "id": "affd9b1157af0c079fc274f0",
@@ -3126,7 +3659,9 @@
       "locator": "п. 1.13",
       "topics": [
         "profit_tax"
-      ]
+      ],
+      "canonical_start": 28762,
+      "canonical_end": 29574
     },
     {
       "id": "46ff7e29b126ebbefc19d163",
@@ -3139,7 +3674,9 @@
       "topics": [
         "profit_tax",
         "payment_term"
-      ]
+      ],
+      "canonical_start": 29575,
+      "canonical_end": 30708
     },
     {
       "id": "375850e3c37790d7a9070b55",
@@ -3149,7 +3686,9 @@
       "search_start": 30814,
       "search_end": 32503,
       "locator": "п. 1.15",
-      "topics": []
+      "topics": [],
+      "canonical_start": 30709,
+      "canonical_end": 45855
     },
     {
       "id": "611d8e9446dfc3a5d5082aea",
@@ -3163,7 +3702,9 @@
         "delivery_cost",
         "payment_term",
         "ownership"
-      ]
+      ],
+      "canonical_start": 30709,
+      "canonical_end": 45855
     },
     {
       "id": "47f295051a6eff031c54e4d8",
@@ -3175,7 +3716,9 @@
       "locator": "п. 1.15",
       "topics": [
         "order_delivery"
-      ]
+      ],
+      "canonical_start": 30709,
+      "canonical_end": 45855
     },
     {
       "id": "0d148d5e4cab1e46d2c0d409",
@@ -3187,7 +3730,9 @@
       "locator": "п. 1.15",
       "topics": [
         "delivery_cost"
-      ]
+      ],
+      "canonical_start": 30709,
+      "canonical_end": 45855
     },
     {
       "id": "86a3f3895a5f692ba5ac725b",
@@ -3201,7 +3746,9 @@
         "delivery_cost",
         "payment_term",
         "ownership"
-      ]
+      ],
+      "canonical_start": 30709,
+      "canonical_end": 45855
     },
     {
       "id": "e8c1f9343c56b242171e8ee7",
@@ -3214,7 +3761,9 @@
       "topics": [
         "delivery_cost",
         "payment_term"
-      ]
+      ],
+      "canonical_start": 30709,
+      "canonical_end": 45855
     },
     {
       "id": "b6e3f0c4106860017f908688",
@@ -3224,7 +3773,9 @@
       "search_start": 44308,
       "search_end": 45987,
       "locator": "п. 1.15",
-      "topics": []
+      "topics": [],
+      "canonical_start": 30709,
+      "canonical_end": 45855
     },
     {
       "id": "f335efbb4a58b15dea37c8fb",
@@ -3234,7 +3785,9 @@
       "search_start": 45987,
       "search_end": 47565,
       "locator": "п. 1.16",
-      "topics": []
+      "topics": [],
+      "canonical_start": 45856,
+      "canonical_end": 50750
     },
     {
       "id": "258ef0a6db89f2f7057a0188",
@@ -3246,7 +3799,9 @@
       "locator": "п. 1.16",
       "topics": [
         "delivery_cost"
-      ]
+      ],
+      "canonical_start": 45856,
+      "canonical_end": 50750
     },
     {
       "id": "1db3e17f7157ae5e2f55b9e8",
@@ -3258,7 +3813,9 @@
       "locator": "п. 1.16",
       "topics": [
         "payment_term"
-      ]
+      ],
+      "canonical_start": 45856,
+      "canonical_end": 50750
     },
     {
       "id": "2c9f20515f41d8033ce58b91",
@@ -3271,7 +3828,9 @@
       "topics": [
         "profit_tax",
         "payment_term"
-      ]
+      ],
+      "canonical_start": 50751,
+      "canonical_end": 53915
     },
     {
       "id": "95195ac5476db421c1e2ebca",
@@ -3284,7 +3843,9 @@
       "topics": [
         "profit_tax",
         "payment_term"
-      ]
+      ],
+      "canonical_start": 50751,
+      "canonical_end": 53915
     },
     {
       "id": "550a733066f9b3e27f40e3bc",
@@ -3294,7 +3855,9 @@
       "search_start": 53506,
       "search_end": 54070,
       "locator": "п. 1.17",
-      "topics": []
+      "topics": [],
+      "canonical_start": 50751,
+      "canonical_end": 53915
     },
     {
       "id": "d143c8c180f61a8b419424f7",
@@ -3307,7 +3870,9 @@
       "topics": [
         "profit_tax",
         "payment_term"
-      ]
+      ],
+      "canonical_start": 53916,
+      "canonical_end": 54964
     },
     {
       "id": "c10b09842d2fe9701169b16d",
@@ -3320,7 +3885,9 @@
       "topics": [
         "profit_tax",
         "payment_term"
-      ]
+      ],
+      "canonical_start": 54965,
+      "canonical_end": 55820
     },
     {
       "id": "fd911812deaf4859bf72cab5",
@@ -3332,7 +3899,9 @@
       "locator": "п. 1.20",
       "topics": [
         "payment_term"
-      ]
+      ],
+      "canonical_start": 55821,
+      "canonical_end": 56830
     },
     {
       "id": "41f866f810594db8f9396e1e",
@@ -3345,7 +3914,9 @@
       "topics": [
         "dispute",
         "ownership"
-      ]
+      ],
+      "canonical_start": 56831,
+      "canonical_end": 59717
     },
     {
       "id": "3a2cc800820eec816d5aa071",
@@ -3359,7 +3930,9 @@
         "dispute",
         "profit_tax",
         "ownership"
-      ]
+      ],
+      "canonical_start": 56831,
+      "canonical_end": 59717
     },
     {
       "id": "c7d593461bd8033b3b078c44",
@@ -3372,7 +3945,9 @@
       "topics": [
         "rent_increase",
         "delivery_cost"
-      ]
+      ],
+      "canonical_start": 59718,
+      "canonical_end": 73497
     },
     {
       "id": "5a438ffdf23a7b830178d6cc",
@@ -3384,7 +3959,9 @@
       "locator": "п. 3",
       "topics": [
         "profit_tax_special"
-      ]
+      ],
+      "canonical_start": 59718,
+      "canonical_end": 73497
     },
     {
       "id": "7f8c3526cd318d19182e178b",
@@ -3397,7 +3974,9 @@
       "topics": [
         "profit_tax_special",
         "delivery_cost"
-      ]
+      ],
+      "canonical_start": 59718,
+      "canonical_end": 73497
     },
     {
       "id": "ab742892910d2d7a9b781723",
@@ -3409,7 +3988,9 @@
       "locator": "п. 3",
       "topics": [
         "profit_tax_special"
-      ]
+      ],
+      "canonical_start": 59718,
+      "canonical_end": 73497
     },
     {
       "id": "a4031f49b67952182a4d94e3",
@@ -3422,7 +4003,9 @@
       "topics": [
         "profit_tax_special",
         "delivery_cost"
-      ]
+      ],
+      "canonical_start": 59718,
+      "canonical_end": 73497
     },
     {
       "id": "01e7492d5914fb6184e68e96",
@@ -3434,7 +4017,9 @@
       "locator": "п. 3",
       "topics": [
         "delivery_cost"
-      ]
+      ],
+      "canonical_start": 59718,
+      "canonical_end": 73497
     },
     {
       "id": "651db98540229e816c302102",
@@ -3446,7 +4031,9 @@
       "locator": "п. 3",
       "topics": [
         "rent_increase"
-      ]
+      ],
+      "canonical_start": 59718,
+      "canonical_end": 73497
     },
     {
       "id": "2eb301f8d8e400975bfb290a",
@@ -3458,7 +4045,9 @@
       "locator": "п. 3",
       "topics": [
         "profit_tax_special"
-      ]
+      ],
+      "canonical_start": 59718,
+      "canonical_end": 73497
     },
     {
       "id": "0ab112c0d7d56f15b7a9d63e",
@@ -3472,7 +4061,9 @@
         "profit_tax_special",
         "payment_term",
         "ownership"
-      ]
+      ],
+      "canonical_start": 59718,
+      "canonical_end": 73497
     },
     {
       "id": "2e0ec54fb6b7f55dd026841a",
@@ -3482,7 +4073,9 @@
       "search_start": 73715,
       "search_end": 75504,
       "locator": "п. 4",
-      "topics": []
+      "topics": [],
+      "canonical_start": 73498,
+      "canonical_end": 80875
     },
     {
       "id": "04de188f188de12da00586e2",
@@ -3494,7 +4087,9 @@
       "locator": "п. 4",
       "topics": [
         "profit_tax"
-      ]
+      ],
+      "canonical_start": 73498,
+      "canonical_end": 80875
     },
     {
       "id": "0c90e6c9e6fc5dd50d78b6e7",
@@ -3507,7 +4102,9 @@
       "topics": [
         "profit_tax",
         "delivery_cost"
-      ]
+      ],
+      "canonical_start": 73498,
+      "canonical_end": 80875
     },
     {
       "id": "67dd1a67ab793731ba723cdc",
@@ -3521,7 +4118,9 @@
         "profit_tax",
         "delivery_cost",
         "payment_term"
-      ]
+      ],
+      "canonical_start": 73498,
+      "canonical_end": 80875
     },
     {
       "id": "e55dc53731f5ab09189d05a1",
@@ -3533,7 +4132,9 @@
       "locator": "п. 4",
       "topics": [
         "profit_tax"
-      ]
+      ],
+      "canonical_start": 73498,
+      "canonical_end": 80875
     },
     {
       "id": "27e8bacf456db9723b2263e7",
@@ -3545,7 +4146,9 @@
       "locator": "п. 4.1",
       "topics": [
         "profit_tax"
-      ]
+      ],
+      "canonical_start": 80876,
+      "canonical_end": 84437
     },
     {
       "id": "8661a6ec884d5491078d4e93",
@@ -3557,7 +4160,9 @@
       "locator": "п. 4.1",
       "topics": [
         "payment_term"
-      ]
+      ],
+      "canonical_start": 80876,
+      "canonical_end": 84437
     },
     {
       "id": "547de743751faba14653a475",
@@ -3570,7 +4175,9 @@
       "topics": [
         "profit_tax",
         "payment_term"
-      ]
+      ],
+      "canonical_start": 80876,
+      "canonical_end": 84437
     },
     {
       "id": "19fb28152704d7fd96f4bfa9",
@@ -3582,7 +4189,9 @@
       "locator": "п. 4.2",
       "topics": [
         "profit_tax_special"
-      ]
+      ],
+      "canonical_start": 84438,
+      "canonical_end": 85035
     },
     {
       "id": "81ab5e99d1eea345fe5e71ed",
@@ -3595,7 +4204,9 @@
       "topics": [
         "profit_tax",
         "delivery_cost"
-      ]
+      ],
+      "canonical_start": 85036,
+      "canonical_end": 87838
     },
     {
       "id": "487ad348c452ebec0f136219",
@@ -3609,7 +4220,9 @@
         "profit_tax",
         "delivery_cost",
         "payment_term"
-      ]
+      ],
+      "canonical_start": 85036,
+      "canonical_end": 87838
     },
     {
       "id": "411af7681bcb2809c8e89a90",
@@ -3622,7 +4235,9 @@
       "topics": [
         "profit_tax",
         "payment_term"
-      ]
+      ],
+      "canonical_start": 87839,
+      "canonical_end": 88762
     },
     {
       "id": "359de013095ded41f1d7ed5f",
@@ -3634,7 +4249,9 @@
       "locator": "п. 4.5",
       "topics": [
         "payment_term"
-      ]
+      ],
+      "canonical_start": 88763,
+      "canonical_end": 90032
     },
     {
       "id": "ca374f75054f8d281b4a3ac4",
@@ -3644,7 +4261,9 @@
       "search_start": 90310,
       "search_end": 90987,
       "locator": "п. 5",
-      "topics": []
+      "topics": [],
+      "canonical_start": 90033,
+      "canonical_end": 90706
     },
     {
       "id": "061ce722ef9d536725d143c6",
@@ -3656,7 +4275,9 @@
       "locator": "п. 5.1",
       "topics": [
         "penalty"
-      ]
+      ],
+      "canonical_start": 90707,
+      "canonical_end": 93727
     },
     {
       "id": "c94486e28c23b9748edfe226",
@@ -3668,7 +4289,9 @@
       "locator": "п. 5.1",
       "topics": [
         "penalty"
-      ]
+      ],
+      "canonical_start": 90707,
+      "canonical_end": 93727
     },
     {
       "id": "acc4eeb77a727391fcc75b8e",
@@ -3680,7 +4303,9 @@
       "locator": "п. 6",
       "topics": [
         "profit_tax"
-      ]
+      ],
+      "canonical_start": 93728,
+      "canonical_end": 93998
     },
     {
       "id": "b06afc8a220c4f1fd743abb5",
@@ -3692,7 +4317,9 @@
       "locator": "п. 7",
       "topics": [
         "profit_tax"
-      ]
+      ],
+      "canonical_start": 93999,
+      "canonical_end": 94274
     },
     {
       "id": "b1ee805591ed8cebe08ea656",
@@ -3704,7 +4331,9 @@
       "locator": "п. 8",
       "topics": [
         "payment_term"
-      ]
+      ],
+      "canonical_start": 94275,
+      "canonical_end": 94825
     },
     {
       "id": "4f6b4bc68c2d8270f3dcc4b1",
@@ -3716,7 +4345,9 @@
       "locator": "преамбула",
       "topics": [
         "overtime_pay"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 2609
     },
     {
       "id": "1ac0ca719ca3e9fa4b81c209",
@@ -3729,7 +4360,9 @@
       "topics": [
         "overtime_pay",
         "delivery_cost"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 2609
     },
     {
       "id": "0039ccc2107ed9a961265db2",
@@ -3741,7 +4374,9 @@
       "locator": "преамбула",
       "topics": [
         "fixed_term"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 5076
     },
     {
       "id": "bc4e1848885f406b06ff4f14",
@@ -3753,7 +4388,9 @@
       "locator": "преамбула",
       "topics": [
         "fixed_term"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 5076
     },
     {
       "id": "282a100d3a4c905ad66c63d1",
@@ -3765,7 +4402,9 @@
       "locator": "преамбула",
       "topics": [
         "ownership"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 5076
     },
     {
       "id": "e402693cb8037a5490cfd9b5",
@@ -3777,7 +4416,9 @@
       "locator": "преамбула",
       "topics": [
         "probation"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 2734
     },
     {
       "id": "0bc48060572574e5d975c8e1",
@@ -3790,7 +4431,9 @@
       "topics": [
         "approval_route",
         "probation"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 2734
     },
     {
       "id": "291ed3eff2b23d77c7489148",
@@ -3802,7 +4445,9 @@
       "locator": "преамбула",
       "topics": [
         "overtime_limits"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 6462
     },
     {
       "id": "57c4b4d54087393a37e298e2",
@@ -3814,7 +4459,9 @@
       "locator": "преамбула",
       "topics": [
         "overtime_limits"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 6462
     },
     {
       "id": "0811ea187fa6532f1320ee9a",
@@ -3826,7 +4473,9 @@
       "locator": "преамбула",
       "topics": [
         "overtime_limits"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 6462
     },
     {
       "id": "d73389715514b10bfa3b26e7",
@@ -3838,7 +4487,9 @@
       "locator": "преамбула",
       "topics": [
         "overtime_limits"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 6462
     },
     {
       "id": "ebc04c5dcac3dce0d761a343",
@@ -3850,8 +4501,10 @@
       "locator": "преамбула",
       "topics": [
         "overtime_limits"
-      ]
+      ],
+      "canonical_start": 0,
+      "canonical_end": 6462
     }
   ],
-  "description": "Source offsets only. A unit is used only against an exact live source hash; full governing scopes are retained."
+  "description": "Source offsets, exact and whitespace-normalized fingerprints. Runtime snippets are always literal spans of the supplied live source."
 }

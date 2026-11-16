@@ -31,7 +31,9 @@
         "3.2"
       ],
       "source_sha256": "f37f50f7bcb0900854230903be263bebdea60b3cae4be93ee9ed7ec02e4a380a",
-      "target_sha256": "b5df5ca3e2b746cbbaa1757e77697f28ad87d015c66d44fade45a10aae754e25"
+      "target_sha256": "b5df5ca3e2b746cbbaa1757e77697f28ad87d015c66d44fade45a10aae754e25",
+      "source_canonical_sha256": "579f94c0c90d58ab163eb70b085211a17c6c9a4f3e6f0f3541bb7a5f872fb5be",
+      "target_canonical_sha256": "b73f72c92b0a23d65f00215221185d6316e70e6d5a884f7e49bedbd539744f4d"
     },
     {
       "source": "документы компании__Регламент согласования договоров ред 2025.txt",
@@ -58,7 +60,9 @@
       "source_selectors": null,
       "target_selectors": null,
       "source_sha256": "6b899e69657be2b5357d37619cbe31e151bf8ab02f838603a4d55b4257f00e44",
-      "target_sha256": "27dcb53da4f654f50bdf233aa00b3e006075a85086f10dac57800473e499575d"
+      "target_sha256": "27dcb53da4f654f50bdf233aa00b3e006075a85086f10dac57800473e499575d",
+      "source_canonical_sha256": "7cc63096b955e30e3ddf18b691b0fcd5cb0288b66ce92233d65b049f384697f4",
+      "target_canonical_sha256": "26171775588b3d828d868d79931a03b334f6f03b0b53f931b8315487d009e85c"
     },
     {
       "source": "документы компании__Письмо комплаенс-службы К-12 от 15.04.2025.txt",
@@ -90,7 +94,9 @@
         "5.4"
       ],
       "source_sha256": "9d256e900a22e14c01f341d4172dc2923aa8696b0639f5ab8eed5a6ff5884449",
-      "target_sha256": "6b899e69657be2b5357d37619cbe31e151bf8ab02f838603a4d55b4257f00e44"
+      "target_sha256": "6b899e69657be2b5357d37619cbe31e151bf8ab02f838603a4d55b4257f00e44",
+      "source_canonical_sha256": "fae2be5a4cb25fd2837a58b00e7feafac6c0223e2e500c9777be9748eaeb9771",
+      "target_canonical_sha256": "7cc63096b955e30e3ddf18b691b0fcd5cb0288b66ce92233d65b049f384697f4"
     },
     {
       "source": "законы__НК_ст114_действующая.txt",
@@ -110,7 +116,9 @@
       "source_selectors": null,
       "target_selectors": null,
       "source_sha256": "ef0c299cf34b6a7e2ab91c08f46e6bfb0d157557d7bd9161d7a40f5e13b42941",
-      "target_sha256": "9f6e55f1968576d70d195cabffbdd1bca1f9747a29f9af665fa29025e43b3d9a"
+      "target_sha256": "9f6e55f1968576d70d195cabffbdd1bca1f9747a29f9af665fa29025e43b3d9a",
+      "source_canonical_sha256": "3f1280d3207a45871e44fed8cd6cca2e43393a051e3ed26e2f1cf63a11a7ebe6",
+      "target_canonical_sha256": "891feef5bcf568e7b002e3d6d46f25387804f1955de634938c1be97660237b89"
     },
     {
       "source": "законы__НК_ст145_действующая.txt",
@@ -130,7 +138,9 @@
       "source_selectors": null,
       "target_selectors": null,
       "source_sha256": "59c61690bda78bf26dab36ece2cc3374dc5fed94dd408c0d24b7991776c336b8",
-      "target_sha256": "90f7d1f6c472be5e5a89fc1fe9bcdc3a1b57171c475c772150bb463333bb7066"
+      "target_sha256": "90f7d1f6c472be5e5a89fc1fe9bcdc3a1b57171c475c772150bb463333bb7066",
+      "source_canonical_sha256": "fe7e668a795aef4ddbff75f350a28c866ea611add4c82b91027c6ae8e9bf9590",
+      "target_canonical_sha256": "ecca085c6398849eeb13a186a3676f0f7fc604819fa6e2bd3d8cdd3b1b1f8938"
     }
   ]
 }

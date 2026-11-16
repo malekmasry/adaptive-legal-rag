@@ -9,6 +9,7 @@ import hashlib
 import re
 from answer_guides import plan_for
 from corpus_playbook import load_playbook
+from source_identity import source_matches
 from focused_context import source_name
 
 FAMILIES={'rent':'Договор аренды А-08-2024','p17':'Договор поставки П-17-2024',
@@ -69,10 +70,10 @@ def event_date(text,as_of):
 
 
 def available_sources(evidence,documents):
-    known={e['filename']:e['sha256'] for e in load_playbook()['documents']}
+    known={e['filename']:e for e in load_playbook()['documents']}
     result={}
     for d in documents.values():
-        if known.get(d.filename)!=hashlib.sha256(d.raw.encode('utf8')).hexdigest():continue
+        if not source_matches(d.raw,known.get(d.filename,{})):continue
         e=next((e for e in evidence if e['document']==source_name(d) and e['text']==d.raw),None)
         if e:
             for family,prefix in FAMILIES.items():

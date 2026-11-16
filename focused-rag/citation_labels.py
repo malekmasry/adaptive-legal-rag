@@ -28,7 +28,8 @@ def display_citations(answer,source_ids,evidence,documents):
     a citation does not supply a fact, switch its source, or change its meaning.
     """
     from corpus_playbook import load_playbook
-    known={d['filename']:d['sha256'] for d in load_playbook()['documents']}
+    from source_identity import source_matches
+    known={d['filename']:d for d in load_playbook()['documents']}
     cited={e['document'] for e in evidence if e['source_id'] in set(source_ids)}
     names={
         'Договор аренды А-08-2024 Северный Склад':'Договор аренды № А-08/2024',
@@ -44,7 +45,7 @@ def display_citations(answer,source_ids,evidence,documents):
     result=answer
     for d in documents.values():
         original=d.filename.removesuffix('.txt').replace('документы компании__','').replace('законы__','')
-        if original not in cited or known.get(d.filename)!=hashlib.sha256(d.raw.encode()).hexdigest():continue
+        if original not in cited or not source_matches(d.raw,known.get(d.filename,{})):continue
         title=names.get(original)
         match=re.fullmatch(r'(НК|ТК|КоАП)_ст(\d+(?:\.\d+)?)_действующая',original)
         if match:title=match[1]+' РФ, ст. '+match[2]

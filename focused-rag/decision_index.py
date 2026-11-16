@@ -11,6 +11,7 @@ from intent_rules import QUESTIONS
 from retrieval import tokens,exact_entities
 from corpus_playbook import load_playbook
 from token_budget import estimate_tokens
+from source_identity import source_matches,live_span,live_scope,fingerprints
 
 def source_name(d):return d.filename.removesuffix('.txt').replace('документы компании__','').replace('законы__','')
 
@@ -22,20 +23,24 @@ class DecisionIndex:
         by_name={d.filename:d for d in documents.values()}
         self.valid={d['id'] for d in catalog['documents'] if d['id'] in documents
             and documents[d['id']].filename==d['filename']
-            and hashlib.sha256(documents[d['id']].raw.encode()).hexdigest()==d['sha256']}
+            and source_matches(documents[d['id']].raw,d)}
+        self.exact={d['id'] for d in catalog['documents'] if d['id'] in self.valid
+            and fingerprints(documents[d['id']].raw)[0]==d['sha256']}
         for entry in book['documents']:
             d=by_name.get(entry['filename'])
-            if d is None or d.id not in self.valid:continue
+            if d is None or d.id not in self.valid or not source_matches(d.raw,entry):continue
             for i,n in enumerate(entry['notes']):
-                if not all(a in d.raw for a in n['anchors']):continue
+                spans=[live_span(d.raw,a) for a in n['anchors']]
+                if not all(spans):continue
                 self.rows.append({'id':d.id+':note:'+str(i),'doc_id':d.id,'topics':n['topics'],
-                    'when':n.get('when'),'spans':n['anchors'],'locator':'основания проверенной памятки',
+                    'when':n.get('when'),'spans':[s[2] for s in spans],'locator':'основания проверенной памятки',
                     'search':n['hint'],'kind':'reviewed_note'})
         seen=set()
         for unit in catalog['units']:
             if unit['doc_id'] not in self.valid:continue
-            d=documents[unit['doc_id']];a,b=unit['start'],unit['end']
-            if not 0<=a<b<=len(d.raw):continue
+            d=documents[unit['doc_id']];scope=live_scope(d.raw,unit,d.id in self.exact)
+            if scope is None:continue
+            a,b,_=scope
             # Equal full scopes share one index row, including all child wording.
             if (d.id,a,b) in seen:continue
             seen.add((d.id,a,b))

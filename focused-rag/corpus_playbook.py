@@ -11,6 +11,7 @@ from functools import lru_cache
 from pathlib import Path
 from focused_context import source_name
 from token_budget import estimate_tokens
+from source_identity import source_matches,live_span
 
 
 @lru_cache(maxsize=1)
@@ -30,15 +31,17 @@ def recover_hint_sources(topics,evidence,documents,retrieved_filenames,budget=18
     for entry in book['documents']:
         d=by_filename.get(entry['filename'])
         if d is None or d.filename not in retrieved_filenames:continue
-        if hashlib.sha256(d.raw.encode('utf8')).hexdigest()!=entry['sha256']:continue
+        if not source_matches(d.raw,entry):continue
         for note in entry['notes']:
             if not set(note['topics']).intersection(topics):continue
             if note.get('when') and not re.search(note['when'],query):continue
             candidates.append(((int(note.get('priority',0)),bool(note.get('when'))),d,note))
     for _,d,note in sorted(candidates,key=lambda item:item[0],reverse=True):
         visible=[e for e in result if e['document']==source_name(d)]
-        missing=list(dict.fromkeys(a for a in note['anchors'] if not any(a in e['text'] for e in visible)))
-        if not missing or any(a not in d.raw for a in missing):continue
+        anchors=[live_span(d.raw,a) for a in note['anchors']]
+        if not all(anchors):continue
+        missing=list(dict.fromkeys(a[2] for a in anchors if not any(a[2] in e['text'] for e in visible)))
+        if not missing:continue
         additions=[]
         for anchor in missing:
             start=d.raw.index(anchor)
@@ -57,7 +60,7 @@ def verified_hints(topics, evidence, documents, budget=2500, playbook=None, ques
     query=question.lower().replace('ё','е')
     for entry in book['documents']:
         doc=next((d for d in by_name.values() if d.filename==entry['filename']),None)
-        if doc is None or hashlib.sha256(doc.raw.encode('utf8')).hexdigest()!=entry['sha256']:
+        if doc is None or not source_matches(doc.raw,entry):
             continue
         visible=[e for e in evidence if e['document']==source_name(doc)]
         if not visible:continue
@@ -68,7 +71,8 @@ def verified_hints(topics, evidence, documents, budget=2500, playbook=None, ques
             # not merely a hash of a source that retrieval did not show it.
             refs=[]
             for anchor in note['anchors']:
-                match=next((e for e in visible if anchor in e['text']),None)
+                span=live_span(doc.raw,anchor)
+                match=next((e for e in visible if span and span[2] in e['text']),None)
                 if match is None:break
                 refs.append(match['source_id'])
             else:

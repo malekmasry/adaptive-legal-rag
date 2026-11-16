@@ -16,6 +16,7 @@ from citation_labels import finish_answer
 from decision_checks import checks,INSTRUCTIONS as DECISION_INSTRUCTIONS
 from token_budget import estimate_tokens
 from question_brief import prepare_question_brief,answer_schema,resolved_paragraphs,ANSWER_GUIDANCE
+from scenario_bank import support as scenario_support,GUIDANCE as SCENARIO_GUIDANCE
 import json
 
 TECHNICAL = 'Не удалось получить ответ из-за технического сбоя. Это не означает отсутствия нужных сведений в базе.'
@@ -155,6 +156,17 @@ class Pipeline:
         # receive question-bound obligations instead of broad topic templates.
         payload={**payload,'response_plan':scoped_response_plan(response_plan,payload.get('question_brief'))}
         trace['answer_scope']=payload['response_plan']['scope_source']
+        scenarios,scenario_tokens,scenario_trace=scenario_support(subs[-1] if subs else query,evidence,self.docs,
+            min(2800,max(0,self.s.context_tokens-budget['total_evidence_tokens'])),
+            focuses=[p['focus'] for p in payload.get('question_brief',{}).get('parts',[])])
+        trace['scenarios']=scenario_trace
+        if scenarios:
+            # Keep the outline request/cache unchanged. Examples only help the
+            # final author/reviewer; they cannot add obligations or source facts.
+            budget['total_evidence_tokens']+=scenario_tokens
+            budget['scenario_tokens']=scenario_tokens
+            payload={**payload,'scenario_support':scenarios,'context_limits':dict(budget)}
+            instruction+='\n\n'+SCENARIO_GUIDANCE
         fallback_format='\nИспользуй обычную схему Answer: status и paragraphs; citations оформляй только как source_id и locator, без citation_id. Ответь на все части question_brief, но part_id в этой резервной схеме не требуется.'
         for attempt in range(2):
             try:
@@ -183,6 +195,7 @@ class Pipeline:
             try:
                 review_instruction=INSTRUCTION+'\n\n'+REVIEW+'\n\n'+GUIDANCE+'\n\n'+DECISION_INSTRUCTIONS+'\n\n'+hints
                 if catalog:review_instruction+='\n\n'+ANSWER_GUIDANCE
+                if scenarios:review_instruction+='\n\n'+SCENARIO_GUIDANCE
                 if catalog and schema is Answer:review_instruction+=fallback_format
                 if prepared:
                     review_instruction+='\nДля программного черновика используй специальную схему DraftCheck вместо обычного формата: {"keep_prepared":true,"correction":null}, если черновик правильный и покрывает все запрошенные подвопросы. Не переписывай его ради стиля, дополнительных справок или раскрытия уже достаточной ссылки. Если есть конкретная фактическая ошибка, неверная применимость, пропущенный подвопрос или черновик не отвечает на вопрос, верни keep_prepared=false и correction с полным исправленным Answer. Проверяй по вопросу и evidence, не по памяти. Правильный программный черновик будет выдан дословно, без добавления рассуждений проверяющего. В частности, не заменяй keep_prepared=true добавлением дат вступления редакций, названий органов или альтернативных сценариев, если без этих деталей вывод уже верен для условий вопроса. Достаточная точная ссылка на пункт не требует пересказа всех его соседей. Если исправление нужно, исправь только ошибку и сохрани остальные верные краткие формулировки и ссылки.'

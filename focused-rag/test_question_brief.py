@@ -191,4 +191,19 @@ class QuestionBriefTests(unittest.TestCase):
         self.assertNotIn('requested_slots',calls[0][1]['response_plan'])
         self.assertEqual(result['status'],'answered')
 
+    def test_scenarios_reach_generator_and_reviewer_without_extra_model_call(self):
+        card={'scenario':'synthetic','branches':['Учитывать условие из источника.'],
+              'contrast_examples':['Пример одного случая.','Пример другого случая.'],
+              'review_traps':['Не менять условие.']}
+        with patch('pipeline.scenario_support',return_value=([card],500,{'selected':['synthetic']})) as mocked:
+            result,calls=self.run_pipeline()
+        self.assertEqual(len(calls),3)
+        self.assertNotIn('scenario_support',calls[0][1])
+        for _,payload in calls[1:]:
+            self.assertEqual(payload['scenario_support'],[card])
+            self.assertEqual(payload['evidence'],calls[0][1]['evidence'])
+        self.assertEqual(result['trace']['budget']['scenario_tokens'],500)
+        self.assertLessEqual(result['trace']['budget']['total_evidence_tokens'],18000)
+        self.assertEqual(mocked.call_args.kwargs['focuses'],['Когда передают помещение','Как оформляют возврат'])
+
 if __name__=='__main__':unittest.main()

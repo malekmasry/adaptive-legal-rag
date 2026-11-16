@@ -3,6 +3,7 @@ from decimal import Decimal,ROUND_HALF_UP
 import hashlib,re
 from answer_guides import numbered_span
 from corpus_playbook import load_playbook
+from source_identity import source_matches
 from rule_drafts import money,unique_number,NUMBER,event_date,contract_entities
 from datetime import date
 
@@ -12,10 +13,10 @@ INSTRUCTIONS = '''decision_checks — расчёты и проверки усл�
 
 def checks(question,evidence,documents,as_of):
     q=question.lower().replace('ё','е');out=[]
-    known={e['filename']:e['sha256'] for e in load_playbook()['documents']}
+    known={e['filename']:e for e in load_playbook()['documents']}
     def source(family,locator):
         for d in documents.values():
-            if family not in d.filename or known.get(d.filename)!=hashlib.sha256(d.raw.encode()).hexdigest():continue
+            if family not in d.filename or not source_matches(d.raw,known.get(d.filename,{})):continue
             span=numbered_span(d.raw,locator)
             if not span:continue
             name=d.filename.removesuffix('.txt').replace('документы компании__','').replace('законы__','')

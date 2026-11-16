@@ -10,6 +10,7 @@ from pathlib import Path
 from functools import lru_cache
 import re
 from answer_guides import plan_for,numbered_span
+from source_identity import source_matches
 
 
 @lru_cache(maxsize=1)
@@ -35,7 +36,8 @@ def decide(relation,documents,question,table=None):
                and r['kind']==relation['kind']),None)
     if rule is None:return True,None,'unknown_relation_keep'
     for side,doc in [('source',source),('target',target)]:
-        if hashlib.sha256(doc.raw.encode('utf8')).hexdigest()!=rule[side+'_sha256']:
+        if not source_matches(doc.raw,{'sha256':rule[side+'_sha256'],
+                                      'canonical_sha256':rule.get(side+'_canonical_sha256')}):
             return True,None,'changed_source_keep'
     topics,broad=question_topics(question)
     if not topics or broad:return True,None,'uncertain_question_keep'
