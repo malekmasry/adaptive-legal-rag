@@ -1,0 +1,24 @@
+{
+  "method": "Assistant manually read all 26 final concise and detailed answers against supplied questions and corpus facts. No paid judge; no PSB score.",
+  "scope": "These are known local regression cases, not an independent holdout. Both outputs share model inputs and model responses; only rendering differs.",
+  "requested_conclusions": "No incorrect requested numerical result, deadline, party, applicable edition or omitted requested conclusion found in these 26 cases.",
+  "source_quotes": "Every displayed quote is checked against one of the paragraph’s cited evidence texts. Exact locator entailment is not proved by this string check alone.",
+  "remaining_minor": {
+    "T03": "Both views retain an unrequested but sourced three-working-day compliance duration.",
+    "T05_T06_N01_N05": "Some facts repeat because the question brief splits closely related subquestions.",
+    "N03": "Detailed answer discusses the hypothetical additional small-business status; not needed for the given case.",
+    "B04_N05": "Some literal source excerpts end mid-sentence; the actual conclusion remains in complete prose.",
+    "B10": "Status is answered although the prose explicitly acknowledges a missing checkout start event; judge should assess the answer content."
+  },
+  "technical": "26/26 rows per final artifact; zero technical errors. 113 unit tests per mode. B13 used the existing schema fallback and recovered a complete answer.",
+  "length": "9000 UTF-16 code units including references and date footer. Core/citations are reserved first; optional explanation/quote units are omitted whole if necessary. No optional units needed removal on this live batch.",
+  "final_followup": "Only public wording changed after the first pass. Both final ZIPs rerun through solution.py with zero new paid calls; identical model inputs/responses asserted against first pass.",
+  "timing": "First detailed batch 345.578 seconds with cached outlines, retrieval and embeddings; short paired batch 29.781 seconds with exact model response reuse. These are not comparable cold runtimes.",
+  "cost": {
+    "deepseek_calls": 55,
+    "deepseek_tokens": 850054,
+    "qwen_calls": 0,
+    "qwen_input_tokens": 0,
+    "api_errors": 0
+  }
+}
