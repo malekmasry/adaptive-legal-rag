@@ -60,49 +60,53 @@ def irac_notice(issue: str, reason: str) -> str:
 
 
 def expand_context(engine, candidates: list) -> list:
-    """Bounded local clause references and continuations, without another LLM."""
-    extra, seen = [], {source.id for source in candidates}
-    for source in candidates[:6]:
-        siblings = sorted(engine.by_document[source.document_id], key=lambda item: item.start)
-        references = re.findall(r"(?:\bп\.|\bпункт[а-я]*)\s*(\d+(?:\.\d+){0,3})", source.text, re.I)
-        # An explicitly resolved external reference must not resolve to an
-        # unrelated same-numbered provision in this document.
-        external = {link.target_clause for link in engine.links
-                    if link.source_document_id == source.document_id and link.target_clause}
-        additions = [other for other in siblings if other.clause in references and other.clause not in external]
-        position = next(i for i, item in enumerate(siblings) if item.id == source.id)
-        for index in (position - 1, position + 1):
-            if 0 <= index < len(siblings) and siblings[index].clause == source.clause:
-                additions.append(siblings[index])
-        for other in additions:
-            if other.id not in seen and len(extra) < 8:
-                seen.add(other.id)
-                extra.append(other)
-                if CURRENT.get():
-                    CURRENT.get().events.append({"stage": "structural_expansion", "from": source.id, "to": other.id})
-    return candidates[:4] + extra + candidates[4:]
+    """Complete bounded governing clauses and explicitly linked evidence."""
+    from evidence_bridge import expand_candidates
+    return expand_candidates(engine, candidates, CURRENT.get())
 
 
 def pack_context(engine, candidates: list) -> list[dict]:
     """Pack complete source records. Never cut a clause halfway to fit a budget."""
     from legal_core import integer_setting
+    from evidence_bridge import clause_parts, prepared_record, small_group
     max_chars = integer_setting("CONTEXT_MAX_CHARS", 18000, 2000, 80000)
     max_sources = integer_setting("CONTEXT_MAX_SOURCES", 18, 1, 48)
-    records, seen, used = [], set(), 2
+    records, seen, used, included = [], set(), 2, set()
     skipped = []
-    for source in candidates:
-        record = engine.source_records[source.id]
-        # Equal text in different editions remains distinct evidence.
-        key = (source.document_id, normalized(record["text"]))
-        if not record["text"].strip() or key in seen:
-            continue
-        size = len(json.dumps(record, ensure_ascii=False)) + (2 if records else 0)
-        if used + size > max_chars or len(records) >= max_sources:
-            skipped.append(source.id)
-            continue
-        records.append(record)
+    available = {source.id for source in candidates}
+
+    def append(group):
+        nonlocal used
+        batch, keys = [], set()
+        for source in group:
+            record = prepared_record(engine, source, clause_parts(engine, source))
+            key = (source.document_id, normalized(record["text"]))
+            if source.id in included or not record["text"].strip() or key in seen or key in keys:
+                continue
+            batch.append(record)
+            keys.add(key)
+        size = sum(len(json.dumps(record, ensure_ascii=False)) + 2 for record in batch)
+        if batch and not records:
+            size -= 2
+        if used + size > max_chars or len(records) + len(batch) > max_sources:
+            return False
+        records.extend(batch)
         used += size
-        seen.add(key)
+        seen.update(keys)
+        included.update(record["id"] for record in batch)
+        return True
+
+    for source in candidates:
+        if source.id in included:
+            continue
+        parts = clause_parts(engine, source)
+        # Prefer a complete, bounded clause in source order if it fits. If it
+        # does not, preserve the selected hit without truncation; fragment
+        # indices disclose that its legal context may be incomplete.
+        if small_group(engine, parts) and all(item.id in available for item in parts) and append(parts):
+            continue
+        if not append([source]):
+            skipped.append(source.id)
     if CURRENT.get():
         CURRENT.get().events.append({"stage": "context", "characters": used,
                                      "source_ids": [item["id"] for item in records], "skipped_ids": skipped})
