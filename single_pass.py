@@ -1,4 +1,4 @@
-"""Direct, source-grounded IRAC. One generation call; no model judge or repair loop.
+"""Direct, source-grounded IRAC; the conditional review hook is explicitly absent.
 
 Deterministic validation checks provenance/format, NOT semantic correctness.
 The adaptive pipeline remains available explicitly for controlled comparisons.
@@ -11,6 +11,7 @@ from time import perf_counter
 
 from rag_safety import citation_ids, clean_data, normalized
 from rag_telemetry import CURRENT, DEADLINE, Trace, remaining_seconds
+from review_user_provenance import user_provenance
 
 
 DIRECT_PROMPT = """Ты юридический ассистент по предоставленной базе документов.
@@ -152,7 +153,12 @@ class SinglePassPipeline:
             if len(question) > 20000:
                 raise ValueError("Question too long")
             latest, _ = clean_data(latest_turn(question))
+            # Select real user turns before the whole-dialogue sanitizer can
+            # quarantine an English Assistant marker and all following turns.
+            provenance = user_provenance(question)
             cleaned, removed = clean_data(question)
+            retrieval_question = ("\n".join(f"Пользователь: {turn}" for turn in provenance.turns)
+                                  if not provenance.ambiguous and provenance.turns else cleaned)
             self.trace.events.append({"stage": "input", "quarantined_lines": removed})
             if not latest.strip():
                 return self.result(irac_notice("Вопрос не определён.", "Уточните юридический вопрос по документам."), [], "clarification")
@@ -167,7 +173,7 @@ class SinglePassPipeline:
             budget = DEADLINE.set(perf_counter() + min(remaining_seconds(retrieval_budget), retrieval_budget))
             try:
                 if sources_override is None:
-                    candidates = expand_context(self.engine, self.engine.retrieve(cleaned))
+                    candidates = expand_context(self.engine, self.engine.retrieve(retrieval_question))
                 else:
                     candidates = sources_override
                     self.trace.events.append({"stage": "retrieval", "mode": "oracle_context"})
@@ -201,6 +207,8 @@ class SinglePassPipeline:
             # because one reference is malformed. Flag partial provenance.
             text = SOURCE_REFERENCES.sub(valid_citations, text)
             text, irac_ok = normalize_irac(text)
+            # Explicit no-review ablation: retain the direct answer and its
+            # deterministic provenance/format checks without another model call.
             cited = citation_ids(text)
             status = unsupported_or_clarifying(text) or ("answered" if cited else "partial")
             if invalid or removed or not irac_ok:
