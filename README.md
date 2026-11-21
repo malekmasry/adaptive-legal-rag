@@ -2,6 +2,8 @@
 
 A side project for answering questions about contracts, policies, and statutes from a local document collection. Ask which clause applies, when a rule takes effect, or how to calculate an amount. The assistant returns a short answer with references to the underlying provisions.
 
+**Hackathon result: top 10 with a final leaderboard score of 0.4723.** A score of 0.5 marks parity with the evaluation baseline.
+
 [![Verify release](https://github.com/malekmasry/adaptive-legal-rag/actions/workflows/verify.yml/badge.svg)](https://github.com/malekmasry/adaptive-legal-rag/actions/workflows/verify.yml)
 
 [Run the demo](#run-the-demo) · [Explore the architecture](#architecture) · [Download the batch release](submission/psb-v243.zip)
@@ -94,7 +96,7 @@ The input columns are `id,question`, and the output columns are `id,answer`. Git
 
 ## Authors
 
-- [@malekmasry](https://github.com/malekmasry) · ML engineering
-- [@moonvolk4](https://github.com/moonvolk4) · Pipeline development and benchmark tooling · ML engineering
+- [@malekmasry](https://github.com/malekmasry) · ML engineering. Developed the hybrid retrieval and reranking pipeline, the source catalogs, and the context assembly that brings clauses, amendments, and applicability notes together. Built the question brief and citation flow, packaged the batch release, and made the pipeline available through the local web demo.
+- [@moonvolk4](https://github.com/moonvolk4) · ML engineering. Developed the source-grounded answer pipeline and bounded batch execution. Created the [test benchmark](https://github.com/malekmasry/adaptive-legal-rag/tree/psb_rag_benchmark) used to compare pipeline variants, with repeatable runs, an explicit DeepSeek judge, and separate generator, judge, and reranker configurations.
 
 The project began at a hackathon. The [original presentation](docs/Правовой-навигатор.pdf) documents the initial design in Russian.
