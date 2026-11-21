@@ -94,7 +94,7 @@ The input columns are `id,question`, and the output columns are `id,answer`. Git
 
 ## Authors
 
-- [@malekmasry](https://github.com/malekmasry)
-- [@moonvolk4](https://github.com/moonvolk4) · Pipeline development and benchmark tooling
+- [@malekmasry](https://github.com/malekmasry) · ML engineering
+- [@moonvolk4](https://github.com/moonvolk4) · Pipeline development and benchmark tooling · ML engineering
 
 The project began at a hackathon. The [original presentation](docs/Правовой-навигатор.pdf) documents the initial design in Russian.
