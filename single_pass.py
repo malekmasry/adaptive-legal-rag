@@ -9,7 +9,7 @@ import json
 import re
 from time import perf_counter
 
-from rag_safety import citation_ids, clean_data, normalized
+from rag_safety import citation_ids, clean_data, filter_citations, normalized
 from rag_telemetry import CURRENT, DEADLINE, Trace, remaining_seconds
 
 
@@ -51,7 +51,6 @@ C — Вывод
 """
 
 HEADINGS = {"I": "Вопрос", "R": "Нормы", "A": "Применение", "C": "Вывод"}
-SOURCE_REFERENCES = re.compile(r"\[\s*(S\d+(?:\s*[,;]\s*S\d+)*)\s*\]")
 
 
 def irac_notice(issue: str, reason: str) -> str:
@@ -60,72 +59,79 @@ def irac_notice(issue: str, reason: str) -> str:
 
 
 def expand_context(engine, candidates: list) -> list:
-    """Bounded local clause references and continuations, without another LLM."""
-    extra, seen = [], {source.id for source in candidates}
-    for source in candidates[:6]:
-        siblings = sorted(engine.by_document[source.document_id], key=lambda item: item.start)
-        references = re.findall(r"(?:\bп\.|\bпункт[а-я]*)\s*(\d+(?:\.\d+){0,3})", source.text, re.I)
-        # An explicitly resolved external reference must not resolve to an
-        # unrelated same-numbered provision in this document.
-        external = {link.target_clause for link in engine.links
-                    if link.source_document_id == source.document_id and link.target_clause}
-        additions = [other for other in siblings if other.clause in references and other.clause not in external]
-        position = next(i for i, item in enumerate(siblings) if item.id == source.id)
-        for index in (position - 1, position + 1):
-            if 0 <= index < len(siblings) and siblings[index].clause == source.clause:
-                additions.append(siblings[index])
-        for other in additions:
-            if other.id not in seen and len(extra) < 8:
-                seen.add(other.id)
-                extra.append(other)
-                if CURRENT.get():
-                    CURRENT.get().events.append({"stage": "structural_expansion", "from": source.id, "to": other.id})
-    return candidates[:4] + extra + candidates[4:]
+    from context_bridge import expand_candidates
+    return expand_candidates(engine, candidates)
 
 
 def pack_context(engine, candidates: list) -> list[dict]:
-    """Pack complete source records. Never cut a clause halfway to fit a budget."""
+    from context_bridge import pack_candidates
     from legal_core import integer_setting
-    max_chars = integer_setting("CONTEXT_MAX_CHARS", 18000, 2000, 80000)
-    max_sources = integer_setting("CONTEXT_MAX_SOURCES", 18, 1, 48)
-    records, seen, used = [], set(), 2
-    skipped = []
-    for source in candidates:
-        record = engine.source_records[source.id]
-        # Equal text in different editions remains distinct evidence.
-        key = (source.document_id, normalized(record["text"]))
-        if not record["text"].strip() or key in seen:
-            continue
-        size = len(json.dumps(record, ensure_ascii=False)) + (2 if records else 0)
-        if used + size > max_chars or len(records) >= max_sources:
-            skipped.append(source.id)
-            continue
-        records.append(record)
-        used += size
-        seen.add(key)
-    if CURRENT.get():
-        CURRENT.get().events.append({"stage": "context", "characters": used,
-                                     "source_ids": [item["id"] for item in records], "skipped_ids": skipped})
-    return records
+    return pack_candidates(engine, candidates,
+        max_chars=integer_setting("CONTEXT_MAX_CHARS", 18000, 2000, 80000),
+        max_sources=integer_setting("CONTEXT_MAX_SOURCES", 18, 1, 48),
+        trace=CURRENT.get())
 
 
 def normalize_irac(text: str) -> tuple[str, bool]:
-    pattern = r"(?m)^\s*(?:#{1,3}\s*)?(?:\*\*)?([IRAC])\s*[—–:\-]\s*([^\n]*)"
+    pattern = r"(?m)^[ \t]*(?:#{1,6}[ \t]*)?(?:\*\*)?([IRAC])[ \t]*[—–:\-][ \t]*([^\n]*)"
     matches = list(re.finditer(pattern, text))
-    if [match.group(1) for match in matches] != list(HEADINGS):
+    if len(matches) != 4 or text[:matches[0].start()].strip():
+        return text.strip(), False
+    labels = {"вопрос": "I", "issue": "I", "норма": "R", "нормы": "R", "rule": "R",
+              "применение": "A", "application": "A", "вывод": "C", "conclusion": "C"}
+    names = [match.group(2).strip().strip("* ") for match in matches]
+    semantic = [labels.get(name.casefold()) for name in names]
+    letters = [match.group(1) for match in matches]
+    # Correct a mistaken letter only when all four explicit section names
+    # establish the expected order. Never infer a section from its body.
+    if semantic == list(HEADINGS):
+        letters = semantic
+    elif letters != list(HEADINGS) or any(label and label != letter for label, letter in zip(semantic, letters)):
         return text.strip(), False
     sections = []
-    labels = {"вопрос", "норма", "нормы", "применение", "вывод", "issue", "rule", "application", "conclusion"}
     for index, match in enumerate(matches):
-        label = match.group(2).strip().strip("* ")
+        label = names[index]
         end = matches[index + 1].start() if index + 1 < len(matches) else len(text)
         body = text[match.end():end].strip()
-        if label.casefold() not in labels:
+        if semantic[index] is None:
             body = (label + "\n" + body).strip()
         if not body:
             return text.strip(), False
-        sections.append(f"{match.group(1)} — {HEADINGS[match.group(1)]}\n{body}")
+        sections.append(f"{letters[index]} — {HEADINGS[letters[index]]}\n{body}")
     return "\n\n".join(sections), True
+
+
+def source_locator(engine, source) -> str:
+    """Display only a locator supported by original document structure.
+
+    Ingestion may attach an unnumbered appendix to the preceding clause. Keep
+    retrieval and source IDs unchanged, but do not print that inherited number
+    as the appendix's location. Long continuation chunks use document offsets.
+    """
+    document = next((item for item in engine.documents if item.id == source.document_id), None)
+    text = document.text if document is not None else source.text
+    end = source.end if document is not None else len(text)
+    appendix = list(re.finditer(
+        r"(?im)^[ \t]*(?:#{1,6}[ \t]*)?(?:\*\*)?"
+        r"(?:[А-Яа-яЁёA-Za-z-]+[ \t]+){0,2}приложение\b[^\n]*", text[:end]))
+    if appendix:
+        if source.clause.startswith("статья "):
+            clause = re.escape(source.clause[len("статья "):])
+            pattern = r"(?im)^[ \t]*Статья[ \t]+" + clause + r"(?:\.[ \t]*|[ \t]+)"
+        else:
+            pattern = r"(?m)^[ \t]*" + re.escape(source.clause) + r"\.[ \t]+"
+        numbered = list(re.finditer(pattern, text[:end]))
+        if not numbered or appendix[-1].start() > numbered[-1].start():
+            # Do not infer an appendix title/number or claim an exact location
+            # for a mixed chunk. A document-fragment locator stays truthful.
+            return "фрагмент документа"
+    if source.clause == "header":
+        return "заголовок документа"
+    if source.clause == "article":
+        return "фрагмент документа"
+    if source.clause.startswith("статья "):
+        return source.clause
+    return f"положение {source.clause}"
 
 
 class SinglePassPipeline:
@@ -191,15 +197,9 @@ class SinglePassPipeline:
             text, removed = clean_data(response)
             if not text.strip():
                 raise ValueError("Empty answer after sanitization")
-            references = re.findall(r"S\d+", " ".join(SOURCE_REFERENCES.findall(text)))
-            invalid = list(dict.fromkeys(sid for sid in references if sid not in allowed))
-
-            def valid_citations(match):
-                return " ".join(f"[{sid}]" for sid in dict.fromkeys(re.findall(r"S\d+", match.group(0))) if sid in allowed)
-
             # Never invent replacement references or erase the entire answer
             # because one reference is malformed. Flag partial provenance.
-            text = SOURCE_REFERENCES.sub(valid_citations, text)
+            text, invalid = filter_citations(text, allowed)
             text, irac_ok = normalize_irac(text)
             cited = citation_ids(text)
             status = unsupported_or_clarifying(text) or ("answered" if cited else "partial")
@@ -219,7 +219,7 @@ class SinglePassPipeline:
             if sources:
                 text += "\n\nИсточники:\n" + "\n".join(
                     f"[{source.id}] {self.engine.source_records[source.id]['document']}, "
-                    f"{self.engine.source_records[source.id]['path']}, положение {source.clause}." for source in sources)
+                    f"{self.engine.source_records[source.id]['path']}, {source_locator(self.engine, source)}." for source in sources)
             return self.result(text, sources, status)
         except (RuntimeError, ValueError, KeyError, IndexError, TypeError) as exc:
             self.trace.events.append({"stage": "failure", "type": type(exc).__name__})
