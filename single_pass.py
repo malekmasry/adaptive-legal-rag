@@ -1,4 +1,4 @@
-"""Direct, source-grounded IRAC. One generation call; no model judge or repair loop.
+"""Direct, source-grounded IRAC, with one optional bounded evidence review.
 
 Deterministic validation checks provenance/format, NOT semantic correctness.
 The adaptive pipeline remains available explicitly for controlled comparisons.
@@ -11,6 +11,7 @@ from time import perf_counter
 
 from rag_safety import citation_ids, clean_data, normalized
 from rag_telemetry import CURRENT, DEADLINE, Trace, remaining_seconds
+from review_bridge import review_answer
 
 
 DIRECT_PROMPT = """Ты юридический ассистент по предоставленной базе документов.
@@ -201,6 +202,10 @@ class SinglePassPipeline:
             # because one reference is malformed. Flag partial provenance.
             text = SOURCE_REFERENCES.sub(valid_citations, text)
             text, irac_ok = normalize_irac(text)
+            review = review_answer(self.engine.proxy, cleaned, text, records, self.trace,
+                                   irac_ok=irac_ok, unknown_citations=bool(invalid))
+            self.calls += int(review.called)
+            text = review.text
             cited = citation_ids(text)
             status = unsupported_or_clarifying(text) or ("answered" if cited else "partial")
             if invalid or removed or not irac_ok:
