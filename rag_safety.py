@@ -56,6 +56,11 @@ ATTACK_LINE = re.compile(
 )
 INVISIBLE = re.compile(r"[\u200b-\u200f\u202a-\u202e\u2060-\u206f\ufeff]")
 CITATIONS = re.compile(r"\[\s*(S\d{3,6}(?:\s*[,;]\s*S\d{3,6})*)\s*\]")
+# A source citation may include a document title or clause after the ID. Only
+# IDs at the start of the bracket or after an explicit list separator count;
+# an ID merely mentioned inside a document title is not another citation.
+ANNOTATED_CITATION = re.compile(r"\[\s*S\d+(?=[\s,;:—–\-\]])[^\[\]]{0,1000}\]")
+CITATION_MEMBER = re.compile(r"(?:^|[,;])\s*(S\d+)(?=$|[\s,;:—–\-])")
 
 
 def normalized(text: str) -> str:
@@ -78,6 +83,29 @@ def clean_data(text: str) -> tuple[str, int]:
 
 def citation_ids(text: str) -> list[str]:
     return list(dict.fromkeys(re.findall(r"S\d{3,6}", " ".join(CITATIONS.findall(text)))))
+
+
+def canonicalize_citations(text: str, allowed: set[str]) -> tuple[str, list[str]]:
+    """Normalize bracket citations against the actual supplied context.
+
+    Annotations are presentation text, not evidence metadata. Discard them and
+    let the caller render trusted document/paragraph metadata separately. Never
+    repair, pad, or guess an ID. This checks provenance, not claim entailment.
+    """
+    # Match the normalization performed by clean_data before checking the
+    # allowlist; otherwise fullwidth or zero-width IDs could bypass this check.
+    text = INVISIBLE.sub("", unicodedata.normalize("NFKC", text)).replace("\x00", "")
+    unknown = []
+
+    def replace(match):
+        ids = list(dict.fromkeys(CITATION_MEMBER.findall(match.group(0)[1:-1])))
+        unknown.extend(sid for sid in ids if sid not in allowed)
+        return " ".join(f"[{sid}]" for sid in ids if sid in allowed)
+
+    # Preserve the existing unbounded-whitespace/list grammar as well as the
+    # bounded annotated form. Every ID readable by citation_ids is checked.
+    text = CITATIONS.sub(replace, text)
+    return ANNOTATED_CITATION.sub(replace, text), list(dict.fromkeys(unknown))
 
 
 def parse_object(text: str) -> dict:
