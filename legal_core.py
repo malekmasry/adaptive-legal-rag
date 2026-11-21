@@ -65,32 +65,185 @@ def quoted_names(value: str) -> list[str]:
     return [a or b for a, b in re.findall(r'«([^»]+)»|"([^"\n]+)"', value)]
 
 
+# Role markers are transcript delimiters only at the start of a line. In
+# particular, an inline quotation of "Пользователь:" is ordinary question text.
+TURN_RE = re.compile(r"(?m)^[ \t]*(Пользователь|Ассистент):[ \t]*")
+ENTITY_QUOTE_RE = re.compile(r'«([^»\n]+)»|"([^"\n]+)"|“([^”\n]+)”')
+LEGAL_FORM = r"(?:ООО|ПАО|ОАО|ЗАО|АО|ГУП|МУП|НКО|ИП)"
+UNQUOTED_ENTITY_RE = re.compile(
+    rf"\b{LEGAL_FORM}\s+([А-ЯЁA-Z][А-Яа-яЁёA-Za-z0-9-]*"
+    rf"(?:[ \t]+[А-ЯЁA-Z][А-Яа-яЁёA-Za-z0-9-]*){{0,3}})"
+)
+REJECTED_ANCHOR_RE = re.compile(
+    rf"\b(?:не|вместо)\s+(?:(?:по|с|из|для|о|об|договор\w*|компани\w*|"
+    rf"контрагент\w*|{LEGAL_FORM})\s+){{0,4}}(?:№\s*)?$", re.I,
+)
+
+
+def user_turns(question: str) -> list[str]:
+    """Read the existing plain-text transcript; assistant text is never a hint.
+
+    This is formatting, not authentication of roles inside untrusted text. The
+    model's data/instruction boundary and input quarantine remain unchanged.
+    """
+    turns = list(TURN_RE.finditer(question))
+    return [question[turn.end():turns[index + 1].start() if index + 1 < len(turns) else len(question)].strip()
+            for index, turn in enumerate(turns) if turn.group(1) == "Пользователь"]
+
+
 def latest_turn(question: str) -> str:
-    return question.rsplit("Пользователь:", 1)[-1].strip() if "Пользователь:" in question else question
+    turns = user_turns(question)
+    return turns[-1] if turns else question
+
+
+@dataclass(frozen=True)
+class SearchAnchor:
+    kind: str
+    value: str
+    key: str
+    start: int
+    end: int
+    rejected: bool
+
+
+def _context_entity_key(value: str) -> str:
+    """Compare inflected user mentions without changing corpus entity scoring.
+
+    The shared normalizer intentionally keeps stems shorter than four letters.
+    For conversational continuity only, also recognize three-letter stems and
+    the adjectival plural ending -ых. Do not fuzzy-match or drop name tokens.
+    """
+    suffixes = ("ого", "ему", "ому", "ыми", "ими", "ами", "ями", "ый", "ий", "ой",
+                "ая", "яя", "ое", "ее", "ые", "ие", "ых", "их", "ом", "ем", "ым",
+                "им", "ам", "ям", "ах", "ях", "а", "я", "ы", "и", "у", "ю", "е")
+    def stem(match):
+        word = match[0]
+        if word.endswith(("ие", "ия")) and len(word) > 5:
+            return word[:-2] + "и"
+        for suffix in suffixes:
+            if word.endswith(suffix) and len(word) - len(suffix) >= 3:
+                return word[:-len(suffix)]
+        return word
+    return re.sub(r"[а-я]+", stem, normalized(value))
+
+
+def search_anchors(value: str) -> list[SearchAnchor]:
+    """Extract user-supplied document/name hints, without guessing new facts.
+
+    Lowercase quoted legal phrases are not entity switches. A capitalized
+    quoted name or a name introduced by a legal form can identify a party.
+    Russian declensions use a narrow conversational entity key.
+    """
+    anchors = []
+    for match in CONTRACT_RE.finditer(value):
+        number = match.group(1)
+        anchors.append(SearchAnchor("contract", number,
+            normalized(number).replace("–", "-").replace("/", "-"),
+            match.start(), match.end(), bool(REJECTED_ANCHOR_RE.search(value[max(0, match.start() - 100):match.start()]))))
+    for match in ENTITY_QUOTE_RE.finditer(value):
+        name = next(group for group in match.groups() if group is not None).strip()
+        prefix = value[max(0, match.start() - 100):match.start()]
+        if not name or len(name) > 160 or not (
+                name[0].isupper() or re.search(rf"\b{LEGAL_FORM}\s*$", prefix)):
+            continue
+        anchors.append(SearchAnchor("entity", name, _context_entity_key(name), match.start(), match.end(),
+                                    bool(REJECTED_ANCHOR_RE.search(prefix))))
+    for match in UNQUOTED_ENTITY_RE.finditer(value):
+        if any(match.start() < anchor.end and match.end() > anchor.start for anchor in anchors):
+            continue
+        name = match.group(1)
+        prefix = value[max(0, match.start() - 100):match.start()]
+        anchors.append(SearchAnchor("entity", name, _context_entity_key(name), match.start(), match.end(),
+                                    bool(REJECTED_ANCHOR_RE.search(prefix))))
+    return sorted(anchors, key=lambda anchor: anchor.start)
+
+
+def _without_anchors(value: str, anchors: list[SearchAnchor]) -> str:
+    for anchor in reversed(anchors):
+        value = value[:anchor.start] + " " + value[anchor.end:]
+    return " ".join(value.split()).strip()
+
+
+def _needs_prior_intent(value: str, anchors: list[SearchAnchor]) -> bool:
+    """Small linguistic heuristic for short corrections and elliptical turns."""
+    body = _without_anchors(value, anchors)
+    words = tokens(body)
+    if len(words) <= 3:
+        return True
+    if len(words) <= 12 and re.search(
+            r"^(?:нет\b|неверно\b|уточн\w*\b|я\s+имел[аи]?\b|речь\s+(?:о|об)\b)", body, re.I):
+        return True
+    if len(words) <= 12 and re.search(
+            r"\b(?:этот|этого|этому|этом|этим|этой|этих|это|его|ее|их|там|тогда|такой|такого)\b", body, re.I):
+        return True
+    return len(words) <= 5 and bool(re.search(
+        r"^(?:(?:а|и|но)\s+)?(?:како\w*|сколько|когда|где|почему|точно|верно)\b", body, re.I))
 
 
 def focused_search_question(question: str) -> str:
-    latest = latest_turn(question)
-    # When the user resolved the company or contract in the last turn,
-    # earlier assistant guesses should not compete with that entity.
-    if latest != question and (CONTRACT_RE.search(latest) or re.search(r"[«\"][^»\"]+[»\"]", latest)):
-        return latest
-    if latest != question:
-        user_turns = [turn.strip() for turn in re.findall(
-            r"Пользователь:\s*(.*?)(?=\n(?:Пользователь|Ассистент):|\Z)",
-            question,
-            flags=re.S,
-        )]
-        if user_turns:
-            # An assistant's earlier answer is not evidence about the user's
-            # intended document and can drown out the latest question.
-            earlier = "\n".join(user_turns[:-1])
-            identifiers = CONTRACT_RE.findall(earlier)
-            entities = quoted_names(earlier)
-            if identifiers or entities:
-                return latest + " " + " ".join(identifiers + [f"«{name}»" for name in entities])
-            return "\n".join(user_turns)
-    return question
+    """Keep latest user intent plus bounded user context, never assistant facts.
+
+    A newly named scope replaces the earlier one. Repeating the same entity in
+    another case keeps its known contract; changing the entity drops that link.
+    Explicit comparisons may retain the immediately active scope. Corrections
+    can reuse the previous user topic after removing obsolete identifiers.
+    """
+    turns = user_turns(question)
+    if not turns:
+        return question  # Ordinary single-turn input is byte-for-byte unchanged.
+    if len(turns) == 1:
+        return turns[0]  # A role wrapper alone does not require query expansion.
+    active = {"contract": {}, "entity": {}}
+    prior_intent = ""
+    latest_intent = ""
+    latest = turns[-1]
+    latest_anchors = []
+    for index, turn in enumerate(turns):
+        anchors = search_anchors(turn)
+        positive = {kind: {anchor.key: anchor.value for anchor in anchors
+                           if anchor.kind == kind and not anchor.rejected}
+                    for kind in active}
+        previous_keys = {kind: set(values) for kind, values in active.items()}
+        for anchor in anchors:
+            if anchor.rejected and anchor.key in active[anchor.kind]:
+                active[anchor.kind].pop(anchor.key)
+                # A rejected scope must not survive indirectly through its
+                # previously associated contract or party.
+                other = "entity" if anchor.kind == "contract" else "contract"
+                if not positive[other]:
+                    active[other] = {}
+        comparing = bool(re.search(r"\b(?:сравн\w*|сопостав\w*)\b", turn, re.I))
+        new_contract = bool(positive["contract"] and previous_keys["contract"] and not set(positive["contract"]) <= previous_keys["contract"])
+        new_entity = bool(positive["entity"] and previous_keys["entity"] and not set(positive["entity"]) <= previous_keys["entity"])
+        if not comparing:
+            if new_contract and not positive["entity"]:
+                active["entity"] = {}
+            if new_entity and not positive["contract"]:
+                active["contract"] = {}
+        for kind in active:
+            if positive[kind]:
+                if comparing:
+                    active[kind].update(positive[kind])
+                else:
+                    active[kind] = positive[kind]
+        needs_prior = _needs_prior_intent(turn, anchors)
+        if index == len(turns) - 1:
+            latest_anchors = anchors
+            latest_intent = prior_intent if needs_prior else ""
+        body = _without_anchors(turn, anchors)
+        if body and (not needs_prior or not prior_intent):
+            prior_intent = body[:900]
+    # Rejected names/numbers must not receive exact-match retrieval boosts.
+    result = _without_anchors(latest, [anchor for anchor in latest_anchors if anchor.rejected])
+    if latest_intent and normalized(latest_intent) != normalized(result):
+        result += "\nПредыдущий вопрос пользователя: " + latest_intent
+    # The state contains only the most recent user scope (or explicit compared
+    # scopes), not an ever-growing union of every earlier contract and party.
+    hints = ["№ " + value for value in list(active["contract"].values())[-8:]]
+    hints += [f"«{value}»" for value in list(active["entity"].values())[-8:]]
+    if hints:
+        result += "\nКонтекст пользователя: " + " ".join(hints)
+    return result.strip()
 
 
 def setting(*names: str, default: str = "") -> str:
@@ -473,6 +626,9 @@ class ModelProxy:
         return vectors  # type: ignore[return-value]
 
     def rerank(self, question: str, passages: list[str]) -> list[int]:
+        return [index for index, _ in self.rerank_with_scores(question, passages)]
+
+    def rerank_with_scores(self, question: str, passages: list[str]) -> list[tuple[int, float | None]]:
         separate_base = getattr(self, "rerank_base", "")
         separate_key = getattr(self, "rerank_key", "")
         # Never forward the generation credential to a separately configured host.
@@ -485,8 +641,17 @@ class ModelProxy:
         ranked = data.get("results", data.get("data", []))
         if not isinstance(ranked, list) or not all(isinstance(item, dict) for item in ranked):
             raise ValueError("Invalid reranker response")
-        return list(dict.fromkeys(int(item["index"]) for item in ranked
-                                  if type(item.get("index")) is int and 0 <= item["index"] < len(passages)))
+        result = []
+        seen = set()
+        for item in ranked:
+            index = item.get("index")
+            if type(index) is not int or not 0 <= index < len(passages) or index in seen:
+                continue
+            seen.add(index)
+            score = item.get("relevance_score", item.get("score"))
+            score = float(score) if type(score) in (int, float) and math.isfinite(score) else None
+            result.append((index, score))
+        return result
 
     def complete(self, system: str, user: str) -> str:
         trace = CURRENT.get()
@@ -533,6 +698,12 @@ class LegalAssistant:
         self.document_entities = {doc.id: {named_entity_key(name) for name in quoted_names(clean_data(doc.text)[0])}
                                   for doc in self.documents}
         self.proxy = proxy or ModelProxy()
+        self.retrieval_mode = setting("RETRIEVAL_MODE", default="hybrid")
+        if self.retrieval_mode not in {"hybrid", "conditional"}:
+            raise ValueError("Unknown RETRIEVAL_MODE")
+        self.conditional_threshold = float(setting("CONDITIONAL_DENSE_THRESHOLD", default="0.5"))
+        if not math.isfinite(self.conditional_threshold) or not 0 <= self.conditional_threshold <= 1:
+            raise ValueError("CONDITIONAL_DENSE_THRESHOLD must be between 0 and 1")
         self.terms = [Counter(tokens(model_excerpt(source.text)) + list(search_terms(model_excerpt(source.text))))
                       for source in self.sources]
         self.lengths = [sum(terms.values()) for terms in self.terms]
@@ -553,6 +724,10 @@ class LegalAssistant:
         # gateway must not implicitly enable embedding requests or dense search.
         if use_embeddings is None:
             use_embeddings = setting("USE_EMBEDDINGS", default="0") == "1"
+        if use_embeddings and self.retrieval_mode == "conditional" and not self._reranker_ready():
+            # Without reranker scores there can be no conditional switch.
+            use_embeddings = False
+            self.ingestion_warnings.append({"stage": "embedding_index", "reason": "reranker_unavailable"})
         embedding_ready = ((self.proxy.base and self.proxy.key) or
                            (getattr(self.proxy, "embed_base", "") and getattr(self.proxy, "embed_key", "")))
         if use_embeddings and embedding_ready:
@@ -642,11 +817,95 @@ class LegalAssistant:
         scores = [sum(a * b for a, b in zip(query, vector)) for vector in self.vectors]
         return sorted(range(len(scores)), key=lambda index: scores[index], reverse=True)
 
+    def _reranker_ready(self) -> bool:
+        return bool(self.proxy.rerank_model and ((self.proxy.base and self.proxy.key) or
+                    (getattr(self.proxy, "rerank_base", "") and getattr(self.proxy, "rerank_key", ""))))
+
+    def _scored_candidates(self, query: str, candidates: list[int], stage: str):
+        trace = CURRENT.get()
+        previous_stage = trace.stage if trace else None
+        started = time.perf_counter()
+        try:
+            if trace:
+                trace.stage = stage
+            ranked = self.proxy.rerank_with_scores(query, [self.search_texts[index] for index in candidates])
+            if not ranked:
+                raise ValueError("Empty reranker ranking")
+            order = [index for index, _ in ranked]
+            chosen = [candidates[index] for index in order]
+            chosen.extend(candidates[index] for index in range(len(candidates)) if index not in order)
+            scores = [score for _, score in ranked]
+            # Index-only, partial or raw-logit responses still provide a ranking,
+            # but cannot be compared to a threshold on the 0..1 score scale.
+            valid = len(ranked) == len(candidates) and all(score is not None and 0 <= score <= 1 for score in scores)
+            return chosen, max(scores) if valid else None
+        finally:
+            if trace:
+                elapsed = (time.perf_counter() - started) * 1000
+                trace.timings[stage] = elapsed
+                trace.timings["rerank"] = trace.timings.get("rerank", 0) + elapsed
+                trace.stage = previous_stage
+
+    def _conditional_candidates(self, query: str, lexical: list[int], candidate_k: int) -> tuple[list[int], bool]:
+        chosen = lexical[:candidate_k]
+        trace = CURRENT.get()
+        event = {"stage": "retrieval_route", "route": "lexical", "threshold": self.conditional_threshold,
+                 "rerank_score": None, "status": "reranker_unavailable"}
+        dense_used = False
+        try:
+            if not chosen or not self._reranker_ready():
+                return chosen, dense_used
+            event["status"] = "lexical_rerank_failed"
+            chosen, confidence = self._scored_candidates(query, chosen, "rerank_lexical")
+            event["rerank_score"] = confidence
+            if confidence is None:
+                event["status"] = "scores_unavailable"
+            elif confidence >= self.conditional_threshold:
+                event["status"] = "lexical_confident"
+            elif self.vectors is None:
+                event["status"] = "dense_index_unavailable"
+            else:
+                event["status"] = "dense_search_failed"
+                started = time.perf_counter()
+                previous_stage = trace.stage if trace else None
+                try:
+                    if trace:
+                        trace.stage = "dense"
+                    dense = self._dense(query)[:candidate_k]
+                finally:
+                    if trace:
+                        trace.timings["dense"] = (time.perf_counter() - started) * 1000
+                        trace.stage = previous_stage
+                if not dense:
+                    event["status"] = "dense_empty"
+                else:
+                    event["status"] = "dense_rerank_failed"
+                    # Keep lexical evidence until the entire alternate route succeeds.
+                    alternate, dense_score = self._scored_candidates(query, dense, "rerank_dense")
+                    chosen, dense_used = alternate, True
+                    event.update(route="dense", status="low_lexical_score", dense_rerank_score=dense_score)
+            return chosen, dense_used
+        except (RuntimeError, ValueError, TypeError, KeyError) as exc:
+            event["type"] = type(exc).__name__
+            return chosen, False
+        finally:
+            if trace:
+                trace.events.append(event)
+
     def retrieve(self, question: str, limit: int | None = None) -> list[Source]:
         limit = limit or integer_setting("TOP_K", 12, 4, 30)
         candidate_k = max(limit, integer_setting("RETRIEVAL_CANDIDATES", 64, 16, 256))
         query = focused_search_question(question)
         lexical = self._lexical(query)
+        if self.retrieval_mode == "conditional":
+            chosen, dense_used = self._conditional_candidates(query, lexical, candidate_k)
+        else:
+            chosen, dense_used = self._hybrid_candidates(query, lexical, candidate_k)
+        if CURRENT.get():
+            CURRENT.get().events.append({"stage": "candidates", "count": len(chosen), "dense_used": dense_used})
+        return self._expand_retrieval(chosen, lexical, limit)
+
+    def _hybrid_candidates(self, query: str, lexical: list[int], candidate_k: int) -> tuple[list[int], bool]:
         try:
             dense = self._dense(query)
         except (RuntimeError, KeyError, ValueError, TypeError) as exc:
@@ -659,8 +918,7 @@ class LegalAssistant:
                 fused[index] += 1.0 / (60 + rank)
         chosen = sorted(fused, key=lambda index: fused[index], reverse=True)[:candidate_k]
         # Rerank the broad candidate pool BEFORE truncating the final context.
-        if self.proxy.rerank_model and ((self.proxy.base and self.proxy.key) or
-                                       (getattr(self.proxy, "rerank_base", "") and getattr(self.proxy, "rerank_key", ""))):
+        if self._reranker_ready():
             started = time.perf_counter()
             try:
                 if CURRENT.get():
@@ -674,8 +932,9 @@ class LegalAssistant:
             finally:
                 if CURRENT.get():
                     CURRENT.get().timings["rerank"] = (time.perf_counter() - started) * 1000
-        if CURRENT.get():
-            CURRENT.get().events.append({"stage": "candidates", "count": len(chosen), "dense_used": bool(dense)})
+        return chosen, bool(dense)
+
+    def _expand_retrieval(self, chosen: list[int], lexical: list[int], limit: int) -> list[Source]:
         chosen = chosen[:limit]
         doc_ids = {self.sources[index].document_id for index in chosen}
         # Bring an explicitly referenced clause into context before the tail.
