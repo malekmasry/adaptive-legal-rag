@@ -60,27 +60,69 @@ def irac_notice(issue: str, reason: str) -> str:
 
 
 def expand_context(engine, candidates: list) -> list:
-    """Bounded local clause references and continuations, without another LLM."""
-    extra, seen = [], {source.id for source in candidates}
-    for source in candidates[:6]:
-        siblings = sorted(engine.by_document[source.document_id], key=lambda item: item.start)
+    """Keep a bounded structural neighborhood around the best-ranked clauses.
+
+    Separate numbered siblings often state prerequisites for one another without
+    an explicit reference. Promote nearby siblings within their immediate parent
+    section, including evidence already ranked too low to survive context packing.
+    """
+    extra, seen = [], {source.id for source in candidates[:4]}
+    documents, positions = {}, {}
+    dependencies, neighborhoods = [], []
+    for anchor_rank, source in enumerate(candidates[:6]):
+        if source.document_id not in documents:
+            siblings = sorted(engine.by_document[source.document_id], key=lambda item: item.start)
+            documents[source.document_id] = siblings
+            positions[source.document_id] = {item.id: index for index, item in enumerate(siblings)}
+        siblings = documents[source.document_id]
         references = re.findall(r"(?:\bп\.|\bпункт[а-я]*)\s*(\d+(?:\.\d+){0,3})", source.text, re.I)
         # An explicitly resolved external reference must not resolve to an
         # unrelated same-numbered provision in this document.
         external = {link.target_clause for link in engine.links
                     if link.source_document_id == source.document_id and link.target_clause}
         additions = [other for other in siblings if other.clause in references and other.clause not in external]
-        position = next(i for i, item in enumerate(siblings) if item.id == source.id)
+        position = positions[source.document_id][source.id]
         for index in (position - 1, position + 1):
             if 0 <= index < len(siblings) and siblings[index].clause == source.clause:
                 additions.append(siblings[index])
-        for other in additions:
-            if other.id not in seen and len(extra) < 8:
+        dependencies.append((source, additions))
+        # Flat numbering, headers and separate statute articles do not establish
+        # a common section. Do not infer relationships across those boundaries.
+        if anchor_rank < 4 and re.fullmatch(r"\d+(?:\.\d+)+", source.clause):
+            parent = source.clause.rsplit(".", 1)[0]
+            nearby = []
+            for offset in (-1, 1, -2, 2):
+                index = position + offset
+                if 0 <= index < len(siblings):
+                    other = siblings[index]
+                    if (re.fullmatch(r"\d+(?:\.\d+)+", other.clause)
+                            and other.clause != source.clause
+                            and other.clause.rsplit(".", 1)[0] == parent):
+                        nearby.append(other)
+            neighborhoods.append((source, nearby))
+
+    def promote(groups, allowance):
+        added = 0
+        # Round-robin prevents one anchor's references or neighborhood consuming
+        # all expansion slots before another anchor's dependency is considered.
+        for rank in range(max((len(items) for _, items in groups), default=0)):
+            for source, items in groups:
+                if rank >= len(items) or items[rank].id in seen:
+                    continue
+                if len(extra) >= 8 or added >= allowance:
+                    return
+                other = items[rank]
                 seen.add(other.id)
                 extra.append(other)
+                added += 1
                 if CURRENT.get():
                     CURRENT.get().events.append({"stage": "structural_expansion", "from": source.id, "to": other.id})
-    return candidates[:4] + extra + candidates[4:]
+
+    promote(dependencies, 8)
+    # At most four inferred siblings; explicit references/continuations retain
+    # priority and the total expansion ceiling remains eight source records.
+    promote(neighborhoods, 4)
+    return candidates[:4] + extra + [source for source in candidates[4:] if source.id not in seen]
 
 
 def pack_context(engine, candidates: list) -> list[dict]:
