@@ -1,90 +1,100 @@
-# Правовой навигатор
+# Adaptive Legal RAG
 
-Юридический ассистент для кейса ПСБ. Сотрудник задает вопрос о договоре, регламенте или норме из базы знаний. В ответе получает вывод, условия его применимости, расчет при необходимости и ссылки на положения, которые можно проверить.
+A side project for answering questions about contracts, policies, and statutes from a local document collection. Ask which clause applies, when a rule takes effect, or how to calculate an amount. The assistant returns a short answer with references to the underlying provisions.
 
-Например, при долге 150 000 рублей и 140 днях просрочки договорная ставка дает 21 000 рублей. Ассистент применяет специальный потолок в 10% и показывает итог 15 000 рублей со ссылкой на п. 7.2 договора П-17/2024.
+[![Verify release](https://github.com/malekmasry/adaptive-legal-rag/actions/workflows/verify.yml/badge.svg)](https://github.com/malekmasry/adaptive-legal-rag/actions/workflows/verify.yml)
 
-[Презентация решения (PDF)](docs/Правовой-навигатор.pdf) · [Редактируемые слайды (PPTX)](docs/Правовой-навигатор.pptx)
+[Run the demo](#run-the-demo) · [Explore the architecture](#architecture) · [Download the batch release](submission/psb-v243.zip)
 
-## Запуск прототипа
+![Offline demo showing a contract question, a calculated penalty, and the cited clauses in the Russian-language interface](docs/images/legal-rag-demo.png)
 
-Нужен Docker с Compose. Из корня репозитория выполните:
+*The screenshot shows a saved demo answer. The daily-rate calculation gives ₽21,000, and a contract clause caps the penalty at ₽15,000.*
+
+## Run the demo
 
 ```sh
+git clone https://github.com/malekmasry/adaptive-legal-rag.git
+cd adaptive-legal-rag
 docker compose up --build -d
 ```
 
-Откройте [http://localhost:8080](http://localhost:8080). Выберите пример слева и нажмите «Получить ответ». По умолчанию включено офлайн-демо с тремя сохраненными ответами v243. Оно работает без ключей и базы.
+Open [localhost:8080](http://localhost:8080), choose an example in the sidebar, and submit it. The Russian-language UI ships with three saved examples for contract penalties, an amendment that changes a delivery address, and a question the documents can only answer in part. Demo mode works offline after the image builds and requires neither API keys nor the source archive.
 
-Чтобы задать свой вопрос:
+<details>
+<summary>Run locally with Python 3.12</summary>
 
-1. Скопируйте `.env.example` в `.env`. Установите `APP_MODE=live`.
-2. Поместите предоставленную организаторами базу в `data/knowledge-base.zip`.
-3. Заполните адреса и ключи генератора, BGE-M3 и реранкера. Для каждого сервиса используйте его учетные данные. Название генератора должно совпадать с именем модели у вашего провайдера.
-4. Выполните `docker compose up --build -d` и откройте интерфейс.
+```sh
+python -m pip install -r focused-rag/requirements.txt
+python web/server.py
+```
 
-`WEB_PORT` меняет порт на компьютере. `AS_OF` задает дату проверки в формате `YYYY-MM-DD`. Сервис рассчитан на локальное ревью. Для общего контура нужны аутентификация, сетевые ограничения и согласованные провайдеры моделей. Остановка: `docker compose down`.
+</details>
 
-Без Docker можно установить зависимости из `focused-rag/requirements.txt` под Python 3.12 и выполнить `python web/server.py`. Для режима с моделями передайте значения из `.env.example` как переменные окружения процесса.
+## Architecture
 
-## Что происходит после вопроса
+![Retrieval combines hybrid search with a source catalog, then builds context before drafting and reviewing the answer](docs/images/legal-rag-pipeline.svg)
 
-| Шаг | Как реализован | Что получает сотрудник |
-| --- | --- | --- |
-| Поиск | BM25 ищет по словам и реквизитам, BGE-M3 по смыслу. RRF объединяет ранги. Qwen3-Reranker-8B отбирает 6 фрагментов из объединения двух списков по 40. | Похожие названия договоров уступают точному совпадению номера, стороны и условий. |
-| Контекст | Система возвращает соседние положения и связанные документы, в том числе редакции и допсоглашения. Отдельный индекс ищет положения по структурному каталогу. | Видно, какой документ действует на дату события и какой пункт изменен. |
-| Сложный вопрос | Модель выделяет подвопросы, подбирает ссылки из каталога и составляет ответ по материалам. Для поддерживаемых операций код проверяет арифметику через Decimal. | В многосоставном запросе сохраняются отдельные сроки, условия и итог расчета. |
-| Проверка | DeepSeek проверяет черновик по источникам. Код проверяет схему, идентификаторы источников и размер итогового текста. При сбое проверки сохраняется уже сформированный валидный черновик. | Ответ с понятными ссылками и конкретным указанием пробела, если часть сведений отсутствует. |
-| Защита | Запрос и документы считаются недоверенными данными. Исходные документы сохраняются, команды внутри них не имеют полномочий системной инструкции. Подсказки по корпусу доступны только при совпадении источника и опорных выдержек. | В проверенных примерах ассистент продолжил юридический ответ и сохранил ссылки при попытке подменить срок. |
+1. **Retrieve.** BM25 finds exact terms and document identifiers. BGE-M3 embeddings help with paraphrases. Reciprocal rank fusion combines candidate lists, and Qwen3-Reranker-8B reranks the results. A separate index can surface a specific provision outside the top results.
+2. **Build context.** Add neighboring passages and relevant amendments. Check document fingerprints and verbatim excerpts before adding corpus-specific guidance. Supported calculations use Python's `Decimal`.
+3. **Draft and review.** A question brief identifies the parts the answer needs to cover and builds citation options from the retrieved text. DeepSeek drafts the answer and a separate pass reviews it against the sources. The code validates response structure and source references. A validated draft can survive a failed review call.
+4. **Return the answer.** Give the conclusion and cite the clauses. When evidence only covers part of a question, explain which part the collection cannot answer. The web UI and CSV runner use the same core.
 
-Веб-интерфейс выводит ответ как текст. Ключи хранятся на сервере. База монтируется в контейнер только для чтения. Запросы независимы. Пакетный режим принимает историю в рамках одной строки с ролями `Пользователь:` и `Ассистент:`.
+### Source catalogs
 
-## Как устроен слой юридических знаний
+A retrieved clause can depend on a condition in a different document. For example, a delivery amendment may apply based on when the specification was signed. The indexed contract terms, applicability notes, and amendment links make those dependencies explicit.
 
-Обычный гибридный поиск ранжирует фрагменты по близости к вопросу. Для договора этого мало: нужное исключение может быть в другом пункте, а условие о дате применения в отдельном допсоглашении. Поэтому в v243 мы выделили явные, проверяемые связи между вопросом, положением и условиями его применения. Часть записей подготовлена вручную для 21 документа из базы кейса.
-
-| Компонент | Что хранит или строит | Зачем нужен |
-| --- | --- | --- |
-| [Каталог положений](focused-rag/decision_catalog.json) и [структурный поиск](focused-rag/decision_index.py) | 316 положений с идентификаторами документов, хешами и смещениями в исходном тексте. Поиск по ним работает независимо от гибридного и добавляет найденные опоры в общий контекст. | Поднимает отдельно стоящий порог, исключение или пункт регламента, даже если его не оказалось среди первых результатов реранкера. |
-| [Предметный справочник](focused-rag/corpus_playbook.json) и [проверка опор](focused-rag/corpus_playbook.py) | 128 памяток о применимости правил. У записи есть тема, опорные формулировки и хеш документа. Перед использованием код сверяет версию источника и наличие точных опор в контексте. | Подсказывает, какие условия сопоставить. Например, для адреса поставки проверять дату подписания спецификации. Если в уже найденном документе нужный абзац не вошел в контекст, код может вернуть его дословно. |
-| [Таблица связей](focused-rag/relation_scope.json) и [расширение контекста](focused-rag/relation_scope.py) | Пять размеченных связей между документами. Для связи указаны затронутый пункт, тема, условие применения и хеши обоих источников. | Подключает нужную редакцию или допсоглашение по предмету вопроса. Если связанный документ касается только адреса, его не нужно автоматически добавлять в ответ про оплату. |
-| [Планы ответа](focused-rag/answer_guides.py) | 43 типа вопросов и правила отбора карточек с точными выдержками из найденных источников. | Удерживает внимание на решающих условиях, особенно когда в запросе несколько юридических задач. |
-| [Расчетные проверки](focused-rag/decision_checks.py) и [правила черновика](focused-rag/rule_drafts.py) | Для поддерживаемых задач код проверяет пороги и выполняет расчет через Decimal. При достаточных основаниях может подготовить черновик. | Дает модели уже рассчитанные суммы и проверяемую формулу. Общий лимит ответственности не подменяет специальный потолок конкретной неустойки. |
-| [Разбор вопроса и каталог ссылок](focused-rag/question_brief.py) | Собирает ссылки из текущего контекста и выделяет обязательные части конкретного запроса. Код привязывает части к тексту вопроса, а ссылки к найденным положениям. | В ответе сохраняются все запрошенные выводы. Модель может сослаться на готовый точный пункт вместо восстановления его номера по памяти. |
-
-Поиск идет по двум каналам: BM25 и BGE-M3 с реранжированием Qwen плюс структурный каталог. Затем система собирает исходные положения, проверяет связи и добавляет подходящие памятки и расчеты. Эти материалы делят общий контекстный бюджет. Генератор формулирует вывод, а проход ревью сверяет его с документами. Если разбор вопроса не прошел проверку, доступен обычный маршрут генерации.
-
-Справочники [имен и алиасов](focused-rag/aliases.yaml) и [связей документов](focused-rag/relations.yaml) помогают распознать номер, сторону и связь между редакциями. Таблица областей применения уточняет, какое положение связанного документа нужно для текущего вопроса.
-
-На примере П-17/2024 три спецификации подписаны 30 сентября, 1 и 2 октября. Таблица связывает допсоглашение с пунктом об адресе. Предметная памятка указывает проверить именно дату спецификации. В контекст попадает текст условия «после 1 октября». Поэтому первые две партии идут по прежнему адресу, третья в Химки. Срок поставки остается прежним, потому что допсоглашение его не меняет.
-
-**Источник остается главным.** Архив базы подключается отдельно. Каталоги помогают найти и применить норму, а ответ ссылается на действующий источник. При несовпадении хеша старая привязка не используется, и изменившийся документ остается доступен обычному гибридному поиску. При обновлении базы записи про изменившиеся документы можно перепроверить и обновить отдельно от веба и генератора.
-
-## Структура репозитория
-
-| Путь | Назначение |
+| Component | What it does |
 | --- | --- |
-| [`focused-rag/`](focused-rag/) | Единое ядро, поиск, сборка контекста, каталоги, генерация, ревью и пакетный вход `solution.py`. |
-| [`web/`](web/) | Локальный интерфейс, API и три сохраненных демонстрационных примера. В режиме с моделями API вызывает то же ядро. |
-| [`submission/`](submission/) | Исходный архив v243 для пакетной платформы. Сборщик в корне воспроизводит его состав. |
-| [`docs/`](docs/) | Презентация в PDF и редактируемом PowerPoint. |
-| [`compose.yaml`](compose.yaml) | Запуск веба с отдельными настройками моделей и подключением базы для чтения. |
+| [Provision catalog](focused-rag/decision_catalog.json) and [decision index](focused-rag/decision_index.py) | Index 316 provisions with document fingerprints and text offsets so individual thresholds, exceptions, and clauses can be retrieved directly. |
+| [Corpus playbook](focused-rag/corpus_playbook.json) | Provides 128 curated applicability notes across the 21 documents in the reference collection. Each note requires a matching source fingerprint and supporting excerpts. |
+| [Amendment scopes](focused-rag/relation_scope.json), [relations](focused-rag/relations.yaml), and [aliases](focused-rag/aliases.yaml) | Connect affected clauses and editions, and help distinguish similarly named documents and parties. |
+| [Answer guides](focused-rag/answer_guides.py) and [calculation checks](focused-rag/decision_checks.py) | Select evidence for supported question types and check arithmetic such as daily penalties, thresholds, and caps. |
+| [Question brief and citations](focused-rag/question_brief.py) | Build a request-specific outline and citation candidates from the current question and retrieved passages. |
 
-## Пакетная сдача
+Changes to a source invalidate its fingerprint-dependent entries. The updated document remains available to the regular retrieval pipeline. Question text and retrieved documents are treated as input data, including any instructions embedded in them.
 
-Ядро соответствует v243. Лучший зафиксированный прогон на платформе ПСБ дал 37,5 из 100 за 484 секунды по данным команды. Это балл платформы, а не доля верных ответов. В локальном регрессионном прогоне на 20 известных вопросах получено 18 полных и 2 частичных ответа по статусу программы, без технических ошибок. Два частичных ответа явно указали недостающие сведения. Локальный набор не заменяет скрытую проверку.
+## Connect your documents
 
-[Скачать исходный ZIP v243](submission/psb-v243.zip). Сборка ниже воспроизводит содержимое его 31 файла.
+1. Copy [`.env.example`](.env.example) to `.env` and set `APP_MODE=live`.
+2. Put your document archive at `data/knowledge-base.zip`.
+3. Configure the endpoints, keys, and model IDs. Compose passes these settings to the local server.
+
+   | Service | Environment settings |
+   | --- | --- |
+   | Generation and review | `LLM_BASE_URL`, `LLM_API_KEY`, `LLM_MODEL` |
+   | Embeddings | `EMBEDDER_BASE_URL`, `EMBEDDER_API_KEY`, `EMB_MODEL` |
+   | Reranking | `RERANKER_BASE_URL`, `RERANKER_API_KEY`, `RERANKER_MODEL` |
+
+4. Start Compose again and enter a question in the UI. When starting Python directly, export these settings in the process environment.
+
+`AS_OF` sets the date used for date-sensitive questions in `YYYY-MM-DD` format. The included web server is intended for local evaluation.
+
+## Tests and batch runner
 
 ```sh
 python -m pip install -r focused-rag/requirements.txt
 python -m unittest discover -s focused-rag -p "test_*.py"
 python build_focused_submission.py dist/submission.zip
+```
+
+Run a batch with the configured model services and document archive:
+
+```sh
 python focused-rag/solution.py --input data/questions.csv --output submission.csv
 ```
 
-Входной CSV содержит `id,question`, выходной содержит `id,answer`. Для пакетной команды задайте переменные моделей и при необходимости `DATA_DIR` и `CACHE_DIR`. Сборщик создает плоский ZIP с ядром и его ресурсами. Веб, тесты, ключи и исходная база в него не входят. Ввод `CHUNKER=common` совместим с платформенной конфигурацией.
+The input columns are `id,question`, and the output columns are `id,answer`. GitHub Actions checks the package against the original batch release, runs the unit suite, and exercises the demo API inside Docker.
 
-## Границы и пилот
+| Path | Contents |
+| --- | --- |
+| [`focused-rag/`](focused-rag/) | Retrieval, catalogs, context, generation, review, and the CSV runner |
+| [`web/`](web/) | Local interface, JSON API, and saved demo cases |
+| [`submission/`](submission/) | Original v243 batch release |
+| [`docs/`](docs/) | Project slides and README images |
 
-Ассистент работает в пределах предоставленной базы. Новая редакция документа требует обновить базу и проверить связанные сценарии. В сложных ситуациях ответ служит черновиком для сотрудника. На пилоте предлагаем сравнить время до подтвержденного ответа, долю выводов с корректными ссылками и число запросов, переданных юристу. Оценка экономии требует замеров на рабочих задачах.
+## Authors
+
+- [@malekmasry](https://github.com/malekmasry)
+- [@moonvolk4](https://github.com/moonvolk4) · Pipeline development and benchmark tooling
+
+The project began at a hackathon. The [original presentation](docs/Правовой-навигатор.pdf) documents the initial design in Russian.
